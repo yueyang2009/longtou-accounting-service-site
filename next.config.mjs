@@ -1,4 +1,4 @@
-const repoName = "longtou-huifu-site";
+const repoName = "longtou-accounting-service-site";
 const isGithubPages = process.env.GITHUB_PAGES === "true";
 
 /** @type {import('next').NextConfig} */
