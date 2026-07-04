@@ -1,0 +1,53 @@
+import Link from "next/link";
+
+import { brand, navItems } from "@/lib/data";
+import { Button } from "@/components/ui/button";
+
+export function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="min-h-screen bg-white text-brand-ink">
+      <header className="sticky top-0 z-50 border-b border-brand-line bg-white/95 backdrop-blur">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:px-8">
+          <Link href="/" className="flex items-center gap-3">
+            <span className="flex h-9 w-9 items-center justify-center rounded-md bg-brand-ink text-sm font-semibold text-white">
+              龙头
+            </span>
+            <span>
+              <span className="block text-base font-semibold leading-tight">{brand.name}</span>
+              <span className="block text-xs text-brand-muted">{brand.positioning}</span>
+            </span>
+          </Link>
+          <nav className="hidden items-center gap-7 lg:flex">
+            {navItems.map((item) => (
+              <Link key={item.href} href={item.href} className="text-sm font-medium text-brand-muted hover:text-brand-ink">
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+          <Button asChild size="sm" className="hidden sm:inline-flex">
+            <Link href="/contact">预约诊断</Link>
+          </Button>
+        </div>
+      </header>
+      <main>{children}</main>
+      <footer className="border-t border-brand-line bg-brand-ink text-white">
+        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-10 md:grid-cols-[1.2fr_1fr_1fr] lg:px-8">
+          <div>
+            <p className="text-lg font-semibold">{brand.name}</p>
+            <p className="mt-3 max-w-md text-sm leading-6 text-white/70">{brand.slogan}</p>
+          </div>
+          <div>
+            <p className="text-sm font-semibold">服务对象</p>
+            <p className="mt-3 text-sm leading-6 text-white/70">年营收 2000万—5亿，具备稳定经营规模的成长型企业。</p>
+          </div>
+          <div>
+            <p className="text-sm font-semibold">咨询入口</p>
+            <p className="mt-3 text-sm leading-6 text-white/70">电话：{brand.phone}</p>
+            <p className="text-sm leading-6 text-white/70">每周仅处理10家企业诊断申请</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
