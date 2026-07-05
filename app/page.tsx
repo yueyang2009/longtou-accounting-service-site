@@ -163,7 +163,7 @@ export default function HomePage() {
           <div className="relative z-10 mx-auto grid max-w-7xl gap-16 px-6 py-28 md:py-36 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
             <div>
               <p className="mb-7 text-sm font-medium text-brand-muted">年度经营顾问</p>
-              <h1 className="max-w-4xl text-5xl font-semibold leading-[1.05] tracking-tight text-brand-ink md:text-7xl">
+              <h1 className="max-w-4xl text-4xl font-semibold leading-[1.15] tracking-tight text-brand-ink md:text-6xl">
                 让企业经营更规范，让老板决策更从容。
               </h1>
               <p className="mt-8 max-w-2xl text-lg leading-8 text-brand-muted">
