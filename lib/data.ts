@@ -59,10 +59,9 @@ export const navItems = [
   { label: "首页", href: "/" },
   { label: "关于我们", href: "/about" },
   { label: "年度顾问", href: "/annual-advisory" },
-  { label: "解决方案", href: "/solutions" },
-  { label: "团队", href: "/team" },
-  { label: "风险洞察", href: "/insights" },
-  { label: "预约交流", href: "/contact" }
+  { label: "为什么需要顾问", href: "/why-annual-advisor" },
+  { label: "企业经营尽调", href: "/assessment" },
+  { label: "联系我们", href: "/contact" }
 ];
 
 export const painPoints = [
