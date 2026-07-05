@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { BrandLogo } from "@/components/BrandLogo";
-import { brand } from "@/lib/data";
+import { brand, trustMetrics } from "@/lib/data";
 
 function Label({ text }: { text: string }) {
   return (
@@ -12,7 +12,7 @@ function Label({ text }: { text: string }) {
   );
 }
 
-function Heading({ children }: { children: string }) {
+function Heading({ children }: { children: React.ReactNode }) {
   return (
     <h2 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-4xl">
       {children}
@@ -53,66 +53,32 @@ export default function WhyAnnualAdvisorPage() {
       <main>
 
         {/* ════════════════════════════════════════
-            ① Hero
+            ① 服务定位
             ════════════════════════════════════════ */}
         <section className="border-b border-brand-line">
           <div className="mx-auto max-w-3xl px-6 py-24 md:py-36">
             <Label text="龙头会服 · 企业年度财税顾问计划" />
             <h1 className="text-4xl font-semibold leading-tight tracking-tight text-brand-ink md:text-5xl">
-              不是所有企业，都需要财税顾问。
-              <br />
-              但你的企业，可能正处在需要的时候。
+              企业年度财税顾问，是基于企业完整经营周期的长期专业支持机制。
             </h1>
             <p className="mt-8 max-w-2xl text-lg leading-8 text-brand-muted">
-              为成长型民营企业提供全年经营财税支持。
-            </p>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link
-                href="/contact"
-                className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
-              >
-                申请企业经营尽调（限量开放）
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-            <p className="mt-4 text-sm text-brand-muted">
-              每月仅服务有限企业
-            </p>
-            <p className="mt-1 text-sm text-brand-muted">
-              需初步评估是否适配年度顾问体系
-            </p>
-            <p className="mt-1 text-sm text-brand-muted">
-              不适合所有企业
+              它不是代账服务，也不是先服务后成交的咨询模式，而是在正式签约并建立合作关系后，进入企业经营尽调与全年顾问服务周期。重点不是处理单点问题，而是建立持续经营判断能力。
             </p>
           </div>
         </section>
 
         {/* ════════════════════════════════════════
-            ② 痛点升级区
+            ② 适用企业
             ════════════════════════════════════════ */}
         <section className="border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">
-            <Label text="一个普遍困境" />
-            <Heading>为什么很多企业越做越累？</Heading>
+            <Label text="适用企业" />
+            <Heading>哪些企业适合年度财税顾问？</Heading>
             <Body>
-              <p>
-                企业规模在增长，从几百万做到几千万，从几千万做到上亿。订单多了，人多了，事情多了。
-              </p>
-              <p>
-                但财务体系没有同步升级。
-              </p>
-              <p>
-                代账公司按时报税，但提供不了经营层面的数据。内部会计埋头做账，但拿出来的报表老板看不懂。利润到底是多少、税有没有隐患、现金流能撑多久——没有人能回答。
-              </p>
-              <p>
-                老板开始凭经验做决策。哪个产品赚钱，靠感觉。要不要接这个订单，拍脑袋。税务有没有风险，等税局通知。
-              </p>
-              <p>
-                企业做大了，老板的安全感却没有增加。
-              </p>
-              <QuoteLine>
-                问题的本质，不是财务问题，而是经营系统问题。
-              </QuoteLine>
+              <p>年营收约2000万至2亿元的成长型企业。</p>
+              <p>已具备稳定经营基础，但财务体系尚未系统化。</p>
+              <p>处于扩张阶段或组织结构逐渐复杂的企业。</p>
+              <p>覆盖行业：制造业、建筑业、商贸流通、服务型企业。</p>
             </Body>
           </div>
         </section>
@@ -122,11 +88,11 @@ export default function WhyAnnualAdvisorPage() {
             ════════════════════════════════════════ */}
         <section className="border-b border-brand-line">
           <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">
-            <Label text="重新定义" />
+            <Label text="服务界定" />
             <Heading>什么是企业年度财税顾问？</Heading>
             <div className="mt-10 grid gap-8 md:grid-cols-2">
               <div className="border border-brand-line bg-brand-soft p-7">
-                <p className="mb-4 text-sm font-semibold text-brand-muted">龙头会服不是</p>
+                <p className="mb-4 text-sm font-semibold text-brand-muted">它不是</p>
                 <ul className="space-y-3 text-sm leading-6 text-brand-muted">
                   <li className="flex items-start gap-3">
                     <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-muted" />
@@ -134,18 +100,18 @@ export default function WhyAnnualAdvisorPage() {
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-muted" />
-                    一次性咨询
+                    先服务后成交的咨询模式
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-muted" />
-                    单点税务优化
+                    单次问题处理
                   </li>
                 </ul>
               </div>
               <div className="border border-brand-line bg-brand-ink p-7 text-white">
                 <p className="mb-4 text-sm font-semibold text-white/60">而是</p>
                 <p className="text-lg font-semibold leading-8">
-                  在完整经营周期内，持续提供财税与经营支持的顾问服务。
+                  在正式签约并建立合作关系后，进入企业经营尽调与全年顾问服务周期，帮助企业建立持续经营判断能力。
                 </p>
               </div>
             </div>
@@ -153,20 +119,19 @@ export default function WhyAnnualAdvisorPage() {
         </section>
 
         {/* ════════════════════════════════════════
-            ④ 核心交付
+            ④ 核心服务内容
             ════════════════════════════════════════ */}
         <section className="border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">
-            <Label text="确定性交付" />
-            <Heading>一年下来，你会得到什么？</Heading>
+            <Label text="核心服务内容" />
+            <Heading>签约后，年度顾问包含哪些工作？</Heading>
             <div className="mt-10 space-y-4">
               {[
-                ["企业经营尽调报告", "对企业经营模式、股权结构、财务状况、管理流程的系统梳理与诊断"],
-                ["年度财税风险清单", "覆盖全年各税种的风险识别与分级，不等税局找上门"],
-                ["季度经营分析", "每季度一次经营数据分析，跟踪利润、成本、现金流变化趋势"],
-                ["税务风险提醒机制", "政策变动、申报节点、异常指标实时提醒，不遗漏"],
-                ["年度经营复盘", "全年财务数据回顾，判断经营策略是否有效"],
-                ["下一年度经营建议", "基于数据的来年规划，不是猜测，是分析"],
+                ["企业经营尽调（签约后启动）", "企业经营模式梳理、财务结构分析、税务风险识别、管理与组织结构评估"],
+                ["经营数据分析（月度）", "利润结构分析、现金流分析、核心指标监测、异常波动识别"],
+                ["经营分析沟通（季度）", "经营复盘、利润与成本变化分析、风险识别、下一阶段重点调整"],
+                ["财税风险管理（持续）", "税务合规风险识别、发票/合同/资金结构问题排查、政策变化影响判断"],
+                ["年度经营复盘", "全年经营结构总结、风险与问题梳理、已解决与未解决事项、下一年度经营建议"],
               ].map(([title, desc]) => (
                 <div key={title} className="border border-brand-line bg-white p-6">
                   <p className="text-lg font-semibold text-brand-ink">{title}</p>
@@ -178,33 +143,38 @@ export default function WhyAnnualAdvisorPage() {
         </section>
 
         {/* ════════════════════════════════════════
-            ⑤ 服务流程
+            ⑤ 合作流程
             ════════════════════════════════════════ */}
         <section className="border-b border-brand-line">
           <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">
-            <Label text="服务流程" />
-            <Heading>我们如何陪伴企业一年？</Heading>
+            <Label text="合作流程" />
+            <Heading>年度顾问的合作流程是怎样的？</Heading>
             <div className="mt-10 space-y-6">
               {[
                 {
                   step: "STEP 1",
-                  title: "企业经营尽调（2～3天）",
-                  items: ["经营模式", "股权结构", "财务状况", "管理流程"]
+                  title: "企业财税风险诊断（签约前免费评估）",
+                  desc: "用于判断企业是否适合年度顾问合作，不构成正式服务内容"
                 },
                 {
                   step: "STEP 2",
-                  title: "年度顾问计划制定",
-                  desc: "共同确定：经营重点、财税重点、风险点"
+                  title: "确认合作并签约付款",
+                  desc: "全款年度制，根据企业规模与复杂度定制报价"
                 },
                 {
                   step: "STEP 3",
-                  title: "持续陪跑（全年）",
-                  items: ["月度／季度沟通", "微信／电话／会议支持", "重大事项即时介入"]
+                  title: "企业经营尽调（正式服务启动）",
+                  desc: "经营模式梳理、财务分析、风险识别、组织评估"
                 },
                 {
                   step: "STEP 4",
-                  title: "年度复盘",
-                  items: ["全年经营总结", "财税问题复盘", "下一年规划建议"]
+                  title: "年度顾问服务执行",
+                  items: ["月度经营数据分析", "季度经营沟通", "财税风险管理", "年度经营复盘"]
+                },
+                {
+                  step: "STEP 5",
+                  title: "年度复盘与续约建议",
+                  desc: "全年工作回顾，评估是否续约"
                 }
               ].map((phase) => (
                 <div key={phase.step} className="border border-brand-line p-7">
@@ -230,78 +200,71 @@ export default function WhyAnnualAdvisorPage() {
         </section>
 
         {/* ════════════════════════════════════════
-            ⑥ 如果不做
+            ⑥ 合作前免费体验
             ════════════════════════════════════════ */}
         <section className="border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">
-            <Label text="一个现实问题" />
-            <Heading>如果不做年度财税顾问，企业会发生什么？</Heading>
+            <Label text="签约前免费评估" />
+            <Heading>合作前，可以先做一次免费诊断。</Heading>
             <Body>
-              <p>财务数据长期碎片化，老板看不清真实经营状况。</p>
-              <p>税务风险在经营过程中持续累积，但无法提前识别。</p>
-              <p>财务部门只能记录过去，无法支持未来决策。</p>
-              <p>企业规模越大，内部管理复杂度越高，但缺乏系统支撑。</p>
-              <QuoteLine>
-                问题不是突然出现的，而是在缺乏系统支持的情况下逐步累积的。
-              </QuoteLine>
+              <p>企业财税风险诊断（签约前），用于判断企业是否适合年度顾问合作。</p>
+              <p>内容包括：初步财务结构判断、主要税务风险识别、经营模式基础分析、是否适合年度顾问合作建议。</p>
+              <p>该诊断不构成正式服务，仅作为合作前评估机制。</p>
             </Body>
           </div>
         </section>
 
         {/* ════════════════════════════════════════
-            ⑦ 客户筛选模块（新增）
+            ⑦ 服务方式
             ════════════════════════════════════════ */}
         <section className="border-b border-brand-line">
           <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">
-            <Label text="筛选标准" />
-            <Heading>我们如何判断是否适合服务？</Heading>
-            <div className="mt-10 grid gap-8 md:grid-cols-2">
-              <div className="border border-brand-line bg-white p-7">
-                <p className="mb-5 text-sm font-semibold text-brand-ink">适合</p>
-                <ul className="space-y-4">
-                  {["企业正在成长", "有稳定营收基础", "希望建立规范体系", "老板愿意参与经营管理"].map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm leading-6 text-brand-muted">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-ink" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="border border-brand-line bg-brand-soft p-7">
-                <p className="mb-5 text-sm font-semibold text-brand-muted">不适合</p>
-                <ul className="space-y-4">
-                  {["只想做低价代账", "只做一次性问题处理", "不关注长期经营"].map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm leading-6 text-brand-muted">
-                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-muted" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <Label text="服务方式" />
+            <Heading>年度顾问如何提供服务？</Heading>
+            <div className="mt-8 space-y-5 text-base leading-8 text-brand-muted">
+              <p>签约后正式进入服务周期。</p>
+              <p>双专业支持——注册会计师与税务师共同参与。</p>
+              <p>直接对接企业决策层，不经中间层传递。</p>
+              <p>线上与线下结合支持，季度沟通以驻场为主。</p>
             </div>
           </div>
         </section>
 
         {/* ════════════════════════════════════════
-            ⑧ 合作流程说明模块（新增）
+            ⑧ 服务边界
             ════════════════════════════════════════ */}
         <section className="border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">
-            <Label text="合作流程" />
-            <Heading>申请企业经营尽调后会发生什么？</Heading>
-            <div className="mt-10 space-y-5">
-              {[
-                { step: "STEP 1", title: "提交申请" },
-                { step: "STEP 2", title: "初步沟通" },
-                { step: "STEP 3", title: "企业经营尽调（2～3天）" },
-                { step: "STEP 4", title: "输出适配性建议" },
-                { step: "STEP 5", title: "决定是否年度合作" },
-              ].map((phase) => (
-                <div key={phase.step} className="flex items-center gap-6 border border-brand-line bg-white px-7 py-5">
-                  <p className="w-20 shrink-0 text-xs font-semibold uppercase tracking-widest text-brand-muted">
-                    {phase.step}
-                  </p>
-                  <p className="text-base font-semibold text-brand-ink">{phase.title}</p>
+            <Label text="服务边界" />
+            <Heading>年度顾问不做什么？</Heading>
+            <div className="mt-8 space-y-5 text-base leading-8 text-brand-muted">
+              <p>不承担代账机构日常记账工作。</p>
+              <p>不提供单次咨询替代长期合作。</p>
+              <p>不对经营结果做任何承诺。</p>
+              <p>不服务不符合条件企业。</p>
+            </div>
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════
+            ⑨ 团队介绍
+            ════════════════════════════════════════ */}
+        <section className="border-b border-brand-line">
+          <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">
+            <Label text="团队" />
+            <Heading>谁在提供服务？</Heading>
+            <div className="mt-8 space-y-5 text-base leading-8 text-brand-muted">
+              <p>由注册会计师、注册税务师及高级财务专业人员组成。</p>
+              <p>长期服务制造业、建筑业及成长型企业。</p>
+            </div>
+            <div className="mt-8 grid gap-px overflow-hidden border border-brand-line bg-brand-line md:grid-cols-4">
+              {trustMetrics.map((m) => (
+                <div key={m.label} className="bg-white p-6">
+                  <p className="text-2xl font-semibold tracking-tight text-brand-ink">{m.value}</p>
+                  <div className="mt-1 flex items-baseline gap-2">
+                    <p className="text-sm text-brand-muted">{m.label}</p>
+                    {m.detail && <p className="text-base font-semibold text-brand-ink">{m.detail}</p>}
+                  </div>
                 </div>
               ))}
             </div>
@@ -309,97 +272,28 @@ export default function WhyAnnualAdvisorPage() {
         </section>
 
         {/* ════════════════════════════════════════
-            ⑨ FAQ
-            ════════════════════════════════════════ */}
-        <section className="border-b border-brand-line">
-          <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">
-            <Label text="常见问题" />
-            <Heading>你可能关心的问题</Heading>
-            <div className="mt-10 space-y-6">
-              {[
-                {
-                  q: "年度财税顾问是否适合所有企业？",
-                  a: "不是。年度顾问更适合年营收2000万以上、已有稳定经营规模的成长型企业。如果企业还处于初创阶段，可能暂时不需要。首次经营尽调后，我们会给出是否适合的判断。"
-                },
-                {
-                  q: "是否需要长期合作？",
-                  a: "年度顾问按完整经营年度签约，一个年度结束后双方共同评估是否续约。不强制绑定。"
-                },
-                {
-                  q: "如何收费？",
-                  a: "根据企业规模、行业、问题复杂度定制报价。首次经营尽调不收取费用。"
-                },
-                {
-                  q: "是否必须每月见面？",
-                  a: "不必。日常沟通以微信和电话为主，季度经营分析可安排线上或线下会议，重大事项临时介入。"
-                },
-                {
-                  q: "是否提供具体的税务处理？",
-                  a: "提供税务风险识别、政策适用判断和合规路径建议。具体的申报操作仍由企业现有财务或代账执行，顾问负责审核和把关。"
-                },
-                {
-                  q: "如何开始？",
-                  a: "提交企业经营尽调申请，我们安排2～3天的现场尽调，之后出具体顾问方案，双方确认后签约。"
-                }
-              ].map((faq) => (
-                <div key={faq.q} className="border-b border-brand-line pb-6 last:border-0">
-                  <p className="text-base font-semibold text-brand-ink">{faq.q}</p>
-                  <p className="mt-3 text-sm leading-7 text-brand-muted">{faq.a}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ════════════════════════════════════════
-            ⑧ 对比模块（新增）
+            ⑩ 收费说明
             ════════════════════════════════════════ */}
         <section className="border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">
-            <Label text="对比" />
-            <Heading>年度财税顾问 vs 传统代账服务</Heading>
-            <div className="mt-10 overflow-x-auto">
-              <table className="w-full border-collapse text-sm">
-                <thead>
-                  <tr className="border-b border-brand-line">
-                    <th className="px-4 py-4 text-left font-semibold text-brand-ink">维度</th>
-                    <th className="px-4 py-4 text-left font-semibold text-brand-muted">传统代账</th>
-                    <th className="px-4 py-4 text-left font-semibold text-brand-ink">年度财税顾问</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    ["核心目标", "记账报税", "支撑经营决策"],
-                    ["服务方式", "月度执行", "全年陪伴"],
-                    ["角色", "执行者", "顾问"],
-                    ["风险控制", "被动处理", "主动识别"],
-                    ["决策支持", "弱", "强"],
-                  ].map(([row, left, right]) => (
-                    <tr key={row} className="border-b border-brand-line">
-                      <td className="px-4 py-4 font-medium text-brand-ink">{row}</td>
-                      <td className="px-4 py-4 text-brand-muted">{left}</td>
-                      <td className="px-4 py-4 font-medium text-brand-ink">{right}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <Label text="收费" />
+            <Heading>如何收费？</Heading>
+            <div className="mt-8 space-y-5 text-base leading-8 text-brand-muted">
+              <p>年度服务采用全款制收费模式，根据企业规模与复杂度定制报价。</p>
+              <p>签约前企业财税风险诊断不收费。</p>
             </div>
-            <p className="mt-6 text-sm leading-7 text-brand-muted">
-              两者解决的是完全不同层级的问题。
-            </p>
           </div>
         </section>
 
         {/* ════════════════════════════════════════
-            ⑨ CTA
+            ⑪ 底部总结
             ════════════════════════════════════════ */}
         <section className="bg-brand-soft">
           <div className="mx-auto max-w-3xl px-6 py-24 text-center md:py-28">
-            <Label text="下一步" />
+            <Label text="龙头会服" />
             <h2 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-4xl">
-              如果你的企业正在成长，
-              <br />
-              现在是建立规范体系的最佳时间。
+              企业年度财税顾问的核心，不是解决单一问题，<br />
+              而是在长期合作中帮助企业建立稳定、清晰的经营判断体系。
             </h2>
             <div className="mt-10 flex flex-col items-center gap-4">
               <Link
@@ -409,15 +303,7 @@ export default function WhyAnnualAdvisorPage() {
                 申请企业经营尽调（限量开放）
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              <p className="text-sm text-brand-muted">
-                每月仅服务有限企业
-              </p>
-              <p className="text-sm text-brand-muted">
-                需初步评估是否适配年度顾问体系
-              </p>
-              <p className="text-sm text-brand-muted">
-                不适合所有企业
-              </p>
+              <p className="text-sm text-brand-muted">签约前诊断不收费 · 根据企业情况判断是否适配</p>
             </div>
           </div>
         </section>
