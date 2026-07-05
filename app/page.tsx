@@ -35,16 +35,16 @@ function SectionTitle({
 
 function DashboardPreview() {
   const operatingMetrics = [
-    { label: "利润质量", value: "持续观察", bar: "w-3/4" },
-    { label: "现金节奏", value: "阶段复盘", bar: "w-2/3" },
-    { label: "税务风险", value: "提前识别", bar: "w-1/2" }
+    { label: "利润质量", value: "持续观察", width: "76%", delay: "0ms" },
+    { label: "现金节奏", value: "阶段复盘", width: "64%", delay: "180ms" },
+    { label: "税务风险", value: "提前识别", width: "48%", delay: "360ms" }
   ];
 
   return (
-    <div className="relative">
+    <div className="dashboard-stage relative">
       <div className="absolute -right-6 top-10 hidden h-72 w-72 rounded-full border border-brand-line/80 lg:block" />
-      <div className="relative border border-white/80 bg-white/82 p-4 shadow-[0_28px_90px_rgba(17,17,17,0.12)] backdrop-blur-xl">
-        <div className="border border-brand-line bg-[#fbfbfa] p-5">
+      <div className="dashboard-shell relative border border-white/80 bg-white/82 p-4 shadow-[0_28px_90px_rgba(17,17,17,0.12)] backdrop-blur-xl">
+        <div className="dashboard-surface border border-brand-line bg-[#fbfbfa] p-5">
           <div className="flex items-center justify-between border-b border-brand-line pb-5">
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">Operating cockpit</p>
@@ -52,8 +52,8 @@ function DashboardPreview() {
             </div>
             <div className="flex gap-2">
               <span className="h-2.5 w-2.5 rounded-full bg-brand-line" />
-              <span className="h-2.5 w-2.5 rounded-full bg-brand-muted" />
-              <span className="h-2.5 w-2.5 rounded-full bg-brand-ink" />
+              <span className="dashboard-dot h-2.5 w-2.5 rounded-full bg-brand-muted" />
+              <span className="dashboard-dot dashboard-dot-strong h-2.5 w-2.5 rounded-full bg-brand-ink" />
             </div>
           </div>
 
@@ -62,8 +62,8 @@ function DashboardPreview() {
               ["顾问方式", "年度陪伴"],
               ["风险事项", "前置处理"],
               ["复盘节奏", "阶段复盘"]
-            ].map(([label, value]) => (
-              <div key={label} className="border border-brand-line bg-white p-4">
+            ].map(([label, value], index) => (
+              <div key={label} className="dashboard-card border border-brand-line bg-white p-4" style={{ animationDelay: `${index * 120}ms` }}>
                 <p className="text-xs text-brand-muted">{label}</p>
                 <p className="mt-3 text-xl font-semibold tracking-tight text-brand-ink">{value}</p>
               </div>
@@ -71,7 +71,7 @@ function DashboardPreview() {
           </div>
 
           <div className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="border border-brand-line bg-white p-5">
+            <div className="dashboard-panel border border-brand-line bg-white p-5">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-semibold text-brand-ink">经营健康度</p>
                 <p className="text-xs text-brand-muted">本月复盘</p>
@@ -83,8 +83,11 @@ function DashboardPreview() {
                       <span className="text-brand-muted">{metric.label}</span>
                       <span className="font-medium text-brand-ink">{metric.value}</span>
                     </div>
-                    <div className="mt-2 h-2 bg-brand-soft">
-                      <div className={`h-full bg-brand-ink ${metric.bar}`} />
+                    <div className="mt-2 h-2 overflow-hidden bg-brand-soft">
+                      <div
+                        className="dashboard-bar h-full bg-brand-ink"
+                        style={{ "--bar-width": metric.width, animationDelay: metric.delay } as React.CSSProperties}
+                      />
                     </div>
                   </div>
                 ))}
@@ -92,21 +95,22 @@ function DashboardPreview() {
             </div>
 
             <div className="grid gap-4">
-              <div className="border border-brand-line bg-white p-5">
+              <div className="dashboard-panel border border-brand-line bg-white p-5">
                 <p className="text-sm font-semibold text-brand-ink">风险前置</p>
                 <div className="mt-5 grid grid-cols-4 gap-2">
                   {Array.from({ length: 16 }).map((_, index) => (
                     <span
                       key={index}
                       className={[
-                        "h-8 border border-brand-line",
+                        "dashboard-risk-cell h-8 border border-brand-line",
                         index % 5 === 0 ? "bg-brand-ink" : index % 3 === 0 ? "bg-brand-muted/35" : "bg-brand-soft"
                       ].join(" ")}
+                      style={{ animationDelay: `${index * 85}ms` }}
                     />
                   ))}
                 </div>
               </div>
-              <div className="border border-brand-line bg-brand-ink p-5 text-white">
+              <div className="dashboard-review-card border border-brand-line bg-brand-ink p-5 text-white">
                 <p className="text-xs uppercase tracking-widest text-white/55">Next review</p>
                 <p className="mt-3 text-2xl font-semibold">季度经营复盘</p>
               </div>
@@ -115,7 +119,7 @@ function DashboardPreview() {
 
           <div className="mt-4 grid gap-3 border border-brand-line bg-white p-4 sm:grid-cols-4">
             {["了解", "理顺", "建立", "陪跑"].map((item, index) => (
-              <div key={item} className="flex items-center gap-2 text-xs font-medium text-brand-muted">
+              <div key={item} className="dashboard-step flex items-center gap-2 text-xs font-medium text-brand-muted" style={{ animationDelay: `${index * 160}ms` }}>
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-soft text-brand-ink">
                   {index + 1}
                 </span>

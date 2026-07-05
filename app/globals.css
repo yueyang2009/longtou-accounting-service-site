@@ -50,3 +50,183 @@ body {
   pointer-events: none;
   z-index: 1;
 }
+
+/* ── 首页经营驾驶舱动效：克制、缓慢、偏咨询感 ── */
+.dashboard-stage {
+  perspective: 1200px;
+}
+
+.dashboard-shell {
+  animation: dashboard-float 7s ease-in-out infinite;
+  transform-origin: 50% 40%;
+}
+
+.dashboard-surface {
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-surface::before {
+  content: "";
+  position: absolute;
+  inset: -30% -45%;
+  background: linear-gradient(115deg, transparent 34%, rgba(255, 255, 255, 0.62) 48%, transparent 62%);
+  opacity: 0.58;
+  transform: translateX(-42%);
+  animation: dashboard-sheen 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.dashboard-card,
+.dashboard-panel,
+.dashboard-review-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 420ms ease, box-shadow 420ms ease, border-color 420ms ease;
+}
+
+.dashboard-card {
+  animation: dashboard-rise 900ms ease both;
+}
+
+.dashboard-card:hover,
+.dashboard-panel:hover,
+.dashboard-review-card:hover {
+  border-color: rgba(17, 17, 17, 0.18);
+  box-shadow: 0 18px 48px rgba(17, 17, 17, 0.08);
+  transform: translateY(-2px);
+}
+
+.dashboard-dot {
+  animation: dashboard-pulse 2.4s ease-in-out infinite;
+}
+
+.dashboard-dot-strong {
+  animation-delay: 420ms;
+}
+
+.dashboard-bar {
+  width: var(--bar-width);
+  transform-origin: left center;
+  animation: dashboard-bar-breathe 4.8s ease-in-out infinite;
+}
+
+.dashboard-risk-cell {
+  animation: dashboard-risk-scan 5.8s ease-in-out infinite;
+}
+
+.dashboard-review-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 16% 10%, rgba(255, 255, 255, 0.24), transparent 34%);
+  animation: dashboard-review-glow 5.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.dashboard-step {
+  animation: dashboard-step-focus 5.8s ease-in-out infinite;
+}
+
+@keyframes dashboard-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: translate3d(0, -7px, 0) rotateX(0.6deg) rotateY(-0.8deg);
+  }
+}
+
+@keyframes dashboard-sheen {
+  0%,
+  42% {
+    transform: translateX(-46%);
+  }
+  72%,
+  100% {
+    transform: translateX(46%);
+  }
+}
+
+@keyframes dashboard-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dashboard-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.22);
+  }
+}
+
+@keyframes dashboard-bar-breathe {
+  0%,
+  100% {
+    transform: scaleX(0.92);
+    opacity: 0.78;
+  }
+  45% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes dashboard-risk-scan {
+  0%,
+  100% {
+    filter: brightness(1);
+    transform: translateY(0);
+  }
+  45% {
+    filter: brightness(1.18);
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes dashboard-review-glow {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: translateX(-8%);
+  }
+  50% {
+    opacity: 0.72;
+    transform: translateX(16%);
+  }
+}
+
+@keyframes dashboard-step-focus {
+  0%,
+  100% {
+    opacity: 0.62;
+  }
+  45% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-shell,
+  .dashboard-surface::before,
+  .dashboard-card,
+  .dashboard-dot,
+  .dashboard-bar,
+  .dashboard-risk-cell,
+  .dashboard-review-card::after,
+  .dashboard-step {
+    animation: none;
+  }
+}
