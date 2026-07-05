@@ -143,7 +143,7 @@ export function AssessmentForm() {
           <div className="mt-8 flex items-center justify-between">
             <button onClick={() => setStep(2)} className="text-sm text-brand-muted underline">返回</button>
             <a
-              href={`mailto:183337950@qq.com?subject=企业经营尽调申请 - ${company}&body=行业：${selectedIndustry}%0A问题：${selectedProblems.join("、")}%0A联系人：${name}%0A电话：${phone}%0A企业：${company}%0A%0A（来自龙头会服官网）`}
+              href={`mailto:1833379550@qq.com?subject=企业经营尽调申请 - ${company}&body=行业：${selectedIndustry}%0A问题：${selectedProblems.join("、")}%0A联系人：${name}%0A电话：${phone}%0A企业：${company}%0A%0A（来自龙头会服官网）`}
               className="inline-flex h-10 items-center gap-2 rounded-md bg-brand-ink px-5 text-sm font-medium text-white"
             >
               提交申请 <ArrowRight className="h-3.5 w-3.5" />
