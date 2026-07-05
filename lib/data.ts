@@ -81,10 +81,10 @@ export const painPoints = [
 ];
 
 export const trustMetrics = [
-  { value: "专业团队", label: "财税与经营协同", detail: "" },
-  { value: "多年经验", label: "服务成长型企业", detail: "" },
-  { value: "长期陪伴", label: "年度顾问机制", detail: "" },
-  { value: "风险前置", label: "从经营现场识别问题", detail: "" }
+  { value: "CPA", label: "注册会计师", detail: "× 8" },
+  { value: "CTA", label: "注册税务师", detail: "× 4" },
+  { value: "高级会计师", label: "专家配置", detail: "× 2" },
+  { value: "10000+", label: "累计服务企业", detail: "" }
 ];
 
 export const homePainCards = [
