@@ -11,7 +11,7 @@ export default function InsightsPage() {
           <SectionHeader
             eyebrow="财税风险洞察系统"
             title="不是博客，而是企业常见财税风险的识别入口"
-            description="围绕税务风险、经营风险与行业案例，帮助企业先看见问题，再决定是否需要诊断。"
+            description="围绕税务风险、经营风险与行业案例，帮助企业先看见问题，再决定是否需要进一步交流。"
           />
         </div>
       </section>
@@ -25,4 +25,3 @@ export default function InsightsPage() {
     </Layout>
   );
 }
-

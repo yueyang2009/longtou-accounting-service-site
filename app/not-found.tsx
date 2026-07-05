@@ -11,14 +11,14 @@ export default function NotFound() {
           <p className="text-sm font-semibold text-brand-gold">404</p>
           <h1 className="mt-4 text-4xl font-semibold text-brand-ink">页面不存在</h1>
           <p className="mt-4 max-w-xl text-base leading-7 text-brand-muted">
-            你访问的页面暂时不可用，可以返回首页或预约咨询。
+            你访问的页面暂时不可用，可以返回首页或预约一次经营交流。
           </p>
           <div className="mt-8 flex gap-3">
             <Button asChild>
               <Link href="/">返回首页</Link>
             </Button>
             <Button asChild variant="secondary">
-              <Link href="/contact">联系我们</Link>
+              <Link href="/contact">预约交流</Link>
             </Button>
           </div>
         </div>

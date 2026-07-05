@@ -25,7 +25,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             ))}
           </nav>
           <Button asChild size="sm" className="hidden sm:inline-flex">
-            <Link href="/contact">预约诊断</Link>
+            <Link href="/contact">预约交流</Link>
           </Button>
         </div>
       </header>
@@ -38,12 +38,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
           <div>
             <p className="text-sm font-semibold">服务对象</p>
-            <p className="mt-3 text-sm leading-6 text-white/70">年营收 2000万—2亿，具备稳定经营规模的成长型企业。</p>
+            <p className="mt-3 text-sm leading-6 text-white/70">经营规模正在扩大、希望建立长期管理秩序的成长型企业。</p>
           </div>
           <div>
             <p className="text-sm font-semibold">咨询入口</p>
             <p className="mt-3 text-sm leading-6 text-white/70">电话：{brand.phone}</p>
-            <p className="text-sm leading-6 text-white/70">每周仅处理10家企业诊断申请</p>
+            <p className="text-sm leading-6 text-white/70">适合先进行一次经营交流</p>
           </div>
         </div>
       </footer>

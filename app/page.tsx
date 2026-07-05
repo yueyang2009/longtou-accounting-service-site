@@ -6,6 +6,7 @@ import {
   annualTimeline,
   brand,
   clientStories,
+  cooperationSteps,
   experts,
   homePainCards,
   longtouMethod,
@@ -33,9 +34,9 @@ function SectionTitle({
 
 function DashboardPreview() {
   const operatingMetrics = [
-    { label: "利润质量", value: "清晰", width: "78%" },
-    { label: "现金节奏", value: "稳健", width: "64%" },
-    { label: "税务风险", value: "前置", width: "42%" }
+    { label: "利润质量", value: "持续观察", bar: "w-3/4" },
+    { label: "现金节奏", value: "阶段复盘", bar: "w-2/3" },
+    { label: "税务风险", value: "提前识别", bar: "w-1/2" }
   ];
 
   return (
@@ -57,9 +58,9 @@ function DashboardPreview() {
 
           <div className="grid gap-4 py-5 sm:grid-cols-3">
             {[
-              ["年度陪跑", "12个月"],
+              ["顾问方式", "年度陪伴"],
               ["风险事项", "前置处理"],
-              ["复盘节奏", "季度"]
+              ["复盘节奏", "阶段复盘"]
             ].map(([label, value]) => (
               <div key={label} className="border border-brand-line bg-white p-4">
                 <p className="text-xs text-brand-muted">{label}</p>
@@ -82,7 +83,7 @@ function DashboardPreview() {
                       <span className="font-medium text-brand-ink">{metric.value}</span>
                     </div>
                     <div className="mt-2 h-2 bg-brand-soft">
-                      <div className="h-full bg-brand-ink" style={{ width: metric.width }} />
+                      <div className={`h-full bg-brand-ink ${metric.bar}`} />
                     </div>
                   </div>
                 ))}
@@ -112,7 +113,7 @@ function DashboardPreview() {
           </div>
 
           <div className="mt-4 grid gap-3 border border-brand-line bg-white p-4 sm:grid-cols-4">
-            {["诊断", "理顺", "建立", "陪跑"].map((item, index) => (
+            {["了解", "理顺", "建立", "陪跑"].map((item, index) => (
               <div key={item} className="flex items-center gap-2 text-xs font-medium text-brand-muted">
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-soft text-brand-ink">
                   {index + 1}
@@ -147,7 +148,7 @@ export default function HomePage() {
             href="/contact"
             className="rounded-md bg-brand-ink px-5 py-2 text-sm font-medium text-white transition hover:bg-black"
           >
-            预约诊断
+            预约交流
           </Link>
         </div>
       </header>
@@ -180,7 +181,7 @@ export default function HomePage() {
                 </Link>
               </div>
               <div className="mt-14 grid gap-5 text-sm text-brand-muted sm:grid-cols-3">
-                {["CPA / CTA 双师团队", "年度陪跑机制", "河南本地服务"].map((item) => (
+                {["专业团队", "年度陪跑机制", "本地化服务"].map((item) => (
                   <span key={item} className="flex items-center gap-2">
                     <Minus className="h-4 w-4 text-brand-ink" />
                     {item}
@@ -216,7 +217,7 @@ export default function HomePage() {
             <SectionTitle
               label="年度顾问"
               title="我们陪伴企业走完一年，而不是解决一个问题。"
-              description="真正的规范不是一次诊断完成的，而是在经营节奏里持续看见、判断、修正和沉淀。"
+              description="真正的规范不是一次交流完成的，而是在经营节奏里持续看见、判断、修正和沉淀。"
             />
             <div className="mt-16">
               <div className="hidden h-px bg-brand-line md:block" />
@@ -311,9 +312,37 @@ export default function HomePage() {
                 href="/contact"
                 className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
               >
-                预约免费诊断
+                预约经营交流
                 <ArrowRight className="h-4 w-4" />
               </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 开始合作 ── */}
+        <section className="border-b border-brand-line">
+          <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
+            <SectionTitle
+              label="How We Start"
+              title="我们如何开始合作？"
+              description="先理解企业，再定义计划。合作开始之前，我们更关心问题是否被看清楚。"
+            />
+            <div className="mt-16">
+              <div className="hidden h-px bg-brand-line md:block" />
+              <div className="grid gap-5 md:-mt-3 md:grid-cols-4">
+                {cooperationSteps.map((step, index) => (
+                  <div key={step.title} className="bg-white">
+                    <div className="mb-7 hidden h-6 w-6 rounded-full border border-brand-ink bg-white md:block" />
+                    <div className="border border-brand-line p-8">
+                      <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">
+                        Step {index + 1}
+                      </p>
+                      <h3 className="mt-5 text-2xl font-semibold tracking-tight text-brand-ink">{step.title}</h3>
+                      <p className="mt-5 text-sm leading-7 text-brand-muted">{step.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -393,17 +422,17 @@ export default function HomePage() {
           <div className="mx-auto max-w-3xl px-6 py-28 text-center md:py-36">
             <SectionTitle
               label="行动"
-              title="如果企业正在成长，现在就是最好的时间。"
+              title="预约一次经营交流"
             />
             <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-brand-muted">
-              先做一次免费财税诊断，不急着买服务，先把企业问题看清楚。
+              不急着给方案，先把企业所处阶段、真实问题和需要优先处理的事项讲清楚。
             </p>
             <div className="mt-10 flex flex-col items-center gap-4">
               <Link
                 href="/contact"
                 className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
               >
-                预约免费财税诊断
+                预约经营交流
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <p className="text-sm text-brand-muted">

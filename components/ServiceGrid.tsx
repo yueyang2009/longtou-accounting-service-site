@@ -31,7 +31,7 @@ export function ServiceGrid({ mode = "systems" }: ServiceGridProps) {
           title={mode === "systems" ? "我们交付的是系统，不是零散服务" : "以企业问题为入口的四套产品系统"}
           description={
             mode === "systems"
-              ? "从风险、利润、架构和体系四个层面，把企业财税问题纳入可诊断、可改进、可追踪的系统。"
+              ? "从风险、利润、架构和体系四个层面，把企业财税问题纳入可识别、可改进、可追踪的系统。"
               : "每套系统都对应明确场景、交付内容和结果文件。"
           }
         />

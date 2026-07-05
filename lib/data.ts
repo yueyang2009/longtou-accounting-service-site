@@ -62,7 +62,7 @@ export const navItems = [
   { label: "解决方案", href: "/solutions" },
   { label: "团队", href: "/team" },
   { label: "风险洞察", href: "/insights" },
-  { label: "联系我们", href: "/contact" }
+  { label: "预约交流", href: "/contact" }
 ];
 
 export const painPoints = [
@@ -81,11 +81,10 @@ export const painPoints = [
 ];
 
 export const trustMetrics = [
-  { value: "CPA", label: "注册会计师", detail: "× 8" },
-  { value: "CTA", label: "注册税务师", detail: "× 4" },
-  { value: "律师", label: "法律协同", detail: "× 2" },
-  { value: "高级会计师", label: "专家配置", detail: "× 2" },
-  { value: "1000+", label: "累计服务企业", detail: "" }
+  { value: "专业团队", label: "财税与经营协同", detail: "" },
+  { value: "多年经验", label: "服务成长型企业", detail: "" },
+  { value: "长期陪伴", label: "年度顾问机制", detail: "" },
+  { value: "风险前置", label: "从经营现场识别问题", detail: "" }
 ];
 
 export const homePainCards = [
@@ -120,17 +119,17 @@ export const longtouMethod = [
 
 export const clientStories = [
   {
-    industry: "一家制造企业（年营收8000万）",
-    problem: '代账做了3年，账面显示盈利但老板说"口袋没钱"。老板想搞清楚每个产品线到底赚不赚钱。',
-    process: "我们先重建成本核算口径——拆分材料、人工、制造费用和异常损耗。再按产品线做利润还原，发现两条产品线一直在亏本运营。",
-    result: "老板关停了亏损产品线，调整了报价体系。三个月后，毛利率从12%提升到21%，账面和口袋对上了。",
+    industry: "一家制造企业",
+    problem: "企业有稳定订单，但老板长期感到利润和现金流对不上，希望看清不同产品线的真实贡献。",
+    process: "我们先重建成本核算口径，拆分材料、人工、制造费用和异常损耗，再按产品线还原经营结果。",
+    result: "管理层开始按产品线讨论定价、订单取舍和产能安排，财务数据逐渐成为经营会议的一部分。",
     quote: "不是会计不好，是过去没人把账翻译成经营语言。"
   },
   {
-    industry: "一家建筑企业（年营收1.2亿）",
-    problem: "项目多、周期长、分包发票管理混乱。税局要求自查时，老板才发现几笔分包款存在发票和合同主体不一致的问题。",
+    industry: "一家建筑企业",
+    problem: "项目周期长、分包协作多，合同、票据和资金流之间存在不一致，老板担心未来形成税务风险。",
     process: "我们先梳理每个项目的资金流和票据链，理清分包商资质和实际施工人。然后建立了分包商准入机制和项目财务台账制度。",
-    result: "消除了虚开发票的隐患风险，并且做到了每个项目的收入、成本、回款可追溯、可审计。",
+    result: "企业开始用项目财务台账管理收入、成本、回款和票据，风险事项能够更早被看见和处理。",
     quote: "以前发票入账就完事了，现在项目财务台账变成了管理工具。"
   }
 ];
@@ -163,7 +162,7 @@ export const services: Service[] = [
     title: "企业财税体检与风险扫描",
     summary: "对历史账务、税务申报、业务合同和资金流进行系统性体检。",
     items: ["历史账务清理", "税务风险排查"],
-    output: "风险诊断报告",
+    output: "风险事项清单",
     icon: FileSearch
   },
   {
@@ -198,7 +197,7 @@ export const conversionPaths = [
   },
   {
     label: "高意向入口",
-    title: "预约1对1顾问沟通（限量）",
+    title: "预约顾问沟通",
     description: "适合已有明确财税问题企业",
     cta: "预约顾问沟通"
   }
@@ -207,25 +206,44 @@ export const conversionPaths = [
 export const annualPlan = {
   title: "企业年度财税顾问计划",
   summary: '不是按次咨询，不是代账服务。而是全年陪伴，帮企业建立起"能自己运转"的财税管理体系。',
-  suitable: ["年营收 2000万—2亿的成长型企业", "已有会计或代账，但缺少财税统筹", "老板想规范经营，但不清楚从哪里入手"],
+  suitable: ["经营规模正在扩大，管理复杂度明显上升", "已有会计或代账，但缺少财税统筹", "老板想规范经营，但不清楚从哪里入手"],
   whatYouGet: [
-    "每月一次经营数据看板——利润、现金流、风险指标一目了然",
-    "季度深度沟通——复盘经营状况，调整下季度重点",
-    "全年财税风险预警——发现隐患及时处理，不等税局找上门",
-    "日常即时响应——有拿不准的事，一个电话有人接得住",
-    "年度健康报告——全年经营总结+来年规划建议"
+    "经营数据看板——让利润、现金流、风险事项进入同一张图",
+    "阶段性经营复盘——围绕企业当下问题调整下一阶段重点",
+    "财税风险前置——发现隐患及时讨论，不等问题积累后再处理",
+    "日常沟通支持——遇到拿不准的经营财税事项，有人一起判断",
+    "年度健康报告——沉淀全年问题、改进记录和下一阶段建议"
   ],
   process: [
-    { step: "第一步", title: "免费诊断", desc: "初步了解企业现状，判断是否适合年度顾问服务" },
+    { step: "第一步", title: "经营交流", desc: "初步了解企业现状，判断是否适合年度顾问服务" },
     { step: "第二步", title: "方案确认", desc: "根据行业和问题优先级，输出年度服务计划" },
     { step: "第三步", title: "签约启动", desc: "签订年度顾问合同，正式进入服务体系" }
   ]
 };
 
+export const cooperationSteps = [
+  {
+    title: "预约沟通",
+    description: "先进行一次经营交流，确认企业当下最需要被看见的问题。"
+  },
+  {
+    title: "企业经营尽调（2~3天）",
+    description: "围绕账、税、现金流、合同和管理流程做初步梳理。"
+  },
+  {
+    title: "制定年度顾问计划",
+    description: "根据问题优先级，形成年度陪伴节奏和阶段性重点。"
+  },
+  {
+    title: "开始年度陪伴",
+    description: "进入长期顾问机制，持续复盘、预警和改进。"
+  }
+];
+
 export const annualTimeline = [
   {
     period: "1月",
-    title: "年度诊断与经营基线",
+    title: "年度了解与经营基线",
     items: ["财税体检", "利润口径校准", "风险清单"]
   },
   {
@@ -269,11 +287,10 @@ export const principles = [
   }
 ];
 export const revenueRanges = [
-  "2000万以下",
-  "2000万—5000万",
-  "5000万—1亿",
-  "1亿—5亿",
-  "5亿以上"
+  "起步发展期",
+  "稳定经营期",
+  "快速扩张期",
+  "组织升级期"
 ];
 
 export const formPainOptions = ["利润不清晰", "税务风险", "成本控制", "股权设计", "财务体系"];
@@ -281,7 +298,7 @@ export const formPainOptions = ["利润不清晰", "税务风险", "成本控制
 export function scoreLead(input: Omit<Lead, "score">): Lead {
   let score = 0;
 
-  if (input.revenueRange !== "2000万以下") {
+  if (input.revenueRange !== "起步发展期") {
     score += 3;
   }
 
@@ -312,25 +329,25 @@ export const experts: Expert[] = [
     name: "杜楠楠",
     title: "高端财税事业部 总经理",
     focus: "税务合规筹划、股权架构设计、历史乱账清理、财务体系搭建",
-    credential: "CPA / CTA / 高级会计师 / 15年"
+    credential: "专业财税顾问"
   },
   {
     name: "李岳阳",
     title: "高端财税事业部",
     focus: "财税合规、ERP实施、股权架构、企业经营落地",
-    credential: "CPA / 律师 / 高级管理会计师 / 15年"
+    credential: "财税与经营顾问"
   },
   {
     name: "刘宏义",
     title: "高端财税事业部",
     focus: "内部控制、税收风险防范、IPO辅导、专项审计",
-    credential: "CPA / 注册造价师 / 省总会计师协会理事"
+    credential: "风险与内控顾问"
   },
   {
     name: "吴新明",
     title: "高端财税事业部",
     focus: "上市辅导、IPO审计、税务筹划、尽职调查",
-    credential: "CPA / CTA / 高级会计师"
+    credential: "税务与审计顾问"
   }
 ];
 
@@ -384,35 +401,47 @@ export const insights: Insight[] = [
 
 export const processSteps = [
   {
-    title: "免费财税诊断",
-    description: "通过基础信息与风险访谈，判断企业当前财税系统状态。"
+    title: "预约沟通",
+    description: "通过一次经营交流，了解企业阶段和核心问题。"
   },
   {
-    title: "初步方案输出",
-    description: "根据企业阶段、行业和问题优先级，输出初步改善路径。"
+    title: "企业经营尽调",
+    description: "围绕账、税、现金流、合同和管理流程做初步梳理。"
   },
   {
-    title: "正式合作",
-    description: "进入专项咨询、体系建设或长期顾问服务。"
+    title: "年度陪伴",
+    description: "确认顾问计划后，进入长期复盘和风险前置机制。"
   }
 ];
 
 export const faqs = [
   {
+    question: "一年顾问适合哪些企业？",
+    answer: "更适合经营规模正在扩大、管理复杂度上升，并且希望把财税问题纳入经营决策的企业。"
+  },
+  {
+    question: "一般多久上门一次？",
+    answer: "上门频率会根据企业阶段、资料复杂度和当期重点安排，不用固定频次替代真实需要。"
+  },
+  {
+    question: "是否签订正式合同？",
+    answer: "正式合作前会明确服务边界、交付方式、沟通机制和双方责任，并签订正式服务文件。"
+  },
+  {
+    question: "是否支持微信和电话沟通？",
+    answer: "支持。日常问题可以通过微信和电话沟通，重要事项会沉淀成书面建议或会议纪要。"
+  },
+  {
+    question: "遇到税务检查怎么办？",
+    answer: "我们会先协助企业梳理事实、资料和风险边界，再根据具体事项给出应对建议。"
+  },
+  {
+    question: "如何开始合作？",
+    answer: "先预约一次经营交流，再做企业经营尽调，随后制定年度顾问计划，确认后进入长期陪伴。"
+  },
+  {
     question: "你们与代账公司有什么区别？",
-    answer: "代账公司主要处理记账申报，龙头会服更关注财税风险、经营分析和财务体系建设。"
-  },
-  {
-    question: "收费方式是怎样的？",
-    answer: "根据企业规模、问题复杂度和服务周期定制报价，免费诊断阶段不收取费用。"
-  },
-  {
-    question: "服务范围覆盖哪些企业？",
-    answer: "更适合年营收 2000万—5亿、已有稳定经营规模并希望升级财税体系的企业。"
-  },
-  {
-    question: "是否支持远程服务？",
-    answer: "支持远程诊断、资料审阅和阶段性会议，必要时可安排现场访谈。"
+    answer: "代账公司主要处理记账申报，我们更关注财税风险、经营分析和财务体系建设。"
   }
 ];
 
@@ -430,6 +459,6 @@ export const differentiators = [
   {
     icon: CheckCircle2,
     title: "输出可执行方案",
-    description: "每次诊断都沉淀为问题清单、优先级和下一步行动建议。"
+    description: "每次交流都沉淀为问题清单、优先级和下一步行动建议。"
   }
 ];

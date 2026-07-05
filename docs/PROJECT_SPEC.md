@@ -21,7 +21,7 @@
 - `/solutions` 解决方案
 - `/team` 团队
 - `/insights` 洞察
-- `/contact` 联系我们
+- `/contact` 预约交流
 
 ## 组件结构
 

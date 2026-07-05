@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 
-import { formPainOptions, getLeadPriority, revenueRanges, scoreLead, type Lead } from "@/lib/data";
+import { formPainOptions, revenueRanges, scoreLead, type Lead } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -50,8 +50,8 @@ export function LeadForm() {
     <div className="border border-brand-line bg-white p-6 shadow-consult">
       <div className="mb-6 flex items-center justify-between border-b border-brand-line pb-4">
         <div>
-          <p className="text-sm font-semibold text-brand-gold">企业财税诊断申请</p>
-          <h3 className="mt-1 text-2xl font-semibold">获取初步诊断建议</h3>
+          <p className="text-sm font-semibold text-brand-gold">经营交流预约</p>
+          <h3 className="mt-1 text-2xl font-semibold">预约经营交流</h3>
         </div>
         <span className="rounded-md bg-brand-soft px-3 py-1 text-sm text-brand-muted">Step {step}/3</span>
       </div>
@@ -79,7 +79,7 @@ export function LeadForm() {
             />
           </div>
           <div>
-            <Label htmlFor="revenue">年营收区间</Label>
+            <Label htmlFor="revenue">企业阶段</Label>
             <select
               id="revenue"
               className="mt-2 h-11 w-full rounded-md border border-brand-line bg-white px-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-ink/20"
@@ -166,23 +166,19 @@ export function LeadForm() {
           </Button>
         ) : (
           <Button type="button" onClick={submit}>
-            获取初步诊断建议
+            预约经营交流
           </Button>
         )}
       </div>
 
       {result ? (
         <div className="mt-6 border border-brand-line bg-brand-soft p-4">
-          <p className="text-sm text-brand-muted">线索评分</p>
-          <p className="mt-1 text-2xl font-semibold">
-            {result.score} 分 · {getLeadPriority(result.score)}
-          </p>
+          <p className="text-sm font-semibold text-brand-ink">信息已记录</p>
           <p className="mt-2 text-sm leading-6 text-brand-muted">
-            我们会优先根据企业规模、财务团队、审计经历和问题复杂度安排顾问沟通。
+            后续交流会围绕企业阶段、财务团队、审计经历和当前问题展开，不急于给出标准化方案。
           </p>
         </div>
       ) : null}
     </div>
   );
 }
-

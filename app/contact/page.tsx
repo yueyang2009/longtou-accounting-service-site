@@ -1,7 +1,9 @@
+import Image from "next/image";
+
 import { Layout } from "@/components/Layout";
 import { LeadForm } from "@/components/LeadForm";
 import { SectionHeader } from "@/components/SectionHeader";
-import { brand, faqs, processSteps } from "@/lib/data";
+import { brand, cooperationSteps, faqs } from "@/lib/data";
 
 export default function ContactPage() {
   return (
@@ -10,9 +12,9 @@ export default function ContactPage() {
         <div className="mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-[0.9fr_1.1fr] lg:px-8">
           <div>
             <SectionHeader
-              eyebrow="预约诊断"
-              title="提交企业基本情况，获取初步财税诊断建议"
-              description="信息越完整，顾问越能判断企业当前问题的优先级。"
+              eyebrow="经营交流"
+              title="预约一次经营交流"
+              description="先了解企业阶段、经营困扰和财税管理现状，再判断是否需要年度顾问陪伴。"
             />
             <div className="mt-8 grid gap-4">
               <div className="border border-brand-line bg-white p-5">
@@ -22,7 +24,13 @@ export default function ContactPage() {
               <div className="border border-brand-line bg-white p-5">
                 <p className="text-sm text-brand-muted">微信二维码</p>
                 <div className="mt-3 w-40 border border-brand-line bg-white p-2">
-                  <img src={brand.wechatQr} alt={`${brand.wechat} 微信二维码`} className="h-auto w-full" />
+                  <Image
+                    src={brand.wechatQr}
+                    alt={`${brand.wechat} 微信二维码`}
+                    width={888}
+                    height={1195}
+                    className="h-auto w-full"
+                  />
                 </div>
                 <p className="mt-3 text-sm font-medium text-brand-ink">{brand.wechat}</p>
               </div>
@@ -33,9 +41,9 @@ export default function ContactPage() {
       </section>
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <SectionHeader title="服务流程" />
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {processSteps.map((step, index) => (
+          <SectionHeader title="我们如何开始合作？" />
+          <div className="mt-10 grid gap-5 md:grid-cols-4">
+            {cooperationSteps.map((step, index) => (
               <div key={step.title} className="border border-brand-line p-6">
                 <p className="text-sm font-semibold text-brand-gold">0{index + 1}</p>
                 <h3 className="mt-4 text-xl font-semibold">{step.title}</h3>

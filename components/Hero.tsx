@@ -16,7 +16,7 @@ export function Hero() {
           <p className="mt-6 max-w-2xl text-lg leading-8 text-brand-muted">
             龙头会服 · 企业财高端财税服务团队
             <br />
-            服务年营收 2000万—5亿企业
+            服务经营规模正在扩大的成长型企业
           </p>
           <p className="mt-5 inline-flex w-fit rounded-md border border-brand-line bg-brand-soft px-4 py-2 text-sm text-brand-muted">
             本服务更适合已具备稳定经营规模的企业
@@ -24,7 +24,7 @@ export function Hero() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg">
               <Link href="/contact">
-                预约免费财税诊断
+                预约经营交流
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -36,9 +36,9 @@ export function Hero() {
         <div className="self-stretch border border-brand-line bg-brand-soft p-6 shadow-consult">
           <div className="grid h-full gap-4">
             {[
-              ["诊断对象", "成长型民营企业 / 集团企业"],
+              ["交流对象", "成长型民营企业 / 集团企业"],
               ["核心问题", "风险、利润、现金流、体系"],
-              ["交付方式", "诊断报告 + 方案路径 + 顾问沟通"],
+              ["交付方式", "问题清单 + 方案路径 + 顾问沟通"],
               ["筛选标准", "稳定经营规模 / 有改善意愿"]
             ].map(([label, value]) => (
               <div key={label} className="border border-brand-line bg-white p-5">
@@ -52,4 +52,3 @@ export function Hero() {
     </section>
   );
 }
-
