@@ -16,23 +16,40 @@ export default function ContactPage() {
               title="申请企业经营尽调（限量开放）"
               description="先了解企业阶段、经营困扰和财税管理现状，再判断是否需要年度顾问陪伴。"
             />
-            <div className="mt-8 grid gap-4">
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
               <div className="border border-brand-line bg-white p-5">
                 <p className="text-sm text-brand-muted">联系电话</p>
                 <p className="mt-2 text-xl font-semibold">{brand.phone}</p>
               </div>
               <div className="border border-brand-line bg-white p-5">
-                <p className="text-sm text-brand-muted">微信二维码</p>
-                <div className="mt-3 w-40 border border-brand-line bg-white p-2">
+                <p className="text-sm text-brand-muted">邮箱</p>
+                <p className="mt-2 text-sm font-semibold">1833379550@qq.com</p>
+              </div>
+              <div className="border border-brand-line bg-white p-5">
+                <p className="text-sm text-brand-muted">微信</p>
+                <div className="mt-3 w-36 border border-brand-line bg-white p-2">
                   <Image
                     src={brand.wechatQr}
-                    alt={`${brand.wechat} 微信二维码`}
+                    alt="微信二维码"
                     width={888}
                     height={1195}
                     className="h-auto w-full"
                   />
                 </div>
                 <p className="mt-3 text-sm font-medium text-brand-ink">{brand.wechat}</p>
+              </div>
+              <div className="border border-brand-line bg-white p-5">
+                <p className="text-sm text-brand-muted">飞书</p>
+                <div className="mt-3 w-36 border border-brand-line bg-white p-2">
+                  <Image
+                    src={brand.feishuQr}
+                    alt="飞书二维码"
+                    width={888}
+                    height={1195}
+                    className="h-auto w-full"
+                  />
+                </div>
+                <p className="mt-3 text-sm font-medium text-brand-ink">李岳阳 · 飞书个人版</p>
               </div>
             </div>
           </div>

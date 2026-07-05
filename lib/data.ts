@@ -52,7 +52,8 @@ export const brand = {
   subtitle: "双师带队，专注中小企业财税规范与经营体系建设",
   phone: "18103835769",
   wechat: "李小阳TEL18103835769",
-  wechatQr: `${siteBasePath}/images/wechat-qr.jpg`
+  wechatQr: `${siteBasePath}/images/wechat-qr.jpg`,
+  feishuQr: `${siteBasePath}/images/feishu-qr.jpg`
 };
 
 export const navItems = [
