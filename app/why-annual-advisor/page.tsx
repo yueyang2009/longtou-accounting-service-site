@@ -46,7 +46,7 @@ export default function WhyAnnualAdvisorPage() {
             href="/contact"
             className="rounded-md bg-brand-ink px-5 py-2 text-sm font-medium text-white transition hover:bg-black"
           >
-            申请企业经营尽调
+            申请企业经营尽调（限量开放）
           </Link>
         </div>
       </header>
@@ -72,12 +72,18 @@ export default function WhyAnnualAdvisorPage() {
                 href="/contact"
                 className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
               >
-                申请企业经营尽调
+                申请企业经营尽调（限量开放）
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
             <p className="mt-4 text-sm text-brand-muted">
               每月仅服务有限企业
+            </p>
+            <p className="mt-1 text-sm text-brand-muted">
+              需初步评估是否适配年度顾问体系
+            </p>
+            <p className="mt-1 text-sm text-brand-muted">
+              不适合所有企业
             </p>
           </div>
         </section>
@@ -225,40 +231,21 @@ export default function WhyAnnualAdvisorPage() {
         </section>
 
         {/* ════════════════════════════════════════
-            ⑥ 对比模块
+            ⑥ 如果不做
             ════════════════════════════════════════ */}
         <section className="border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">
-            <Label text="对比" />
-            <Heading>年度顾问 vs 传统代账</Heading>
-            <div className="mt-10 overflow-x-auto">
-              <table className="w-full border-collapse text-sm">
-                <thead>
-                  <tr className="border-b border-brand-line">
-                    <th className="px-4 py-4 text-left font-semibold text-brand-ink" />
-                    <th className="px-4 py-4 text-left font-semibold text-brand-muted">传统代账</th>
-                    <th className="px-4 py-4 text-left font-semibold text-brand-ink">年度顾问</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    ["服务定位", "按时记账报税", "经营财税参谋"],
-                    ["关注周期", "月度／季度申报", "完整经营年度"],
-                    ["交付内容", "凭证、报表、申报", "尽调报告、风险清单、经营分析"],
-                    ["风险处理", "事后通知", "事前识别、事中干预"],
-                    ["经营视角", "不涉及", "利润、成本、现金流、决策"],
-                    ["沟通频率", "每月取票", "月度／季度／即时"],
-                    ["服务方式", "线上为主", "驻场＋线上"],
-                  ].map(([row, left, right]) => (
-                    <tr key={row} className="border-b border-brand-line">
-                      <td className="px-4 py-4 font-medium text-brand-ink">{row}</td>
-                      <td className="px-4 py-4 text-brand-muted">{left}</td>
-                      <td className="px-4 py-4 font-medium text-brand-ink">{right}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <Label text="一个现实问题" />
+            <Heading>如果不做年度财税顾问，企业会发生什么？</Heading>
+            <Body>
+              <p>财务数据长期碎片化，老板看不清真实经营状况。</p>
+              <p>税务风险在经营过程中持续累积，但无法提前识别。</p>
+              <p>财务部门只能记录过去，无法支持未来决策。</p>
+              <p>企业规模越大，内部管理复杂度越高，但缺乏系统支撑。</p>
+              <QuoteLine>
+                问题不是突然出现的，而是在缺乏系统支持的情况下逐步累积的。
+              </QuoteLine>
+            </Body>
           </div>
         </section>
 
@@ -306,7 +293,46 @@ export default function WhyAnnualAdvisorPage() {
         </section>
 
         {/* ════════════════════════════════════════
-            ⑧ CTA
+            ⑧ 对比模块（新增）
+            ════════════════════════════════════════ */}
+        <section className="border-b border-brand-line bg-brand-soft">
+          <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">
+            <Label text="对比" />
+            <Heading>年度财税顾问 vs 传统代账服务</Heading>
+            <div className="mt-10 overflow-x-auto">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="border-b border-brand-line">
+                    <th className="px-4 py-4 text-left font-semibold text-brand-ink">维度</th>
+                    <th className="px-4 py-4 text-left font-semibold text-brand-muted">传统代账</th>
+                    <th className="px-4 py-4 text-left font-semibold text-brand-ink">年度财税顾问</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ["核心目标", "记账报税", "支撑经营决策"],
+                    ["服务方式", "月度执行", "全年陪伴"],
+                    ["角色", "执行者", "顾问"],
+                    ["风险控制", "被动处理", "主动识别"],
+                    ["决策支持", "弱", "强"],
+                  ].map(([row, left, right]) => (
+                    <tr key={row} className="border-b border-brand-line">
+                      <td className="px-4 py-4 font-medium text-brand-ink">{row}</td>
+                      <td className="px-4 py-4 text-brand-muted">{left}</td>
+                      <td className="px-4 py-4 font-medium text-brand-ink">{right}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-6 text-sm leading-7 text-brand-muted">
+              两者解决的是完全不同层级的问题。
+            </p>
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════
+            ⑨ CTA
             ════════════════════════════════════════ */}
         <section className="bg-brand-soft">
           <div className="mx-auto max-w-3xl px-6 py-24 text-center md:py-28">
@@ -321,11 +347,17 @@ export default function WhyAnnualAdvisorPage() {
                 href="/contact"
                 className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
               >
-                申请企业经营尽调
+                申请企业经营尽调（限量开放）
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <p className="text-sm text-brand-muted">
-                初步沟通不收费 · 根据企业情况判断是否适合年度顾问
+                每月仅服务有限企业
+              </p>
+              <p className="text-sm text-brand-muted">
+                需初步评估是否适配年度顾问体系
+              </p>
+              <p className="text-sm text-brand-muted">
+                不适合所有企业
               </p>
             </div>
           </div>
