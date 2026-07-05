@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, CheckCircle2, Minus } from "lucide-react";
 
 import {
@@ -41,8 +42,18 @@ function DashboardPreview() {
 
   return (
     <div className="relative">
-      <div className="absolute -right-6 top-10 hidden h-72 w-72 rounded-full border border-brand-line lg:block" />
-      <div className="relative border border-brand-line bg-white p-4 shadow-[0_28px_80px_rgba(17,17,17,0.10)]">
+      <div className="absolute -right-6 top-10 hidden h-72 w-72 rounded-full border border-brand-line/80 lg:block" />
+      <div className="absolute -left-5 -top-7 z-20 hidden w-56 rounded-md border border-white/70 bg-white/78 p-3 shadow-[0_22px_60px_rgba(17,17,17,0.14)] backdrop-blur-xl lg:block">
+        <Image
+          src="/images/longtou-group-logo.png"
+          alt="龙头集团"
+          width={2192}
+          height={820}
+          priority
+          className="h-auto w-full"
+        />
+      </div>
+      <div className="relative border border-white/80 bg-white/82 p-4 shadow-[0_28px_90px_rgba(17,17,17,0.12)] backdrop-blur-xl">
         <div className="border border-brand-line bg-[#fbfbfa] p-5">
           <div className="flex items-center justify-between border-b border-brand-line pb-5">
             <div>
@@ -155,8 +166,11 @@ export default function HomePage() {
 
       <main>
         {/* ── Hero ── */}
-        <section className="overflow-hidden border-b border-brand-line">
-          <div className="mx-auto grid max-w-7xl gap-16 px-6 py-28 md:py-36 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
+        <section className="grain relative overflow-hidden border-b border-brand-line bg-[#fbfaf7]">
+          <div className="absolute -left-24 top-12 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.95)_0%,rgba(244,238,229,0.55)_45%,rgba(244,238,229,0)_72%)] blur-3xl" />
+          <div className="absolute right-0 top-0 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.9)_0%,rgba(232,226,218,0.44)_48%,rgba(232,226,218,0)_74%)] blur-3xl" />
+          <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(255,250,242,0.72)_0%,rgba(255,250,242,0)_70%)] blur-3xl" />
+          <div className="relative z-10 mx-auto grid max-w-7xl gap-16 px-6 py-28 md:py-36 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
             <div>
               <p className="mb-7 text-sm font-medium text-brand-muted">{brand.name} · 年度经营顾问</p>
               <h1 className="max-w-4xl text-5xl font-semibold leading-[1.05] tracking-tight text-brand-ink md:text-7xl">
