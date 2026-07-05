@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  color: #0b1f3a;
-  background: #ffffff;
+  color: #111;
+  background: #fff;
 }
 
 * {
@@ -18,20 +18,18 @@ html {
 body {
   margin: 0;
   font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  color: #0b1f3a;
-  background: #ffffff;
+  color: #111;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  color: #ffffff;
-  background: #0b1f3a;
+  color: #fff;
+  background: #111;
 }
 
 @layer base {
-  h1,
-  h2,
-  h3 {
-    letter-spacing: 0;
+  h1, h2, h3 {
+    letter-spacing: -0.02em;
   }
 }
-

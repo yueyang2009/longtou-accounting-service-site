@@ -38,7 +38,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
           <div>
             <p className="text-sm font-semibold">服务对象</p>
-            <p className="mt-3 text-sm leading-6 text-white/70">年营收 2000万—5亿，具备稳定经营规模的成长型企业。</p>
+            <p className="mt-3 text-sm leading-6 text-white/70">年营收 2000万—2亿，具备稳定经营规模的成长型企业。</p>
           </div>
           <div>
             <p className="text-sm font-semibold">咨询入口</p>
@@ -50,4 +50,3 @@ export function Layout({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
-
