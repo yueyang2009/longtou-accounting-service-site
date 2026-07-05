@@ -18,7 +18,7 @@ export default function NotFound() {
               <Link href="/">返回首页</Link>
             </Button>
             <Button asChild variant="secondary">
-              <Link href="/contact">申请企业经营尽调（限量开放）</Link>
+              <Link href="/contact">申请企业财税风险诊断（限时开放）</Link>
             </Button>
           </div>
         </div>

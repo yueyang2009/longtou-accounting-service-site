@@ -33,11 +33,17 @@ export default function WhyAnnualAdvisorPage() {
           <Link href="/" className="inline-flex items-center">
             <BrandLogo className="h-9 w-auto max-w-[150px]" />
           </Link>
+          <nav className="hidden items-center gap-6 md:flex">
+            <Link href="/" className="text-sm text-brand-muted hover:text-brand-ink">首页</Link>
+            <Link href="/why-annual-advisor" className="text-sm font-medium text-brand-ink">年度顾问</Link>
+            <Link href="/services" className="text-sm text-brand-muted hover:text-brand-ink">服务体系</Link>
+            <Link href="/about" className="text-sm text-brand-muted hover:text-brand-ink">关于</Link>
+          </nav>
           <Link
             href="/contact"
             className="rounded-md bg-brand-ink px-5 py-2 text-sm font-medium text-white transition hover:bg-black"
           >
-            申请企业经营尽调（限量开放）
+            申请企业财税风险诊断（限时开放）
           </Link>
         </div>
       </header>
@@ -292,7 +298,7 @@ export default function WhyAnnualAdvisorPage() {
                 href="/contact"
                 className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
               >
-                申请企业经营尽调（限量开放）
+                申请企业财税风险诊断（限时开放）
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <p className="text-sm text-brand-muted">签约前诊断不收费 · 根据企业情况判断是否适配</p>

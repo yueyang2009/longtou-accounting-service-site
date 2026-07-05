@@ -51,7 +51,7 @@ export default function AboutPage() {
             href="/contact"
             className="rounded-md bg-brand-ink px-5 py-2 text-sm font-medium text-white transition hover:bg-black"
           >
-            申请企业经营尽调（限量开放）
+            申请企业财税风险诊断（限时开放）
           </Link>
         </div>
       </header>
@@ -153,7 +153,7 @@ export default function AboutPage() {
                 href="/contact"
                 className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
               >
-                申请企业经营尽调（限量开放）
+                申请企业财税风险诊断（限时开放）
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <p className="text-sm text-brand-muted">

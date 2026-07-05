@@ -24,7 +24,7 @@ export function Hero() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg">
               <Link href="/contact">
-                申请企业经营尽调（限量开放）
+                申请企业财税风险诊断（限时开放）
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
