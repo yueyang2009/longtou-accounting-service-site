@@ -171,17 +171,16 @@ export default function HomePage() {
               </p>
               <div className="mt-11 flex flex-col gap-4 sm:flex-row">
                 <Link
-                  href="/contact"
-                  className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
+                  href="/why-annual-advisor"
+                  className="inline-flex h-12 items-center gap-2 rounded-md border border-brand-line px-7 text-sm font-medium text-brand-ink transition hover:bg-brand-soft"
                 >
-                  申请企业经营尽调（限量开放）
-                  <ArrowRight className="h-4 w-4" />
+                  了解年度顾问计划
                 </Link>
                 <Link
                   href="/annual-advisory"
-                  className="inline-flex h-12 items-center gap-2 rounded-md border border-brand-line px-7 text-sm font-medium text-brand-ink transition hover:bg-brand-soft"
+                  className="inline-flex h-12 items-center gap-2 rounded-md border border-brand-line px-7 text-sm font-medium text-brand-muted transition hover:bg-brand-soft"
                 >
-                  了解年度顾问
+                  查看服务体系
                 </Link>
               </div>
               <div className="mt-14 grid gap-5 text-sm text-brand-muted sm:grid-cols-3">
@@ -312,14 +311,11 @@ export default function HomePage() {
             </div>
 
             <div className="mt-10 text-center">
-              <Link
-                href="/contact"
-                className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
-              >
-                申请企业经营尽调（限量开放）
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <p className="mt-5 text-sm text-brand-muted">
+              <p className="text-sm text-brand-muted">
+                <Link href="/contact" className="underline underline-offset-2 hover:text-brand-ink">申请企业经营尽调（限量开放）</Link>
+                ｜ 每月仅服务有限企业
+              </p>
+              <p className="mt-3 text-sm text-brand-muted">
                 先了解 → <Link href="/why-annual-advisor" className="underline underline-offset-2 hover:text-brand-ink">为什么企业需要年度财税顾问</Link>
               </p>
             </div>
@@ -439,20 +435,17 @@ export default function HomePage() {
             <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-brand-muted">
               如果企业还处于初创阶段，或者只需要基础代账服务，年度顾问可能不是当前最优选择。
             </p>
-            <div className="mt-10 flex flex-col items-center gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
-              >
-                申请企业经营尽调（限量开放）
-                <ArrowRight className="h-4 w-4" />
-              </Link>
+            <div className="mt-10">
+              <p className="text-sm text-brand-muted">
+                <Link href="/contact" className="underline underline-offset-2 hover:text-brand-ink">申请企业经营尽调（限量开放）</Link>
+                ｜ 每月仅服务有限企业
+              </p>
             </div>
           </div>
         </section>
 
         {/* ── 联系 ── */}
-        <section className="border-b border-brand-line">
+        <section className="bg-brand-soft">
           <div className="mx-auto max-w-3xl px-6 py-28 text-center md:py-36">
             <SectionTitle
               label="行动"
