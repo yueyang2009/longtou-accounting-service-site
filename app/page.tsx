@@ -345,7 +345,7 @@ export default function HomePage() {
                       <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">
                         Step {index + 1}
                       </p>
-                      <h3 className="mt-5 text-2xl font-semibold tracking-tight text-brand-ink">{step.title}</h3>
+                      <h3 className="mt-5 text-lg font-semibold tracking-tight text-brand-ink">{step.title}</h3>
                       <p className="mt-5 text-sm leading-7 text-brand-muted">{step.description}</p>
                     </div>
                   </div>
