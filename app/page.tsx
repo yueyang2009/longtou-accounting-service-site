@@ -140,8 +140,8 @@ export default function HomePage() {
           </Link>
           <nav className="hidden items-center gap-8 md:flex">
             <Link href="#pain" className="text-sm text-brand-muted hover:text-brand-ink">痛点</Link>
-            <Link href="#method" className="text-sm text-brand-muted hover:text-brand-ink">方法</Link>
             <Link href="#annual" className="text-sm text-brand-muted hover:text-brand-ink">年度顾问</Link>
+            <Link href="#method" className="text-sm text-brand-muted hover:text-brand-ink">方法</Link>
             <Link href="#principles" className="text-sm text-brand-muted hover:text-brand-ink">坚持</Link>
             <Link href="#team" className="text-sm text-brand-muted hover:text-brand-ink">团队</Link>
           </nav>
