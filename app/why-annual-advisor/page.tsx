@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+import { BrandLogo } from "@/components/BrandLogo";
 import { brand } from "@/lib/data";
-
-const siteBasePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 function Label({ text }: { text: string }) {
   return (
@@ -39,8 +38,8 @@ export default function WhyAnnualAdvisorPage() {
       {/* ── Header ── */}
       <header className="sticky top-0 z-50 border-b border-brand-line bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-          <Link href="/" className="text-lg font-semibold tracking-tight text-brand-ink">
-            {brand.name}
+          <Link href="/" className="inline-flex items-center">
+            <BrandLogo className="h-9 w-auto max-w-[150px]" />
           </Link>
           <Link
             href="/contact"

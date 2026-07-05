@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight, CheckCircle2, Minus } from "lucide-react";
 
+import { BrandLogo } from "@/components/BrandLogo";
 import {
   annualPlan,
   annualTimeline,
@@ -14,9 +14,6 @@ import {
   principles,
   trustMetrics
 } from "@/lib/data";
-
-const assetBasePath = process.env.GITHUB_PAGES === "true" ? "/longtou-accounting-service-site" : "";
-const longtouLogoSrc = `${assetBasePath}/images/longtou-group-logo.png`;
 
 function SectionTitle({
   label,
@@ -138,8 +135,8 @@ export default function HomePage() {
       {/* ── Header ── */}
       <header className="sticky top-0 z-50 border-b border-brand-line bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-          <Link href="/" className="text-lg font-semibold tracking-tight text-brand-ink">
-            {brand.name}
+          <Link href="/" className="inline-flex items-center">
+            <BrandLogo className="h-9 w-auto max-w-[150px]" />
           </Link>
           <nav className="hidden items-center gap-8 md:flex">
             <Link href="#pain" className="text-sm text-brand-muted hover:text-brand-ink">痛点</Link>
@@ -165,18 +162,7 @@ export default function HomePage() {
           <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(255,250,242,0.72)_0%,rgba(255,250,242,0)_70%)] blur-3xl" />
           <div className="relative z-10 mx-auto grid max-w-7xl gap-16 px-6 py-28 md:py-36 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
             <div>
-              <div className="mb-8 inline-flex items-center gap-4 rounded-md border border-white/75 bg-white/70 px-4 py-3 shadow-[0_18px_45px_rgba(17,17,17,0.08)] backdrop-blur-xl">
-                <Image
-                  src={longtouLogoSrc}
-                  alt="龙头集团"
-                  width={2192}
-                  height={820}
-                  priority
-                  className="h-8 w-auto"
-                />
-                <span className="h-8 w-px bg-brand-line" />
-                <span className="text-sm font-medium text-brand-muted">年度经营顾问</span>
-              </div>
+              <p className="mb-7 text-sm font-medium text-brand-muted">年度经营顾问</p>
               <h1 className="max-w-4xl text-5xl font-semibold leading-[1.05] tracking-tight text-brand-ink md:text-7xl">
                 让企业经营更规范，让老板决策更从容。
               </h1>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { brand, navItems } from "@/lib/data";
+import { BrandLogo } from "@/components/BrandLogo";
 import { Button } from "@/components/ui/button";
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -8,14 +9,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-white text-brand-ink">
       <header className="sticky top-0 z-50 border-b border-brand-line bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:px-8">
-          <Link href="/" className="flex items-center gap-3">
-            <span className="flex h-9 w-9 items-center justify-center rounded-md bg-brand-ink text-sm font-semibold text-white">
-              龙头
-            </span>
-            <span>
-              <span className="block text-base font-semibold leading-tight">{brand.name}</span>
-              <span className="block text-xs text-brand-muted">{brand.positioning}</span>
-            </span>
+          <Link href="/" className="inline-flex items-center">
+            <BrandLogo className="h-9 w-auto max-w-[150px]" />
           </Link>
           <nav className="hidden items-center gap-7 lg:flex">
             {navItems.map((item) => (

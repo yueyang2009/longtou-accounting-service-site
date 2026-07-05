@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Minus } from "lucide-react";
 
+import { BrandLogo } from "@/components/BrandLogo";
 import { brand } from "@/lib/data";
 
 function Label({ text }: { text: string }) {
@@ -36,8 +37,8 @@ export default function AboutPage() {
     <div className="min-h-screen bg-white">
       <header className="sticky top-0 z-50 border-b border-brand-line bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-          <Link href="/" className="text-lg font-semibold tracking-tight text-brand-ink">
-            {brand.name}
+          <Link href="/" className="inline-flex items-center">
+            <BrandLogo className="h-9 w-auto max-w-[150px]" />
           </Link>
           <Link
             href="/contact"

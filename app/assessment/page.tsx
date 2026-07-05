@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { brand } from "@/lib/data";
+import { BrandLogo } from "@/components/BrandLogo";
 import { AssessmentForm } from "@/components/AssessmentForm";
 
 function Label({ text }: { text: string }) {
@@ -15,7 +15,9 @@ export default function AssessmentPage() {
     <div className="min-h-screen bg-white">
       <header className="sticky top-0 z-50 border-b border-brand-line bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-          <Link href="/" className="text-lg font-semibold tracking-tight text-brand-ink">{brand.name}</Link>
+          <Link href="/" className="inline-flex items-center">
+            <BrandLogo className="h-9 w-auto max-w-[150px]" />
+          </Link>
           <Link href="/contact" className="rounded-md bg-brand-ink px-5 py-2 text-sm font-medium text-white">提交申请</Link>
         </div>
       </header>
