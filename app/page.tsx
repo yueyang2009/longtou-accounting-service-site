@@ -1,15 +1,128 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Minus } from "lucide-react";
 
-import { brand, homePainCards, longtouMethod, annualPlan, trustMetrics, experts, clientStories } from "@/lib/data";
+import {
+  annualPlan,
+  annualTimeline,
+  brand,
+  clientStories,
+  experts,
+  homePainCards,
+  longtouMethod,
+  principles,
+  trustMetrics
+} from "@/lib/data";
 
-const siteBasePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
-function SectionTitle({ label, title }: { label?: string; title: string }) {
+function SectionTitle({
+  label,
+  title,
+  description
+}: {
+  label?: string;
+  title: string;
+  description?: string;
+}) {
   return (
-    <div className="mx-auto max-w-2xl text-center">
+    <div className="mx-auto max-w-3xl text-center">
       {label && <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-brand-muted">{label}</p>}
-      <h2 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-4xl">{title}</h2>
+      <h2 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-5xl">{title}</h2>
+      {description ? <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-brand-muted">{description}</p> : null}
+    </div>
+  );
+}
+
+function DashboardPreview() {
+  const operatingMetrics = [
+    { label: "利润质量", value: "清晰", width: "78%" },
+    { label: "现金节奏", value: "稳健", width: "64%" },
+    { label: "税务风险", value: "前置", width: "42%" }
+  ];
+
+  return (
+    <div className="relative">
+      <div className="absolute -right-6 top-10 hidden h-72 w-72 rounded-full border border-brand-line lg:block" />
+      <div className="relative border border-brand-line bg-white p-4 shadow-[0_28px_80px_rgba(17,17,17,0.10)]">
+        <div className="border border-brand-line bg-[#fbfbfa] p-5">
+          <div className="flex items-center justify-between border-b border-brand-line pb-5">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">Operating cockpit</p>
+              <p className="mt-2 text-2xl font-semibold tracking-tight text-brand-ink">经营驾驶舱</p>
+            </div>
+            <div className="flex gap-2">
+              <span className="h-2.5 w-2.5 rounded-full bg-brand-line" />
+              <span className="h-2.5 w-2.5 rounded-full bg-brand-muted" />
+              <span className="h-2.5 w-2.5 rounded-full bg-brand-ink" />
+            </div>
+          </div>
+
+          <div className="grid gap-4 py-5 sm:grid-cols-3">
+            {[
+              ["年度陪跑", "12个月"],
+              ["风险事项", "前置处理"],
+              ["复盘节奏", "季度"]
+            ].map(([label, value]) => (
+              <div key={label} className="border border-brand-line bg-white p-4">
+                <p className="text-xs text-brand-muted">{label}</p>
+                <p className="mt-3 text-xl font-semibold tracking-tight text-brand-ink">{value}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="border border-brand-line bg-white p-5">
+              <div className="flex items-center justify-between">
+                <p className="text-sm font-semibold text-brand-ink">经营健康度</p>
+                <p className="text-xs text-brand-muted">本月复盘</p>
+              </div>
+              <div className="mt-6 space-y-5">
+                {operatingMetrics.map((metric) => (
+                  <div key={metric.label}>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-brand-muted">{metric.label}</span>
+                      <span className="font-medium text-brand-ink">{metric.value}</span>
+                    </div>
+                    <div className="mt-2 h-2 bg-brand-soft">
+                      <div className="h-full bg-brand-ink" style={{ width: metric.width }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid gap-4">
+              <div className="border border-brand-line bg-white p-5">
+                <p className="text-sm font-semibold text-brand-ink">风险前置</p>
+                <div className="mt-5 grid grid-cols-4 gap-2">
+                  {Array.from({ length: 16 }).map((_, index) => (
+                    <span
+                      key={index}
+                      className={[
+                        "h-8 border border-brand-line",
+                        index % 5 === 0 ? "bg-brand-ink" : index % 3 === 0 ? "bg-brand-muted/35" : "bg-brand-soft"
+                      ].join(" ")}
+                    />
+                  ))}
+                </div>
+              </div>
+              <div className="border border-brand-line bg-brand-ink p-5 text-white">
+                <p className="text-xs uppercase tracking-widest text-white/55">Next review</p>
+                <p className="mt-3 text-2xl font-semibold">季度经营复盘</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-4 grid gap-3 border border-brand-line bg-white p-4 sm:grid-cols-4">
+            {["诊断", "理顺", "建立", "陪跑"].map((item, index) => (
+              <div key={item} className="flex items-center gap-2 text-xs font-medium text-brand-muted">
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-soft text-brand-ink">
+                  {index + 1}
+                </span>
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -26,9 +139,9 @@ export default function HomePage() {
           <nav className="hidden items-center gap-8 md:flex">
             <Link href="#pain" className="text-sm text-brand-muted hover:text-brand-ink">痛点</Link>
             <Link href="#method" className="text-sm text-brand-muted hover:text-brand-ink">方法</Link>
-            <Link href="#service" className="text-sm text-brand-muted hover:text-brand-ink">服务</Link>
+            <Link href="#annual" className="text-sm text-brand-muted hover:text-brand-ink">年度顾问</Link>
+            <Link href="#principles" className="text-sm text-brand-muted hover:text-brand-ink">坚持</Link>
             <Link href="#team" className="text-sm text-brand-muted hover:text-brand-ink">团队</Link>
-            <Link href="#cases" className="text-sm text-brand-muted hover:text-brand-ink">案例</Link>
           </nav>
           <Link
             href="/contact"
@@ -41,52 +154,47 @@ export default function HomePage() {
 
       <main>
         {/* ── Hero ── */}
-        <section className="border-b border-brand-line">
-          <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-[1.2fr_0.8fr] md:py-32 lg:px-8">
+        <section className="overflow-hidden border-b border-brand-line">
+          <div className="mx-auto grid max-w-7xl gap-16 px-6 py-28 md:py-36 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
             <div>
-              <p className="mb-6 text-sm font-medium text-brand-muted">{brand.name} · {brand.positioning}</p>
-              <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-tight text-brand-ink md:text-6xl">
-                {brand.slogan}
+              <p className="mb-7 text-sm font-medium text-brand-muted">{brand.name} · 年度经营顾问</p>
+              <h1 className="max-w-4xl text-5xl font-semibold leading-[1.05] tracking-tight text-brand-ink md:text-7xl">
+                让企业经营更规范，让老板决策更从容。
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-brand-muted">
-                服务年营收 2000万—2亿的成长型企业。不代替账，不做一次性咨询——做老板身边能长期出力的财税参谋。
+              <p className="mt-8 max-w-2xl text-lg leading-8 text-brand-muted">
+                以财税为入口，把利润、现金流、风险和组织协同放进同一套经营节奏里。我们更像企业的长期参谋，而不是一次性问题处理者。
               </p>
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <div className="mt-11 flex flex-col gap-4 sm:flex-row">
                 <Link
                   href="/contact"
                   className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
                 >
-                  预约免费财税诊断
+                  预约一次咨询
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   href="/annual-advisory"
                   className="inline-flex h-12 items-center gap-2 rounded-md border border-brand-line px-7 text-sm font-medium text-brand-ink transition hover:bg-brand-soft"
                 >
-                  了解年度顾问计划
+                  了解年度顾问
                 </Link>
               </div>
-              <div className="mt-12 flex flex-wrap gap-6 text-sm text-brand-muted">
-                <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-brand-ink" />CPA / CTA 双师团队</span>
-                <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-brand-ink" />1000+企业服务经验</span>
-                <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-brand-ink" />河南本地 · 上门服务</span>
+              <div className="mt-14 grid gap-5 text-sm text-brand-muted sm:grid-cols-3">
+                {["CPA / CTA 双师团队", "年度陪跑机制", "河南本地服务"].map((item) => (
+                  <span key={item} className="flex items-center gap-2">
+                    <Minus className="h-4 w-4 text-brand-ink" />
+                    {item}
+                  </span>
+                ))}
               </div>
             </div>
-            <div className="hidden items-center justify-center md:flex">
-              <div className="grain w-72 rounded-md border border-brand-line bg-brand-soft shadow-[0_18px_50px_rgba(0,0,0,0.06)]">
-                <img
-                  src={`${siteBasePath}/images/headshot.png`}
-                  alt="李岳阳"
-                  className="h-auto w-full"
-                />
-              </div>
-            </div>
+            <DashboardPreview />
           </div>
         </section>
 
         {/* ── 痛点 ── */}
         <section id="pain" className="border-b border-brand-line bg-brand-soft">
-          <div className="mx-auto max-w-7xl px-6 py-24 md:py-28">
+          <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle label="老板痛点" title="老板真正焦虑的，从来不是做账。" />
             <div className="mt-12 grid gap-4 md:grid-cols-4">
               {homePainCards.map((item, i) => (
@@ -102,9 +210,39 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* ── 年度时间轴 ── */}
+        <section id="annual" className="border-b border-brand-line">
+          <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
+            <SectionTitle
+              label="年度顾问"
+              title="我们陪伴企业走完一年，而不是解决一个问题。"
+              description="真正的规范不是一次诊断完成的，而是在经营节奏里持续看见、判断、修正和沉淀。"
+            />
+            <div className="mt-16">
+              <div className="hidden h-px bg-brand-line md:block" />
+              <div className="grid gap-5 md:-mt-3 md:grid-cols-5">
+                {annualTimeline.map((item) => (
+                  <div key={item.period} className="bg-white md:pt-0">
+                    <div className="mb-7 hidden h-6 w-6 rounded-full border border-brand-ink bg-white md:block" />
+                    <div className="border border-brand-line p-7">
+                      <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">{item.period}</p>
+                      <h3 className="mt-5 text-xl font-semibold leading-snug text-brand-ink">{item.title}</h3>
+                      <ul className="mt-6 space-y-3">
+                        {item.items.map((li) => (
+                          <li key={li} className="text-sm leading-6 text-brand-muted">{li}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ── 方法论 ── */}
         <section id="method" className="border-b border-brand-line">
-          <div className="mx-auto max-w-7xl px-6 py-24 md:py-28">
+          <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle label="龙头方法" title="先看清，再理顺；先建立，再陪跑。" />
             <div className="mt-12 grid gap-px overflow-hidden border border-brand-line bg-brand-line md:grid-cols-4">
               {longtouMethod.map((item) => (
@@ -126,8 +264,8 @@ export default function HomePage() {
         </section>
 
         {/* ── 服务：年度顾问 ── */}
-        <section id="service" className="border-b border-brand-line bg-brand-soft">
-          <div className="mx-auto max-w-7xl px-6 py-24 md:py-28">
+        <section className="border-b border-brand-line bg-brand-soft">
+          <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle label="核心服务" title={annualPlan.title} />
             <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-7 text-brand-muted">
               {annualPlan.summary}
@@ -180,9 +318,31 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* ── 我们坚持什么 ── */}
+        <section id="principles" className="border-b border-brand-line">
+          <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
+            <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+              <div>
+                <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-brand-muted">Principles</p>
+                <h2 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-5xl">
+                  我们坚持什么
+                </h2>
+              </div>
+              <div className="grid gap-px overflow-hidden border border-brand-line bg-brand-line md:grid-cols-2">
+                {principles.map((item) => (
+                  <div key={item.title} className="bg-white p-8 md:p-10">
+                    <h3 className="text-2xl font-semibold tracking-tight text-brand-ink">{item.title}</h3>
+                    <p className="mt-5 text-sm leading-7 text-brand-muted">{item.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ── 团队 ── */}
         <section id="team" className="border-b border-brand-line">
-          <div className="mx-auto max-w-7xl px-6 py-24 md:py-28">
+          <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle label="团队实力" title="先看人，再谈合作。" />
             <div className="mt-10 grid gap-px overflow-hidden border border-brand-line bg-brand-line md:grid-cols-4">
               {trustMetrics.map((m) => (
@@ -208,7 +368,7 @@ export default function HomePage() {
 
         {/* ── 案例 ── */}
         <section id="cases" className="border-b border-brand-line bg-brand-soft">
-          <div className="mx-auto max-w-7xl px-6 py-24 md:py-28">
+          <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle label="客户案例" title="不写客户名称，只讲真实问题。" />
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               {clientStories.map((story) => (
@@ -220,7 +380,7 @@ export default function HomePage() {
                     <p>{story.result}</p>
                   </div>
                   <p className="mt-6 border-l-4 border-brand-ink bg-brand-soft px-5 py-4 text-sm font-medium text-brand-ink">
-                    "{story.quote}"
+                    “{story.quote}”
                   </p>
                 </article>
               ))}
@@ -230,7 +390,7 @@ export default function HomePage() {
 
         {/* ── 联系 ── */}
         <section className="border-b border-brand-line">
-          <div className="mx-auto max-w-3xl px-6 py-24 text-center md:py-28">
+          <div className="mx-auto max-w-3xl px-6 py-28 text-center md:py-36">
             <SectionTitle
               label="行动"
               title="如果企业正在成长，现在就是最好的时间。"

@@ -221,6 +221,53 @@ export const annualPlan = {
     { step: "第三步", title: "签约启动", desc: "签订年度顾问合同，正式进入服务体系" }
   ]
 };
+
+export const annualTimeline = [
+  {
+    period: "1月",
+    title: "年度诊断与经营基线",
+    items: ["财税体检", "利润口径校准", "风险清单"]
+  },
+  {
+    period: "2-3月",
+    title: "历史问题理顺",
+    items: ["账务修正", "税务口径确认", "流程断点识别"]
+  },
+  {
+    period: "4-6月",
+    title: "经营看板建立",
+    items: ["利润看板", "现金流节奏", "项目或产品核算"]
+  },
+  {
+    period: "7-9月",
+    title: "预算与制度落地",
+    items: ["预算机制", "审批边界", "财务协同机制"]
+  },
+  {
+    period: "10-12月",
+    title: "年度复盘与来年规划",
+    items: ["年度健康报告", "风险复盘", "下一年度重点"]
+  }
+];
+
+export const principles = [
+  {
+    title: "长期陪伴",
+    description: "不把咨询做成一次交付，而是陪企业形成稳定的经营节奏。"
+  },
+  {
+    title: "专业判断",
+    description: "用会计、税务和经营视角共同判断问题，不只看单一凭证。"
+  },
+  {
+    title: "风险前置",
+    description: "把风险放到决策前处理，减少事后补救和被动应对。"
+  },
+  {
+    title: "尊重经营",
+    description: "方案服从企业真实业务，而不是让业务迁就漂亮表格。"
+  }
+];
 export const revenueRanges = [
   "2000万以下",
   "2000万—5000万",
