@@ -3,6 +3,8 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 import { brand, homePainCards, longtouMethod, annualPlan, trustMetrics, experts, clientStories } from "@/lib/data";
 
+const siteBasePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 function SectionTitle({ label, title }: { label?: string; title: string }) {
   return (
     <div className="mx-auto max-w-2xl text-center">
@@ -73,7 +75,7 @@ export default function HomePage() {
             <div className="hidden items-center justify-center md:flex">
               <div className="grain w-72 rounded-md border border-brand-line bg-brand-soft shadow-[0_18px_50px_rgba(0,0,0,0.06)]">
                 <img
-                  src="/images/headshot.png"
+                  src={`${siteBasePath}/images/headshot.png`}
                   alt="李岳阳"
                   className="h-auto w-full"
                 />
