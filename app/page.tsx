@@ -148,6 +148,8 @@ export default function HomePage() {
             <Link href="#method" className="text-sm text-brand-muted hover:text-brand-ink">方法</Link>
             <Link href="#principles" className="text-sm text-brand-muted hover:text-brand-ink">坚持</Link>
             <Link href="#team" className="text-sm text-brand-muted hover:text-brand-ink">团队</Link>
+            <span className="text-brand-line">|</span>
+            <Link href="/about" className="text-sm text-brand-muted hover:text-brand-ink">关于</Link>
           </nav>
           <Link
             href="/contact"
