@@ -24,14 +24,6 @@ function Body({ children }: { children: React.ReactNode }) {
   return <div className="mt-8 space-y-5 text-base leading-8 text-brand-muted">{children}</div>;
 }
 
-function QuoteLine({ children }: { children: string }) {
-  return (
-    <p className="border-l-4 border-brand-ink bg-brand-soft px-6 py-5 text-lg font-medium leading-7 text-brand-ink">
-      {children}
-    </p>
-  );
-}
-
 export default function WhyAnnualAdvisorPage() {
   return (
     <div className="min-h-screen bg-white">
