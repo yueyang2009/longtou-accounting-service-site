@@ -250,7 +250,67 @@ export default function WhyAnnualAdvisorPage() {
         </section>
 
         {/* ════════════════════════════════════════
-            ⑦ FAQ
+            ⑦ 客户筛选模块（新增）
+            ════════════════════════════════════════ */}
+        <section className="border-b border-brand-line">
+          <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">
+            <Label text="筛选标准" />
+            <Heading>我们如何判断是否适合服务？</Heading>
+            <div className="mt-10 grid gap-8 md:grid-cols-2">
+              <div className="border border-brand-line bg-white p-7">
+                <p className="mb-5 text-sm font-semibold text-brand-ink">适合</p>
+                <ul className="space-y-4">
+                  {["企业正在成长", "有稳定营收基础", "希望建立规范体系", "老板愿意参与经营管理"].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm leading-6 text-brand-muted">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-ink" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="border border-brand-line bg-brand-soft p-7">
+                <p className="mb-5 text-sm font-semibold text-brand-muted">不适合</p>
+                <ul className="space-y-4">
+                  {["只想做低价代账", "只做一次性问题处理", "不关注长期经营"].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm leading-6 text-brand-muted">
+                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-muted" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════
+            ⑧ 合作流程说明模块（新增）
+            ════════════════════════════════════════ */}
+        <section className="border-b border-brand-line bg-brand-soft">
+          <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">
+            <Label text="合作流程" />
+            <Heading>申请企业经营尽调后会发生什么？</Heading>
+            <div className="mt-10 space-y-5">
+              {[
+                { step: "STEP 1", title: "提交申请" },
+                { step: "STEP 2", title: "初步沟通" },
+                { step: "STEP 3", title: "企业经营尽调（2～3天）" },
+                { step: "STEP 4", title: "输出适配性建议" },
+                { step: "STEP 5", title: "决定是否年度合作" },
+              ].map((phase) => (
+                <div key={phase.step} className="flex items-center gap-6 border border-brand-line bg-white px-7 py-5">
+                  <p className="w-20 shrink-0 text-xs font-semibold uppercase tracking-widest text-brand-muted">
+                    {phase.step}
+                  </p>
+                  <p className="text-base font-semibold text-brand-ink">{phase.title}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════
+            ⑨ FAQ
             ════════════════════════════════════════ */}
         <section className="border-b border-brand-line">
           <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">

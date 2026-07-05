@@ -18,10 +18,13 @@ export function CTASection() {
         </div>
         <Button asChild size="lg" className="bg-white text-brand-ink hover:bg-white/90">
           <Link href="/contact">
-            预约经营交流
+            申请企业经营尽调（限量开放）
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
+        <p className="mt-3 text-sm text-white/60">
+          每月仅服务有限企业，需初步评估适配性
+        </p>
       </div>
     </section>
   );

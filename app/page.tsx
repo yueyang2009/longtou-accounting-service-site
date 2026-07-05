@@ -148,7 +148,7 @@ export default function HomePage() {
             href="/contact"
             className="rounded-md bg-brand-ink px-5 py-2 text-sm font-medium text-white transition hover:bg-black"
           >
-            预约交流
+            申请企业经营尽调（限量开放）
           </Link>
         </div>
       </header>
@@ -170,7 +170,7 @@ export default function HomePage() {
                   href="/contact"
                   className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
                 >
-                  预约经营交流
+                  申请企业经营尽调（限量开放）
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
@@ -312,7 +312,7 @@ export default function HomePage() {
                 href="/contact"
                 className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
               >
-                预约经营交流
+                申请企业经营尽调（限量开放）
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <p className="mt-5 text-sm text-brand-muted">
@@ -425,7 +425,7 @@ export default function HomePage() {
           <div className="mx-auto max-w-3xl px-6 py-28 text-center md:py-36">
             <SectionTitle
               label="行动"
-              title="预约一次经营交流"
+              title="申请企业经营尽调（限量开放）"
             />
             <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-brand-muted">
               不急着给方案，先把企业所处阶段、真实问题和需要优先处理的事项讲清楚。
@@ -435,7 +435,7 @@ export default function HomePage() {
                 href="/contact"
                 className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
               >
-                预约经营交流
+                申请企业经营尽调（限量开放）
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <p className="text-sm text-brand-muted">
