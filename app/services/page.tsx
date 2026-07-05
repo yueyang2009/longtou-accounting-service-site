@@ -41,7 +41,7 @@ export default function ServicesPage() {
             <Link href="/why-annual-advisor" className="text-sm text-brand-muted hover:text-brand-ink">年度顾问</Link>
           </nav>
           <Link href="/contact" className="rounded-md bg-brand-ink px-5 py-2 text-sm font-medium text-white transition hover:bg-black">
-            申请企业财税风险诊断（限时开放）
+            申请企业经营尽调（限量开放）
           </Link>
         </div>
       </header>
@@ -95,15 +95,15 @@ export default function ServicesPage() {
               {[
                 {
                   title: "经营真实性识别能力",
-                  desc: "识别企业真实经营状态，而不是账面数据。"
+                  desc: "从业务实际发生出发，对经营数据进行结构性判断。"
                 },
                 {
                   title: "财务结构重建能力",
-                  desc: "将混乱财务体系重建为可分析、可决策的结构。"
+                  desc: "对企业财务体系进行系统性梳理与重建，使其具备分析基础。"
                 },
                 {
                   title: "税务风险判断能力",
-                  desc: "在风险发生前识别税务问题，而不是事后处理。"
+                  desc: "基于经营数据分析，在风险形成前进行识别与判断。"
                 },
                 {
                   title: "企业结构设计能力",
@@ -111,7 +111,7 @@ export default function ServicesPage() {
                 },
                 {
                   title: "持续经营支持能力",
-                  desc: "建立长期财务与经营判断机制。"
+                  desc: "建立能够持续运转的财务与经营分析机制。"
                 }
               ].map((cap) => (
                 <div key={cap.title} className="border border-brand-line bg-brand-soft p-7">
@@ -226,10 +226,10 @@ export default function ServicesPage() {
             </h2>
             <div className="mt-10 flex flex-col items-center gap-4">
               <Link href="/contact" className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black">
-                申请企业财税风险诊断（限时开放）
+                申请企业经营尽调（限量开放）
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              <p className="text-sm text-brand-muted">签约前诊断不收费 · 根据企业情况判断是否适配</p>
+              <p className="text-sm text-brand-muted">每月仅服务有限企业，需初步评估是否适配年度顾问体系。</p>
             </div>
           </div>
         </section>

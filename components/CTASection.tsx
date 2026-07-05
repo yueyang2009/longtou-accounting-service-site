@@ -10,7 +10,7 @@ export function CTASection() {
         <div>
           <p className="text-sm font-semibold text-white/60">经营交流</p>
           <h2 className="mt-3 max-w-3xl text-3xl font-semibold leading-tight md:text-4xl">
-            如果企业正在成长，可以先做一次经营交流
+            如果企业正在成长，可以先做一次经营判断
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-7 text-white/70">
             先把企业阶段、经营困扰和需要优先处理的事项讲清楚。
@@ -18,7 +18,7 @@ export function CTASection() {
         </div>
         <Button asChild size="lg" className="bg-white text-brand-ink hover:bg-white/90">
           <Link href="/contact">
-            申请企业财税风险诊断（限时开放）
+            申请企业经营尽调（限量开放）
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>

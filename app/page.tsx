@@ -153,7 +153,7 @@ export default function HomePage() {
             href="/contact"
             className="premium-button rounded-md bg-brand-ink px-5 py-2 text-sm font-medium text-white transition hover:bg-black"
           >
-            申请企业财税风险诊断（限时开放）
+            申请企业经营尽调（限量开放）
           </Link>
         </div>
       </header>
@@ -172,7 +172,7 @@ export default function HomePage() {
                 让企业经营更规范，让老板决策更从容。
               </h1>
               <p className="mt-8 max-w-2xl text-lg leading-8 text-brand-muted">
-                以财税为入口，把利润、现金流、风险和组织协同放进同一套经营节奏里。我们更像企业的长期参谋，而不是一次性问题处理者。
+                以财税为切入点，将利润、现金流、风险与组织协同置于同一经营节奏中分析。核心不是处理单点问题，而是建立持续经营判断能力。
               </p>
               <div className="mt-11 flex flex-col gap-4 sm:flex-row">
                 <Link
@@ -189,7 +189,7 @@ export default function HomePage() {
                 </Link>
               </div>
               <div className="mt-14 grid gap-5 text-sm text-brand-muted sm:grid-cols-3">
-                {["专业团队", "年度陪跑机制", "本地化服务"].map((item) => (
+                {["注册会计师团队", "年度顾问机制", "本地经营判断"].map((item) => (
                   <span key={item} className="flex items-center gap-2">
                     <Minus className="h-4 w-4 text-brand-ink" />
                     {item}
@@ -317,7 +317,7 @@ export default function HomePage() {
 
             <div className="mt-10 text-center">
               <p className="text-sm text-brand-muted">
-                <Link href="/contact" className="underline underline-offset-2 hover:text-brand-ink">申请企业财税风险诊断（限时开放）</Link>
+                <Link href="/contact" className="underline underline-offset-2 hover:text-brand-ink">申请企业经营尽调（限量开放）</Link>
                 ｜ 每月仅服务有限企业
               </p>
               <p className="mt-3 text-sm text-brand-muted">
@@ -442,7 +442,7 @@ export default function HomePage() {
             </p>
             <div className="mt-10">
               <p className="text-sm text-brand-muted">
-                <Link href="/contact" className="underline underline-offset-2 hover:text-brand-ink">申请企业财税风险诊断（限时开放）</Link>
+                <Link href="/contact" className="underline underline-offset-2 hover:text-brand-ink">申请企业经营尽调（限量开放）</Link>
                 ｜ 每月仅服务有限企业
               </p>
             </div>
@@ -454,7 +454,7 @@ export default function HomePage() {
           <div className="mx-auto max-w-3xl px-6 py-28 text-center md:py-36">
             <SectionTitle
               label="行动"
-              title="申请企业财税风险诊断（限时开放）"
+              title="申请企业经营尽调（限量开放）"
             />
             <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-brand-muted">
               不急着给方案，先把企业所处阶段、真实问题和需要优先处理的事项讲清楚。
@@ -464,7 +464,7 @@ export default function HomePage() {
                 href="/contact"
                 className="premium-button inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
               >
-                申请企业财税风险诊断（限时开放）
+                申请企业经营尽调（限量开放）
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <p className="text-sm text-brand-muted">

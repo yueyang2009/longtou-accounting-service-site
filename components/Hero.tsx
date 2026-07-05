@@ -14,17 +14,17 @@ export function Hero() {
             企业财税问题，往往不是不会做，而是没人帮你看清楚
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-brand-muted">
-            龙头会服 · 企业财高端财税服务团队
+            龙头会服 · 企业经营财税顾问
             <br />
             服务经营规模正在扩大的成长型企业
           </p>
           <p className="mt-5 inline-flex w-fit rounded-md border border-brand-line bg-brand-soft px-4 py-2 text-sm text-brand-muted">
-            本服务更适合已具备稳定经营规模的企业
+            更适合已具备稳定经营规模的企业
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg">
               <Link href="/contact">
-                申请企业财税风险诊断（限时开放）
+                申请企业经营尽调（限量开放）
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

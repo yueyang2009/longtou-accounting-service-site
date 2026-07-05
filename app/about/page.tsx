@@ -51,7 +51,7 @@ export default function AboutPage() {
             href="/contact"
             className="rounded-md bg-brand-ink px-5 py-2 text-sm font-medium text-white transition hover:bg-black"
           >
-            申请企业财税风险诊断（限时开放）
+            申请企业经营尽调（限量开放）
           </Link>
         </div>
       </header>
@@ -127,10 +127,10 @@ export default function AboutPage() {
             <Heading>我们是谁？</Heading>
             <Body>
               <p>
-                龙头会服高端财税事业部，总部位于郑州。团队由注册会计师、注册税务师、律师、高级会计师组成。
+                龙头会服，总部位于郑州。团队由注册会计师、注册税务师、律师、高级会计师组成。
               </p>
               <p>
-                核心成员平均行业经验超过10年，来自头部会计师事务所和大型集团财务负责人岗位。累计服务超过1000家河南本土企业。
+                团队由注册会计师、注册税务师及高级财务专业人员组成。累计服务超过1000家河南本土企业。
               </p>
               <p>
                 不是理论派。每一个顾问都有一线实战背景，每一个方案都经过双师审核。
@@ -153,7 +153,7 @@ export default function AboutPage() {
                 href="/contact"
                 className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
               >
-                申请企业财税风险诊断（限时开放）
+                申请企业经营尽调（限量开放）
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <p className="text-sm text-brand-muted">

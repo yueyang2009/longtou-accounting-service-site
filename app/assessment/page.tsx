@@ -38,7 +38,7 @@ export default function AssessmentPage() {
               <span className="text-brand-muted">（免费初步评估）</span>
             </h1>
             <p className="mt-8 max-w-2xl text-lg leading-8 text-brand-muted">
-              不是销售拜访，而是对企业经营模式、财务状况和管理体系的系统性梳理。
+              对企业经营模式、财务状况和管理体系进行结构性梳理，判断是否适配年度顾问体系。
             </p>
           </div>
         </section>
