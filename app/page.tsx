@@ -315,6 +315,9 @@ export default function HomePage() {
                 预约经营交流
                 <ArrowRight className="h-4 w-4" />
               </Link>
+              <p className="mt-5 text-sm text-brand-muted">
+                先了解 → <Link href="/why-annual-advisor" className="underline underline-offset-2 hover:text-brand-ink">为什么企业需要年度财税顾问</Link>
+              </p>
             </div>
           </div>
         </section>
