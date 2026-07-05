@@ -380,15 +380,6 @@ export default function HomePage() {
         <section id="team" className="border-b border-brand-line">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle label="团队实力" title="先看人，再谈合作。" />
-            <div className="mt-10 grid gap-px overflow-hidden border border-brand-line bg-brand-line md:grid-cols-4">
-              {trustMetrics.map((m) => (
-                <div key={m.label} className="bg-white p-7">
-                  <p className="text-3xl font-semibold tracking-tight text-brand-ink">{m.value}</p>
-                  <p className="mt-2 text-sm text-brand-muted">{m.label}</p>
-                  {m.detail && <p className="mt-1 text-lg font-semibold text-brand-ink">{m.detail}</p>}
-                </div>
-              ))}
-            </div>
             <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {experts.map((expert) => (
                 <div key={expert.name} className="border border-brand-line p-7">
@@ -396,6 +387,17 @@ export default function HomePage() {
                   <p className="mt-1 text-sm font-medium text-brand-muted">{expert.title}</p>
                   <p className="mt-4 text-sm leading-6 text-brand-muted">{expert.focus}</p>
                   <p className="mt-4 text-xs font-semibold text-brand-ink">{expert.credential}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 grid gap-px overflow-hidden border border-brand-line bg-brand-line md:grid-cols-4">
+              {trustMetrics.map((m) => (
+                <div key={m.label} className="bg-white p-6">
+                  <p className="text-2xl font-semibold tracking-tight text-brand-ink">{m.value}</p>
+                  <div className="mt-1 flex items-baseline gap-2">
+                    <p className="text-sm text-brand-muted">{m.label}</p>
+                    {m.detail && <p className="text-base font-semibold text-brand-ink">{m.detail}</p>}
+                  </div>
                 </div>
               ))}
             </div>
