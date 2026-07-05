@@ -420,6 +420,31 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* ── 最终决策模块（新增） ── */}
+        <section className="border-b border-brand-line bg-brand-soft">
+          <div className="mx-auto max-w-3xl px-6 py-24 text-center md:py-28">
+            <SectionTitle
+              label="判断"
+              title="如果你正在考虑，我们建议先做一次判断。"
+            />
+            <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-brand-muted">
+              年度顾问更适合年营收2000万以上、已有稳定经营规模、且老板愿意参与经营管理的企业。
+            </p>
+            <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-brand-muted">
+              如果企业还处于初创阶段，或者只需要基础代账服务，年度顾问可能不是当前最优选择。
+            </p>
+            <div className="mt-10 flex flex-col items-center gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
+              >
+                申请企业经营尽调（限量开放）
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* ── 联系 ── */}
         <section className="border-b border-brand-line">
           <div className="mx-auto max-w-3xl px-6 py-28 text-center md:py-36">
