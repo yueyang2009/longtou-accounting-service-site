@@ -332,7 +332,7 @@ export default function HomePage() {
             />
             <div className="mt-16">
               <div className="hidden h-px bg-brand-line md:block" />
-              <div className="grid gap-5 md:-mt-3 md:grid-cols-4">
+              <div className="grid gap-5 md:-mt-3 md:grid-cols-5">
                 {cooperationSteps.map((step, index) => (
                   <div key={step.title} className="bg-white">
                     <div className="mb-7 hidden h-6 w-6 rounded-full border border-brand-ink bg-white md:block" />

@@ -227,7 +227,11 @@ export const cooperationSteps = [
     description: "先进行一次经营交流，确认企业当下最需要被看见的问题。"
   },
   {
-    title: "企业经营尽调（2~3天）",
+    title: "签约付款",
+    description: "确认合作方向，签订年度顾问合同并支付服务费用。"
+  },
+  {
+    title: "企业经营尽调",
     description: "围绕账、税、现金流、合同和管理流程做初步梳理。"
   },
   {
