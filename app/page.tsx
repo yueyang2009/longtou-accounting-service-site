@@ -177,7 +177,7 @@ export default function HomePage() {
                   了解年度顾问计划
                 </Link>
                 <Link
-                  href="/annual-advisory"
+                  href="/services"
                   className="inline-flex h-12 items-center gap-2 rounded-md border border-brand-line px-7 text-sm font-medium text-brand-muted transition hover:bg-brand-soft"
                 >
                   查看服务体系
