@@ -41,7 +41,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <p className="mt-3 text-sm leading-6 text-white/70">经营规模正在扩大、希望建立长期管理秩序的成长型企业。</p>
           </div>
           <div>
-            <p className="text-sm font-semibold">咨询入口</p>
+            <p className="text-sm font-semibold">交流入口</p>
             <p className="mt-3 text-sm leading-6 text-white/70">电话：{brand.phone}</p>
             <p className="text-sm leading-6 text-white/70">适合先进行一次经营交流</p>
           </div>

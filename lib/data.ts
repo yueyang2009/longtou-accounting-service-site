@@ -205,7 +205,7 @@ export const conversionPaths = [
 
 export const annualPlan = {
   title: "企业年度财税顾问计划",
-  summary: '不是按次咨询，不是代账服务。而是全年陪伴，帮企业建立起"能自己运转"的财税管理体系。',
+  summary: '不是按次处理，不是代账服务。而是全年陪伴，帮企业建立起"能自己运转"的财税管理体系。',
   suitable: ["经营规模正在扩大，管理复杂度明显上升", "已有会计或代账，但缺少财税统筹", "老板想规范经营，但不清楚从哪里入手"],
   whatYouGet: [
     "经营数据看板——让利润、现金流、风险事项进入同一张图",
@@ -271,7 +271,7 @@ export const annualTimeline = [
 export const principles = [
   {
     title: "长期陪伴",
-    description: "不把咨询做成一次交付，而是陪企业形成稳定的经营节奏。"
+    description: "不把服务做成一次交付，而是陪企业形成稳定的经营节奏。"
   },
   {
     title: "专业判断",
