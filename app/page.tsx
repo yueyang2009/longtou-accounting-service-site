@@ -40,33 +40,44 @@ export default function HomePage() {
       <main>
         {/* ── Hero ── */}
         <section className="border-b border-brand-line">
-          <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
-            <p className="mb-6 text-sm font-medium text-brand-muted">{brand.name} · {brand.positioning}</p>
-            <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-tight text-brand-ink md:text-6xl">
-              {brand.slogan}
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-brand-muted">
-              服务年营收 2000万—2亿的成长型企业。不代替账，不做一次性咨询——做老板身边能长期出力的财税参谋。
-            </p>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link
-                href="/contact"
-                className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
-              >
-                预约免费财税诊断
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                href="/annual-advisory"
-                className="inline-flex h-12 items-center gap-2 rounded-md border border-brand-line px-7 text-sm font-medium text-brand-ink transition hover:bg-brand-soft"
-              >
-                了解年度顾问计划
-              </Link>
+          <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-[1.2fr_0.8fr] md:py-32 lg:px-8">
+            <div>
+              <p className="mb-6 text-sm font-medium text-brand-muted">{brand.name} · {brand.positioning}</p>
+              <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-tight text-brand-ink md:text-6xl">
+                {brand.slogan}
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-brand-muted">
+                服务年营收 2000万—2亿的成长型企业。不代替账，不做一次性咨询——做老板身边能长期出力的财税参谋。
+              </p>
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                <Link
+                  href="/contact"
+                  className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
+                >
+                  预约免费财税诊断
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href="/annual-advisory"
+                  className="inline-flex h-12 items-center gap-2 rounded-md border border-brand-line px-7 text-sm font-medium text-brand-ink transition hover:bg-brand-soft"
+                >
+                  了解年度顾问计划
+                </Link>
+              </div>
+              <div className="mt-12 flex flex-wrap gap-6 text-sm text-brand-muted">
+                <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-brand-ink" />CPA / CTA 双师团队</span>
+                <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-brand-ink" />1000+企业服务经验</span>
+                <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-brand-ink" />河南本地 · 上门服务</span>
+              </div>
             </div>
-            <div className="mt-12 flex flex-wrap gap-6 text-sm text-brand-muted">
-              <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-brand-ink" />CPA / CTA 双师团队</span>
-              <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-brand-ink" />1000+企业服务经验</span>
-              <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-brand-ink" />河南本地 · 上门服务</span>
+            <div className="hidden items-center justify-center md:flex">
+              <div className="grain w-72 rounded-md border border-brand-line bg-brand-soft shadow-[0_18px_50px_rgba(0,0,0,0.06)]">
+                <img
+                  src="/images/headshot.png"
+                  alt="李岳阳"
+                  className="h-auto w-full"
+                />
+              </div>
             </div>
           </div>
         </section>
