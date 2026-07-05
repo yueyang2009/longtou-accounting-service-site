@@ -40,6 +40,13 @@ export default function AboutPage() {
           <Link href="/" className="inline-flex items-center">
             <BrandLogo className="h-9 w-auto max-w-[150px]" />
           </Link>
+          <nav className="hidden items-center gap-6 md:flex">
+            <Link href="/" className="text-sm text-brand-muted hover:text-brand-ink">首页</Link>
+            <Link href="/about" className="text-sm font-medium text-brand-ink">关于</Link>
+            <Link href="/annual-advisory" className="text-sm text-brand-muted hover:text-brand-ink">年度顾问</Link>
+            <Link href="/why-annual-advisor" className="text-sm text-brand-muted hover:text-brand-ink">为什么需要</Link>
+            <Link href="/services" className="text-sm text-brand-muted hover:text-brand-ink">服务体系</Link>
+          </nav>
           <Link
             href="/contact"
             className="rounded-md bg-brand-ink px-5 py-2 text-sm font-medium text-white transition hover:bg-black"
