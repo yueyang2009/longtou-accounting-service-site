@@ -45,7 +45,7 @@ export type Insight = {
 
 export const brand = {
   name: "龙头会服",
-  positioning: "企业高端财税服务机构",
+  positioning: "企业财税与经营参谋团队",
   slogan: "让企业账更清楚，让经营决策更可靠",
   subtitle: "双师带队，专注中小企业财税规范与经营体系建设",
   phone: "400-000-0000",
@@ -79,8 +79,56 @@ export const painPoints = [
 export const trustMetrics = [
   { value: "CPA", label: "注册会计师", detail: "× 8" },
   { value: "CTA", label: "注册税务师", detail: "× 4" },
+  { value: "律师", label: "法律协同", detail: "× 2" },
   { value: "高级会计师", label: "专家配置", detail: "× 2" },
-  { value: "10年以上", label: "平均经验", detail: "" }
+  { value: "1000+", label: "累计服务企业", detail: "" }
+];
+
+export const homePainCards = [
+  "利润到底是真的吗？",
+  "税务有没有历史风险？",
+  "企业越来越大，管理越来越乱？",
+  "想规范，不知道从哪里开始？"
+];
+
+export const longtouMethod = [
+  {
+    step: "第一步",
+    title: "看清",
+    items: ["企业体检", "利润分析", "税务扫描"]
+  },
+  {
+    step: "第二步",
+    title: "理顺",
+    items: ["历史问题", "财税体系", "经营流程"]
+  },
+  {
+    step: "第三步",
+    title: "建立",
+    items: ["预算", "制度", "AI工具", "经营体系"]
+  },
+  {
+    step: "第四步",
+    title: "陪跑",
+    items: ["长期经营陪伴", "持续优化", "定期复盘"]
+  }
+];
+
+export const clientStories = [
+  {
+    industry: "一家建筑企业",
+    problem: "账面利润很好，但现金越来越少。老板每个月都能看到收入，却很难判断项目到底赚不赚钱。",
+    process: "我们先拆项目利润，再梳理收款、付款和成本归集口径，随后建立项目预算与复盘机制。",
+    result: "三个月后，老板能按项目看到真实利润、资金压力和下一步管控重点。",
+    quote: "以前看财务报表像看结果，现在能看见经营过程。"
+  },
+  {
+    industry: "一家制造企业",
+    problem: "订单越来越多，利润却越来越薄。企业有会计，但缺少产品线和订单维度的经营分析。",
+    process: "我们重建成本口径，拆分材料、人工、制造费用和异常损耗，形成月度经营分析表。",
+    result: "管理层开始按产品线决策，减少低毛利订单，把现金和产能投向更健康的业务。",
+    quote: "不是会计做得不好，是过去没有人把账翻译成经营语言。"
+  }
 ];
 
 export const capabilitySystems = [
@@ -317,4 +365,3 @@ export const differentiators = [
     description: "每次诊断都沉淀为问题清单、优先级和下一步行动建议。"
   }
 ];
-
