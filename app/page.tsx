@@ -151,7 +151,7 @@ export default function HomePage() {
           </nav>
           <Link
             href="/contact"
-            className="rounded-md bg-brand-ink px-5 py-2 text-sm font-medium text-white transition hover:bg-black"
+            className="premium-button rounded-md bg-brand-ink px-5 py-2 text-sm font-medium text-white transition hover:bg-black"
           >
             申请企业经营尽调（限量开放）
           </Link>
@@ -160,10 +160,11 @@ export default function HomePage() {
 
       <main>
         {/* ── Hero ── */}
-        <section className="grain relative overflow-hidden border-b border-brand-line bg-[#fbfaf7]">
+        <section className="hero-cinematic grain relative overflow-hidden border-b border-brand-line bg-[#fbfaf7]">
           <div className="absolute -left-24 top-12 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.95)_0%,rgba(244,238,229,0.55)_45%,rgba(244,238,229,0)_72%)] blur-3xl" />
           <div className="absolute right-0 top-0 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.9)_0%,rgba(232,226,218,0.44)_48%,rgba(232,226,218,0)_74%)] blur-3xl" />
           <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(255,250,242,0.72)_0%,rgba(255,250,242,0)_70%)] blur-3xl" />
+          <div className="hero-grid absolute inset-0" />
           <div className="relative z-10 mx-auto grid max-w-7xl gap-16 px-6 py-28 md:py-36 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
             <div>
               <p className="mb-7 text-sm font-medium text-brand-muted">年度经营顾问</p>
@@ -176,13 +177,13 @@ export default function HomePage() {
               <div className="mt-11 flex flex-col gap-4 sm:flex-row">
                 <Link
                   href="/why-annual-advisor"
-                  className="inline-flex h-12 items-center gap-2 rounded-md border border-brand-line px-7 text-sm font-medium text-brand-ink transition hover:bg-brand-soft"
+                  className="premium-button inline-flex h-12 items-center gap-2 rounded-md border border-brand-line px-7 text-sm font-medium text-brand-ink transition hover:bg-brand-soft"
                 >
                   了解年度顾问计划
                 </Link>
                 <Link
                   href="/services"
-                  className="inline-flex h-12 items-center gap-2 rounded-md border border-brand-line px-7 text-sm font-medium text-brand-muted transition hover:bg-brand-soft"
+                  className="inline-flex h-12 items-center gap-2 rounded-md border border-brand-line px-7 text-sm font-medium text-brand-muted transition hover:bg-brand-soft hover-lift"
                 >
                   查看服务体系
                 </Link>
@@ -201,12 +202,12 @@ export default function HomePage() {
         </section>
 
         {/* ── 痛点 ── */}
-        <section id="pain" className="border-b border-brand-line bg-brand-soft">
+        <section id="pain" className="section-reveal border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle label="老板痛点" title="老板真正焦虑的，从来不是做账。" />
             <div className="mt-12 grid gap-4 md:grid-cols-4">
               {homePainCards.map((item, i) => (
-                <div key={item} className="border border-brand-line bg-white p-7">
+                <div key={item} className="interactive-card border border-brand-line bg-white p-7">
                   <p className="mb-4 text-xs font-semibold text-brand-muted">0{i + 1}</p>
                   <p className="text-xl font-semibold leading-snug text-brand-ink">{item}</p>
                 </div>
@@ -219,7 +220,7 @@ export default function HomePage() {
         </section>
 
         {/* ── 年度时间轴 ── */}
-        <section id="annual" className="border-b border-brand-line">
+        <section id="annual" className="section-reveal border-b border-brand-line">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle
               label="年度顾问"
@@ -232,7 +233,7 @@ export default function HomePage() {
                 {annualTimeline.map((item) => (
                   <div key={item.period} className="bg-white md:pt-0">
                     <div className="mb-7 hidden h-6 w-6 rounded-full border border-brand-ink bg-white md:block" />
-                    <div className="border border-brand-line p-7">
+                    <div className="timeline-card border border-brand-line p-7">
                       <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">{item.period}</p>
                       <h3 className="mt-5 text-xl font-semibold leading-snug text-brand-ink">{item.title}</h3>
                       <ul className="mt-6 space-y-3">
@@ -249,12 +250,12 @@ export default function HomePage() {
         </section>
 
         {/* ── 方法论 ── */}
-        <section id="method" className="border-b border-brand-line">
+        <section id="method" className="section-reveal cinematic-band border-b border-brand-line">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle label="龙头方法" title="先看清，再理顺；先建立，再陪跑。" />
-            <div className="mt-12 grid gap-px overflow-hidden border border-brand-line bg-brand-line md:grid-cols-4">
+            <div className="mt-12 grid gap-px overflow-hidden border border-brand-line/70 bg-brand-line md:grid-cols-4">
               {longtouMethod.map((item) => (
-                <div key={item.title} className="bg-white p-8">
+                <div key={item.title} className="interactive-card bg-white p-8">
                   <p className="mb-3 text-xs font-semibold text-brand-muted">{item.step}</p>
                   <h3 className="text-3xl font-semibold tracking-tight text-brand-ink">{item.title}</h3>
                   <ul className="mt-8 space-y-3">
@@ -272,7 +273,7 @@ export default function HomePage() {
         </section>
 
         {/* ── 服务：年度顾问 ── */}
-        <section className="border-b border-brand-line bg-brand-soft">
+        <section className="section-reveal border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle label="核心服务" title={annualPlan.title} />
             <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-7 text-brand-muted">
@@ -280,7 +281,7 @@ export default function HomePage() {
             </p>
 
             <div className="mt-12 grid gap-6 md:grid-cols-2">
-              <div className="border border-brand-line bg-white p-8">
+              <div className="interactive-card border border-brand-line bg-white p-8">
                 <h3 className="text-lg font-semibold text-brand-ink">适合这样的企业</h3>
                 <ul className="mt-6 space-y-4">
                   {annualPlan.suitable.map((item) => (
@@ -291,7 +292,7 @@ export default function HomePage() {
                   ))}
                 </ul>
               </div>
-              <div className="border border-brand-line bg-white p-8">
+              <div className="interactive-card border border-brand-line bg-white p-8">
                 <h3 className="text-lg font-semibold text-brand-ink">年度顾问包含</h3>
                 <ul className="mt-6 space-y-4">
                   {annualPlan.whatYouGet.map((item) => (
@@ -306,7 +307,7 @@ export default function HomePage() {
 
             <div className="mt-10 grid gap-4 md:grid-cols-3">
               {annualPlan.process.map((step) => (
-                <div key={step.step} className="border border-brand-line bg-white p-6">
+                <div key={step.step} className="interactive-card border border-brand-line bg-white p-6">
                   <p className="text-xs font-semibold text-brand-muted">{step.step}</p>
                   <p className="mt-3 text-xl font-semibold text-brand-ink">{step.title}</p>
                   <p className="mt-3 text-sm leading-6 text-brand-muted">{step.desc}</p>
@@ -327,7 +328,7 @@ export default function HomePage() {
         </section>
 
         {/* ── 开始合作 ── */}
-        <section className="border-b border-brand-line">
+        <section className="section-reveal border-b border-brand-line">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle
               label="How We Start"
@@ -340,7 +341,7 @@ export default function HomePage() {
                 {cooperationSteps.map((step, index) => (
                   <div key={step.title} className="bg-white">
                     <div className="mb-7 hidden h-6 w-6 rounded-full border border-brand-ink bg-white md:block" />
-                    <div className="border border-brand-line p-8">
+                    <div className="timeline-card border border-brand-line p-8">
                       <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">
                         Step {index + 1}
                       </p>
@@ -355,7 +356,7 @@ export default function HomePage() {
         </section>
 
         {/* ── 我们坚持什么 ── */}
-        <section id="principles" className="border-b border-brand-line">
+        <section id="principles" className="section-reveal dark-slab border-b border-brand-line">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
               <div>
@@ -364,11 +365,11 @@ export default function HomePage() {
                   我们坚持什么
                 </h2>
               </div>
-              <div className="grid gap-px overflow-hidden border border-brand-line bg-brand-line md:grid-cols-2">
+              <div className="grid gap-px overflow-hidden border border-white/12 bg-white/12 md:grid-cols-2">
                 {principles.map((item) => (
-                  <div key={item.title} className="bg-white p-8 md:p-10">
-                    <h3 className="text-2xl font-semibold tracking-tight text-brand-ink">{item.title}</h3>
-                    <p className="mt-5 text-sm leading-7 text-brand-muted">{item.description}</p>
+                  <div key={item.title} className="dark-card p-8 md:p-10">
+                    <h3 className="text-2xl font-semibold tracking-tight text-white">{item.title}</h3>
+                    <p className="mt-5 text-sm leading-7 text-white/62">{item.description}</p>
                   </div>
                 ))}
               </div>
@@ -377,12 +378,12 @@ export default function HomePage() {
         </section>
 
         {/* ── 团队 ── */}
-        <section id="team" className="border-b border-brand-line">
+        <section id="team" className="section-reveal border-b border-brand-line">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle label="团队实力" title="先看人，再谈合作。" />
             <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {experts.map((expert) => (
-                <div key={expert.name} className="border border-brand-line p-7">
+                <div key={expert.name} className="interactive-card border border-brand-line p-7">
                   <p className="text-lg font-semibold text-brand-ink">{expert.name}</p>
                   <p className="mt-1 text-sm font-medium text-brand-muted">{expert.title}</p>
                   <p className="mt-4 text-sm leading-6 text-brand-muted">{expert.focus}</p>
@@ -392,7 +393,7 @@ export default function HomePage() {
             </div>
             <div className="mt-8 grid gap-px overflow-hidden border border-brand-line bg-brand-line md:grid-cols-4">
               {trustMetrics.map((m) => (
-                <div key={m.label} className="bg-white p-6">
+                <div key={m.label} className="metric-card bg-white p-6">
                   <p className="text-2xl font-semibold tracking-tight text-brand-ink">{m.value}</p>
                   <div className="mt-1 flex items-baseline gap-2">
                     <p className="text-sm text-brand-muted">{m.label}</p>
@@ -405,12 +406,12 @@ export default function HomePage() {
         </section>
 
         {/* ── 案例 ── */}
-        <section id="cases" className="border-b border-brand-line bg-brand-soft">
+        <section id="cases" className="section-reveal border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle label="客户案例" title="不写客户名称，只讲真实问题。" />
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               {clientStories.map((story) => (
-                <article key={story.industry} className="border border-brand-line bg-white p-8">
+                <article key={story.industry} className="interactive-card border border-brand-line bg-white p-8">
                   <p className="text-xs font-semibold text-brand-muted">{story.industry}</p>
                   <h3 className="mt-4 text-xl font-semibold leading-snug text-brand-ink">{story.problem}</h3>
                   <div className="mt-6 space-y-4 text-sm leading-7 text-brand-muted">
@@ -427,7 +428,7 @@ export default function HomePage() {
         </section>
 
         {/* ── 最终决策模块（新增） ── */}
-        <section className="border-b border-brand-line bg-brand-soft">
+        <section className="section-reveal border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-3xl px-6 py-24 text-center md:py-28">
             <SectionTitle
               label="判断"
@@ -449,7 +450,7 @@ export default function HomePage() {
         </section>
 
         {/* ── 联系 ── */}
-        <section className="bg-brand-soft">
+        <section className="section-reveal cta-stage bg-brand-soft">
           <div className="mx-auto max-w-3xl px-6 py-28 text-center md:py-36">
             <SectionTitle
               label="行动"
@@ -461,7 +462,7 @@ export default function HomePage() {
             <div className="mt-10 flex flex-col items-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
+                className="premium-button inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
               >
                 申请企业经营尽调（限量开放）
                 <ArrowRight className="h-4 w-4" />

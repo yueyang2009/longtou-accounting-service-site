@@ -51,6 +51,263 @@ body {
   z-index: 1;
 }
 
+/* ── 整站高级动态质感：更有视觉记忆点，但不走强科技风 ── */
+.hero-cinematic {
+  isolation: isolate;
+}
+
+.hero-cinematic::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.44), transparent 34%),
+    radial-gradient(circle at 72% 18%, rgba(255, 255, 255, 0.72), transparent 28%),
+    radial-gradient(circle at 18% 78%, rgba(225, 210, 190, 0.28), transparent 34%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(17, 17, 17, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.04) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at 68% 42%, black 0%, transparent 58%);
+  opacity: 0.55;
+  transform: translate3d(0, 0, 0);
+  animation: grid-drift 18s linear infinite;
+  pointer-events: none;
+}
+
+.premium-button {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(17, 17, 17, 0.08);
+}
+
+.premium-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 28%, rgba(255, 255, 255, 0.35) 46%, transparent 64%);
+  transform: translateX(-120%);
+  transition: transform 650ms ease;
+}
+
+.premium-button:hover::after {
+  transform: translateX(120%);
+}
+
+.hover-lift,
+.interactive-card,
+.timeline-card,
+.metric-card {
+  transition: transform 420ms ease, box-shadow 420ms ease, border-color 420ms ease, background-color 420ms ease;
+}
+
+.hover-lift:hover,
+.interactive-card:hover,
+.timeline-card:hover,
+.metric-card:hover {
+  border-color: rgba(17, 17, 17, 0.18);
+  box-shadow: 0 24px 70px rgba(17, 17, 17, 0.09);
+  transform: translateY(-4px);
+}
+
+.interactive-card,
+.timeline-card,
+.metric-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.interactive-card::before,
+.timeline-card::before,
+.metric-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 18% 0%, rgba(255, 255, 255, 0.92), transparent 34%);
+  opacity: 0;
+  transition: opacity 420ms ease;
+  pointer-events: none;
+}
+
+.interactive-card:hover::before,
+.timeline-card:hover::before,
+.metric-card:hover::before {
+  opacity: 1;
+}
+
+.timeline-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(251, 250, 247, 0.92)),
+    #fff;
+}
+
+.cinematic-band {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 78% 12%, rgba(11, 31, 58, 0.08), transparent 30%),
+    linear-gradient(180deg, #fff 0%, #f8f7f3 100%);
+}
+
+.cinematic-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.72) 48%, transparent 58%);
+  opacity: 0.48;
+  transform: translateX(-30%);
+  animation: slow-light-pass 12s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.dark-slab {
+  position: relative;
+  overflow: hidden;
+  color: white;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.16), transparent 27%),
+    radial-gradient(circle at 16% 84%, rgba(210, 185, 145, 0.14), transparent 34%),
+    #111315;
+}
+
+.dark-slab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 86px 86px;
+  opacity: 0.5;
+  animation: grid-drift 22s linear infinite reverse;
+  pointer-events: none;
+}
+
+.dark-slab > div {
+  position: relative;
+  z-index: 1;
+}
+
+.dark-slab .text-brand-ink,
+.dark-slab h2 {
+  color: #fff;
+}
+
+.dark-slab .text-brand-muted {
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.dark-card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(18px);
+  transition: transform 420ms ease, background 420ms ease, box-shadow 420ms ease;
+}
+
+.dark-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(130deg, transparent 30%, rgba(255, 255, 255, 0.1) 48%, transparent 66%);
+  transform: translateX(-120%);
+  transition: transform 700ms ease;
+  pointer-events: none;
+}
+
+.dark-card:hover {
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 26px 80px rgba(0, 0, 0, 0.28);
+  transform: translateY(-4px);
+}
+
+.dark-card:hover::after {
+  transform: translateX(120%);
+}
+
+.cta-stage {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.88), transparent 32%),
+    linear-gradient(180deg, #f5f7fa 0%, #fff 100%);
+}
+
+.cta-stage::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 18%;
+  height: 320px;
+  width: 640px;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: 999px;
+  transform: translateX(-50%);
+  animation: halo-breathe 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.section-reveal {
+  animation: section-rise 820ms ease both;
+  animation-timeline: view();
+  animation-range: entry 8% cover 28%;
+}
+
+@supports not (animation-timeline: view()) {
+  .section-reveal {
+    animation: none;
+  }
+}
+
+@keyframes grid-drift {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 72px 72px, 72px 72px;
+  }
+}
+
+@keyframes slow-light-pass {
+  0%,
+  35% {
+    transform: translateX(-34%);
+  }
+  78%,
+  100% {
+    transform: translateX(34%);
+  }
+}
+
+@keyframes halo-breathe {
+  0%,
+  100% {
+    opacity: 0.38;
+    transform: translateX(-50%) scale(0.96);
+  }
+  50% {
+    opacity: 0.72;
+    transform: translateX(-50%) scale(1.04);
+  }
+}
+
+@keyframes section-rise {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ── 首页经营驾驶舱动效：克制、缓慢、偏咨询感 ── */
 .dashboard-stage {
   perspective: 1200px;
@@ -221,6 +478,11 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .dashboard-shell,
   .dashboard-surface::before,
+  .hero-grid,
+  .cinematic-band::before,
+  .dark-slab::before,
+  .cta-stage::before,
+  .section-reveal,
   .dashboard-card,
   .dashboard-dot,
   .dashboard-bar,
