@@ -212,9 +212,10 @@ export default function HomePage() {
                 </div>
                 <div className="border border-brand-line p-5">
                   <p className="text-sm text-brand-muted">微信二维码</p>
-                  <div className="mt-3 flex h-24 w-24 items-center justify-center border border-dashed border-brand-line bg-brand-soft text-center text-xs text-brand-muted">
-                    {brand.wechat}
+                  <div className="mt-3 w-32 border border-brand-line bg-white p-2">
+                    <img src={brand.wechatQr} alt={`${brand.wechat} 微信二维码`} className="h-auto w-full" />
                   </div>
+                  <p className="mt-2 text-sm font-medium text-brand-ink">{brand.wechat}</p>
                 </div>
               </div>
             </div>

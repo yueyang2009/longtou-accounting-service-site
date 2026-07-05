@@ -21,9 +21,10 @@ export default function ContactPage() {
               </div>
               <div className="border border-brand-line bg-white p-5">
                 <p className="text-sm text-brand-muted">微信二维码</p>
-                <div className="mt-3 flex h-32 w-32 items-center justify-center border border-dashed border-brand-line bg-brand-soft text-center text-sm text-brand-muted">
-                  {brand.wechat}
+                <div className="mt-3 w-40 border border-brand-line bg-white p-2">
+                  <img src={brand.wechatQr} alt={`${brand.wechat} 微信二维码`} className="h-auto w-full" />
                 </div>
+                <p className="mt-3 text-sm font-medium text-brand-ink">{brand.wechat}</p>
               </div>
             </div>
           </div>
@@ -60,4 +61,3 @@ export default function ContactPage() {
     </Layout>
   );
 }
-

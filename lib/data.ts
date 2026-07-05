@@ -11,6 +11,8 @@ import {
   Users
 } from "lucide-react";
 
+const siteBasePath = process.env.GITHUB_PAGES === "true" ? "/longtou-accounting-service-site" : "";
+
 export type Lead = {
   company: string;
   industry: string;
@@ -48,8 +50,9 @@ export const brand = {
   positioning: "企业财税与经营参谋团队",
   slogan: "让企业账更清楚，让经营决策更可靠",
   subtitle: "双师带队，专注中小企业财税规范与经营体系建设",
-  phone: "400-000-0000",
-  wechat: "微信二维码占位"
+  phone: "18103835769",
+  wechat: "李小阳TEL19233995564",
+  wechatQr: `${siteBasePath}/images/wechat-qr.jpg`
 };
 
 export const navItems = [
