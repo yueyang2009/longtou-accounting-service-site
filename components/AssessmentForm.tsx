@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const industries = ["制造业", "建筑业", "商贸", "服务业", "其他"];
@@ -143,12 +142,12 @@ export function AssessmentForm() {
           </div>
           <div className="mt-8 flex items-center justify-between">
             <button onClick={() => setStep(2)} className="text-sm text-brand-muted underline">返回</button>
-            <Link
-              href={`/contact?industry=${selectedIndustry}&problems=${selectedProblems.join(",")}&name=${name}&phone=${phone}&company=${company}`}
+            <a
+              href={`mailto:183337950@qq.com?subject=企业经营尽调申请 - ${company}&body=行业：${selectedIndustry}%0A问题：${selectedProblems.join("、")}%0A联系人：${name}%0A电话：${phone}%0A企业：${company}%0A%0A（来自龙头会服官网）`}
               className="inline-flex h-10 items-center gap-2 rounded-md bg-brand-ink px-5 text-sm font-medium text-white"
             >
               提交申请 <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
+            </a>
           </div>
           <p className="mt-4 text-xs text-brand-muted">每月仅服务有限企业，需初步评估适配性</p>
         </div>
