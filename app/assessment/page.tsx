@@ -1,22 +1,13 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-
 import { brand } from "@/lib/data";
+import { AssessmentForm } from "@/components/AssessmentForm";
 
 function Label({ text }: { text: string }) {
-  return (
-    <p className="mb-5 text-xs font-semibold uppercase tracking-[0.12em] text-brand-muted">
-      {text}
-    </p>
-  );
+  return <p className="mb-5 text-xs font-semibold uppercase tracking-[0.12em] text-brand-muted">{text}</p>;
 }
-
-function Heading({ children }: { children: string }) {
-  return (
-    <h2 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-4xl">
-      {children}
-    </h2>
-  );
+function Heading({ children }: { children: React.ReactNode }) {
+  return <h2 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-4xl">{children}</h2>;
 }
 
 export default function AssessmentPage() {
@@ -24,21 +15,11 @@ export default function AssessmentPage() {
     <div className="min-h-screen bg-white">
       <header className="sticky top-0 z-50 border-b border-brand-line bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-          <Link href="/" className="text-lg font-semibold tracking-tight text-brand-ink">
-            {brand.name}
-          </Link>
-          <Link
-            href="/contact"
-            className="rounded-md bg-brand-ink px-5 py-2 text-sm font-medium text-white transition hover:bg-black"
-          >
-            提交申请
-          </Link>
+          <Link href="/" className="text-lg font-semibold tracking-tight text-brand-ink">{brand.name}</Link>
+          <Link href="/contact" className="rounded-md bg-brand-ink px-5 py-2 text-sm font-medium text-white">提交申请</Link>
         </div>
       </header>
-
       <main>
-
-        {/* ── Hero ── */}
         <section className="border-b border-brand-line">
           <div className="mx-auto max-w-3xl px-6 py-24 md:py-32">
             <Label text="龙头会服" />
@@ -50,26 +31,24 @@ export default function AssessmentPage() {
             <p className="mt-8 max-w-2xl text-lg leading-8 text-brand-muted">
               不是销售拜访，而是对企业经营模式、财务状况和管理体系的系统性梳理。
             </p>
-            <div className="mt-10">
-              <Link
-                href="/contact"
-                className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
-              >
-                提交申请
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
+          </div>
+        </section>
+
+        {/* ── 多步筛选表单 ── */}
+        <section className="border-b border-brand-line bg-brand-soft">
+          <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">
+            <AssessmentForm />
           </div>
         </section>
 
         {/* ── 流程 ── */}
-        <section className="border-b border-brand-line bg-brand-soft">
+        <section className="border-b border-brand-line">
           <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">
             <Label text="尽调流程" />
-            <Heading>如何完成一次企业经营尽调？</Heading>
+            <Heading>提交申请后会发生什么？</Heading>
             <div className="mt-10 space-y-5">
               {[
-                { step: "STEP 1", title: "提交申请", desc: "填写企业基本信息、行业、营收规模和主要诉求" },
+                { step: "STEP 1", title: "提交申请", desc: "填写企业基本信息、行业和主要诉求" },
                 { step: "STEP 2", title: "初步沟通", desc: "顾问电话沟通，了解企业阶段和核心关注点" },
                 { step: "STEP 3", title: "企业经营尽调（2～3天）", desc: "现场了解经营模式、股权结构、财务状况、管理流程" },
                 { step: "STEP 4", title: "输出适配性建议", desc: "根据尽调结果，判断是否适合年度顾问体系" },
@@ -85,8 +64,8 @@ export default function AssessmentPage() {
           </div>
         </section>
 
-        {/* ── 适合 / 不适合 ── */}
-        <section className="border-b border-brand-line">
+        {/* ── 适合/不适合 ── */}
+        <section className="border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">
             <Label text="适配标准" />
             <Heading>判断是否适合申请尽调</Heading>
@@ -116,31 +95,7 @@ export default function AssessmentPage() {
             </div>
           </div>
         </section>
-
-        {/* ── CTA ── */}
-        <section className="border-b border-brand-line bg-brand-soft">
-          <div className="mx-auto max-w-3xl px-6 py-24 text-center md:py-28">
-            <Label text="申请" />
-            <Heading>
-              提交申请，我们会在一个工作日内与你联系。
-            </Heading>
-            <div className="mt-10 flex flex-col items-center gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
-              >
-                提交申请
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <p className="text-sm text-brand-muted">
-                每月仅服务有限企业，需初步评估适配性
-              </p>
-            </div>
-          </div>
-        </section>
-
       </main>
-
       <footer className="bg-brand-ink text-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8">
           <p className="text-sm text-white/60">{brand.name} · {brand.positioning}</p>
