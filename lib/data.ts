@@ -61,7 +61,6 @@ export const navItems = [
   { label: "关于我们", href: "/about" },
   { label: "年度顾问", href: "/annual-advisory" },
   { label: "为什么需要顾问", href: "/why-annual-advisor" },
-  { label: "企业经营尽调", href: "/assessment" },
   { label: "联系我们", href: "/contact" }
 ];
 
