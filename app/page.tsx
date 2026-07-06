@@ -216,7 +216,7 @@ export default function HomePage() {
               ))}
             </div>
             <p className="mx-auto mt-8 max-w-2xl border-l-4 border-brand-ink bg-white px-6 py-5 text-base font-medium text-brand-ink">
-              这些问题，本质不是财务问题，而是经营问题。龙头会服把财税问题放回经营现场来解决。
+              这些问题，不是财务问题，而是经营问题。龙头会服把财税问题放回经营现场来解决。
             </p>
           </div>
         </section>
