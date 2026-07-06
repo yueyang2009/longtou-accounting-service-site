@@ -461,6 +461,7 @@ body {
 }
 
 .dashboard-risk-cell {
+  opacity: 1;
   animation: dashboard-risk-scan 5.8s ease-in-out infinite;
 }
 
