@@ -82,7 +82,7 @@ export function LeadForm() {
             <Label htmlFor="revenue">企业阶段</Label>
             <select
               id="revenue"
-              className="mt-2 h-11 w-full rounded-md border border-brand-line bg-white px-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-ink/20"
+              className="mt-2 h-11 w-full rounded-md border border-brand-line bg-white px-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-emerald/20"
               value={form.revenueRange}
               onChange={(event) => setForm({ ...form, revenueRange: event.target.value })}
             >
@@ -126,7 +126,7 @@ export function LeadForm() {
                   type="button"
                   onClick={() => setForm({ ...form, hasFinanceTeam: value })}
                   className={`border p-3 text-sm ${
-                    form.hasFinanceTeam === value ? "border-brand-ink bg-brand-ink text-white" : "border-brand-line bg-white"
+                    form.hasFinanceTeam === value ? "border-brand-emerald bg-brand-emerald text-white" : "border-brand-line bg-white"
                   }`}
                 >
                   {value ? "有" : "没有"}
@@ -143,7 +143,7 @@ export function LeadForm() {
                   type="button"
                   onClick={() => setForm({ ...form, auditHistory: value })}
                   className={`border p-3 text-sm ${
-                    form.auditHistory === value ? "border-brand-ink bg-brand-ink text-white" : "border-brand-line bg-white"
+                    form.auditHistory === value ? "border-brand-emerald bg-brand-emerald text-white" : "border-brand-line bg-white"
                   }`}
                 >
                   {value ? "做过" : "没有"}

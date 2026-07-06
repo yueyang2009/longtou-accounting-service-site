@@ -26,7 +26,7 @@ function Body({ children }: { children: React.ReactNode }) {
 
 export default function WhyAnnualAdvisorPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-brand-paper">
       {/* ── Header ── */}
       <header className="sticky top-0 z-50 border-b border-brand-line bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
@@ -41,7 +41,7 @@ export default function WhyAnnualAdvisorPage() {
           </nav>
           <Link
             href="/contact"
-            className="rounded-md bg-brand-ink px-5 py-2 text-sm font-medium text-white transition hover:bg-black"
+            className="rounded-full bg-brand-emerald px-5 py-2 text-sm font-medium text-white transition hover:bg-brand-emerald-hover"
           >
             申请企业财税风险诊断（限量开放）
           </Link>
@@ -297,7 +297,7 @@ export default function WhyAnnualAdvisorPage() {
             <div className="mt-10 flex flex-col items-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
+                className="inline-flex h-12 items-center gap-2 rounded-full bg-brand-emerald px-7 text-sm font-medium text-white transition hover:bg-brand-emerald-hover"
               >
                 申请企业财税风险诊断（限量开放）
                 <ArrowRight className="h-4 w-4" />
@@ -309,7 +309,7 @@ export default function WhyAnnualAdvisorPage() {
 
       </main>
 
-      <footer className="bg-brand-ink text-white">
+      <footer className="bg-[#1F1F1F] text-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8">
           <p className="text-sm text-white/60">{brand.name} · {brand.positioning}</p>
           <p className="text-sm text-white/60">电话 {brand.phone}</p>

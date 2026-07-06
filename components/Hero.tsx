@@ -6,7 +6,7 @@ import { brand } from "@/lib/data";
 
 export function Hero() {
   return (
-    <section className="border-b border-brand-line bg-white">
+    <section className="border-b border-brand-line bg-brand-paper">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 md:grid-cols-[1.1fr_0.9fr] md:py-24 lg:px-8">
         <div className="flex flex-col justify-center">
           <p className="mb-5 text-sm font-semibold text-brand-gold">{brand.name} · {brand.positioning}</p>

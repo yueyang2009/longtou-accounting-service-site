@@ -3,7 +3,7 @@ import { SectionHeader } from "@/components/SectionHeader";
 
 export function TrustMetrics() {
   return (
-    <section className="bg-white py-20">
+    <section className="bg-brand-paper py-20">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeader
           title="我们是企业财税顾问团队，而不是代账公司"

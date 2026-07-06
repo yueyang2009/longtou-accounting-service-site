@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export function CTASection() {
   return (
-    <section className="bg-brand-ink py-20 text-white">
+    <section className="bg-[#1F1F1F] py-20 text-white">
       <div className="mx-auto grid max-w-7xl gap-8 px-5 md:grid-cols-[1fr_auto] md:items-center lg:px-8">
         <div>
           <p className="text-sm font-semibold text-white/60">经营交流</p>

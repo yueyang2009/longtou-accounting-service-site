@@ -28,7 +28,7 @@ function QuoteLine({ children }: { children: string }) {
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-brand-paper">
       <header className="sticky top-0 z-50 border-b border-brand-line bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
           <Link href="/" className="inline-flex items-center">
@@ -40,7 +40,7 @@ export default function ServicesPage() {
             <Link href="/about" className="text-sm text-brand-muted hover:text-brand-ink">关于</Link>
             <Link href="/why-annual-advisor" className="text-sm text-brand-muted hover:text-brand-ink">年度顾问</Link>
           </nav>
-          <Link href="/contact" className="rounded-md bg-brand-ink px-5 py-2 text-sm font-medium text-white transition hover:bg-black">
+          <Link href="/contact" className="rounded-full bg-brand-emerald px-5 py-2 text-sm font-medium text-white transition hover:bg-brand-emerald-hover">
             申请企业财税风险诊断（限量开放）
           </Link>
         </div>
@@ -225,7 +225,7 @@ export default function ServicesPage() {
               如果你的企业正面临上述问题，可以先做一次企业财税风险诊断。
             </h2>
             <div className="mt-10 flex flex-col items-center gap-4">
-              <Link href="/contact" className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black">
+              <Link href="/contact" className="inline-flex h-12 items-center gap-2 rounded-full bg-brand-emerald px-7 text-sm font-medium text-white transition hover:bg-brand-emerald-hover">
                 申请企业财税风险诊断（限量开放）
                 <ArrowRight className="h-4 w-4" />
               </Link>
@@ -236,7 +236,7 @@ export default function ServicesPage() {
 
       </main>
 
-      <footer className="bg-brand-ink text-white">
+      <footer className="bg-[#1F1F1F] text-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8">
           <p className="text-sm text-white/60">{brand.name} · {brand.positioning}</p>
           <p className="text-sm text-white/60">电话 {brand.phone}</p>

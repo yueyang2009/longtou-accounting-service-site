@@ -3,7 +3,7 @@ import type { Expert } from "@/lib/data";
 export function TeamCard({ expert }: { expert: Expert }) {
   return (
     <div className="border border-brand-line bg-white p-6 shadow-sm">
-      <div className="flex h-12 w-12 items-center justify-center rounded-md bg-brand-ink text-base font-semibold text-white">
+      <div className="flex h-12 w-12 items-center justify-center rounded-md bg-brand-emerald text-base font-semibold text-white">
         {expert.name.slice(0, 1)}
       </div>
       <h3 className="mt-5 text-xl font-semibold">{expert.name}</h3>

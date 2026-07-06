@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  color: #111;
-  background: #fff;
+  color: #4A4A4A;
+  background: #FAF8F4;
 }
 
 * {
@@ -18,14 +18,14 @@ html {
 body {
   margin: 0;
   font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  color: #111;
-  background: #fff;
+  color: #4A4A4A;
+  background: #FAF8F4;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
   color: #fff;
-  background: #111;
+  background: #24352A;
 }
 
 @layer base {
@@ -34,24 +34,36 @@ body {
   }
 }
 
-/* ── 胶片颗粒效果 ── */
-.grain {
+/* ── 全站极淡纸张颗粒纹理 ── */
+.paper-grain {
   position: relative;
   overflow: hidden;
 }
-.grain::after {
+.paper-grain::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 256px 256px;
-  opacity: 0.11;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  opacity: 0.055;
   mix-blend-mode: multiply;
   pointer-events: none;
   z-index: 1;
 }
 
-/* ── 整站高级动态质感：更有视觉记忆点，但不走强科技风 ── */
+/* ── 咨询报告卡片 ── */
+.report-card {
+  background: #FFFFFF;
+  border: 1px solid #E6E1D8;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
+  transition: box-shadow 0.25s ease;
+}
+.report-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.03);
+}
+
+/* ── Hero 区纸张质感 ── */
 .hero-cinematic {
   isolation: isolate;
 }
@@ -61,434 +73,127 @@ body {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(115deg, rgba(255, 255, 255, 0.44), transparent 34%),
-    radial-gradient(circle at 72% 18%, rgba(255, 255, 255, 0.72), transparent 28%),
-    radial-gradient(circle at 18% 78%, rgba(225, 210, 190, 0.28), transparent 34%);
+    linear-gradient(115deg, rgba(255, 255, 255, 0.48), transparent 34%),
+    radial-gradient(circle at 72% 18%, rgba(250, 248, 244, 0.80), transparent 28%),
+    radial-gradient(circle at 18% 78%, rgba(230, 225, 216, 0.24), transparent 34%);
   pointer-events: none;
   z-index: 0;
 }
 
 .hero-grid {
   background-image:
-    linear-gradient(rgba(17, 17, 17, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(17, 17, 17, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(31, 31, 31, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31, 31, 31, 0.03) 1px, transparent 1px);
   background-size: 72px 72px;
   mask-image: radial-gradient(circle at 68% 42%, black 0%, transparent 58%);
-  opacity: 0.55;
+  opacity: 0.45;
   transform: translate3d(0, 0, 0);
   animation: grid-drift 18s linear infinite;
   pointer-events: none;
 }
 
-.premium-button {
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 10px 28px rgba(17, 17, 17, 0.08);
+@keyframes grid-drift {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-72px, -72px, 0); }
 }
 
-.premium-button::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(110deg, transparent 28%, rgba(255, 255, 255, 0.35) 46%, transparent 64%);
-  transform: translateX(-120%);
-  transition: transform 650ms ease;
-}
-
-.premium-button:hover::after {
-  transform: translateX(120%);
-}
-
-.hover-lift,
-.interactive-card,
-.timeline-card,
-.metric-card {
-  transition: transform 420ms ease, box-shadow 420ms ease, border-color 420ms ease, background-color 420ms ease;
-}
-
-.hover-lift:hover,
-.interactive-card:hover,
-.timeline-card:hover,
-.metric-card:hover {
-  border-color: rgba(17, 17, 17, 0.18);
-  box-shadow: 0 24px 70px rgba(17, 17, 17, 0.09);
-  transform: translateY(-4px);
-}
-
-.interactive-card,
-.timeline-card,
-.metric-card {
-  position: relative;
-  overflow: hidden;
-}
-
-.interactive-card::before,
-.timeline-card::before,
-.metric-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 18% 0%, rgba(255, 255, 255, 0.92), transparent 34%);
-  opacity: 0;
-  transition: opacity 420ms ease;
-  pointer-events: none;
-}
-
-.interactive-card:hover::before,
-.timeline-card:hover::before,
-.metric-card:hover::before {
-  opacity: 1;
-}
-
-.timeline-card {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(251, 250, 247, 0.92)),
-    #fff;
-}
-
-.cinematic-band {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 78% 12%, rgba(11, 31, 58, 0.08), transparent 30%),
-    linear-gradient(180deg, #fff 0%, #f8f7f3 100%);
-}
-
-.cinematic-band::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.72) 48%, transparent 58%);
-  opacity: 0.48;
-  transform: translateX(-30%);
-  animation: slow-light-pass 12s ease-in-out infinite;
-  pointer-events: none;
-}
-
+/* ── 暗色板块（原则区） ── */
 .dark-slab {
-  position: relative;
-  overflow: hidden;
-  color: white;
-  background:
-    radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.16), transparent 27%),
-    radial-gradient(circle at 16% 84%, rgba(210, 185, 145, 0.14), transparent 34%),
-    #111315;
-}
-
-.dark-slab::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-  background-size: 86px 86px;
-  opacity: 0.5;
-  animation: grid-drift 22s linear infinite reverse;
-  pointer-events: none;
-}
-
-.dark-slab > div {
-  position: relative;
-  z-index: 1;
-}
-
-.dark-slab .text-brand-ink,
-.dark-slab h2 {
-  color: #fff;
-}
-
-.dark-slab .text-brand-muted {
-  color: rgba(255, 255, 255, 0.58);
+  background: #1F1F1F;
 }
 
 .dark-card {
-  position: relative;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.055);
-  backdrop-filter: blur(18px);
-  transition: transform 420ms ease, background 420ms ease, box-shadow 420ms ease;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
 }
 
-.dark-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(130deg, transparent 30%, rgba(255, 255, 255, 0.1) 48%, transparent 66%);
-  transform: translateX(-120%);
-  transition: transform 700ms ease;
-  pointer-events: none;
-}
-
-.dark-card:hover {
-  background: rgba(255, 255, 255, 0.09);
-  box-shadow: 0 26px 80px rgba(0, 0, 0, 0.28);
-  transform: translateY(-4px);
-}
-
-.dark-card:hover::after {
-  transform: translateX(120%);
-}
-
-.cta-stage {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.88), transparent 32%),
-    linear-gradient(180deg, #f5f7fa 0%, #fff 100%);
-}
-
-.cta-stage::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 18%;
-  height: 320px;
-  width: 640px;
-  border: 1px solid rgba(17, 17, 17, 0.08);
-  border-radius: 999px;
-  transform: translateX(-50%);
-  animation: halo-breathe 7s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.section-reveal {
-  animation: section-rise 820ms ease both;
-  animation-timeline: view();
-  animation-range: entry 8% cover 28%;
-}
-
-@supports not (animation-timeline: view()) {
-  .section-reveal {
-    animation: none;
-  }
-}
-
-@keyframes grid-drift {
-  from {
-    background-position: 0 0, 0 0;
-  }
-  to {
-    background-position: 72px 72px, 72px 72px;
-  }
-}
-
-@keyframes slow-light-pass {
-  0%,
-  35% {
-    transform: translateX(-34%);
-  }
-  78%,
-  100% {
-    transform: translateX(34%);
-  }
-}
-
-@keyframes halo-breathe {
-  0%,
-  100% {
-    opacity: 0.38;
-    transform: translateX(-50%) scale(0.96);
-  }
-  50% {
-    opacity: 0.72;
-    transform: translateX(-50%) scale(1.04);
-  }
-}
-
-@keyframes section-rise {
-  from {
-    opacity: 0;
-    transform: translateY(32px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ── 首页经营驾驶舱动效：克制、缓慢、偏咨询感 ── */
-.dashboard-stage {
-  perspective: 1200px;
-}
-
+/* ── 碳迹面板（Hero 仪表盘） ── */
 .dashboard-shell {
-  animation: dashboard-float 7s ease-in-out infinite;
-  transform-origin: 50% 40%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(230, 225, 216, 0.50);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
 }
 
 .dashboard-surface {
-  position: relative;
-  overflow: hidden;
-}
-
-.dashboard-surface::before {
-  content: "";
-  position: absolute;
-  inset: -30% -45%;
-  background: linear-gradient(115deg, transparent 34%, rgba(255, 255, 255, 0.62) 48%, transparent 62%);
-  opacity: 0.58;
-  transform: translateX(-42%);
-  animation: dashboard-sheen 8s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.dashboard-card,
-.dashboard-panel,
-.dashboard-review-card {
-  position: relative;
-  overflow: hidden;
-  transition: transform 420ms ease, box-shadow 420ms ease, border-color 420ms ease;
+  background: #FAF8F4;
+  border: 1px solid #E6E1D8;
+  border-radius: 14px;
 }
 
 .dashboard-card {
-  animation: dashboard-rise 900ms ease both;
+  background: #FFFFFF;
+  border: 1px solid #E6E1D8;
+  border-radius: 12px;
 }
 
-.dashboard-card:hover,
-.dashboard-panel:hover,
-.dashboard-review-card:hover {
-  border-color: rgba(17, 17, 17, 0.18);
-  box-shadow: 0 18px 48px rgba(17, 17, 17, 0.08);
-  transform: translateY(-2px);
+.dashboard-panel {
+  background: #FFFFFF;
+  border: 1px solid #E6E1D8;
+  border-radius: 14px;
 }
 
-.dashboard-dot {
-  animation: dashboard-pulse 2.4s ease-in-out infinite;
-}
-
-.dashboard-dot-strong {
-  animation-delay: 420ms;
-}
-
-.dashboard-bar {
-  width: var(--bar-width);
-  transform-origin: left center;
-  animation: dashboard-bar-breathe 4.8s ease-in-out infinite;
-}
-
-.dashboard-risk-cell {
-  animation: dashboard-risk-scan 5.8s ease-in-out infinite;
-}
-
-.dashboard-review-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 16% 10%, rgba(255, 255, 255, 0.24), transparent 34%);
-  animation: dashboard-review-glow 5.4s ease-in-out infinite;
-  pointer-events: none;
+.dashboard-review-card {
+  background: #24352A;
+  border-radius: 14px;
 }
 
 .dashboard-step {
-  animation: dashboard-step-focus 5.8s ease-in-out infinite;
+  border-radius: 8px;
 }
 
-@keyframes dashboard-float {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
-  }
-  50% {
-    transform: translate3d(0, -7px, 0) rotateX(0.6deg) rotateY(-0.8deg);
-  }
+/* ── 指标卡片 ── */
+.metric-card {
+  background: #FFFFFF;
+  border: 1px solid #E6E1D8;
+  padding: 1.5rem;
 }
 
-@keyframes dashboard-sheen {
-  0%,
-  42% {
-    transform: translateX(-46%);
-  }
-  72%,
-  100% {
-    transform: translateX(46%);
-  }
+/* ── 时间轴卡片 ── */
+.timeline-card {
+  background: #FFFFFF;
+  border: 1px solid #E6E1D8;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
 }
 
-@keyframes dashboard-rise {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* ── 交互卡片 ── */
+.interactive-card {
+  background: #FFFFFF;
+  border: 1px solid #E6E1D8;
+  border-radius: 16px;
+  transition: box-shadow 0.25s ease;
+}
+.interactive-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.03);
 }
 
-@keyframes dashboard-pulse {
-  0%,
-  100% {
-    opacity: 0.45;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.22);
-  }
+/* ── 高级按钮 ── */
+.premium-button {
+  border-radius: 999px;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
-@keyframes dashboard-bar-breathe {
-  0%,
-  100% {
-    transform: scaleX(0.92);
-    opacity: 0.78;
-  }
-  45% {
-    transform: scaleX(1);
-    opacity: 1;
-  }
+/* ── 时间轴圆点 ── */
+.dot-brand {
+  border-color: #24352A;
+  background: #FFFFFF;
 }
 
-@keyframes dashboard-risk-scan {
-  0%,
-  100% {
-    filter: brightness(1);
-    transform: translateY(0);
-  }
-  45% {
-    filter: brightness(1.18);
-    transform: translateY(-1px);
-  }
+/* ── CTA 区域 ── */
+.cta-stage {
+  background: #F2EFE8;
 }
 
-@keyframes dashboard-review-glow {
-  0%,
-  100% {
-    opacity: 0.28;
-    transform: translateX(-8%);
-  }
-  50% {
-    opacity: 0.72;
-    transform: translateX(16%);
-  }
+/* ── 其他卡片和区块 ── */
+.cinematic-band {
+  background: #FAF8F4;
 }
 
-@keyframes dashboard-step-focus {
-  0%,
-  100% {
-    opacity: 0.62;
-  }
-  45% {
-    opacity: 1;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .dashboard-shell,
-  .dashboard-surface::before,
-  .hero-grid,
-  .cinematic-band::before,
-  .dark-slab::before,
-  .cta-stage::before,
-  .section-reveal,
-  .dashboard-card,
-  .dashboard-dot,
-  .dashboard-bar,
-  .dashboard-risk-cell,
-  .dashboard-review-card::after,
-  .dashboard-step {
-    animation: none;
-  }
+/* ── Hero 区额外纸张感 ── */
+.hero-base {
+  background: #FAF8F4;
 }

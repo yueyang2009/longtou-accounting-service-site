@@ -135,7 +135,7 @@ function DashboardPreview() {
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-brand-paper">
       {/* ── Header ── */}
       <header className="sticky top-0 z-50 border-b border-brand-line bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
@@ -154,7 +154,7 @@ export default function HomePage() {
           </nav>
           <Link
             href="/contact"
-            className="premium-button rounded-md bg-brand-ink px-5 py-2 text-sm font-medium text-white transition hover:bg-black"
+            className="premium-button rounded-md bg-brand-emerald px-5 py-2 text-sm font-medium text-white transition hover:bg-brand-emerald-hover"
           >
             申请企业财税风险诊断（限量开放）
           </Link>
@@ -163,7 +163,7 @@ export default function HomePage() {
 
       <main>
         {/* ── Hero ── */}
-        <section className="hero-cinematic grain relative overflow-hidden border-b border-brand-line bg-[#fbfaf7]">
+        <section className="hero-cinematic grain relative overflow-hidden border-b border-brand-line bg-brand-paper">
           <div className="absolute -left-24 top-12 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.95)_0%,rgba(244,238,229,0.55)_45%,rgba(244,238,229,0)_72%)] blur-3xl" />
           <div className="absolute right-0 top-0 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.9)_0%,rgba(232,226,218,0.44)_48%,rgba(232,226,218,0)_74%)] blur-3xl" />
           <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(255,250,242,0.72)_0%,rgba(255,250,242,0)_70%)] blur-3xl" />
@@ -462,7 +462,7 @@ export default function HomePage() {
             <div className="mt-10 flex flex-col items-center gap-4">
               <Link
                 href="/contact"
-                className="premium-button inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
+                className="premium-button inline-flex h-12 items-center gap-2 rounded-full bg-brand-emerald px-7 text-sm font-medium text-white transition hover:bg-brand-emerald-hover"
               >
                 申请企业财税风险诊断（限量开放）
                 <ArrowRight className="h-4 w-4" />
@@ -476,7 +476,7 @@ export default function HomePage() {
       </main>
 
       {/* ── Footer ── */}
-      <footer className="bg-brand-ink text-white">
+      <footer className="bg-[#1F1F1F] text-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8">
           <p className="text-sm text-white/60">{brand.name} · {brand.positioning}</p>
           <p className="text-sm text-white/60">电话 {brand.phone}</p>

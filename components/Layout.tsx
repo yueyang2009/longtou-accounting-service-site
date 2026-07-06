@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-white text-brand-ink">
+    <div className="min-h-screen bg-brand-paper text-brand-body">
       <header className="sticky top-0 z-50 border-b border-brand-line bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:px-8">
           <Link href="/" className="inline-flex items-center">
@@ -25,7 +25,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </header>
       <main>{children}</main>
-      <footer className="border-t border-brand-line bg-brand-ink text-white">
+      <footer className="border-t border-brand-line bg-[#1F1F1F] text-white">
         <div className="mx-auto grid max-w-7xl gap-8 px-5 py-10 md:grid-cols-[1.2fr_1fr_1fr] lg:px-8">
           <div>
             <p className="text-lg font-semibold">{brand.name}</p>

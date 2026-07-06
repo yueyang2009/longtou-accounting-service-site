@@ -24,7 +24,7 @@ export function ServiceGrid({ mode = "systems" }: ServiceGridProps) {
         }));
 
   return (
-    <section className="bg-white py-20">
+    <section className="bg-brand-paper py-20">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeader
           eyebrow={mode === "systems" ? "核心能力" : "产品化服务体系"}
