@@ -55,7 +55,7 @@ export default function AnnualAdvisoryPage() {
             <div className="mt-8 space-y-4 text-base leading-8 text-brand-muted">
               {annualPlan.suitable.map((item) => (
                 <p key={item} className="flex items-start gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-ink" />
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-emerald" />
                   <span>{item}</span>
                 </p>
               ))}
@@ -71,7 +71,7 @@ export default function AnnualAdvisoryPage() {
               {annualPlan.whatYouGet.map((item) => {
                 const parts = item.split("——");
                 return (
-                  <div key={item} className="border border-brand-line bg-white p-6">
+                  <div key={item} className="border border-brand-line bg-white p-6 rounded-card">
                     <p className="text-lg font-semibold text-brand-ink">{parts[0]}</p>
                     {parts[1] && <p className="mt-2 text-sm leading-7 text-brand-muted">{parts[1]}</p>}
                   </div>
@@ -109,7 +109,7 @@ export default function AnnualAdvisoryPage() {
             <div className="mt-8 space-y-5 text-base leading-8 text-brand-muted">
               {["预约沟通", "签约付款", "企业经营尽调", "制定年度顾问计划", "开始年度陪伴"].map((step, i) => (
                 <div key={step} className="flex items-center gap-4 border-b border-brand-line pb-4">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-ink text-sm font-medium text-white">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-emerald text-sm font-medium text-white">
                     {i + 1}
                   </span>
                   <span className="text-brand-ink">{step}</span>
@@ -136,7 +136,7 @@ export default function AnnualAdvisoryPage() {
         </section>
       </main>
 
-      <footer className="bg-[#1F1F1F] text-white">
+      <footer className="bg-brand-ink text-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8">
           <p className="text-sm text-white/60">{brand.name} · {brand.positioning}</p>
           <p className="text-sm text-white/60">电话 {brand.phone}</p>

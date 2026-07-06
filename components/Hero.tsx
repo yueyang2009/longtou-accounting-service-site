@@ -41,7 +41,7 @@ export function Hero() {
               ["交付方式", "问题清单 + 方案路径 + 顾问沟通"],
               ["筛选标准", "稳定经营规模 / 有改善意愿"]
             ].map(([label, value]) => (
-              <div key={label} className="border border-brand-line bg-white p-5">
+              <div key={label} className="border border-brand-line bg-white p-5 rounded-card">
                 <p className="text-sm text-brand-muted">{label}</p>
                 <p className="mt-2 text-xl font-semibold text-brand-ink">{value}</p>
               </div>

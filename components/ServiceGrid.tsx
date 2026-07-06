@@ -39,7 +39,7 @@ export function ServiceGrid({ mode = "systems" }: ServiceGridProps) {
           {items.map((item) => {
             const Icon = item.icon;
             return (
-              <div key={item.title} className="border border-brand-line bg-white p-7 shadow-sm">
+              <div key={item.title} className="border border-brand-line bg-white p-7 shadow-sm rounded-card">
                 <Icon className="h-7 w-7 text-brand-gold" />
                 <h3 className="mt-5 text-2xl font-semibold">{item.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-brand-muted">{item.description}</p>

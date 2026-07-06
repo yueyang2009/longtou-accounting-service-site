@@ -47,7 +47,7 @@ export function LeadForm() {
   };
 
   return (
-    <div className="border border-brand-line bg-white p-6 shadow-consult">
+    <div className="border border-brand-line bg-white p-6 shadow-consult rounded-card">
       <div className="mb-6 flex items-center justify-between border-b border-brand-line pb-4">
         <div>
           <p className="text-sm font-semibold text-brand-muted">经营诊断申请</p>
@@ -106,7 +106,7 @@ export function LeadForm() {
                   type="checkbox"
                   checked={form.painPoints.includes(pain)}
                   onChange={() => togglePain(pain)}
-                  className="h-4 w-4 accent-brand-ink"
+                  className="h-4 w-4 accent-brand-emerald"
                 />
                 {pain}
               </label>

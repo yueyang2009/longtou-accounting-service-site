@@ -44,7 +44,7 @@ function DashboardPreview() {
     <div className="dashboard-stage relative">
       <div className="absolute -right-6 top-10 hidden h-72 w-72 rounded-full border border-brand-line/80 lg:block" />
       <div className="dashboard-shell relative border border-white/80 bg-white/82 p-4 shadow-[0_28px_90px_rgba(17,17,17,0.12)] backdrop-blur-xl">
-        <div className="dashboard-surface border border-brand-line bg-[#fbfbfa] p-5">
+        <div className="dashboard-surface border border-brand-line bg-brand-paper p-5">
           <div className="flex items-center justify-between border-b border-brand-line pb-5">
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">Operating cockpit</p>
@@ -53,7 +53,7 @@ function DashboardPreview() {
             <div className="flex gap-2">
               <span className="h-2.5 w-2.5 rounded-full bg-brand-line" />
               <span className="dashboard-dot h-2.5 w-2.5 rounded-full bg-brand-muted" />
-              <span className="dashboard-dot dashboard-dot-strong h-2.5 w-2.5 rounded-full bg-brand-ink" />
+              <span className="dashboard-dot dashboard-dot-strong h-2.5 w-2.5 rounded-full bg-brand-emerald" />
             </div>
           </div>
 
@@ -63,7 +63,7 @@ function DashboardPreview() {
               ["风险事项", "前置处理"],
               ["复盘节奏", "阶段复盘"]
             ].map(([label, value], index) => (
-              <div key={label} className="dashboard-card border border-brand-line bg-white p-4" style={{ animationDelay: `${index * 120}ms` }}>
+              <div key={label} className="dashboard-card border border-brand-line bg-white p-4 rounded-card" style={{ animationDelay: `${index * 120}ms` }}>
                 <p className="text-xs text-brand-muted">{label}</p>
                 <p className="mt-3 text-xl font-semibold tracking-tight text-brand-ink">{value}</p>
               </div>
@@ -71,7 +71,7 @@ function DashboardPreview() {
           </div>
 
           <div className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="dashboard-panel border border-brand-line bg-white p-5">
+            <div className="dashboard-panel border border-brand-line bg-white p-5 rounded-card">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-semibold text-brand-ink">经营健康度</p>
                 <p className="text-xs text-brand-muted">本月复盘</p>
@@ -85,7 +85,7 @@ function DashboardPreview() {
                     </div>
                     <div className="mt-2 h-2 overflow-hidden bg-brand-soft">
                       <div
-                        className="dashboard-bar h-full bg-brand-ink"
+                        className="dashboard-bar h-full bg-brand-emerald"
                         style={{ "--bar-width": metric.width, animationDelay: metric.delay } as React.CSSProperties}
                       />
                     </div>
@@ -95,7 +95,7 @@ function DashboardPreview() {
             </div>
 
             <div className="grid gap-4">
-              <div className="dashboard-panel border border-brand-line bg-white p-5">
+              <div className="dashboard-panel border border-brand-line bg-white p-5 rounded-card">
                 <p className="text-sm font-semibold text-brand-ink">风险前置</p>
                 <div className="mt-5 grid grid-cols-4 gap-2">
                   {Array.from({ length: 16 }).map((_, index) => (
@@ -103,14 +103,14 @@ function DashboardPreview() {
                       key={index}
                       className={[
                         "dashboard-risk-cell h-8 border border-brand-line",
-                        index % 5 === 0 ? "bg-brand-ink" : index % 3 === 0 ? "bg-brand-muted/35" : "bg-brand-soft"
+                        index % 5 === 0 ? "bg-brand-emerald" : index % 3 === 0 ? "bg-brand-muted/35" : "bg-brand-soft"
                       ].join(" ")}
                       style={{ animationDelay: `${index * 85}ms` }}
                     />
                   ))}
                 </div>
               </div>
-              <div className="dashboard-review-card border border-brand-line bg-brand-ink p-5 text-white">
+              <div className="dashboard-review-card border border-brand-line bg-brand-emerald p-5 text-white rounded-card">
                 <p className="text-xs uppercase tracking-widest text-white/55">Next review</p>
                 <p className="mt-3 text-2xl font-semibold">季度经营复盘</p>
               </div>
@@ -154,7 +154,7 @@ export default function HomePage() {
           </nav>
           <Link
             href="/contact"
-            className="premium-button rounded-md bg-brand-emerald px-5 py-2 text-sm font-medium text-white transition hover:bg-brand-emerald-hover"
+            className="premium-button bg-brand-emerald px-5 py-2 text-sm font-medium text-white transition hover:bg-brand-emerald-hover"
           >
             申请企业财税风险诊断（限量开放）
           </Link>
@@ -180,7 +180,7 @@ export default function HomePage() {
               <div className="mt-11 flex flex-col gap-4 sm:flex-row">
                 <Link
                   href="/why-annual-advisor"
-                  className="premium-button inline-flex h-12 items-center gap-2 rounded-md border border-brand-line px-7 text-sm font-medium text-brand-ink transition hover:bg-brand-soft"
+                  className="premium-button inline-flex h-12 items-center gap-2 border border-brand-line px-7 text-sm font-medium text-brand-ink transition hover:bg-brand-soft"
                 >
                   了解年度顾问计划
                 </Link>
@@ -210,7 +210,7 @@ export default function HomePage() {
             <SectionTitle label="老板痛点" title="老板真正焦虑的，从来不是做账。" />
             <div className="mt-12 grid gap-4 md:grid-cols-4">
               {homePainCards.map((item, i) => (
-                <div key={item} className="interactive-card border border-brand-line bg-white p-7">
+                <div key={item} className="interactive-card border border-brand-line bg-white p-7 rounded-card">
                   <p className="mb-4 text-xs font-semibold text-brand-muted">0{i + 1}</p>
                   <p className="text-xl font-semibold leading-snug text-brand-ink">{item}</p>
                 </div>
@@ -236,7 +236,7 @@ export default function HomePage() {
                 {annualTimeline.map((item) => (
                   <div key={item.title} className="bg-white md:pt-0">
                     <div className="mb-7 hidden h-6 w-6 rounded-full border border-brand-ink bg-white md:block" />
-                    <div className="timeline-card border border-brand-line p-7">
+                    <div className="timeline-card border border-brand-line p-7 rounded-card">
                       <h3 className="text-xl font-semibold leading-snug text-brand-ink">{item.title}</h3>
                       <ul className="mt-6 space-y-3">
                         {item.items.map((li) => (
@@ -257,7 +257,7 @@ export default function HomePage() {
             <SectionTitle label="龙头方法" title="先看清，再理顺；先建立，再陪跑。" />
             <div className="mt-12 grid gap-px overflow-hidden border border-brand-line/70 bg-brand-line md:grid-cols-4">
               {longtouMethod.map((item) => (
-                <div key={item.title} className="interactive-card bg-white p-8">
+                <div key={item.title} className="interactive-card bg-white p-8 rounded-card">
                   <p className="mb-3 text-xs font-semibold text-brand-muted">{item.step}</p>
                   <h3 className="text-3xl font-semibold tracking-tight text-brand-ink">{item.title}</h3>
                   <ul className="mt-8 space-y-3">
@@ -283,7 +283,7 @@ export default function HomePage() {
             </p>
 
             <div className="mt-12 grid gap-6 md:grid-cols-2">
-              <div className="interactive-card border border-brand-line bg-white p-8">
+              <div className="interactive-card border border-brand-line bg-white p-8 rounded-card">
                 <h3 className="text-lg font-semibold text-brand-ink">适合这样的企业</h3>
                 <ul className="mt-6 space-y-4">
                   {annualPlan.suitable.map((item) => (
@@ -294,7 +294,7 @@ export default function HomePage() {
                   ))}
                 </ul>
               </div>
-              <div className="interactive-card border border-brand-line bg-white p-8">
+              <div className="interactive-card border border-brand-line bg-white p-8 rounded-card">
                 <h3 className="text-lg font-semibold text-brand-ink">年度顾问包含</h3>
                 <ul className="mt-6 space-y-4">
                   {annualPlan.whatYouGet.map((item) => (
@@ -309,7 +309,7 @@ export default function HomePage() {
 
             <div className="mt-10 grid gap-4 md:grid-cols-3">
               {annualPlan.process.map((step) => (
-                <div key={step.step} className="interactive-card border border-brand-line bg-white p-6">
+                <div key={step.step} className="interactive-card border border-brand-line bg-white p-6 rounded-card">
                   <p className="text-xs font-semibold text-brand-muted">{step.step}</p>
                   <p className="mt-3 text-xl font-semibold text-brand-ink">{step.title}</p>
                   <p className="mt-3 text-sm leading-6 text-brand-muted">{step.desc}</p>
@@ -395,7 +395,7 @@ export default function HomePage() {
             </div>
             <div className="mt-8 grid gap-px overflow-hidden border border-brand-line bg-brand-line md:grid-cols-4">
               {trustMetrics.map((m) => (
-                <div key={m.label} className="metric-card bg-white p-6">
+                <div key={m.label} className="metric-card bg-white p-6 rounded-card">
                   <p className="text-2xl font-semibold tracking-tight text-brand-ink">{m.value}</p>
                   <div className="mt-1 flex items-baseline gap-2">
                     <p className="text-sm text-brand-muted">{m.label}</p>
@@ -416,7 +416,7 @@ export default function HomePage() {
             />
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               {clientStories.map((story) => (
-                <article key={story.type} className="interactive-card border border-brand-line bg-white p-8">
+                <article key={story.type} className="interactive-card border border-brand-line bg-white p-8 rounded-card">
                   <p className="inline-block border border-brand-ink/20 bg-brand-soft px-3 py-1 text-xs font-semibold text-brand-ink">
                     {story.type}
                   </p>
@@ -476,7 +476,7 @@ export default function HomePage() {
       </main>
 
       {/* ── Footer ── */}
-      <footer className="bg-[#1F1F1F] text-white">
+      <footer className="bg-brand-ink text-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8">
           <p className="text-sm text-white/60">{brand.name} · {brand.positioning}</p>
           <p className="text-sm text-white/60">电话 {brand.phone}</p>

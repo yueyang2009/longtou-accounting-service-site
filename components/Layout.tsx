@@ -25,7 +25,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </header>
       <main>{children}</main>
-      <footer className="border-t border-brand-line bg-[#1F1F1F] text-white">
+      <footer className="border-t border-brand-line bg-brand-ink text-white">
         <div className="mx-auto grid max-w-7xl gap-8 px-5 py-10 md:grid-cols-[1.2fr_1fr_1fr] lg:px-8">
           <div>
             <p className="text-lg font-semibold">{brand.name}</p>

@@ -89,7 +89,7 @@ export default function WhyAnnualAdvisorPage() {
             <Label text="服务界定" />
             <Heading>什么是企业年度财税顾问？</Heading>
             <div className="mt-10 grid gap-8 md:grid-cols-2">
-              <div className="border border-brand-line bg-brand-soft p-7">
+              <div className="border border-brand-line bg-brand-soft p-7 rounded-card">
                 <p className="mb-4 text-sm font-semibold text-brand-muted">它不是</p>
                 <ul className="space-y-3 text-sm leading-6 text-brand-muted">
                   <li className="flex items-start gap-3">
@@ -106,7 +106,7 @@ export default function WhyAnnualAdvisorPage() {
                   </li>
                 </ul>
               </div>
-              <div className="border border-brand-line bg-brand-ink p-7 text-white">
+              <div className="border border-brand-line bg-brand-emerald p-7 text-white">
                 <p className="mb-4 text-sm font-semibold text-white/60">而是</p>
                 <p className="text-lg font-semibold leading-8">
                   在正式签约并建立合作关系后，进入企业经营尽调与全年顾问服务周期，帮助企业建立持续经营判断能力。
@@ -131,7 +131,7 @@ export default function WhyAnnualAdvisorPage() {
                 ["财税风险管理（持续）", "税务合规风险识别、发票/合同/资金结构问题排查、政策变化影响判断"],
                 ["年度经营复盘", "全年经营结构总结、风险与问题梳理、已解决与未解决事项、下一年度经营建议"],
               ].map(([title, desc]) => (
-                <div key={title} className="border border-brand-line bg-white p-6">
+                <div key={title} className="border border-brand-line bg-white p-6 rounded-card">
                   <p className="text-lg font-semibold text-brand-ink">{title}</p>
                   <p className="mt-2 text-sm leading-7 text-brand-muted">{desc}</p>
                 </div>
@@ -182,7 +182,7 @@ export default function WhyAnnualAdvisorPage() {
                     <ul className="mt-5 space-y-2">
                       {phase.items.map((item) => (
                         <li key={item} className="flex items-start gap-3 text-sm text-brand-muted">
-                          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-brand-ink" />
+                          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-brand-emerald" />
                           {item}
                         </li>
                       ))}
@@ -309,7 +309,7 @@ export default function WhyAnnualAdvisorPage() {
 
       </main>
 
-      <footer className="bg-[#1F1F1F] text-white">
+      <footer className="bg-brand-ink text-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8">
           <p className="text-sm text-white/60">{brand.name} · {brand.positioning}</p>
           <p className="text-sm text-white/60">电话 {brand.phone}</p>

@@ -165,7 +165,7 @@ export default function AboutPage() {
 
       </main>
 
-      <footer className="bg-[#1F1F1F] text-white">
+      <footer className="bg-brand-ink text-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8">
           <p className="text-sm text-white/60">{brand.name} · {brand.positioning}</p>
           <p className="text-sm text-white/60">电话 {brand.phone}</p>

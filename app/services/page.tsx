@@ -114,7 +114,7 @@ export default function ServicesPage() {
                   desc: "建立能够持续运转的财务与经营分析机制。"
                 }
               ].map((cap) => (
-                <div key={cap.title} className="border border-brand-line bg-brand-soft p-7">
+                <div key={cap.title} className="border border-brand-line bg-brand-soft p-7 rounded-card">
                   <p className="text-lg font-semibold text-brand-ink">{cap.title}</p>
                   <p className="mt-3 text-sm leading-7 text-brand-muted">{cap.desc}</p>
                 </div>
@@ -141,7 +141,7 @@ export default function ServicesPage() {
                 ["股权结构设计", "控制权设计、股权分配、业务拆分及税务影响测算"],
                 ["高端合规账体系", "构建同时满足合规要求与经营分析的财务体系"],
               ].map(([title, desc]) => (
-                <div key={title} className="border border-brand-line bg-white p-6">
+                <div key={title} className="border border-brand-line bg-white p-6 rounded-card">
                   <p className="text-base font-semibold text-brand-ink">{title}</p>
                   <p className="mt-2 text-sm leading-6 text-brand-muted">{desc}</p>
                 </div>
@@ -204,7 +204,7 @@ export default function ServicesPage() {
                 "股权结构与业务逻辑一致",
                 "财务体系具备持续运行能力",
               ].map((item) => (
-                <div key={item} className="border border-brand-line bg-white p-6">
+                <div key={item} className="border border-brand-line bg-white p-6 rounded-card">
                   <p className="text-base leading-7 text-brand-muted">{item}</p>
                 </div>
               ))}
@@ -236,7 +236,7 @@ export default function ServicesPage() {
 
       </main>
 
-      <footer className="bg-[#1F1F1F] text-white">
+      <footer className="bg-brand-ink text-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8">
           <p className="text-sm text-white/60">{brand.name} · {brand.positioning}</p>
           <p className="text-sm text-white/60">电话 {brand.phone}</p>

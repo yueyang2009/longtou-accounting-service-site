@@ -10,7 +10,7 @@ export function PainSection() {
         <SectionHeader title="如果你有以下情况，说明企业财税系统需要升级" />
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {painPoints.map((item) => (
-            <div key={item.title} className="border border-brand-line bg-white p-6">
+            <div key={item.title} className="border border-brand-line bg-white p-6 rounded-card">
               <AlertCircle className="h-6 w-6 text-brand-gold" />
               <h3 className="mt-5 text-xl font-semibold">{item.title}</h3>
               <p className="mt-3 text-sm leading-6 text-brand-muted">{item.description}</p>
