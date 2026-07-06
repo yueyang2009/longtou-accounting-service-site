@@ -3,6 +3,7 @@ import Link from "next/link";
 import { brand, navItems } from "@/lib/data";
 import { BrandLogo } from "@/components/BrandLogo";
 import { Button } from "@/components/ui/button";
+import { MobileNav } from "@/components/MobileNav";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -19,13 +20,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
               </Link>
             ))}
           </nav>
-          <Button asChild size="sm" className="hidden sm:inline-flex">
+          <MobileNav links={navItems} />
+          <Button asChild size="sm" className="hidden lg:inline-flex">
             <Link href="/contact">申请企业财税风险诊断（限量开放）</Link>
           </Button>
         </div>
       </header>
       <main>{children}</main>
-      <footer className="border-t border-brand-line bg-brand-ink text-white">
+      <footer className="border-t border-brand-line bg-brand-emerald text-white">
         <div className="mx-auto grid max-w-7xl gap-8 px-5 py-10 md:grid-cols-[1.2fr_1fr_1fr] lg:px-8">
           <div>
             <p className="text-lg font-semibold">{brand.name}</p>

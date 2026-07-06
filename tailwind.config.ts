@@ -13,7 +13,7 @@ const config: Config = {
         brand: {
           ink: "#1F1F1F",         // 主标题
           body: "#4A4A4A",         // 正文
-          muted: "#6B6B6B",        // 辅助说明
+          muted: "#555555",        // 辅助说明
           line: "#E6E1D8",         // 边框
           soft: "#F2EFE8",         // 分隔区/次级背景
           paper: "#FAF8F4",        // 全站主背景暖白

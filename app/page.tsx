@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, Minus } from "lucide-react";
 
 import { BrandLogo } from "@/components/BrandLogo";
+import { MobileNav } from "@/components/MobileNav";
 import {
   annualPlan,
   annualTimeline,
@@ -142,7 +143,7 @@ export default function HomePage() {
           <Link href="/" className="inline-flex items-center">
             <BrandLogo className="h-9 w-auto max-w-[150px]" />
           </Link>
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-8 lg:flex">
             <Link href="#pain" className="text-sm text-brand-muted hover:text-brand-ink">痛点</Link>
             <Link href="#annual" className="text-sm text-brand-muted hover:text-brand-ink">年度顾问</Link>
             <Link href="#method" className="text-sm text-brand-muted hover:text-brand-ink">方法</Link>
@@ -152,9 +153,20 @@ export default function HomePage() {
             <span className="text-brand-line">|</span>
             <Link href="/about" className="text-sm text-brand-muted hover:text-brand-ink">关于</Link>
           </nav>
+          <MobileNav
+            links={[
+              { href: "#pain", label: "痛点" },
+              { href: "#annual", label: "年度顾问" },
+              { href: "#method", label: "方法" },
+              { href: "#principles", label: "坚持" },
+              { href: "#team", label: "团队" },
+              { href: "#cases", label: "案例" },
+              { href: "/about", label: "关于" },
+            ]}
+          />
           <Link
             href="/contact"
-            className="premium-button bg-brand-emerald px-5 py-2 text-sm font-medium text-white transition hover:bg-brand-emerald-hover"
+            className="hidden lg:inline-flex premium-button bg-brand-emerald px-5 py-2 text-sm font-medium text-white transition hover:bg-brand-emerald-hover"
           >
             申请企业财税风险诊断（限量开放）
           </Link>
@@ -180,7 +192,7 @@ export default function HomePage() {
               <div className="mt-11 flex flex-col gap-4 sm:flex-row">
                 <Link
                   href="/why-annual-advisor"
-                  className="premium-button inline-flex h-12 items-center gap-2 border border-brand-line px-7 text-sm font-medium text-brand-ink transition hover:bg-brand-soft"
+                  className="premium-button inline-flex h-12 items-center gap-2 bg-brand-emerald px-7 text-sm font-medium text-white transition hover:bg-brand-emerald-hover"
                 >
                   了解年度顾问计划
                 </Link>
@@ -453,7 +465,7 @@ export default function HomePage() {
             <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-brand-muted">
               年度顾问更适合年营收2000万以上、已有稳定经营规模、且老板愿意参与经营管理的企业。
             </p>
-            <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-brand-muted">
+            <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-brand-body">
               如果企业还处于初创阶段，或者只需要基础代账服务，年度顾问可能不是当前最优选择。
             </p>
             <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-brand-muted">
@@ -476,7 +488,7 @@ export default function HomePage() {
       </main>
 
       {/* ── Footer ── */}
-      <footer className="bg-brand-ink text-white">
+      <footer className="bg-brand-emerald text-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8">
           <p className="text-sm text-white/60">{brand.name} · {brand.positioning}</p>
           <p className="text-sm text-white/60">电话 {brand.phone}</p>

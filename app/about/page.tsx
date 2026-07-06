@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Minus } from "lucide-react";
 
 import { BrandLogo } from "@/components/BrandLogo";
+import { MobileNav } from "@/components/MobileNav";
 import { brand } from "@/lib/data";
 
 function Label({ text }: { text: string }) {
@@ -40,16 +41,25 @@ export default function AboutPage() {
           <Link href="/" className="inline-flex items-center">
             <BrandLogo className="h-9 w-auto max-w-[150px]" />
           </Link>
-          <nav className="hidden items-center gap-6 md:flex">
+          <nav className="hidden items-center gap-6 lg:flex">
             <Link href="/" className="text-sm text-brand-muted hover:text-brand-ink">首页</Link>
             <Link href="/about" className="text-sm font-medium text-brand-ink">关于</Link>
             <Link href="/annual-advisory" className="text-sm text-brand-muted hover:text-brand-ink">年度顾问</Link>
             <Link href="/why-annual-advisor" className="text-sm text-brand-muted hover:text-brand-ink">为什么需要</Link>
             <Link href="/services" className="text-sm text-brand-muted hover:text-brand-ink">服务体系</Link>
           </nav>
+          <MobileNav
+            links={[
+              { href: "/", label: "首页" },
+              { href: "/about", label: "关于" },
+              { href: "/annual-advisory", label: "年度顾问" },
+              { href: "/why-annual-advisor", label: "为什么需要" },
+              { href: "/services", label: "服务体系" },
+            ]}
+          />
           <Link
             href="/contact"
-            className="rounded-full bg-brand-emerald px-5 py-2 text-sm font-medium text-white transition hover:bg-brand-emerald-hover"
+            className="hidden lg:inline-flex rounded-full bg-brand-emerald px-5 py-2 text-sm font-medium text-white transition hover:bg-brand-emerald-hover"
           >
             申请企业财税风险诊断（限量开放）
           </Link>
@@ -165,7 +175,7 @@ export default function AboutPage() {
 
       </main>
 
-      <footer className="bg-brand-ink text-white">
+      <footer className="bg-brand-emerald text-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8">
           <p className="text-sm text-white/60">{brand.name} · {brand.positioning}</p>
           <p className="text-sm text-white/60">电话 {brand.phone}</p>
