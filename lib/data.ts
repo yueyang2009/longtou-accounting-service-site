@@ -246,27 +246,22 @@ export const cooperationSteps = [
 
 export const annualTimeline = [
   {
-    period: "1月",
     title: "年度了解与经营基线",
     items: ["财税体检", "利润口径校准", "风险清单"]
   },
   {
-    period: "2-3月",
     title: "历史问题理顺",
     items: ["账务修正", "税务口径确认", "流程断点识别"]
   },
   {
-    period: "4-6月",
     title: "经营看板建立",
     items: ["利润看板", "现金流节奏", "项目或产品核算"]
   },
   {
-    period: "7-9月",
     title: "预算与制度落地",
     items: ["预算机制", "审批边界", "财务协同机制"]
   },
   {
-    period: "10-12月",
     title: "年度复盘与来年规划",
     items: ["年度健康报告", "风险复盘", "下一年度重点"]
   }

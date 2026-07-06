@@ -233,11 +233,10 @@ export default function HomePage() {
               <div className="hidden h-px bg-brand-line md:block" />
               <div className="grid gap-5 md:-mt-3 md:grid-cols-5">
                 {annualTimeline.map((item) => (
-                  <div key={item.period} className="bg-white md:pt-0">
+                  <div key={item.title} className="bg-white md:pt-0">
                     <div className="mb-7 hidden h-6 w-6 rounded-full border border-brand-ink bg-white md:block" />
                     <div className="timeline-card border border-brand-line p-7">
-                      <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">{item.period}</p>
-                      <h3 className="mt-5 text-xl font-semibold leading-snug text-brand-ink">{item.title}</h3>
+                      <h3 className="text-xl font-semibold leading-snug text-brand-ink">{item.title}</h3>
                       <ul className="mt-6 space-y-3">
                         {item.items.map((li) => (
                           <li key={li} className="text-sm leading-6 text-brand-muted">{li}</li>
