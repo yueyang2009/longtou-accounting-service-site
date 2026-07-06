@@ -95,8 +95,8 @@ function DashboardPreview() {
                   ["复盘节奏", "阶段校准"]
                 ].map(([label, value], index) => (
                   <div key={label} className="cockpit-mini-card dashboard-card border border-white/10 bg-white/[0.055] p-4" style={{ animationDelay: `${index * 120}ms` }}>
-                    <p className="text-xs text-white/46">{label}</p>
-                    <p className="mt-3 text-lg font-semibold tracking-tight text-white">{value}</p>
+                    <p className="text-xs whitespace-nowrap text-white/46">{label}</p>
+                    <p className="mt-3 text-lg font-semibold tracking-tight whitespace-nowrap text-white">{value}</p>
                   </div>
                 ))}
               </div>
