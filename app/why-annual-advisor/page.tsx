@@ -290,8 +290,9 @@ export default function WhyAnnualAdvisorPage() {
           <div className="mx-auto max-w-3xl px-6 py-24 text-center md:py-28">
             <Label text="龙头会服" />
             <h2 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-4xl">
-              企业年度财税顾问的核心，不是解决单一问题，<br />
-              而是在长期合作中帮助企业建立稳定、清晰的经营判断体系。
+              企业年度财税顾问的核心，不是解决<br />
+              单一问题，而是在长期合作中帮助企业<br />
+              建立稳定、清晰的经营判断体系。
             </h2>
             <div className="mt-10 flex flex-col items-center gap-4">
               <Link
