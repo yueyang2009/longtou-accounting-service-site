@@ -442,11 +442,11 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── 最终决策模块（新增） ── */}
+        {/* ── 判断与行动 ── */}
         <section className="section-reveal border-b border-brand-line bg-brand-soft">
-          <div className="mx-auto max-w-3xl px-6 py-24 text-center md:py-28">
+          <div className="mx-auto max-w-3xl px-6 py-28 text-center md:py-36">
             <SectionTitle
-              label="判断"
+              label="行动"
               title="如果你正在考虑，我们建议先做一次判断。"
             />
             <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-brand-muted">
@@ -455,22 +455,6 @@ export default function HomePage() {
             <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-brand-muted">
               如果企业还处于初创阶段，或者只需要基础代账服务，年度顾问可能不是当前最优选择。
             </p>
-            <div className="mt-10">
-              <p className="text-sm text-brand-muted">
-                <Link href="/contact" className="underline underline-offset-2 hover:text-brand-ink">申请企业财税风险诊断（限量开放）</Link>
-                ｜ 每月仅服务有限企业
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ── 联系 ── */}
-        <section className="section-reveal cta-stage bg-brand-soft">
-          <div className="mx-auto max-w-3xl px-6 py-28 text-center md:py-36">
-            <SectionTitle
-              label="行动"
-              title="申请企业财税风险诊断"
-            />
             <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-brand-muted">
               不急着给方案，先把企业所处阶段、真实问题和需要优先处理的事项讲清楚。
             </p>
