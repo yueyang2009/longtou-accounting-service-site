@@ -108,7 +108,7 @@ export default function AnnualAdvisoryPage() {
             <Heading>如何开始？</Heading>
             <div className="mt-8 space-y-5 text-base leading-8 text-brand-muted">
               {["预约沟通", "签约付款", "企业经营尽调", "制定年度顾问计划", "开始年度陪伴"].map((step, i) => (
-                <div key={step} className="flex items-center gap-4 border-b border-brand-line pb-4 last:border-0">
+                <div key={step} className="flex items-center gap-4 border-b border-brand-line pb-4">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-ink text-sm font-medium text-white">
                     {i + 1}
                   </span>
