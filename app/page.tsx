@@ -36,57 +36,49 @@ function SectionTitle({
 
 function DashboardPreview() {
   const operatingMetrics = [
-    { label: "利润质量", value: "持续观察", width: "76%", delay: "0ms" },
-    { label: "现金节奏", value: "阶段复盘", width: "64%", delay: "180ms" },
-    { label: "税务风险", value: "提前识别", width: "48%", delay: "360ms" }
+    { label: "利润质量", value: "持续观察", width: "78%", delay: "0ms" },
+    { label: "现金节奏", value: "阶段复盘", width: "66%", delay: "180ms" },
+    { label: "风险事项", value: "前置处理", width: "54%", delay: "360ms" }
   ];
+  const riskItems = ["合同", "票据", "回款", "成本", "税负", "流程", "预算", "内控", "股权", "项目", "库存", "薪酬"];
 
   return (
-    <div className="dashboard-stage relative">
-      <div className="absolute -right-6 top-10 hidden h-72 w-72 rounded-full border border-brand-line/80 lg:block" />
-      <div className="dashboard-shell relative border border-white/80 bg-white/82 p-4 shadow-[0_28px_90px_rgba(17,17,17,0.12)] backdrop-blur-xl">
-        <div className="dashboard-surface border border-brand-line bg-brand-paper p-5">
-          <div className="flex items-center justify-between border-b border-brand-line pb-5">
+    <div className="dashboard-stage executive-cockpit relative">
+      <div className="cockpit-orbit cockpit-orbit-one" />
+      <div className="cockpit-orbit cockpit-orbit-two" />
+      <div className="dashboard-shell cockpit-shell relative overflow-hidden border border-white/15 bg-[#121415] p-4 shadow-[0_34px_110px_rgba(17,17,17,0.24)]">
+        <div className="dashboard-surface cockpit-surface border border-white/10 bg-[#17191a]/92 p-5 text-white">
+          <div className="flex items-center justify-between border-b border-white/10 pb-5">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">Operating cockpit</p>
-              <p className="mt-2 text-2xl font-semibold tracking-tight text-brand-ink">经营驾驶舱</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/42">Operating cockpit</p>
+              <p className="mt-2 text-2xl font-semibold tracking-tight">经营决策中枢</p>
             </div>
-            <div className="flex gap-2">
-              <span className="h-2.5 w-2.5 rounded-full bg-brand-line" />
-              <span className="dashboard-dot h-2.5 w-2.5 rounded-full bg-brand-muted" />
-              <span className="dashboard-dot dashboard-dot-strong h-2.5 w-2.5 rounded-full bg-brand-emerald" />
+            <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5">
+              <span className="dashboard-dot h-2 w-2 rounded-full bg-[#d9c7a5]" />
+              <span className="text-xs font-medium text-white/62">Live review</span>
             </div>
           </div>
 
-          <div className="grid gap-4 py-5 sm:grid-cols-3">
-            {[
-              ["顾问方式", "年度陪伴"],
-              ["风险事项", "前置处理"],
-              ["复盘节奏", "阶段复盘"]
-            ].map(([label, value], index) => (
-              <div key={label} className="dashboard-card border border-brand-line bg-white p-4 rounded-card" style={{ animationDelay: `${index * 120}ms` }}>
-                <p className="text-xs text-brand-muted">{label}</p>
-                <p className="mt-3 text-xl font-semibold tracking-tight text-brand-ink">{value}</p>
+          <div className="mt-5 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="cockpit-primary-card dashboard-panel border border-white/10 bg-white/[0.045] p-5">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-sm font-medium text-white/62">经营健康度</p>
+                  <p className="mt-3 text-4xl font-semibold tracking-tight">稳定</p>
+                  <p className="mt-3 text-xs leading-5 text-white/46">利润、现金流、风险事项纳入同一套复盘节奏。</p>
+                </div>
+                <div className="cockpit-ring" />
               </div>
-            ))}
-          </div>
-
-          <div className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="dashboard-panel border border-brand-line bg-white p-5 rounded-card">
-              <div className="flex items-center justify-between">
-                <p className="text-sm font-semibold text-brand-ink">经营健康度</p>
-                <p className="text-xs text-brand-muted">本月复盘</p>
-              </div>
-              <div className="mt-6 space-y-5">
+              <div className="mt-7 space-y-5">
                 {operatingMetrics.map((metric) => (
                   <div key={metric.label}>
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-brand-muted">{metric.label}</span>
-                      <span className="font-medium text-brand-ink">{metric.value}</span>
+                      <span className="text-white/56">{metric.label}</span>
+                      <span className="font-medium text-white">{metric.value}</span>
                     </div>
-                    <div className="mt-2 h-2 overflow-hidden bg-brand-soft">
+                    <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/10">
                       <div
-                        className="dashboard-bar h-full bg-brand-emerald"
+                        className="dashboard-bar h-full rounded-full bg-[#d9c7a5]"
                         style={{ "--bar-width": metric.width, animationDelay: metric.delay } as React.CSSProperties}
                       />
                     </div>
@@ -96,32 +88,57 @@ function DashboardPreview() {
             </div>
 
             <div className="grid gap-4">
-              <div className="dashboard-panel border border-brand-line bg-white p-5 rounded-card">
-                <p className="text-sm font-semibold text-brand-ink">风险前置</p>
-                <div className="mt-5 grid grid-cols-4 gap-2">
-                  {Array.from({ length: 16 }).map((_, index) => (
-                    <span
-                      key={index}
-                      className={[
-                        "dashboard-risk-cell h-8 border border-brand-line",
-                        index % 5 === 0 ? "bg-brand-emerald" : index % 3 === 0 ? "bg-brand-muted/35" : "bg-brand-soft"
-                      ].join(" ")}
-                      style={{ animationDelay: `${index * 85}ms` }}
-                    />
-                  ))}
-                </div>
+              <div className="grid gap-4 sm:grid-cols-3">
+                {[
+                  ["顾问方式", "年度陪伴"],
+                  ["处理逻辑", "风险前置"],
+                  ["复盘节奏", "阶段校准"]
+                ].map(([label, value], index) => (
+                  <div key={label} className="cockpit-mini-card dashboard-card border border-white/10 bg-white/[0.055] p-4" style={{ animationDelay: `${index * 120}ms` }}>
+                    <p className="text-xs text-white/46">{label}</p>
+                    <p className="mt-3 text-lg font-semibold tracking-tight text-white">{value}</p>
+                  </div>
+                ))}
               </div>
-              <div className="dashboard-review-card border border-brand-line bg-brand-emerald p-5 text-white rounded-card">
-                <p className="text-xs uppercase tracking-widest text-white/55">Next review</p>
-                <p className="mt-3 text-2xl font-semibold">季度经营复盘</p>
+
+              <div className="grid gap-4 lg:grid-cols-[1fr_0.82fr]">
+                <div className="cockpit-risk-card dashboard-panel border border-white/10 bg-white/[0.045] p-5">
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm font-semibold text-white">风险雷达</p>
+                    <p className="text-xs text-white/42">前置识别</p>
+                  </div>
+                  <div className="mt-5 grid grid-cols-4 gap-2">
+                    {riskItems.map((item, index) => (
+                      <span
+                        key={item}
+                        className={[
+                          "dashboard-risk-cell flex h-9 items-center justify-center border text-[11px]",
+                          index % 5 === 0
+                            ? "border-[#d9c7a5]/45 bg-[#d9c7a5]/18 text-[#f2e7d2]"
+                            : index % 3 === 0
+                              ? "border-white/12 bg-white/9 text-white/62"
+                              : "border-white/10 bg-white/[0.045] text-white/46"
+                        ].join(" ")}
+                        style={{ animationDelay: `${index * 85}ms` }}
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="dashboard-review-card cockpit-review-card border border-[#d9c7a5]/22 bg-[#d9c7a5]/12 p-5 text-white">
+                  <p className="text-xs uppercase tracking-[0.24em] text-[#e9d9bc]/60">Next action</p>
+                  <p className="mt-3 text-2xl font-semibold leading-tight">季度经营复盘</p>
+                  <p className="mt-4 text-xs leading-5 text-white/52">把账、税、利润、现金流放回经营会议里。</p>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-4 grid gap-3 border border-brand-line bg-white p-4 sm:grid-cols-4">
-            {["了解", "理顺", "建立", "陪跑"].map((item, index) => (
-              <div key={item} className="dashboard-step flex items-center gap-2 text-xs font-medium text-brand-muted" style={{ animationDelay: `${index * 160}ms` }}>
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-soft text-brand-ink">
+          <div className="mt-4 grid gap-3 border border-white/10 bg-black/12 p-4 sm:grid-cols-4">
+            {["看清", "理顺", "建立", "陪跑"].map((item, index) => (
+              <div key={item} className="dashboard-step flex items-center gap-2 text-xs font-medium text-white/55" style={{ animationDelay: `${index * 160}ms` }}>
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/8 text-[#e9d9bc]">
                   {index + 1}
                 </span>
                 {item}

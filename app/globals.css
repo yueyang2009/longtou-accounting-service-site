@@ -108,7 +108,35 @@ body {
   border-radius: 16px;
 }
 
-/* ── 碳迹面板（Hero 仪表盘） ── */
+/* ── 高端经营驾驶舱 ── */
+.executive-cockpit {
+  min-height: 520px;
+}
+
+.cockpit-orbit {
+  position: absolute;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.cockpit-orbit-one {
+  right: -44px;
+  top: 26px;
+  height: 300px;
+  width: 300px;
+  animation: cockpit-orbit-breathe 7s ease-in-out infinite;
+}
+
+.cockpit-orbit-two {
+  bottom: -34px;
+  left: 42px;
+  height: 190px;
+  width: 190px;
+  border-color: rgba(217, 199, 165, 0.28);
+  animation: cockpit-orbit-breathe 8.5s ease-in-out infinite reverse;
+}
+
 .dashboard-shell {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
@@ -117,10 +145,68 @@ body {
   box-shadow: 0 8px 32px rgba(0,0,0,0.06);
 }
 
+.cockpit-shell {
+  border-radius: 2px;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(255, 255, 255, 0.18), transparent 27%),
+    radial-gradient(circle at 88% 16%, rgba(217, 199, 165, 0.18), transparent 30%),
+    #121415;
+}
+
 .dashboard-surface {
   background: #FAF8F4;
   border: 1px solid #E6E1D8;
   border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cockpit-surface {
+  background: rgba(23, 25, 26, 0.92);
+  border-color: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.dashboard-surface::before {
+  content: "";
+  position: absolute;
+  inset: -30% -45%;
+  background: linear-gradient(115deg, transparent 34%, rgba(255, 255, 255, 0.62) 48%, transparent 62%);
+  opacity: 0.58;
+  transform: translateX(-42%);
+  animation: dashboard-sheen 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.cockpit-surface::before {
+  background: linear-gradient(118deg, transparent 34%, rgba(255, 255, 255, 0.12) 48%, transparent 62%);
+}
+
+.cockpit-surface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.036) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: linear-gradient(90deg, transparent, black 18%, black 82%, transparent);
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.cockpit-surface > * {
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard-card,
+.dashboard-panel,
+.dashboard-review-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 420ms ease, box-shadow 420ms ease, border-color 420ms ease;
 }
 
 .dashboard-card {
@@ -298,4 +384,235 @@ body {
 /* ── 报告阴影 ── */
 .shadow-consult {
   box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
+}
+
+.cockpit-mini-card:hover,
+.cockpit-primary-card:hover,
+.cockpit-risk-card:hover,
+.cockpit-review-card:hover {
+  border-color: rgba(217, 199, 165, 0.26);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.26);
+}
+
+.cockpit-primary-card,
+.cockpit-risk-card,
+.cockpit-review-card,
+.cockpit-mini-card {
+  backdrop-filter: blur(18px);
+}
+
+.cockpit-primary-card.dashboard-panel,
+.cockpit-risk-card.dashboard-panel,
+.cockpit-mini-card.dashboard-card {
+  background: rgba(255, 255, 255, 0.055);
+  border-color: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.cockpit-review-card.dashboard-review-card {
+  background: rgba(217, 199, 165, 0.12);
+  border-color: rgba(217, 199, 165, 0.22);
+  border-radius: 2px;
+}
+
+.cockpit-ring {
+  position: relative;
+  height: 92px;
+  width: 92px;
+  border-radius: 999px;
+  background:
+    conic-gradient(from 220deg, #d9c7a5 0deg, #d9c7a5 250deg, rgba(255, 255, 255, 0.12) 250deg, rgba(255, 255, 255, 0.12) 360deg);
+  box-shadow: 0 0 38px rgba(217, 199, 165, 0.18);
+  animation: cockpit-ring-glow 4.8s ease-in-out infinite;
+}
+
+.cockpit-ring::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: inherit;
+  background: #17191a;
+}
+
+.cockpit-ring::after {
+  content: "健康";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #f2e7d2;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.dashboard-dot {
+  animation: dashboard-pulse 2.4s ease-in-out infinite;
+}
+
+.dashboard-dot-strong {
+  animation-delay: 420ms;
+}
+
+.dashboard-bar {
+  width: var(--bar-width);
+  transform-origin: left center;
+  animation: dashboard-bar-breathe 4.8s ease-in-out infinite;
+}
+
+.dashboard-risk-cell {
+  animation: dashboard-risk-scan 5.8s ease-in-out infinite;
+}
+
+.dashboard-review-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 16% 10%, rgba(255, 255, 255, 0.24), transparent 34%);
+  animation: dashboard-review-glow 5.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.cockpit-review-card::after {
+  background:
+    radial-gradient(circle at 16% 10%, rgba(217, 199, 165, 0.28), transparent 36%),
+    linear-gradient(130deg, transparent 30%, rgba(255, 255, 255, 0.09) 48%, transparent 66%);
+}
+
+.dashboard-step {
+  animation: dashboard-step-focus 5.8s ease-in-out infinite;
+}
+
+@keyframes dashboard-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: translate3d(0, -7px, 0) rotateX(0.6deg) rotateY(-0.8deg);
+  }
+}
+
+@keyframes cockpit-orbit-breathe {
+  0%,
+  100% {
+    opacity: 0.42;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.82;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes cockpit-ring-glow {
+  0%,
+  100% {
+    filter: brightness(0.96);
+    transform: rotate(0deg);
+  }
+  50% {
+    filter: brightness(1.12);
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes dashboard-sheen {
+  0%,
+  42% {
+    transform: translateX(-46%);
+  }
+  72%,
+  100% {
+    transform: translateX(46%);
+  }
+}
+
+@keyframes dashboard-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dashboard-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.22);
+  }
+}
+
+@keyframes dashboard-bar-breathe {
+  0%,
+  100% {
+    transform: scaleX(0.92);
+    opacity: 0.78;
+  }
+  45% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes dashboard-risk-scan {
+  0%,
+  100% {
+    filter: brightness(1);
+    transform: translateY(0);
+  }
+  45% {
+    filter: brightness(1.18);
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes dashboard-review-glow {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: translateX(-8%);
+  }
+  50% {
+    opacity: 0.72;
+    transform: translateX(16%);
+  }
+}
+
+@keyframes dashboard-step-focus {
+  0%,
+  100% {
+    opacity: 0.62;
+  }
+  45% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-shell,
+  .dashboard-surface::before,
+  .cockpit-orbit,
+  .cockpit-ring,
+  .hero-grid,
+  .cinematic-band::before,
+  .dark-slab::before,
+  .cta-stage::before,
+  .section-reveal,
+  .dashboard-card,
+  .dashboard-dot,
+  .dashboard-bar,
+  .dashboard-risk-cell,
+  .dashboard-review-card::after,
+  .dashboard-step {
+    animation: none;
+  }
 }
