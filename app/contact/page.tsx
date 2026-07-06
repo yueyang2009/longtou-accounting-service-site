@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Layout } from "@/components/Layout";
 import { LeadForm } from "@/components/LeadForm";
 import { SectionHeader } from "@/components/SectionHeader";
-import { brand, cooperationSteps, faqs } from "@/lib/data";
+import { brand, faqs } from "@/lib/data";
 
 export default function ContactPage() {
   return (
@@ -57,20 +57,6 @@ export default function ContactPage() {
         </div>
       </section>
       <section className="bg-white py-20">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <SectionHeader title="我们如何开始合作？" />
-          <div className="mt-10 grid gap-5 md:grid-cols-4">
-            {cooperationSteps.map((step, index) => (
-              <div key={step.title} className="border border-brand-line p-6">
-                <p className="text-sm font-semibold text-brand-gold">0{index + 1}</p>
-                <h3 className="mt-4 text-xl font-semibold">{step.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-brand-muted">{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="bg-brand-soft py-20">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <SectionHeader title="FAQ" />
           <div className="mt-10 grid gap-4 md:grid-cols-2">
