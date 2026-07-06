@@ -362,8 +362,8 @@ export default function HomePage() {
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
               <div>
-                <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-brand-muted">Principles</p>
-                <h2 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-5xl">
+                <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/50">Principles</p>
+                <h2 className="text-3xl font-semibold leading-tight tracking-tight text-white md:text-5xl">
                   我们坚持什么
                 </h2>
               </div>
