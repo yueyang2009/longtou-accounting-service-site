@@ -131,7 +131,7 @@ export default function ServicesPage() {
             <Label text="应用场景" />
             <Heading>基于上述能力，我们可以提供以下支持</Heading>
             <p className="mt-6 text-sm leading-7 text-brand-muted">
-              以下为能力的具体应用场景，而非独立产品。
+              以下既为能力的具体应用场景，也是独立的产品。详情可咨询
             </p>
             <div className="mt-8 grid gap-4 md:grid-cols-2">
               {[
