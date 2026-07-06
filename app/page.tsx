@@ -406,22 +406,36 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── 案例 ── */}
+        {/* ── 精选案例 ── */}
         <section id="cases" className="section-reveal border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
-            <SectionTitle label="客户案例" title="不写客户名称，只讲真实问题。" />
+            <SectionTitle
+              label="精选案例"
+              title="来自真实企业的财税与经营问题解决实践"
+            />
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               {clientStories.map((story) => (
-                <article key={story.industry} className="interactive-card border border-brand-line bg-white p-8">
-                  <p className="text-xs font-semibold text-brand-muted">{story.industry}</p>
-                  <h3 className="mt-4 text-xl font-semibold leading-snug text-brand-ink">{story.problem}</h3>
-                  <div className="mt-6 space-y-4 text-sm leading-7 text-brand-muted">
-                    <p>{story.process}</p>
-                    <p>{story.result}</p>
-                  </div>
-                  <p className="mt-6 border-l-4 border-brand-ink bg-brand-soft px-5 py-4 text-sm font-medium text-brand-ink">
-                    “{story.quote}”
+                <article key={story.type} className="interactive-card border border-brand-line bg-white p-8">
+                  <p className="inline-block border border-brand-ink/20 bg-brand-soft px-3 py-1 text-xs font-semibold text-brand-ink">
+                    {story.type}
                   </p>
+                  <h3 className="mt-5 text-lg font-semibold leading-snug text-brand-ink">{story.background}</h3>
+                  <div className="mt-5 space-y-3">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">问题</p>
+                      <p className="mt-1.5 text-sm leading-6 text-brand-muted">{story.problem}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">处理</p>
+                      <p className="mt-1.5 text-sm leading-6 text-brand-muted">{story.process}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">结果</p>
+                      <p className="mt-1.5 border-l-4 border-brand-ink bg-brand-soft px-5 py-3 text-sm font-medium leading-6 text-brand-ink">
+                        {story.result}
+                      </p>
+                    </div>
+                  </div>
                 </article>
               ))}
             </div>
