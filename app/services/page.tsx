@@ -41,7 +41,7 @@ export default function ServicesPage() {
             <Link href="/why-annual-advisor" className="text-sm text-brand-muted hover:text-brand-ink">年度顾问</Link>
           </nav>
           <Link href="/contact" className="rounded-md bg-brand-ink px-5 py-2 text-sm font-medium text-white transition hover:bg-black">
-            申请企业经营尽调（限量开放）
+            申请企业财税风险诊断（限量开放）
           </Link>
         </div>
       </header>
@@ -226,7 +226,7 @@ export default function ServicesPage() {
             </h2>
             <div className="mt-10 flex flex-col items-center gap-4">
               <Link href="/contact" className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black">
-                申请企业经营尽调（限量开放）
+                申请企业财税风险诊断（限量开放）
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <p className="text-sm text-brand-muted">每月仅服务有限企业，需初步评估是否适配年度顾问体系。</p>

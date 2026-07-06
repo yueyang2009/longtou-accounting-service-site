@@ -20,7 +20,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             ))}
           </nav>
           <Button asChild size="sm" className="hidden sm:inline-flex">
-            <Link href="/contact">申请企业经营尽调（限量开放）</Link>
+            <Link href="/contact">申请企业财税风险诊断（限量开放）</Link>
           </Button>
         </div>
       </header>

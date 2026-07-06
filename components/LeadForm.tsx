@@ -51,7 +51,7 @@ export function LeadForm() {
       <div className="mb-6 flex items-center justify-between border-b border-brand-line pb-4">
         <div>
           <p className="text-sm font-semibold text-brand-muted">经营诊断申请</p>
-          <h3 className="mt-1 text-2xl font-semibold">申请企业经营尽调（限量开放）</h3>
+          <h3 className="mt-1 text-2xl font-semibold">申请企业财税风险诊断（限量开放）</h3>
         </div>
         <span className="rounded-md bg-brand-soft px-3 py-1 text-sm text-brand-muted">Step {step}/3</span>
       </div>
@@ -166,7 +166,7 @@ export function LeadForm() {
           </Button>
         ) : (
           <Button type="button" onClick={submit}>
-            申请企业经营尽调（限量开放）
+            申请企业财税风险诊断（限量开放）
           </Button>
         )}
       </div>

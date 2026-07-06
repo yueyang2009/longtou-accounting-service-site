@@ -13,7 +13,7 @@ export default function ContactPage() {
           <div>
             <SectionHeader
               eyebrow="经营交流"
-              title="申请企业经营尽调（限量开放）"
+              title="申请企业财税风险诊断（限量开放）"
               description="先了解企业阶段与经营现状，判断是否需要年度顾问支持。"
             />
             <div className="mt-8 grid gap-4 md:grid-cols-2">

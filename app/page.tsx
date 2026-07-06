@@ -155,7 +155,7 @@ export default function HomePage() {
             href="/contact"
             className="premium-button rounded-md bg-brand-ink px-5 py-2 text-sm font-medium text-white transition hover:bg-black"
           >
-            申请企业经营尽调（限量开放）
+            申请企业财税风险诊断（限量开放）
           </Link>
         </div>
       </header>
@@ -318,7 +318,7 @@ export default function HomePage() {
 
             <div className="mt-10 text-center">
               <p className="text-sm text-brand-muted">
-                <Link href="/contact" className="underline underline-offset-2 hover:text-brand-ink">申请企业经营尽调（限量开放）</Link>
+                <Link href="/contact" className="underline underline-offset-2 hover:text-brand-ink">申请企业财税风险诊断（限量开放）</Link>
                 ｜ 每月仅服务有限企业
               </p>
               <p className="mt-3 text-sm text-brand-muted">
@@ -443,7 +443,7 @@ export default function HomePage() {
             </p>
             <div className="mt-10">
               <p className="text-sm text-brand-muted">
-                <Link href="/contact" className="underline underline-offset-2 hover:text-brand-ink">申请企业经营尽调（限量开放）</Link>
+                <Link href="/contact" className="underline underline-offset-2 hover:text-brand-ink">申请企业财税风险诊断（限量开放）</Link>
                 ｜ 每月仅服务有限企业
               </p>
             </div>
@@ -455,7 +455,7 @@ export default function HomePage() {
           <div className="mx-auto max-w-3xl px-6 py-28 text-center md:py-36">
             <SectionTitle
               label="行动"
-              title="申请企业经营尽调（限量开放）"
+              title="申请企业财税风险诊断（限量开放）"
             />
             <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-brand-muted">
               不急着给方案，先把企业所处阶段、真实问题和需要优先处理的事项讲清楚。
@@ -465,7 +465,7 @@ export default function HomePage() {
                 href="/contact"
                 className="premium-button inline-flex h-12 items-center gap-2 rounded-md bg-brand-ink px-7 text-sm font-medium text-white transition hover:bg-black"
               >
-                申请企业经营尽调（限量开放）
+                申请企业财税风险诊断（限量开放）
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <p className="text-sm text-brand-muted">

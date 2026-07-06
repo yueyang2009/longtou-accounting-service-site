@@ -18,7 +18,7 @@ export function CTASection() {
         </div>
         <Button asChild size="lg" className="bg-white text-brand-ink hover:bg-white/90">
           <Link href="/contact">
-            申请企业经营尽调（限量开放）
+            申请企业财税风险诊断（限量开放）
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
