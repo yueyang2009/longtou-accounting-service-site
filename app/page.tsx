@@ -112,7 +112,7 @@ function DashboardPreview() {
                       <span
                         key={item}
                         className={[
-                          "dashboard-risk-cell flex h-9 items-center justify-center border text-[11px]",
+                          "dashboard-risk-cell cockpit-risk-cell flex h-9 items-center justify-center border text-[11px]",
                           index % 5 === 0
                             ? "border-[#d9c7a5]/45 bg-[#d9c7a5]/18 text-[#f2e7d2]"
                             : index % 3 === 0
