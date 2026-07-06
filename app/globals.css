@@ -127,6 +127,61 @@ body {
   background: #FFFFFF;
   border: 1px solid #E6E1D8;
   border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: card-fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+}
+.dashboard-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+/* ── 仪表盘条形动画 ── */
+@keyframes bar-grow {
+  from { width: 0%; }
+}
+.dashboard-bar {
+  width: var(--bar-width, 0%);
+  animation: bar-grow 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ── 仪表盘卡片入场 ── */
+@keyframes card-fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── 仪表盘风险单元格入场 ── */
+@keyframes cell-fade {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+.dashboard-risk-cell {
+  animation: cell-fade 0.4s ease forwards;
+  opacity: 0;
+}
+
+/* ── 仪表盘步骤入场 ── */
+@keyframes step-fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.dashboard-step {
+  animation: step-fade 0.5s ease forwards;
+  opacity: 0;
+  border-radius: 8px;
+}
+
+/* ── 仪表盘圆点脉冲 ── */
+@keyframes dot-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+.dashboard-dot {
+  animation: dot-pulse 2s ease-in-out infinite;
+}
+.dashboard-dot-strong {
+  animation-duration: 1.5s;
 }
 
 .dashboard-panel {
@@ -140,15 +195,24 @@ body {
   border-radius: 14px;
 }
 
-.dashboard-step {
-  border-radius: 8px;
-}
-
 /* ── 指标卡片 ── */
 .metric-card {
   background: #FFFFFF;
   border: 1px solid #E6E1D8;
   padding: 1.5rem;
+}
+
+
+.interactive-card {
+  background: #FFFFFF;
+  border: 1px solid #E6E1D8;
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.interactive-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.06), 0 4px 8px rgba(0,0,0,0.03);
+  border-color: #D8D2C8;
 }
 
 /* ── 时间轴卡片 ── */
@@ -157,17 +221,37 @@ body {
   border: 1px solid #E6E1D8;
   border-radius: 16px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.timeline-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
 }
 
-/* ── 交互卡片 ── */
-.interactive-card {
+/* ── 指标卡片 ── */
+.metric-card {
+  background: #FFFFFF;
+  border: 1px solid #E6E1D8;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+/* ── 汇报卡片（精选案例等） ── */
+.report-card {
   background: #FFFFFF;
   border: 1px solid #E6E1D8;
   border-radius: 16px;
-  transition: box-shadow 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.interactive-card:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.03);
+.report-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.06), 0 4px 8px rgba(0,0,0,0.03);
+  border-color: #D8D2C8;
 }
 
 /* ── 高级按钮 ── */
