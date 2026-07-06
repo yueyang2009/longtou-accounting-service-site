@@ -455,7 +455,7 @@ export default function HomePage() {
           <div className="mx-auto max-w-3xl px-6 py-28 text-center md:py-36">
             <SectionTitle
               label="行动"
-              title="申请企业财税风险诊断（限量开放）"
+              title="申请企业财税风险诊断"
             />
             <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-brand-muted">
               不急着给方案，先把企业所处阶段、真实问题和需要优先处理的事项讲清楚。
