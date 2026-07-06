@@ -239,7 +239,7 @@ export const cooperationSteps = [
   },
   {
     title: "开始年度陪伴",
-    description: "进入长期顾问机制，持续复盘、预警和改进。"
+    description: "进入长期顾问机制，按节奏持续复盘、定期预警并推动改善落地。"
   }
 ];
 
