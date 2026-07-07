@@ -1359,8 +1359,3 @@ body {
   line-height: 1.9;
 }
 
-
-/* ── 全站深色：纯白卡片翻为半透深色（不影响 bg-white/5 等带透明度变体）── */
-.bg-white {
-  background-color: rgb(255 255 255 / 0.045) !important;
-}

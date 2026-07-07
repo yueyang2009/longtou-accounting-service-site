@@ -150,7 +150,7 @@ export default function ServicesPage() {
                 ["股权架构设计", "控制权设计、股权分配、业务拆分及税务影响测算"],
                 ["高端合规账体系", "构建同时满足合规要求与经营分析的财务体系"],
               ].map(([title, desc]) => (
-                <div key={title} className="border border-brand-line bg-white p-6 rounded-card">
+                <div key={title} className="border border-brand-line bg-brand-card p-6 rounded-card">
                   <p className="text-base font-semibold text-brand-ink">{title}</p>
                   <p className="mt-2 text-sm leading-6 text-brand-muted">{desc}</p>
                 </div>
@@ -213,7 +213,7 @@ export default function ServicesPage() {
                 "股权结构与业务逻辑一致",
                 "财务体系具备持续运行能力",
               ].map((item) => (
-                <div key={item} className="border border-brand-line bg-white p-6 rounded-card">
+                <div key={item} className="border border-brand-line bg-brand-card p-6 rounded-card">
                   <p className="text-base leading-7 text-brand-muted">{item}</p>
                 </div>
               ))}

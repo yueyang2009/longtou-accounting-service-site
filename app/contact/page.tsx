@@ -17,17 +17,17 @@ export default function ContactPage() {
               description="先了解企业阶段与经营现状，判断是否需要年度顾问支持。"
             />
             <div className="mt-8 grid gap-4 md:grid-cols-2">
-              <div className="border border-brand-line bg-white p-5">
+              <div className="border border-brand-line bg-brand-card p-5">
                 <p className="text-sm text-brand-muted">联系电话</p>
                 <p className="mt-2 text-xl font-semibold">{brand.phone}</p>
               </div>
-              <div className="border border-brand-line bg-white p-5">
+              <div className="border border-brand-line bg-brand-card p-5">
                 <p className="text-sm text-brand-muted">邮箱</p>
                 <p className="mt-2 text-sm font-semibold">1833379550@qq.com</p>
               </div>
-              <div className="border border-brand-line bg-white p-5">
+              <div className="border border-brand-line bg-brand-card p-5">
                 <p className="text-sm text-brand-muted">微信</p>
-                <div className="mt-3 w-36 border border-brand-line bg-white p-2">
+                <div className="mt-3 w-36 border border-brand-line bg-brand-card p-2">
                   <Image
                     src={brand.wechatQr}
                     alt="微信二维码"
@@ -38,9 +38,9 @@ export default function ContactPage() {
                 </div>
                 <p className="mt-3 text-sm font-medium text-brand-ink">{brand.wechat}</p>
               </div>
-              <div className="border border-brand-line bg-white p-5">
+              <div className="border border-brand-line bg-brand-card p-5">
                 <p className="text-sm text-brand-muted">飞书</p>
-                <div className="mt-3 w-36 border border-brand-line bg-white p-2">
+                <div className="mt-3 w-36 border border-brand-line bg-brand-card p-2">
                   <Image
                     src={brand.feishuQr}
                     alt="飞书二维码"
@@ -56,12 +56,12 @@ export default function ContactPage() {
           <LeadForm />
         </div>
       </section>
-      <section className="bg-white py-20">
+      <section className="bg-brand-card py-20">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <SectionHeader title="FAQ" />
           <div className="mt-10 grid gap-4 md:grid-cols-2">
             {faqs.map((faq) => (
-              <div key={faq.question} className="border border-brand-line bg-white p-6">
+              <div key={faq.question} className="border border-brand-line bg-brand-card p-6">
                 <h3 className="font-semibold">{faq.question}</h3>
                 <p className="mt-3 text-sm leading-6 text-brand-muted">{faq.answer}</p>
               </div>

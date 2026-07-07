@@ -63,7 +63,7 @@ function DashboardPreview() {
           </div>
 
           <div className="mt-5 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="cockpit-primary-card dashboard-panel border border-white/10 bg-white/[0.045] p-5">
+            <div className="cockpit-primary-card dashboard-panel border border-white/10 bg-brand-card/[0.045] p-5">
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="text-sm font-medium text-white/62">年度经营状态</p>
@@ -97,7 +97,7 @@ function DashboardPreview() {
                   ["处理逻辑", "风险前置"],
                   ["复盘节奏", "季度校准"]
                 ].map(([label, value], index) => (
-                  <div key={label} className="cockpit-mini-card dashboard-card border border-white/10 bg-white/[0.055] p-4" style={{ animationDelay: `${index * 120}ms` }}>
+                  <div key={label} className="cockpit-mini-card dashboard-card border border-white/10 bg-brand-card/[0.055] p-4" style={{ animationDelay: `${index * 120}ms` }}>
                     <p className="text-xs whitespace-nowrap text-white/46">{label}</p>
                     <p className="mt-3 text-lg font-semibold tracking-tight whitespace-nowrap text-white">{value}</p>
                   </div>
@@ -105,7 +105,7 @@ function DashboardPreview() {
               </div>
 
               <div className="grid gap-4 lg:grid-cols-[1fr_0.82fr]">
-                <div className="cockpit-risk-card dashboard-panel border border-white/10 bg-white/[0.045] p-5">
+                <div className="cockpit-risk-card dashboard-panel border border-white/10 bg-brand-card/[0.045] p-5">
                   <div className="flex items-center justify-between">
                     <p className="text-sm font-semibold text-white">风险雷达</p>
                     <p className="text-xs text-white/42">前置识别</p>
@@ -208,7 +208,7 @@ export default function HomePage() {
 
         {/* ── 私密顾问背书 ── */}
         <section data-header-theme="dark" className="private-trust-strip border-b border-[#d9c7a5]/18 bg-[#111816] text-white">
-          <div className="mx-auto grid max-w-7xl gap-px bg-white/10 px-6 md:grid-cols-4 md:px-0">
+          <div className="mx-auto grid max-w-7xl gap-px bg-brand-card/10 px-6 md:grid-cols-4 md:px-0">
             {trustMetrics.map((m) => (
               <div key={m.label} className="bg-[#111816] px-6 py-7 md:px-8">
                 <p className="text-3xl font-semibold tracking-tight text-[#e9d9bc]">{m.value}</p>
@@ -236,14 +236,14 @@ export default function HomePage() {
               </div>
               <div className="grid gap-px overflow-hidden border border-brand-line bg-brand-line">
               {homePainCards.map((item, i) => (
-                <div key={item} className="private-memo-row bg-white p-7 md:p-9">
+                <div key={item} className="private-memo-row bg-brand-card p-7 md:p-9">
                   <p className="mb-4 text-xs font-semibold tracking-[0.18em] text-brand-muted">0{i + 1}</p>
                   <p className="text-2xl font-semibold leading-snug text-brand-ink">{item}</p>
                 </div>
               ))}
               </div>
             </div>
-            <p className="ml-auto mt-10 max-w-3xl border-l-4 border-[#d9c7a5] bg-white px-7 py-6 text-base font-medium leading-8 text-brand-ink shadow-consult">
+            <p className="ml-auto mt-10 max-w-3xl border-l-4 border-[#d9c7a5] bg-brand-card px-7 py-6 text-base font-medium leading-8 text-brand-ink shadow-consult">
               这些问题，不是单纯财务问题，而是经营秩序问题。龙头会服把财税问题放回经营现场，陪老板一起做判断。
             </p>
           </div>
@@ -284,7 +284,7 @@ export default function HomePage() {
             <SectionTitle label="龙头方法" title="先看清，再理顺；先建立，再陪跑。" />
             <div className="mt-12 grid gap-px overflow-hidden border border-brand-line/70 bg-brand-line md:grid-cols-4">
               {longtouMethod.map((item) => (
-                <div key={item.title} className="private-method-card interactive-card bg-white p-8 rounded-card">
+                <div key={item.title} className="private-method-card interactive-card bg-brand-card p-8 rounded-card">
                   <p className="mb-3 text-xs font-semibold text-brand-muted">{item.step}</p>
                   <h3 className="text-3xl font-semibold tracking-tight text-brand-ink">{item.title}</h3>
                   <ul className="mt-8 space-y-3">
@@ -310,7 +310,7 @@ export default function HomePage() {
             </p>
 
             <div className="mt-12 grid gap-6 md:grid-cols-2">
-              <div className="private-panel interactive-card border border-brand-line bg-white p-8 rounded-card">
+              <div className="private-panel interactive-card border border-brand-line bg-brand-card p-8 rounded-card">
                 <h3 className="text-lg font-semibold text-brand-ink">适合这样的企业</h3>
                 <ul className="mt-6 space-y-4">
                   {annualPlan.suitable.map((item) => (
@@ -321,7 +321,7 @@ export default function HomePage() {
                   ))}
                 </ul>
               </div>
-              <div className="private-panel interactive-card border border-brand-line bg-white p-8 rounded-card">
+              <div className="private-panel interactive-card border border-brand-line bg-brand-card p-8 rounded-card">
                 <h3 className="text-lg font-semibold text-brand-ink">年度顾问包含</h3>
                 <ul className="mt-6 space-y-4">
                   {annualPlan.whatYouGet.map((item) => (
@@ -336,7 +336,7 @@ export default function HomePage() {
 
             <div className="mt-10 grid gap-4 md:grid-cols-3">
               {annualPlan.process.map((step) => (
-                <div key={step.step} className="private-process-card interactive-card border border-brand-line bg-white p-6 rounded-card">
+                <div key={step.step} className="private-process-card interactive-card border border-brand-line bg-brand-card p-6 rounded-card">
                   <p className="text-xs font-semibold text-brand-muted">{step.step}</p>
                   <p className="mt-3 text-xl font-semibold text-brand-ink">{step.title}</p>
                   <p className="mt-3 text-sm leading-6 text-brand-muted">{step.desc}</p>
@@ -368,7 +368,7 @@ export default function HomePage() {
               <div className="hidden h-px bg-brand-line md:block" />
               <div className="grid gap-5 md:-mt-3 md:grid-cols-5">
                 {cooperationSteps.map((step, index) => (
-                  <div key={step.title} className="bg-white">
+                  <div key={step.title} className="bg-brand-card">
                     <div className="mb-7 hidden h-6 w-6 rounded-full border border-brand-ink bg-white md:block" />
                     <div className="timeline-card border border-brand-line p-8">
                       <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">
@@ -394,7 +394,7 @@ export default function HomePage() {
                   我们坚持什么
                 </h2>
               </div>
-              <div className="grid gap-px overflow-hidden border border-white/12 bg-white/12 md:grid-cols-2">
+              <div className="grid gap-px overflow-hidden border border-white/12 bg-brand-card/12 md:grid-cols-2">
                 {principles.map((item) => (
                   <div key={item.title} className="dark-card p-8 md:p-10">
                     <h3 className="text-2xl font-semibold tracking-tight text-white">{item.title}</h3>
@@ -422,7 +422,7 @@ export default function HomePage() {
             </div>
             <div className="mt-8 grid gap-px overflow-hidden border border-brand-line bg-brand-line md:grid-cols-4">
               {trustMetrics.map((m) => (
-                <div key={m.label} className="metric-card bg-white p-6 rounded-card">
+                <div key={m.label} className="metric-card bg-brand-card p-6 rounded-card">
                   <p className="text-2xl font-semibold tracking-tight text-brand-ink">{m.value}</p>
                   <div className="mt-1 flex items-baseline gap-2">
                     <p className="text-sm text-brand-muted">{m.label}</p>
@@ -443,7 +443,7 @@ export default function HomePage() {
             />
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               {clientStories.map((story) => (
-                <article key={story.type} className="interactive-card border border-brand-line bg-white p-8 rounded-card">
+                <article key={story.type} className="interactive-card border border-brand-line bg-brand-card p-8 rounded-card">
                   <p className="inline-block border border-brand-ink/20 bg-brand-soft px-3 py-1 text-xs font-semibold text-brand-ink">
                     {story.type}
                   </p>

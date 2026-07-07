@@ -224,7 +224,7 @@ export default function TeamPage() {
         </section>
 
         <section className="team-proof-section">
-          <div className="mx-auto grid max-w-7xl gap-px bg-white/10 px-6 md:grid-cols-4 md:px-0">
+          <div className="mx-auto grid max-w-7xl gap-px bg-brand-card/10 px-6 md:grid-cols-4 md:px-0">
             {trustMetrics.map((metric) => (
               <div key={metric.label} className="bg-[#0f1513] px-6 py-7 md:px-8">
                 <p className="text-3xl font-semibold tracking-tight text-[#e9d9bc]">{metric.value}</p>

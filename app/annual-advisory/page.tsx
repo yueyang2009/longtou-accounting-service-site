@@ -81,7 +81,7 @@ export default function AnnualAdvisoryPage() {
               {annualPlan.whatYouGet.map((item) => {
                 const parts = item.split("——");
                 return (
-                  <div key={item} className="border border-brand-line bg-white p-6 rounded-card">
+                  <div key={item} className="border border-brand-line bg-brand-card p-6 rounded-card">
                     <p className="text-lg font-semibold text-brand-ink">{parts[0]}</p>
                     {parts[1] && <p className="mt-2 text-sm leading-7 text-brand-muted">{parts[1]}</p>}
                   </div>
@@ -100,7 +100,7 @@ export default function AnnualAdvisoryPage() {
             </div>
             <div className="mt-6 grid gap-px overflow-hidden border border-brand-line bg-brand-line md:grid-cols-4">
               {trustMetrics.map((m) => (
-                <div key={m.label} className="bg-white p-6">
+                <div key={m.label} className="bg-brand-card p-6">
                   <p className="text-2xl font-semibold tracking-tight text-brand-ink">{m.value}</p>
                   <div className="mt-1 flex items-baseline gap-2">
                     <p className="text-sm text-brand-muted">{m.label}</p>

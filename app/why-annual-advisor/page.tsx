@@ -140,7 +140,7 @@ export default function WhyAnnualAdvisorPage() {
                 ["财税风险管理（持续）", "税务合规风险识别、发票/合同/资金结构问题排查、政策变化影响判断"],
                 ["年度经营复盘", "全年经营结构总结、风险与问题梳理、已解决与未解决事项、下一年度经营建议"],
               ].map(([title, desc]) => (
-                <div key={title} className="border border-brand-line bg-white p-6 rounded-card">
+                <div key={title} className="border border-brand-line bg-brand-card p-6 rounded-card">
                   <p className="text-lg font-semibold text-brand-ink">{title}</p>
                   <p className="mt-2 text-sm leading-7 text-brand-muted">{desc}</p>
                 </div>
@@ -266,7 +266,7 @@ export default function WhyAnnualAdvisorPage() {
             </div>
             <div className="mt-8 grid gap-px overflow-hidden border border-brand-line bg-brand-line md:grid-cols-4">
               {trustMetrics.map((m) => (
-                <div key={m.label} className="bg-white p-6">
+                <div key={m.label} className="bg-brand-card p-6">
                   <p className="text-2xl font-semibold tracking-tight text-brand-ink">{m.value}</p>
                   <div className="mt-1 flex items-baseline gap-2">
                     <p className="text-sm text-brand-muted">{m.label}</p>
