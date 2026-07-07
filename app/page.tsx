@@ -36,17 +36,21 @@ function SectionTitle({
 
 function DashboardPreview() {
   const operatingMetrics = [
-    { label: "利润质量", value: "持续观察", width: "78%", delay: "0ms" },
-    { label: "现金节奏", value: "阶段复盘", width: "66%", delay: "180ms" },
-    { label: "风险事项", value: "前置处理", width: "54%", delay: "360ms" }
+    { label: "利润质量", value: "已校准", width: "82%", delay: "0ms" },
+    { label: "现金流节奏", value: "重点跟踪", width: "68%", delay: "180ms" },
+    { label: "税务风险边界", value: "前置处理", width: "56%", delay: "360ms" }
   ];
   const riskItems = ["合同", "票据", "回款", "成本", "税负", "流程", "预算", "内控", "股权", "项目", "库存", "薪酬"];
 
   return (
-    <div className="dashboard-stage executive-cockpit relative">
+    <div className="dashboard-stage executive-cockpit private-cockpit relative">
       <div className="cockpit-orbit cockpit-orbit-one" />
       <div className="cockpit-orbit cockpit-orbit-two" />
-      <div className="dashboard-shell cockpit-shell relative overflow-hidden border border-white/15 bg-[#121415] p-4 shadow-[0_34px_110px_rgba(17,17,17,0.24)]">
+      <div className="private-cockpit-badge hidden lg:block">
+        <span>CONFIDENTIAL REVIEW</span>
+        <strong>Q3</strong>
+      </div>
+      <div className="dashboard-shell cockpit-shell private-cockpit-shell relative overflow-hidden border border-white/15 bg-[#121415] p-4 shadow-[0_34px_110px_rgba(17,17,17,0.24)]">
         <div className="dashboard-surface cockpit-surface border border-white/10 bg-[#17191a]/92 p-5 text-white">
           <div className="flex items-center justify-between border-b border-white/10 pb-5">
             <div>
@@ -55,7 +59,7 @@ function DashboardPreview() {
             </div>
             <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5">
               <span className="dashboard-dot h-2 w-2 rounded-full bg-[#d9c7a5]" />
-              <span className="text-xs font-medium text-white/62">Live review</span>
+              <span className="text-xs font-medium text-white/62">Partner desk</span>
             </div>
           </div>
 
@@ -63,9 +67,9 @@ function DashboardPreview() {
             <div className="cockpit-primary-card dashboard-panel border border-white/10 bg-white/[0.045] p-5">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-sm font-medium text-white/62">经营健康度</p>
-                  <p className="mt-3 text-4xl font-semibold tracking-tight">稳定</p>
-                  <p className="mt-3 text-xs leading-5 text-white/46">利润、现金流、风险事项纳入同一套复盘节奏。</p>
+                  <p className="text-sm font-medium text-white/62">年度经营状态</p>
+                  <p className="mt-3 text-4xl font-semibold tracking-tight">可控</p>
+                  <p className="mt-3 text-xs leading-5 text-white/46">利润、现金流、税务边界进入同一套老板复盘桌面。</p>
                 </div>
                 <div className="cockpit-ring" />
               </div>
@@ -90,9 +94,9 @@ function DashboardPreview() {
             <div className="grid gap-4">
               <div className="grid gap-4 sm:grid-cols-3">
                 {[
-                  ["顾问方式", "年度陪伴"],
+                  ["顾问席位", "年度陪伴"],
                   ["处理逻辑", "风险前置"],
-                  ["复盘节奏", "阶段校准"]
+                  ["复盘节奏", "季度校准"]
                 ].map(([label, value], index) => (
                   <div key={label} className="cockpit-mini-card dashboard-card border border-white/10 bg-white/[0.055] p-4" style={{ animationDelay: `${index * 120}ms` }}>
                     <p className="text-xs whitespace-nowrap text-white/46">{label}</p>
@@ -128,8 +132,8 @@ function DashboardPreview() {
                 </div>
                 <div className="dashboard-review-card cockpit-review-card border border-[#d9c7a5]/22 bg-[#d9c7a5]/12 p-5 text-white">
                   <p className="text-xs uppercase tracking-[0.24em] text-[#e9d9bc]/60">Next action</p>
-                  <p className="mt-3 text-2xl font-semibold leading-tight">季度经营复盘</p>
-                  <p className="mt-4 text-xs leading-5 text-white/52">把账、税、利润、现金流放回经营会议里。</p>
+                  <p className="mt-3 text-2xl font-semibold leading-tight">老板经营简报</p>
+                  <p className="mt-4 text-xs leading-5 text-white/52">把账、税、利润、现金流放回经营会议桌。</p>
                 </div>
               </div>
             </div>
@@ -153,23 +157,23 @@ function DashboardPreview() {
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-brand-paper">
+    <div className="min-h-screen bg-brand-paper private-advisory-site">
       {/* ── Header ── */}
-      <header className="sticky top-0 z-50 border-b border-brand-line bg-white/95 backdrop-blur">
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#111816]/92 text-white backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-          <Link href="/" className="inline-flex items-center">
+          <Link href="/" className="inline-flex items-center rounded-full bg-white px-3 py-1.5">
             <BrandLogo className="h-9 w-auto max-w-[150px]" />
           </Link>
           <nav className="hidden items-center gap-8 lg:flex">
-            <Link href="#pain" className="text-sm text-brand-muted hover:text-brand-ink">痛点</Link>
-            <Link href="#annual" className="text-sm text-brand-muted hover:text-brand-ink">年度顾问</Link>
-            <Link href="#method" className="text-sm text-brand-muted hover:text-brand-ink">方法</Link>
-            <Link href="#principles" className="text-sm text-brand-muted hover:text-brand-ink">坚持</Link>
-            <Link href="#team" className="text-sm text-brand-muted hover:text-brand-ink">团队</Link>
-            <Link href="#cases" className="text-sm text-brand-muted hover:text-brand-ink">案例</Link>
-            <span className="text-brand-line">|</span>
-            <Link href="/about" className="text-sm text-brand-muted hover:text-brand-ink">关于</Link>
-            <Link href="/blog" className="text-sm text-brand-muted hover:text-brand-ink">文章</Link>
+            <Link href="#pain" className="text-sm text-white/62 hover:text-white">痛点</Link>
+            <Link href="#annual" className="text-sm text-white/62 hover:text-white">年度顾问</Link>
+            <Link href="#method" className="text-sm text-white/62 hover:text-white">方法</Link>
+            <Link href="#principles" className="text-sm text-white/62 hover:text-white">坚持</Link>
+            <Link href="#team" className="text-sm text-white/62 hover:text-white">团队</Link>
+            <Link href="#cases" className="text-sm text-white/62 hover:text-white">案例</Link>
+            <span className="text-white/16">|</span>
+            <Link href="/about" className="text-sm text-white/62 hover:text-white">关于</Link>
+            <Link href="/blog" className="text-sm text-white/62 hover:text-white">文章</Link>
           </nav>
           <MobileNav
             links={[
@@ -185,7 +189,7 @@ export default function HomePage() {
           />
           <Link
             href="/contact"
-            className="hidden lg:inline-flex premium-button bg-brand-emerald px-5 py-2 text-sm font-medium text-white transition hover:bg-brand-emerald-hover"
+            className="hidden lg:inline-flex premium-button bg-[#d9c7a5] px-5 py-2 text-sm font-semibold text-[#111816] transition hover:bg-[#eadabd]"
           >
             申请企业财税风险诊断（限量开放）
           </Link>
@@ -194,38 +198,41 @@ export default function HomePage() {
 
       <main>
         {/* ── Hero ── */}
-        <section className="hero-cinematic grain relative overflow-hidden border-b border-brand-line bg-brand-paper">
-          <div className="absolute -left-24 top-12 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.95)_0%,rgba(244,238,229,0.55)_45%,rgba(244,238,229,0)_72%)] blur-3xl" />
-          <div className="absolute right-0 top-0 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.9)_0%,rgba(232,226,218,0.44)_48%,rgba(232,226,218,0)_74%)] blur-3xl" />
-          <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(255,250,242,0.72)_0%,rgba(255,250,242,0)_70%)] blur-3xl" />
+        <section className="private-hero hero-cinematic grain relative overflow-hidden border-b border-white/10 bg-[#111816] text-white">
+          <div className="absolute -left-24 top-12 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(217,199,165,0.22)_0%,rgba(26,57,43,0.20)_42%,rgba(17,24,22,0)_72%)] blur-3xl" />
+          <div className="absolute right-0 top-0 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(58,90,71,0.34)_0%,rgba(17,24,22,0.40)_48%,rgba(17,24,22,0)_74%)] blur-3xl" />
+          <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(217,199,165,0.18)_0%,rgba(17,24,22,0)_70%)] blur-3xl" />
           <div className="hero-grid absolute inset-0" />
-          <div className="relative z-10 mx-auto grid max-w-7xl gap-16 px-6 py-28 md:py-36 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
+          <div className="private-marble absolute inset-0" />
+          <div className="relative z-10 mx-auto grid max-w-7xl gap-16 px-6 py-24 md:py-32 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
             <div>
-              <p className="mb-7 text-sm font-medium text-brand-muted">年度经营顾问</p>
-              <h1 className="max-w-3xl text-3xl font-semibold leading-[1.2] tracking-tight text-brand-ink md:text-5xl">
+              <p className="mb-7 w-fit border border-[#d9c7a5]/30 bg-[#d9c7a5]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#e9d9bc]">
+                企业财税与经营参谋团队
+              </p>
+              <h1 className="max-w-3xl text-4xl font-semibold leading-[1.12] tracking-tight text-white md:text-6xl">
                 让企业经营更规范，让老板决策更从容。
               </h1>
-              <p className="mt-8 max-w-2xl text-lg leading-8 text-brand-muted">
+              <p className="mt-8 max-w-2xl text-lg leading-8 text-white/66">
                 以财税为切入点，将利润、现金流、风险与组织协同置于同一经营节奏中分析。核心不是处理单点问题，而是建立持续经营判断能力。
               </p>
               <div className="mt-11 flex flex-col gap-4 sm:flex-row">
                 <Link
                   href="/why-annual-advisor"
-                  className="premium-button inline-flex h-12 items-center gap-2 bg-brand-emerald px-7 text-sm font-medium text-white transition hover:bg-brand-emerald-hover"
+                  className="premium-button inline-flex h-12 items-center gap-2 bg-[#d9c7a5] px-7 text-sm font-semibold text-[#111816] transition hover:bg-[#eadabd]"
                 >
                   了解年度顾问计划
                 </Link>
                 <Link
                   href="/services"
-                  className="inline-flex h-12 items-center gap-2 rounded-md border border-brand-line px-7 text-sm font-medium text-brand-muted transition hover:bg-brand-soft hover-lift"
+                  className="inline-flex h-12 items-center gap-2 rounded-full border border-white/14 bg-white/5 px-7 text-sm font-medium text-white/72 transition hover:border-[#d9c7a5]/42 hover:text-white hover-lift"
                 >
                   查看服务体系
                 </Link>
               </div>
-              <div className="mt-14 grid gap-5 text-sm text-brand-muted sm:grid-cols-3">
+              <div className="mt-14 grid gap-3 text-sm text-white/58 sm:grid-cols-3">
                 {["注册会计师团队", "年度顾问机制", "本地经营判断"].map((item) => (
-                  <span key={item} className="flex items-center gap-2">
-                    <Minus className="h-4 w-4 text-brand-ink" />
+                  <span key={item} className="flex items-center gap-2 border-t border-white/10 pt-4">
+                    <Minus className="h-4 w-4 text-[#d9c7a5]" />
                     {item}
                   </span>
                 ))}
@@ -235,26 +242,51 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* ── 私密顾问背书 ── */}
+        <section className="private-trust-strip border-b border-[#d9c7a5]/18 bg-[#111816] text-white">
+          <div className="mx-auto grid max-w-7xl gap-px bg-white/10 px-6 md:grid-cols-4 md:px-0">
+            {trustMetrics.map((m) => (
+              <div key={m.label} className="bg-[#111816] px-6 py-7 md:px-8">
+                <p className="text-3xl font-semibold tracking-tight text-[#e9d9bc]">{m.value}</p>
+                <div className="mt-2 flex items-baseline gap-2">
+                  <p className="text-sm text-white/58">{m.label}</p>
+                  {m.detail && <p className="text-base font-semibold text-white">{m.detail}</p>}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* ── 痛点 ── */}
-        <section id="pain" className="section-reveal border-b border-brand-line bg-brand-soft">
+        <section id="pain" className="section-reveal private-ivory-section border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
-            <SectionTitle label="老板痛点" title="老板真正焦虑的，从来不是做账。" />
-            <div className="mt-12 grid gap-4 md:grid-cols-4">
+            <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+              <div className="lg:sticky lg:top-28">
+                <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-brand-muted">老板痛点</p>
+                <h2 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-5xl">
+                  老板真正焦虑的，从来不是做账。
+                </h2>
+                <p className="mt-6 max-w-md text-base leading-8 text-brand-muted">
+                  财税问题真正刺痛老板的，是它背后那张看不清的经营地图：利润真假、现金节奏、历史风险和组织边界。
+                </p>
+              </div>
+              <div className="grid gap-px overflow-hidden border border-brand-line bg-brand-line">
               {homePainCards.map((item, i) => (
-                <div key={item} className="interactive-card border border-brand-line bg-white p-7 rounded-card">
-                  <p className="mb-4 text-xs font-semibold text-brand-muted">0{i + 1}</p>
-                  <p className="text-xl font-semibold leading-snug text-brand-ink">{item}</p>
+                <div key={item} className="private-memo-row bg-white p-7 md:p-9">
+                  <p className="mb-4 text-xs font-semibold tracking-[0.18em] text-brand-muted">0{i + 1}</p>
+                  <p className="text-2xl font-semibold leading-snug text-brand-ink">{item}</p>
                 </div>
               ))}
+              </div>
             </div>
-            <p className="mx-auto mt-8 max-w-2xl border-l-4 border-brand-ink bg-white px-6 py-5 text-base font-medium text-brand-ink">
-              这些问题，不是财务问题，而是经营问题。龙头会服把财税问题放回经营现场来解决。
+            <p className="ml-auto mt-10 max-w-3xl border-l-4 border-[#24352A] bg-white px-7 py-6 text-base font-medium leading-8 text-brand-ink shadow-consult">
+              这些问题，不是单纯财务问题，而是经营秩序问题。龙头会服把财税问题放回经营现场，陪老板一起做判断。
             </p>
           </div>
         </section>
 
         {/* ── 年度时间轴 ── */}
-        <section id="annual" className="section-reveal border-b border-brand-line">
+        <section id="annual" className="section-reveal private-report-section border-b border-brand-line">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle
               label="年度顾问"
@@ -265,9 +297,9 @@ export default function HomePage() {
               <div className="hidden h-px bg-brand-line md:block" />
               <div className="grid gap-5 md:-mt-3 md:grid-cols-5">
                 {annualTimeline.map((item) => (
-                  <div key={item.title} className="bg-white md:pt-0">
+                  <div key={item.title} className="bg-brand-paper md:pt-0">
                     <div className="mb-7 hidden h-6 w-6 rounded-full border border-brand-ink bg-white md:block" />
-                    <div className="timeline-card border border-brand-line p-7 rounded-card">
+                    <div className="timeline-card private-timeline-card border border-brand-line p-7 rounded-card">
                       <h3 className="text-xl font-semibold leading-snug text-brand-ink">{item.title}</h3>
                       <ul className="mt-6 space-y-3">
                         {item.items.map((li) => (
@@ -283,12 +315,12 @@ export default function HomePage() {
         </section>
 
         {/* ── 方法论 ── */}
-        <section id="method" className="section-reveal cinematic-band border-b border-brand-line">
+        <section id="method" className="section-reveal private-method-band border-b border-brand-line">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle label="龙头方法" title="先看清，再理顺；先建立，再陪跑。" />
             <div className="mt-12 grid gap-px overflow-hidden border border-brand-line/70 bg-brand-line md:grid-cols-4">
               {longtouMethod.map((item) => (
-                <div key={item.title} className="interactive-card bg-white p-8 rounded-card">
+                <div key={item.title} className="private-method-card interactive-card bg-white p-8 rounded-card">
                   <p className="mb-3 text-xs font-semibold text-brand-muted">{item.step}</p>
                   <h3 className="text-3xl font-semibold tracking-tight text-brand-ink">{item.title}</h3>
                   <ul className="mt-8 space-y-3">
@@ -306,7 +338,7 @@ export default function HomePage() {
         </section>
 
         {/* ── 服务：年度顾问 ── */}
-        <section className="section-reveal border-b border-brand-line bg-brand-soft">
+        <section className="section-reveal private-annual-plan border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle label="核心服务" title={annualPlan.title} />
             <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-7 text-brand-muted">
@@ -314,7 +346,7 @@ export default function HomePage() {
             </p>
 
             <div className="mt-12 grid gap-6 md:grid-cols-2">
-              <div className="interactive-card border border-brand-line bg-white p-8 rounded-card">
+              <div className="private-panel interactive-card border border-brand-line bg-white p-8 rounded-card">
                 <h3 className="text-lg font-semibold text-brand-ink">适合这样的企业</h3>
                 <ul className="mt-6 space-y-4">
                   {annualPlan.suitable.map((item) => (
@@ -325,7 +357,7 @@ export default function HomePage() {
                   ))}
                 </ul>
               </div>
-              <div className="interactive-card border border-brand-line bg-white p-8 rounded-card">
+              <div className="private-panel interactive-card border border-brand-line bg-white p-8 rounded-card">
                 <h3 className="text-lg font-semibold text-brand-ink">年度顾问包含</h3>
                 <ul className="mt-6 space-y-4">
                   {annualPlan.whatYouGet.map((item) => (
@@ -340,7 +372,7 @@ export default function HomePage() {
 
             <div className="mt-10 grid gap-4 md:grid-cols-3">
               {annualPlan.process.map((step) => (
-                <div key={step.step} className="interactive-card border border-brand-line bg-white p-6 rounded-card">
+                <div key={step.step} className="private-process-card interactive-card border border-brand-line bg-white p-6 rounded-card">
                   <p className="text-xs font-semibold text-brand-muted">{step.step}</p>
                   <p className="mt-3 text-xl font-semibold text-brand-ink">{step.title}</p>
                   <p className="mt-3 text-sm leading-6 text-brand-muted">{step.desc}</p>
@@ -475,7 +507,7 @@ export default function HomePage() {
         </section>
 
         {/* ── 判断与行动 ── */}
-        <section className="section-reveal border-b border-brand-line bg-brand-soft">
+        <section className="section-reveal private-final-cta border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-3xl px-6 py-28 text-center md:py-36">
             <SectionTitle
               label="行动"
@@ -493,7 +525,7 @@ export default function HomePage() {
             <div className="mt-10 flex flex-col items-center gap-4">
               <Link
                 href="/contact"
-                className="premium-button inline-flex h-12 items-center gap-2 rounded-full bg-brand-emerald px-7 text-sm font-medium text-white transition hover:bg-brand-emerald-hover"
+                className="premium-button inline-flex h-12 items-center gap-2 rounded-full bg-[#d9c7a5] px-7 text-sm font-semibold text-[#111816] transition hover:bg-[#eadabd]"
               >
                 申请企业财税风险诊断（限量开放）
                 <ArrowRight className="h-4 w-4" />
