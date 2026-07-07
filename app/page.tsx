@@ -206,21 +206,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── 私密顾问背书 ── */}
-        <section data-header-theme="dark" className="private-trust-strip border-b border-[#d9c7a5]/18 bg-[#111816] text-white">
-          <div className="mx-auto grid max-w-7xl gap-px bg-brand-card/10 px-6 md:grid-cols-4 md:px-0">
-            {trustMetrics.map((m) => (
-              <div key={m.label} className="bg-[#111816] px-6 py-7 md:px-8">
-                <p className="text-3xl font-semibold tracking-tight text-[#e9d9bc]">{m.value}</p>
-                <div className="mt-2 flex items-baseline gap-2">
-                  <p className="text-sm text-white/58">{m.label}</p>
-                  {m.detail && <p className="text-base font-semibold text-white">{m.detail}</p>}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* ── 痛点 ── */}
         <section id="pain" className="section-reveal private-ivory-section border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
