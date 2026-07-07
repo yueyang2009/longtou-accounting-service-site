@@ -409,7 +409,7 @@ export default function HomePage() {
               <p className="mb-6 text-xs font-semibold uppercase tracking-[0.22em] text-[#d9c7a5]/80">服务数据</p>
               <div className="grid grid-cols-2 gap-px overflow-hidden rounded-card border border-white/10 bg-white/10 md:grid-cols-4">
                 {trustMetrics.map((m) => (
-                  <div key={m.label} className="bg-[#111816] px-6 py-7">
+                  <div key={m.label} className="team-metric bg-[#111816] px-6 py-7">
                     <p className="text-3xl font-semibold tracking-tight text-[#e9d9bc]">{m.value}</p>
                     <div className="mt-2 flex items-baseline gap-2">
                       <p className="text-sm text-white/58">{m.label}</p>

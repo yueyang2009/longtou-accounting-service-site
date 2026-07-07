@@ -376,6 +376,20 @@ body {
   filter: saturate(0.55) brightness(0.9);
 }
 
+/* ── 团队实力数据带（hairline 分隔带，不破坏带样式，仅加交互） ── */
+.team-metric {
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 0.3s ease, filter 0.3s ease, background-color 0.3s ease;
+}
+.team-metric:hover {
+  background-color: #16201d;
+}
+.team-metric.is-dimmed {
+  opacity: 0.4;
+  filter: saturate(0.55) brightness(0.9);
+}
+
 /* ── 时间轴卡片 ── */
 .timeline-card {
   background: rgba(255,255,255,0.045);
