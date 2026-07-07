@@ -19,7 +19,7 @@ export function TeamOrbit({ members }: { members: OrbitMember[] }) {
 
   useEffect(() => {
     const tick = () => {
-      rotationRef.current = (rotationRef.current + (isHovering ? 0.14 : 0.44)) % 360;
+      rotationRef.current = (rotationRef.current + (isHovering ? 0.42 : 1.32)) % 360;
       setRotation(rotationRef.current);
       rafRef.current = window.requestAnimationFrame(tick);
     };
