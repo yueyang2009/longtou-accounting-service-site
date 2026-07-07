@@ -405,16 +405,19 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
-            <div className="mt-8 grid gap-px overflow-hidden border border-brand-line bg-brand-line md:grid-cols-4">
-              {trustMetrics.map((m) => (
-                <div key={m.label} className="metric-card bg-brand-card p-6 rounded-card">
-                  <p className="text-2xl font-semibold tracking-tight text-brand-ink">{m.value}</p>
-                  <div className="mt-1 flex items-baseline gap-2">
-                    <p className="text-sm text-brand-muted">{m.label}</p>
-                    {m.detail && <p className="text-base font-semibold text-brand-ink">{m.detail}</p>}
+            <div className="mt-14 border-t border-[#d9c7a5]/18 pt-10">
+              <p className="mb-6 text-xs font-semibold uppercase tracking-[0.22em] text-[#d9c7a5]/80">服务数据</p>
+              <div className="grid grid-cols-2 gap-px overflow-hidden rounded-card border border-white/10 bg-white/10 md:grid-cols-4">
+                {trustMetrics.map((m) => (
+                  <div key={m.label} className="bg-[#111816] px-6 py-7">
+                    <p className="text-3xl font-semibold tracking-tight text-[#e9d9bc]">{m.value}</p>
+                    <div className="mt-2 flex items-baseline gap-2">
+                      <p className="text-sm text-white/58">{m.label}</p>
+                      {m.detail && <p className="text-base font-semibold text-white">{m.detail}</p>}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
