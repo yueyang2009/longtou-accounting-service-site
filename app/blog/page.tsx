@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { ArrowRight, Calendar, Tag } from "lucide-react";
 
 import { BrandLogo } from "@/components/BrandLogo";
+import { BlogSearchClient } from "@/components/BlogSearchClient";
 import { MobileNav } from "@/components/MobileNav";
 import { brand, navItems } from "@/lib/data";
-import { getAllPosts, type PostMeta } from "@/lib/posts";
+import { getAllPosts } from "@/lib/posts";
 
 export default function BlogPage() {
   const posts = getAllPosts();
@@ -63,17 +63,13 @@ export default function BlogPage() {
           </div>
         </section>
 
-        {/* ── 文章列表 ── */}
+        {/* ── 文章列表（含搜索） ── */}
         <section>
           <div className="mx-auto max-w-4xl px-6 py-16 md:py-20">
             {posts.length === 0 ? (
               <p className="text-center text-brand-muted">暂无文章</p>
             ) : (
-              <div className="space-y-8">
-                {posts.map((post) => (
-                  <ArticleCard key={post.slug} post={post} />
-                ))}
-              </div>
+              <BlogSearchClient posts={posts} />
             )}
           </div>
         </section>
@@ -92,47 +88,3 @@ export default function BlogPage() {
   );
 }
 
-function ArticleCard({ post }: { post: PostMeta }) {
-  return (
-    <Link
-      href={`/blog/${post.slug}`}
-      className="group block rounded-card border border-brand-line bg-brand-card p-6 shadow-card transition hover:shadow-card-hover md:p-8"
-    >
-      {/* 日期 + 标签 */}
-      <div className="mb-4 flex flex-wrap items-center gap-3 text-xs text-brand-muted">
-        {post.date && (
-          <span className="inline-flex items-center gap-1">
-            <Calendar className="h-3.5 w-3.5" />
-            {post.date}
-          </span>
-        )}
-        {post.tags?.map((tag) => (
-          <span
-            key={tag}
-            className="inline-flex items-center gap-1 rounded-full border border-brand-line bg-brand-soft px-2.5 py-0.5 text-xs text-brand-muted"
-          >
-            <Tag className="h-3 w-3" />
-            {tag}
-          </span>
-        ))}
-      </div>
-
-      {/* 标题 */}
-      <h2 className="text-xl font-semibold leading-snug tracking-tight text-brand-ink transition group-hover:text-brand-emerald md:text-2xl">
-        {post.title}
-      </h2>
-
-      {/* 摘要 */}
-      {post.excerpt && (
-        <p className="mt-3 line-clamp-2 text-sm leading-7 text-brand-muted">
-          {post.excerpt}
-        </p>
-      )}
-
-      {/* 阅读更多 */}
-      <div className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-brand-emerald opacity-0 transition group-hover:opacity-100">
-        阅读全文 <ArrowRight className="h-3.5 w-3.5" />
-      </div>
-    </Link>
-  );
-}
