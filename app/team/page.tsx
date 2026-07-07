@@ -1,39 +1,146 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Users, ShieldCheck, Award, Handshake } from "lucide-react";
+import { ArrowRight, Award, Handshake, ShieldCheck, Users } from "lucide-react";
 
 import { BrandLogo } from "@/components/BrandLogo";
 import { MobileNav } from "@/components/MobileNav";
-import { TeamCard } from "@/components/TeamCard";
-import { brand, experts, extendedExperts, trustMetrics } from "@/lib/data";
+import { TeamOrbit, type OrbitMember } from "@/components/TeamOrbit";
+import { brand, trustMetrics } from "@/lib/data";
+
+const assetBasePath = process.env.GITHUB_PAGES === "true" ? "/longtou-accounting-service-site" : "";
+
+export const metadata: Metadata = {
+  title: `团队介绍｜${brand.name}`,
+  description: "龙头会服高端财税事业部专家顾问团队，覆盖财务、税务、法律、经营与企业内控。"
+};
 
 const navLinks = [
   { href: "/", label: "首页" },
-  { href: "/about", label: "关于" },
   { href: "/team", label: "团队" },
+  { href: "/about", label: "关于" },
   { href: "/annual-advisory", label: "年度顾问" },
   { href: "/services", label: "服务体系" },
+  { href: "/contact", label: "联系我们" }
+];
+
+const coreMembers: OrbitMember[] = [
+  {
+    name: "杜楠楠",
+    title: "高端财税事业部 总经理",
+    avatar: `${assetBasePath}/images/team/du-nannan.jpg`,
+    summary: "税务合规、股权架构、财务体系",
+    fullIntro:
+      "资深财税风控专家、注册会计师、注册税务师、高级会计师。深耕财税领域15年，拥有10年大型集团一线财务管理经验，具备5年财税事务所从业及团队管理经验。擅长高端财税顾问、税务合规筹划、股权架构设计、历史乱账清理、财务体系搭建、企业内控体系搭建、专项审计及全域财税风险排查。"
+  },
+  {
+    name: "李岳阳",
+    title: "高端财税事业部 高级顾问",
+    avatar: `${assetBasePath}/images/team/li-yueyang.png`,
+    summary: "财税风控、法律经营、企业落地",
+    fullIntro:
+      "资深财税风控专家、注册会计师、律师、高级管理会计师。15年一线财税实战经验，7年头部会计师事务所执业，8年集团财务总监管理经验。深耕财务、税务、法律、经营四维体系，精通财税合规与企业经营落地，提供全链条企业财税解决方案。"
+  },
+  {
+    name: "刘宏义",
+    title: "高端财税事业部 高级合伙人",
+    avatar: `${assetBasePath}/images/team/liu-hongyi.png`,
+    summary: "内部控制、税收风险、IPO辅导",
+    fullIntro:
+      "注册会计师、注册造价师、河南省总会计师协会理事。曾任双汇发展、泰丰集团、嘉里建设等大型企业集团财务负责人。擅长内部控制建设及评价、财税体系优化和建立、税收风险识别和防范、IPO企业财务辅导和审计、日常财税咨询、财务报表审计及专项审计。"
+  },
+  {
+    name: "吴新明",
+    title: "高端财税事业部 高级合伙人",
+    avatar: `${assetBasePath}/images/team/wu-xinming.png`,
+    summary: "上市辅导、IPO审计、尽职调查",
+    fullIntro:
+      "注册会计师、注册税务师、高级会计师。曾任全国前20强会计师事务所项目经理、地产全国前20强区域财务总监、消费品全国前10强财务部门负责人。擅长上市辅导、发债、IPO审计、税务筹划、财税咨询、内控设计、尽职调查等。"
+  }
+];
+
+const advisorMembers = [
+  {
+    name: "李现文",
+    title: "高端财税事业部 高级顾问",
+    credential: "注册会计师 / 注册税务师",
+    focus: "企业ERP设计与实施、全面预算管理、企业资本运作、股权架构搭建、企业财务体系建设"
+  },
+  {
+    name: "赵娟",
+    title: "高端财税事业部 高级顾问",
+    credential: "注册会计师 / 税务师 / 资深财税咨询师",
+    focus: "内控设计、审计、预算管理、成本管控、财税咨询"
+  },
+  {
+    name: "王慧现",
+    title: "高端财税事业部 高级顾问",
+    credential: "注册会计师 / 中级会计师",
+    focus: "财务组织管理体系、财务核算体系、流程信息化、财务分析、全面预算管理、财税咨询及规划"
+  },
+  {
+    name: "朱丽君",
+    title: "高端财税事业部 高级顾问",
+    credential: "注册会计师 / 高新评审专家 / 大型审计项目经理",
+    focus: "内部控制审计、财税业一体化融合、财税合规"
+  },
+  {
+    name: "苏瑞利",
+    title: "高端财税事业部 高级顾问",
+    credential: "注册会计师 / 高新评审专家 / 大型审计项目经理",
+    focus: "内部控制审计、财税业一体化融合、财税合规"
+  },
+  {
+    name: "赵会婷",
+    title: "高端财税事业部 高级顾问",
+    credential: "注册会计师",
+    focus: "高新技术企业审计、中小企业财税问题诊断与处理"
+  },
+  {
+    name: "赵艳婷",
+    title: "高端财税事业部 高级顾问",
+    credential: "注册会计师",
+    focus: "财税体系建设、数据洞察、战略驱动、企业全生命周期陪伴"
+  },
+  {
+    name: "王锋",
+    title: "高端财税事业部 高级顾问",
+    credential: "资深财税咨询师 / 培训师 / 股权设计师 / 大学兼职讲师",
+    focus: "税务规划、商业模式、股权及战略设计、财税课程体系开发"
+  },
+  {
+    name: "赵晴",
+    title: "高端财税事业部 高级顾问",
+    credential: "注册税务师 / 中级会计师",
+    focus: "财务体系建设、税务合规计划、股权架构设计、企业风险管控"
+  },
+  {
+    name: "李静雯",
+    title: "高端财税事业部 高级顾问",
+    credential: "注册税务师 / 中级会计师",
+    focus: "企业工商全流程服务、税务历史问题处理、税务规划、民营企业财务系统建设"
+  }
 ];
 
 const teamValues = [
   {
     icon: ShieldCheck,
     title: "双师协同",
-    description: "注册会计师与注册税务师共同参与每一份方案，兼顾财务真实性与税务安全边界。"
+    description: "注册会计师与注册税务师共同参与重点方案，兼顾财务真实性与税务安全边界。"
   },
   {
     icon: Award,
     title: "一线实战",
-    description: "每一个顾问都有一线执业背景，从上市公司审计到民营企业乱账，处理过真实问题。"
+    description: "从大型集团财务管理到民营企业乱账治理，顾问经验来自真实经营现场。"
   },
   {
     icon: Users,
-    title: "双师审核",
-    description: "重要方案经双师交叉审核，不从单一视角定结论，降低判断盲区。"
+    title: "交叉审核",
+    description: "重要事项不从单一视角定结论，通过交叉审核降低判断盲区。"
   },
   {
     icon: Handshake,
-    title: "长期陪伴",
-    description: "不按次交付，按年度陪伴。在经营节奏里持续看见、判断、修正和沉淀。"
+    title: "年度陪伴",
+    description: "不是按次交付，而是在经营节奏里持续看见、判断、修正和沉淀。"
   }
 ];
 
@@ -41,22 +148,18 @@ export default function TeamPage() {
   return (
     <div className="min-h-screen bg-[#0f1513] text-white">
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0f1513]/90 backdrop-blur-xl">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-          <Link href="/" className="inline-flex items-center">
-            <span className="inline-flex items-center rounded-full bg-white px-3 py-1.5">
-              <BrandLogo className="h-8 w-auto max-w-[150px]" />
-            </span>
+        <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6">
+          <Link href="/" className="inline-flex items-center rounded-full bg-white px-3 py-1.5">
+            <BrandLogo className="h-10 w-auto max-w-[166px]" />
           </Link>
-          <nav className="hidden items-center gap-6 lg:flex">
+          <nav className="hidden items-center gap-7 lg:flex">
             {navLinks.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={
-                  item.href === "/team"
-                    ? "text-sm font-medium text-white"
-                    : "text-sm text-white/64 transition hover:text-white"
-                }
+                className={`text-[15px] font-semibold transition ${
+                  item.href === "/team" ? "text-[#e9d9bc]" : "text-white/64 hover:text-white"
+                }`}
               >
                 {item.label}
               </Link>
@@ -65,146 +168,97 @@ export default function TeamPage() {
           <MobileNav links={navLinks} triggerTone="light" />
           <Link
             href="/contact"
-            className="hidden rounded-full bg-[#d9c7a5] px-5 py-2 text-sm font-medium text-[#111816] transition hover:bg-[#eadabd] lg:inline-flex"
+            className="hidden rounded-full bg-[#d9c7a5] px-5 py-2.5 text-[15px] font-bold text-[#111816] transition hover:bg-[#eadabd] lg:inline-flex"
           >
-            申请企业财税风险诊断（限量开放）
+            申请企业财税风险诊断
           </Link>
         </div>
       </header>
 
       <main>
-        {/* ── Hero ── */}
-        <section className="relative overflow-hidden border-b border-white/10">
-          <div
-            className="pointer-events-none absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(circle at 78% 14%, rgba(217,199,165,0.14), transparent 38%), radial-gradient(circle at 14% 86%, rgba(36,53,42,0.55), transparent 42%)"
-            }}
-          />
-          <div className="relative mx-auto max-w-3xl px-6 py-24 text-center md:py-32">
-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.12em] text-[#e9d9bc]">团队</p>
-            <h1 className="text-4xl font-semibold leading-tight tracking-tight text-white md:text-5xl">
-              双师带队，专注中小企业<br className="hidden md:block" />财税规范与经营体系建设
-            </h1>
-            <p className="mx-auto mt-8 max-w-2xl text-base leading-8 text-white/60">
-              龙头会服团队由注册会计师、注册税务师、律师与高级会计师组成，总部位于郑州。累计服务超过 10000 家河南本土企业。不是理论派，每一个顾问都有一线实战背景，每一个方案都经过双师审核。
-            </p>
-          </div>
-        </section>
+        <TeamOrbit members={coreMembers} />
 
-        {/* ── 信任指标 ── */}
-        <section className="border-b border-white/10 bg-[#111816]">
-          <div className="mx-auto max-w-7xl px-6 py-16">
-            <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-              {trustMetrics.map((metric) => (
-                <div key={metric.label} className="text-center">
-                  <p className="text-3xl font-semibold text-[#e9d9bc] md:text-4xl">{metric.value}</p>
-                  <p className="mt-2 text-sm text-white/60">{metric.label}</p>
-                  {metric.detail ? (
-                    <p className="mt-1 text-xs text-white/45">{metric.detail}</p>
-                  ) : null}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── 核心顾问 ── */}
-        <section className="border-b border-white/10">
+        <section className="team-advisor-matrix">
           <div className="mx-auto max-w-7xl px-6 py-24 md:py-28">
-            <div className="mx-auto max-w-3xl text-center">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-[#e9d9bc]">核心顾问</p>
-              <h2 className="text-3xl font-semibold leading-tight tracking-tight text-white md:text-4xl">
-                先看人，再谈合作
-              </h2>
-              <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-white/60">
-                每一位顾问都有一线执业背景，处理过真实的复杂问题。重要方案经双师交叉审核，不从单一视角定结论。
+            <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+              <div>
+                <p className="team-section-eyebrow">Expert Matrix</p>
+                <h2>高级顾问矩阵</h2>
+              </div>
+              <p className="team-section-lead">
+                核心顾问席位之外，我们以专业方向组织顾问矩阵。部分成员头像待补齐，当前先以专业档案展示，后续可直接替换为人物照片。
               </p>
             </div>
-            <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {experts.map((expert) => (
-                <TeamCard key={expert.name} expert={expert} />
+
+            <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {advisorMembers.map((member) => (
+                <article key={member.name} className="team-mini-card">
+                  <div className="team-mini-card-top">
+                    <span>{member.name.slice(0, 1)}</span>
+                    <p>头像待补</p>
+                  </div>
+                  <div>
+                    <h3>{member.name}</h3>
+                    <p className="team-mini-title">{member.title}</p>
+                    <p className="team-mini-credential">{member.credential}</p>
+                    <p className="team-mini-focus">{member.focus}</p>
+                  </div>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── 行业顾问组 ── */}
-        <section className="border-b border-white/10 bg-[#111816]">
+        <section className="team-value-section">
           <div className="mx-auto max-w-7xl px-6 py-24 md:py-28">
-            <div className="mx-auto max-w-3xl text-center">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-[#e9d9bc]">行业顾问组</p>
-              <h2 className="text-3xl font-semibold leading-tight tracking-tight text-white md:text-4xl">
-                按行业配置专属顾问组
-              </h2>
-              <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-white/60">
-                核心顾问之外，我们按行业组建顾问组，覆盖制造业、建筑、商贸、科技、餐饮等河南主流产业，确保方案贴合行业真实经营逻辑。
-              </p>
-            </div>
-            <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {extendedExperts.map((group) => (
-                <div
-                  key={group}
-                  className="flex items-center gap-3 rounded-card border border-white/10 bg-white/[0.04] px-6 py-5"
-                >
-                  <span className="h-2 w-2 shrink-0 rounded-full bg-[#d9c7a5]" />
-                  <p className="text-sm font-medium text-white/80">{group}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── 团队理念 ── */}
-        <section className="border-b border-white/10">
-          <div className="mx-auto max-w-7xl px-6 py-24 md:py-28">
-            <div className="mx-auto max-w-3xl text-center">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-[#e9d9bc]">团队理念</p>
-              <h2 className="text-3xl font-semibold leading-tight tracking-tight text-white md:text-4xl">
-                我们坚持什么
-              </h2>
-            </div>
-            <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {teamValues.map((value) => (
-                <div key={value.title} className="rounded-card border border-white/10 bg-white/[0.04] p-6">
-                  <value.icon className="h-8 w-8 text-[#e9d9bc]" />
-                  <h3 className="mt-5 text-lg font-semibold text-white">{value.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-white/60">{value.description}</p>
+                <div key={value.title} className="team-value-card">
+                  <value.icon className="h-7 w-7 text-[#e9d9bc]" />
+                  <h3>{value.title}</h3>
+                  <p>{value.description}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── CTA ── */}
-        <section className="border-b border-white/10 bg-[#111816]">
+        <section className="team-proof-section">
+          <div className="mx-auto grid max-w-7xl gap-px bg-white/10 px-6 md:grid-cols-4 md:px-0">
+            {trustMetrics.map((metric) => (
+              <div key={metric.label} className="bg-[#0f1513] px-6 py-7 md:px-8">
+                <p className="text-3xl font-semibold tracking-tight text-[#e9d9bc]">{metric.value}</p>
+                <div className="mt-2 flex items-baseline gap-2">
+                  <p className="text-sm text-white/58">{metric.label}</p>
+                  {metric.detail ? <p className="text-base font-semibold text-white">{metric.detail}</p> : null}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="team-final-cta">
           <div className="mx-auto max-w-3xl px-6 py-24 text-center md:py-28">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-[#e9d9bc]">行动</p>
-            <h2 className="text-3xl font-semibold leading-tight tracking-tight text-white md:text-4xl">
-              先做一次判断，再决定是否合作
-            </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-white/60">
+            <p className="team-section-eyebrow mx-auto">Start With Diagnosis</p>
+            <h2>先做一次判断，再决定是否合作</h2>
+            <p>
               不急着给方案，先把企业所处阶段、真实问题和需要优先处理的事项讲清楚。
             </p>
-            <div className="mt-10 flex flex-col items-center gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex h-12 items-center gap-2 rounded-full bg-[#d9c7a5] px-7 text-sm font-medium text-[#111816] transition hover:bg-[#eadabd]"
-              >
-                申请企业财税风险诊断（限量开放）
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <p className="text-sm text-white/60">每月仅服务有限企业，需初步评估适配性</p>
-            </div>
+            <Link
+              href="/contact"
+              className="mt-9 inline-flex h-12 items-center gap-2 rounded-full bg-[#d9c7a5] px-7 text-sm font-bold text-[#111816] transition hover:bg-[#eadabd]"
+            >
+              申请企业财税风险诊断
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-white/10 bg-[#0f1513] text-white">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8">
-          <p className="text-sm text-white/60">{brand.name} · {brand.positioning}</p>
-          <p className="text-sm text-white/60">电话 {brand.phone}</p>
+      <footer className="border-t border-white/10 bg-[#0f1513]">
+        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-8 text-sm text-white/52 md:flex-row md:items-center md:justify-between">
+          <p>{brand.name} · {brand.positioning}</p>
+          <p>电话 {brand.phone}</p>
         </div>
       </footer>
     </div>

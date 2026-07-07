@@ -862,3 +862,499 @@ body {
     animation: none;
   }
 }
+
+
+/* ── 团队介绍页样式（移植自 longtou-huifu-site）── */
+
+/* ── 团队介绍 3D 圆环 ── */
+.team-orbit-section {
+  position: relative;
+  min-height: calc(100vh - 72px);
+  overflow: hidden;
+  padding: 6rem 1.5rem 7rem;
+  background:
+    radial-gradient(circle at 52% 28%, rgba(217, 199, 165, 0.16), transparent 28%),
+    radial-gradient(circle at 18% 18%, rgba(40, 72, 56, 0.52), transparent 30%),
+    linear-gradient(180deg, #0f1513 0%, #111816 58%, #0c100f 100%);
+}
+
+.team-orbit-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.28;
+  pointer-events: none;
+  background:
+    linear-gradient(118deg, transparent 0 31%, rgba(255, 255, 255, 0.055) 31.4%, transparent 32% 100%),
+    linear-gradient(42deg, transparent 0 62%, rgba(217, 199, 165, 0.045) 62.4%, transparent 63.2% 100%);
+}
+
+.team-orbit-copy {
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+  max-width: 80rem;
+}
+
+.team-orbit-eyebrow {
+  width: fit-content;
+  border: 1px solid rgba(217, 199, 165, 0.28);
+  background: rgba(217, 199, 165, 0.08);
+  padding: 0.55rem 0.85rem;
+  color: #e9d9bc;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.team-orbit-copy h1 {
+  margin-top: 1.25rem;
+  max-width: 42rem;
+  color: #fff;
+  font-size: clamp(3rem, 7vw, 6.8rem);
+  font-weight: 650;
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+}
+
+.team-orbit-copy > p:last-child {
+  margin-top: 1.5rem;
+  max-width: 36rem;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+
+.team-orbit-layout {
+  position: relative;
+  z-index: 2;
+  margin: 2rem auto 0;
+  display: grid;
+  max-width: 80rem;
+  grid-template-columns: minmax(0, 1.35fr) minmax(20rem, 0.65fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.team-orbit-stage {
+  position: relative;
+  min-height: 34rem;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.team-orbit-ring,
+.team-orbit-ring-secondary {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 19rem;
+  width: 42rem;
+  transform: translate(-50%, -50%) rotateX(64deg) rotateZ(-9deg);
+  border: 1px solid rgba(217, 199, 165, 0.22);
+  border-radius: 999px;
+  box-shadow:
+    0 0 58px rgba(217, 199, 165, 0.08),
+    inset 0 0 28px rgba(217, 199, 165, 0.05);
+}
+
+.team-orbit-ring-secondary {
+  height: 13rem;
+  width: 30rem;
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%) rotateX(64deg) rotateZ(-9deg) translateZ(-90px);
+}
+
+.team-orbit-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  height: 9rem;
+  width: 9rem;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(217, 199, 165, 0.24);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 35% 22%, rgba(217, 199, 165, 0.24), transparent 38%),
+    rgba(255, 255, 255, 0.045);
+  box-shadow: 0 24px 88px rgba(0, 0, 0, 0.36);
+  text-align: center;
+  backdrop-filter: blur(16px);
+}
+
+.team-orbit-core span {
+  display: block;
+  color: rgba(233, 217, 188, 0.54);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.team-orbit-core strong {
+  display: block;
+  margin-top: -2.1rem;
+  color: #fff;
+  font-size: 1.05rem;
+}
+
+.team-orbit-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  width: 15.75rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.35rem;
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 26px 88px rgba(0, 0, 0, 0.38);
+  color: #fff;
+  text-align: left;
+  transform-style: preserve-3d;
+  transition:
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 320ms ease,
+    border-color 260ms ease,
+    box-shadow 260ms ease;
+  backdrop-filter: blur(18px);
+}
+
+.team-orbit-card:hover {
+  border-color: rgba(217, 199, 165, 0.46);
+}
+
+.team-orbit-card.is-active {
+  z-index: 999 !important;
+  border-color: rgba(217, 199, 165, 0.58);
+  box-shadow:
+    0 32px 110px rgba(0, 0, 0, 0.48),
+    0 0 0 1px rgba(217, 199, 165, 0.16) inset;
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) translate3d(0, -3.2rem, 250px) scale(1.14) !important;
+}
+
+.team-orbit-card img {
+  aspect-ratio: 4 / 4.45;
+  width: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(0.92) contrast(1.02);
+}
+
+.team-orbit-card-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 38%, rgba(12, 16, 15, 0.92) 100%),
+    radial-gradient(circle at 20% 12%, rgba(217, 199, 165, 0.18), transparent 38%);
+  pointer-events: none;
+}
+
+.team-orbit-card-body {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  padding: 1.1rem;
+}
+
+.team-orbit-card-body strong {
+  display: block;
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.team-orbit-card-body small {
+  display: block;
+  margin-top: 0.25rem;
+  color: #e9d9bc;
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.team-orbit-card-body em {
+  display: block;
+  margin-top: 0.62rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.76rem;
+  font-style: normal;
+  line-height: 1.55;
+}
+
+.team-orbit-detail {
+  border: 1px solid rgba(217, 199, 165, 0.18);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(140deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.035)),
+    rgba(255, 255, 255, 0.04);
+  padding: 2rem;
+  box-shadow: 0 24px 88px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(18px);
+}
+
+.team-orbit-detail > p:first-child {
+  color: rgba(233, 217, 188, 0.62);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.team-orbit-detail h2 {
+  margin-top: 1rem;
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 650;
+  letter-spacing: -0.05em;
+}
+
+.team-orbit-detail h3 {
+  margin-top: 0.35rem;
+  color: #e9d9bc;
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.team-orbit-detail-line {
+  margin: 1.35rem 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(217, 199, 165, 0.46), transparent);
+}
+
+.team-orbit-detail-summary {
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.96rem;
+  line-height: 1.9;
+}
+
+.team-orbit-detail-tags {
+  margin-top: 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.team-orbit-detail-tags span {
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.055);
+  padding: 0.42rem 0.7rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.78rem;
+}
+
+@media (max-width: 900px) {
+  .team-orbit-section {
+    min-height: auto;
+    padding: 4rem 1.25rem 5rem;
+  }
+
+  .team-orbit-layout {
+    display: block;
+    margin-top: 2.5rem;
+  }
+
+  .team-orbit-stage {
+    display: flex;
+    min-height: auto;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 0.5rem 0.25rem 1.4rem;
+    perspective: none;
+    scroll-snap-type: x mandatory;
+  }
+
+  .team-orbit-stage::-webkit-scrollbar {
+    height: 0;
+  }
+
+  .team-orbit-ring,
+  .team-orbit-core {
+    display: none;
+  }
+
+  .team-orbit-card,
+  .team-orbit-card.is-active {
+    position: relative;
+    left: auto;
+    top: auto;
+    flex: 0 0 78%;
+    max-width: 21rem;
+    opacity: 1 !important;
+    transform: none !important;
+    scroll-snap-align: center;
+  }
+
+  .team-orbit-detail {
+    margin-top: 1.5rem;
+    padding: 1.35rem;
+  }
+
+  .team-orbit-copy h1 {
+    font-size: clamp(2.8rem, 15vw, 4.8rem);
+  }
+}
+
+/* ── 团队页：高级顾问矩阵 ── */
+.team-advisor-matrix {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(217, 199, 165, 0.14);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(217, 199, 165, 0.12), transparent 26%),
+    linear-gradient(180deg, #111816 0%, #0f1513 100%);
+}
+
+.team-section-eyebrow {
+  width: fit-content;
+  border: 1px solid rgba(217, 199, 165, 0.28);
+  background: rgba(217, 199, 165, 0.08);
+  padding: 0.48rem 0.78rem;
+  color: #e9d9bc;
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.team-advisor-matrix h2,
+.team-final-cta h2 {
+  margin-top: 1.2rem;
+  color: #fff;
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.team-section-lead {
+  max-width: 46rem;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.team-mini-card {
+  min-height: 17rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.25rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.088), rgba(255, 255, 255, 0.032)),
+    rgba(255, 255, 255, 0.035);
+  padding: 1.35rem;
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.2);
+  transition: transform 260ms ease, border-color 260ms ease, background 260ms ease;
+}
+
+.team-mini-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(217, 199, 165, 0.34);
+  background:
+    linear-gradient(145deg, rgba(217, 199, 165, 0.11), rgba(255, 255, 255, 0.04)),
+    rgba(255, 255, 255, 0.05);
+}
+
+.team-mini-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.team-mini-card-top span {
+  display: grid;
+  height: 3.4rem;
+  width: 3.4rem;
+  place-items: center;
+  border: 1px solid rgba(217, 199, 165, 0.28);
+  border-radius: 999px;
+  background: rgba(217, 199, 165, 0.08);
+  color: #e9d9bc;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.team-mini-card-top p {
+  color: rgba(255, 255, 255, 0.36);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+}
+
+.team-mini-card h3 {
+  margin-top: 1.3rem;
+  color: #fff;
+  font-size: 1.55rem;
+  font-weight: 650;
+  letter-spacing: -0.04em;
+}
+
+.team-mini-title {
+  margin-top: 0.25rem;
+  color: #e9d9bc;
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.team-mini-credential {
+  margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.team-mini-focus {
+  margin-top: 0.7rem;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.86rem;
+  line-height: 1.75;
+}
+
+.team-value-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0f1513;
+}
+
+.team-value-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.1rem;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 1.5rem;
+}
+
+.team-value-card h3 {
+  margin-top: 1rem;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 650;
+}
+
+.team-value-card p {
+  margin-top: 0.75rem;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+.team-proof-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0f1513;
+}
+
+.team-final-cta {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(217, 199, 165, 0.15), transparent 30%),
+    linear-gradient(180deg, #111816 0%, #0f1513 100%);
+}
+
+.team-final-cta p:not(.team-section-eyebrow) {
+  margin: 1.4rem auto 0;
+  max-width: 38rem;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 1rem;
+  line-height: 1.9;
+}
