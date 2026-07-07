@@ -396,7 +396,7 @@ export default function HomePage() {
               </div>
               <div className="grid gap-px overflow-hidden border border-white/12 bg-brand-card/12 md:grid-cols-2">
                 {principles.map((item) => (
-                  <div key={item.title} className="dark-card p-8 md:p-10">
+                  <div key={item.title} className="dark-card interactive-card p-8 md:p-10">
                     <h3 className="text-2xl font-semibold tracking-tight text-white">{item.title}</h3>
                     <p className="mt-5 text-sm leading-7 text-white/62">{item.description}</p>
                   </div>
