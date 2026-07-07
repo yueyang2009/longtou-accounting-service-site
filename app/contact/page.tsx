@@ -12,6 +12,7 @@ export default function ContactPage() {
         <div className="mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-[0.9fr_1.1fr] lg:px-8">
           <div>
             <SectionHeader
+              hero
               eyebrow="经营交流"
               title="申请企业财税风险诊断（限量开放）"
               description="先了解企业阶段与经营现状，判断是否需要年度顾问支持。"

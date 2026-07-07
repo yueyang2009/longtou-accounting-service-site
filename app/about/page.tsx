@@ -13,9 +13,9 @@ function Label({ text }: { text: string }) {
   );
 }
 
-function Heading({ children }: { children: React.ReactNode }) {
+function Heading({ children, hero = false }: { children: React.ReactNode; hero?: boolean }) {
   return (
-    <h2 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-4xl">
+    <h2 className={hero ? "text-4xl font-semibold leading-tight tracking-tight text-brand-ink md:text-6xl" : "text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-4xl"}>
       {children}
     </h2>
   );
@@ -74,7 +74,7 @@ export default function AboutPage() {
         <section className="border-b border-brand-line">
           <div className="mx-auto max-w-3xl px-6 py-24 md:py-32">
             <Label text="起源" />
-            <Heading>为什么存在龙头会服？</Heading>
+            <Heading hero>为什么存在龙头会服？</Heading>
             <Body>
               <p>
                 河南有大量年营收在2000万到2亿之间的民营企业。业务基础扎实，老板能干，团队能打。但几乎所有的企业都面临同一个问题：财务体系跟不上业务发展。

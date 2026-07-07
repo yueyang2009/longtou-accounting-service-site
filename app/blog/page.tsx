@@ -54,7 +54,7 @@ export default function BlogPage() {
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.12em] text-brand-muted">
               观点
             </p>
-            <h1 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-5xl">
+            <h1 className="text-4xl font-semibold leading-tight tracking-tight text-brand-ink md:text-6xl">
               文章
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-brand-muted">

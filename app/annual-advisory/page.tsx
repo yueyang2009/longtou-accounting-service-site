@@ -51,7 +51,7 @@ export default function AnnualAdvisoryPage() {
         <section className="border-b border-brand-line">
           <div className="mx-auto max-w-3xl px-6 py-24 md:py-32">
             <Label text="龙头会服" />
-            <h1 className="text-4xl font-semibold leading-tight tracking-tight text-brand-ink md:text-5xl">
+            <h1 className="text-4xl font-semibold leading-tight tracking-tight text-brand-ink md:text-6xl">
               企业年度财税顾问计划
             </h1>
             <p className="mt-8 max-w-2xl text-lg leading-8 text-brand-muted">{annualPlan.summary}</p>

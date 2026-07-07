@@ -63,7 +63,7 @@ export default function ServicesPage() {
         <section className="border-b border-brand-line">
           <div className="mx-auto max-w-3xl px-6 py-24 md:py-32">
             <Label text="龙头会服 · 能力体系" />
-            <h1 className="text-4xl font-semibold leading-tight tracking-tight text-brand-ink md:text-5xl">
+            <h1 className="text-4xl font-semibold leading-tight tracking-tight text-brand-ink md:text-6xl">
               我们不是提供单一服务，<br />
               而是基于企业经营系统提供持续判断与支持能力。
             </h1>

@@ -65,7 +65,7 @@ export default function WhyAnnualAdvisorPage() {
         <section className="border-b border-brand-line">
           <div className="mx-auto max-w-3xl px-6 py-24 md:py-36">
             <Label text="龙头会服 · 企业年度财税顾问计划" />
-            <h1 className="text-4xl font-semibold leading-tight tracking-tight text-brand-ink md:text-5xl">
+            <h1 className="text-4xl font-semibold leading-tight tracking-tight text-brand-ink md:text-6xl">
               企业年度财税顾问，是基于企业完整经营周期的长期专业支持机制。
             </h1>
             <p className="mt-8 max-w-2xl text-lg leading-8 text-brand-muted">

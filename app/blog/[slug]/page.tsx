@@ -105,7 +105,7 @@ export default async function BlogPostPage({
               ))}
             </div>
 
-            <h1 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-4xl">
+            <h1 className="text-4xl font-semibold leading-tight tracking-tight text-brand-ink md:text-6xl">
               {post.title}
             </h1>
 
