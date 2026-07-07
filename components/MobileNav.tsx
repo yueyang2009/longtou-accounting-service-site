@@ -83,7 +83,7 @@ export function MobileNav({ links }: MobileNavProps) {
 
       {/* Slide-out panel from right */}
       <div
-        className={`fixed inset-y-0 right-0 z-50 flex w-72 flex-col border-l border-white/10 bg-[#1F1F1F] shadow-2xl transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed inset-y-0 right-0 z-50 flex w-72 flex-col border-l border-white/10 bg-[#151F18] text-white shadow-2xl transition-transform duration-300 ease-in-out lg:hidden ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
         role="dialog"
@@ -91,7 +91,8 @@ export function MobileNav({ links }: MobileNavProps) {
         aria-label="导航菜单"
       >
         {/* Close button inside panel */}
-        <div className="flex h-16 items-center justify-end px-5">
+        <div className="flex h-16 items-center justify-between px-5">
+          <p className="text-sm font-semibold tracking-[0.18em] text-white">导航</p>
           <button
             type="button"
             className="inline-flex h-10 w-10 items-center justify-center rounded-md text-white/60 hover:text-white"
@@ -109,7 +110,7 @@ export function MobileNav({ links }: MobileNavProps) {
               key={link.href}
               href={link.href}
               onClick={close}
-              className="rounded-md px-4 py-4 text-lg font-medium text-white/85 transition hover:bg-white/10"
+              className="rounded-md px-4 py-4 text-lg font-medium text-white transition hover:bg-white/10"
             >
               {link.label}
             </Link>
