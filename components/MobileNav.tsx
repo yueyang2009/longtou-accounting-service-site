@@ -83,7 +83,7 @@ export function MobileNav({ links }: MobileNavProps) {
 
       {/* Slide-out panel from right */}
       <div
-        className={`fixed inset-y-0 right-0 z-50 flex w-72 flex-col border-l border-brand-line/60 bg-white/80 shadow-2xl backdrop-blur-xl transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed inset-y-0 right-0 z-50 flex w-72 flex-col border-l border-brand-line bg-white shadow-2xl transition-transform duration-300 ease-in-out lg:hidden ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
         role="dialog"
