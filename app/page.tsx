@@ -169,6 +169,7 @@ export default function HomePage() {
             <Link href="#cases" className="text-sm text-brand-muted hover:text-brand-ink">案例</Link>
             <span className="text-brand-line">|</span>
             <Link href="/about" className="text-sm text-brand-muted hover:text-brand-ink">关于</Link>
+            <Link href="/blog" className="text-sm text-brand-muted hover:text-brand-ink">文章</Link>
           </nav>
           <MobileNav
             links={[
@@ -179,6 +180,7 @@ export default function HomePage() {
               { href: "#team", label: "团队" },
               { href: "#cases", label: "案例" },
               { href: "/about", label: "关于" },
+              { href: "/blog", label: "文章" },
             ]}
           />
           <Link
