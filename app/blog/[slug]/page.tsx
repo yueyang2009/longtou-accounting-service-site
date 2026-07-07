@@ -1,0 +1,132 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { ArrowLeft, Calendar, Tag } from "lucide-react";
+import { remark } from "remark";
+import html from "remark-html";
+
+import { BrandLogo } from "@/components/BrandLogo";
+import { MobileNav } from "@/components/MobileNav";
+import { brand, navItems } from "@/lib/data";
+import { getPostBySlug, getAllPosts } from "@/lib/posts";
+
+// ── 构建时生成所有文章路径 ──
+export async function generateStaticParams() {
+  const posts = getAllPosts();
+  return posts.map((post) => ({ slug: post.slug }));
+}
+
+// ── markdown → html ──
+async function markdownToHtml(md: string): Promise<string> {
+  const result = await remark().use(html).process(md);
+  return result.toString();
+}
+
+// ── 页面 ──
+export default async function BlogPostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
+  if (!post) notFound();
+
+  const htmlContent = await markdownToHtml(post.content);
+
+  return (
+    <div className="min-h-screen bg-brand-paper">
+      {/* ── Header ── */}
+      <header className="sticky top-0 z-50 border-b border-brand-line bg-white/95 backdrop-blur">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+          <Link href="/" className="inline-flex items-center">
+            <BrandLogo className="h-9 w-auto max-w-[150px]" />
+          </Link>
+          <nav className="hidden items-center gap-6 lg:flex">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`text-sm ${
+                  item.href === "/blog"
+                    ? "font-medium text-brand-ink"
+                    : "text-brand-muted hover:text-brand-ink"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+          <MobileNav links={navItems} />
+          <Link
+            href="/contact"
+            className="hidden lg:inline-flex rounded-full bg-brand-emerald px-5 py-2 text-sm font-medium text-white transition hover:bg-brand-emerald-hover"
+          >
+            申请企业财税风险诊断（限量开放）
+          </Link>
+        </div>
+      </header>
+
+      <main>
+        {/* ── 文章头部 ── */}
+        <article className="mx-auto max-w-3xl px-6 py-16 md:py-24">
+          {/* 返回 */}
+          <Link
+            href="/blog"
+            className="mb-10 inline-flex items-center gap-1 text-sm text-brand-muted transition hover:text-brand-ink"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            返回文章列表
+          </Link>
+
+          {/* 标题区 */}
+          <header className="mb-12">
+            {/* 日期 + 标签 */}
+            <div className="mb-4 flex flex-wrap items-center gap-3 text-sm text-brand-muted">
+              {post.date && (
+                <span className="inline-flex items-center gap-1">
+                  <Calendar className="h-4 w-4" />
+                  {post.date}
+                </span>
+              )}
+              {post.tags?.map((tag) => (
+                <span
+                  key={tag}
+                  className="inline-flex items-center gap-1 rounded-full border border-brand-line bg-brand-soft px-3 py-0.5 text-xs"
+                >
+                  <Tag className="h-3 w-3" />
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <h1 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-4xl">
+              {post.title}
+            </h1>
+
+            {post.excerpt && (
+              <p className="mt-4 text-base leading-7 text-brand-muted">
+                {post.excerpt}
+              </p>
+            )}
+          </header>
+
+          {/* ── 正文 ── */}
+          <div
+            className="prose-caishui"
+            dangerouslySetInnerHTML={{ __html: htmlContent }}
+          />
+        </article>
+      </main>
+
+      {/* ── Footer ── */}
+      <footer className="bg-brand-emerald text-white">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8">
+          <p className="text-sm text-white/60">
+            {brand.name} · {brand.positioning}
+          </p>
+          <p className="text-sm text-white/60">电话 {brand.phone}</p>
+        </div>
+      </footer>
+    </div>
+  );
+}

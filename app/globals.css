@@ -34,7 +34,54 @@ body {
   }
 }
 
-/* ── 全站极淡纸张颗粒纹理 ── */
+/* ── 文章正文排版 ── */
+.prose-caishui {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #4A4A4A;
+}
+.prose-caishui h2 {
+  margin: 2rem 0 1rem;
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #1F1F1F;
+  padding-left: 0.75rem;
+  border-left: 4px solid #24352A;
+}
+.prose-caishui p {
+  margin: 1rem 0;
+}
+.prose-caishui strong {
+  color: #1F1F1F;
+  font-weight: 700;
+}
+.prose-caishui hr {
+  margin: 2rem 0;
+  border: none;
+  border-top: 1px solid #E6E1D8;
+}
+.prose-caishui ol,
+.prose-caishui ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+.prose-caishui li {
+  margin: 0.5rem 0;
+  line-height: 1.8;
+}
+.prose-caishui blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  background: #F2EFE8;
+  border-left: 4px solid #24352A;
+  border-radius: 6px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #1F1F1F;
+}
+
+/* ── 极淡纸张颗粒纹理 ── */
 .paper-grain {
   position: relative;
   overflow: hidden;
