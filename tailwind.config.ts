@@ -11,16 +11,16 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          ink: "#1F1F1F",         // 主标题
-          body: "#4A4A4A",         // 正文
-          muted: "#555555",        // 辅助说明
-          line: "#E6E1D8",         // 边框
-          soft: "#F2EFE8",         // 分隔区/次级背景
-          paper: "#FAF8F4",        // 全站主背景暖白
-          card: "#FFFFFF",         // 卡片/内容容器纯白
-          emerald: "#24352A",      // 品牌强调色深墨绿
-          "emerald-hover": "#1E2D23", // hover 深墨绿
-          gold: "#4B5563"
+          ink: "rgb(237 233 224 / <alpha-value>)",      // 主标题 暖白
+          body: "rgb(184 178 166 / <alpha-value>)",      // 正文 浅暖灰
+          muted: "rgb(140 135 124 / <alpha-value>)",     // 辅助说明
+          line: "rgb(255 255 255 / 0.12)",               // 边框 白12%
+          soft: "#111816",                               // 分隔区/次级背景 深墨绿
+          paper: "#0f1513",                              // 全站主背景 墨绿黑底
+          card: "rgb(255 255 255 / 0.045)",              // 卡片 半透深
+          emerald: "#0a0f0d",                            // 品牌强调 极深墨绿
+          "emerald-hover": "#111816",                    // hover 深墨绿
+          gold: "rgb(217 199 165 / <alpha-value>)"       // 暖金点缀 #d9c7a5
         }
       },
       borderRadius: {

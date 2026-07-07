@@ -36,9 +36,9 @@ function QuoteLine({ children }: { children: string }) {
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-brand-paper">
-      <header className="sticky top-0 z-50 border-b border-brand-line bg-white/95 backdrop-blur">
+      <header className="sticky top-0 z-50 border-b border-brand-line bg-[#111816]/90 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-          <Link href="/" className="inline-flex items-center">
+          <Link href="/" className="inline-flex items-center rounded-full bg-white px-2 py-1">
             <BrandLogo className="h-9 w-auto max-w-[150px]" />
           </Link>
           <nav className="hidden items-center gap-6 lg:flex">

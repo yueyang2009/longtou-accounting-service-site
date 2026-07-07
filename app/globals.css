@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  color: #4A4A4A;
-  background: #FAF8F4;
+  color: rgb(184 178 166);
+  background: #0f1513;
 }
 
 * {
@@ -18,14 +18,14 @@ html {
 body {
   margin: 0;
   font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  color: #4A4A4A;
-  background: #FAF8F4;
+  color: rgb(184 178 166);
+  background: #0f1513;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
   color: #fff;
-  background: #24352A;
+  background: #d9c7a5;
 }
 
 @layer base {
@@ -38,16 +38,16 @@ body {
 .prose-caishui {
   font-size: 1rem;
   line-height: 1.9;
-  color: #4A4A4A;
+  color: rgb(184 178 166);
 }
 .prose-caishui h2 {
   margin: 2rem 0 1rem;
   font-size: 1.375rem;
   font-weight: 600;
   line-height: 1.5;
-  color: #1F1F1F;
+  color: #EDE9E0;
   padding-left: 0.75rem;
-  border-left: 4px solid #24352A;
+  border-left: 4px solid #d9c7a5;
 }
 .prose-caishui p {
   margin: 1rem 0;
@@ -58,24 +58,24 @@ body {
   height: auto;
   margin: 2rem 0;
   border-radius: 12px;
-  border: 1px solid #E6E1D8;
-  background: #FFFFFF;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.045);
 }
 .prose-caishui img + em {
   display: block;
   margin: -1.25rem 0 2rem;
   text-align: center;
   font-size: 0.875rem;
-  color: #555555;
+  color: rgb(140 135 124);
 }
 .prose-caishui strong {
-  color: #1F1F1F;
+  color: #EDE9E0;
   font-weight: 700;
 }
 .prose-caishui hr {
   margin: 2rem 0;
   border: none;
-  border-top: 1px solid #E6E1D8;
+  border-top: 1px solid rgba(255,255,255,0.12);
 }
 .prose-caishui ol,
 .prose-caishui ul {
@@ -89,19 +89,19 @@ body {
 .prose-caishui blockquote {
   margin: 1.5rem 0;
   padding: 1rem 1.25rem;
-  background: #F2EFE8;
-  border-left: 4px solid #24352A;
+  background: #111816;
+  border-left: 4px solid #d9c7a5;
   border-radius: 6px;
   font-size: 1rem;
   line-height: 1.7;
-  color: #1F1F1F;
+  color: #EDE9E0;
 }
 
 .prose-caishui .article-signature {
   text-align: right;
   margin-top: 2.5rem;
   font-weight: 600;
-  color: #1F1F1F;
+  color: #EDE9E0;
 }
 
 /* ── 极淡纸张颗粒纹理 ── */
@@ -115,16 +115,16 @@ body {
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 200px 200px;
-  opacity: 0.055;
-  mix-blend-mode: multiply;
+  opacity: 0.04;
+  mix-blend-mode: screen;
   pointer-events: none;
   z-index: 1;
 }
 
 /* ── 咨询报告卡片 ── */
 .report-card {
-  background: #FFFFFF;
-  border: 1px solid #E6E1D8;
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 16px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
   transition: box-shadow 0.25s ease;
@@ -143,17 +143,17 @@ body {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(115deg, rgba(255, 255, 255, 0.48), transparent 34%),
-    radial-gradient(circle at 72% 18%, rgba(250, 248, 244, 0.80), transparent 28%),
-    radial-gradient(circle at 18% 78%, rgba(230, 225, 216, 0.24), transparent 34%);
+    linear-gradient(115deg, rgba(217, 199, 165, 0.10), transparent 34%),
+    radial-gradient(circle at 72% 18%, rgba(217, 199, 165, 0.14), transparent 28%),
+    radial-gradient(circle at 18% 78%, rgba(255, 255, 255, 0.05), transparent 34%);
   pointer-events: none;
   z-index: 0;
 }
 
 .hero-grid {
   background-image:
-    linear-gradient(rgba(31, 31, 31, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(31, 31, 31, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   background-size: 72px 72px;
   mask-image: radial-gradient(circle at 68% 42%, black 0%, transparent 58%);
   opacity: 0.45;
@@ -169,7 +169,7 @@ body {
 
 /* ── 暗色板块（原则区） ── */
 .dark-slab {
-  background: #1F1F1F;
+  background: #0f1513;
 }
 
 .dark-card {
@@ -185,7 +185,7 @@ body {
 
 .cockpit-orbit {
   position: absolute;
-  border: 1px solid rgba(17, 17, 17, 0.08);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 999px;
   pointer-events: none;
 }
@@ -224,8 +224,8 @@ body {
 }
 
 .dashboard-surface {
-  background: #FAF8F4;
-  border: 1px solid #E6E1D8;
+  background: #0f1513;
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 14px;
   position: relative;
   overflow: hidden;
@@ -280,8 +280,8 @@ body {
 }
 
 .dashboard-card {
-  background: #FFFFFF;
-  border: 1px solid #E6E1D8;
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 12px;
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   animation: card-fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -340,40 +340,40 @@ body {
 }
 
 .dashboard-panel {
-  background: #FFFFFF;
-  border: 1px solid #E6E1D8;
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 14px;
 }
 
 .dashboard-review-card {
-  background: #24352A;
+  background: #d9c7a5;
   border-radius: 14px;
 }
 
 /* ── 指标卡片 ── */
 .metric-card {
-  background: #FFFFFF;
-  border: 1px solid #E6E1D8;
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.12);
   padding: 1.5rem;
 }
 
 
 .interactive-card {
-  background: #FFFFFF;
-  border: 1px solid #E6E1D8;
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 16px;
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .interactive-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(0,0,0,0.06), 0 4px 8px rgba(0,0,0,0.03);
-  border-color: #D8D2C8;
+  border-color: rgba(255,255,255,0.22);
 }
 
 /* ── 时间轴卡片 ── */
 .timeline-card {
-  background: #FFFFFF;
-  border: 1px solid #E6E1D8;
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 16px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
@@ -385,8 +385,8 @@ body {
 
 /* ── 指标卡片 ── */
 .metric-card {
-  background: #FFFFFF;
-  border: 1px solid #E6E1D8;
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.12);
   padding: 1.5rem;
   transition: all 0.3s ease;
 }
@@ -397,8 +397,8 @@ body {
 
 /* ── 汇报卡片（精选案例等） ── */
 .report-card {
-  background: #FFFFFF;
-  border: 1px solid #E6E1D8;
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 16px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
@@ -406,7 +406,7 @@ body {
 .report-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(0,0,0,0.06), 0 4px 8px rgba(0,0,0,0.03);
-  border-color: #D8D2C8;
+  border-color: rgba(255,255,255,0.22);
 }
 
 /* ── 高级按钮 ── */
@@ -418,23 +418,23 @@ body {
 
 /* ── 时间轴圆点 ── */
 .dot-brand {
-  border-color: #24352A;
-  background: #FFFFFF;
+  border-color: #d9c7a5;
+  background: rgba(255,255,255,0.045);
 }
 
 /* ── CTA 区域 ── */
 .cta-stage {
-  background: #F2EFE8;
+  background: #111816;
 }
 
 /* ── 其他卡片和区块 ── */
 .cinematic-band {
-  background: #FAF8F4;
+  background: #0f1513;
 }
 
 /* ── Hero 区额外纸张感 ── */
 .hero-base {
-  background: #FAF8F4;
+  background: #0f1513;
 }
 
 /* ── 滚动进入动画 ── */
@@ -551,7 +551,7 @@ body {
 /* ── 暗色私行合伙人方向 ── */
 .private-advisory-site {
   background:
-    linear-gradient(180deg, #111816 0, #111816 28rem, #FAF8F4 28rem);
+    linear-gradient(180deg, #111816 0, #111816 28rem, #0f1513 28rem);
 }
 
 .private-hero {
@@ -632,7 +632,7 @@ body {
 
 .private-ivory-section {
   background:
-    linear-gradient(180deg, #F2EFE8 0%, #FAF8F4 100%);
+    linear-gradient(180deg, #111816 0%, #0f1513 100%);
 }
 
 .private-memo-row {
@@ -641,14 +641,14 @@ body {
 }
 
 .private-memo-row:hover {
-  background: #F7F3EA;
+  background: rgba(255,255,255,0.06);
   transform: translateX(4px);
 }
 
 .private-report-section {
   background:
     radial-gradient(circle at 10% 8%, rgba(217, 199, 165, 0.16), transparent 28%),
-    #FAF8F4;
+    #0f1513;
 }
 
 .private-timeline-card {
@@ -656,12 +656,12 @@ body {
 }
 
 .private-timeline-card:hover {
-  border-color: rgba(36, 53, 42, 0.36);
+  border-color: rgba(217, 199, 165, 0.36);
 }
 
 .private-method-band {
   background:
-    linear-gradient(180deg, #FAF8F4 0%, #F2EFE8 100%);
+    linear-gradient(180deg, #0f1513 0%, #111816 100%);
 }
 
 .private-method-card {
@@ -684,7 +684,7 @@ body {
 
 .private-annual-plan {
   background:
-    linear-gradient(180deg, #F2EFE8, #FAF8F4);
+    linear-gradient(180deg, #111816, #0f1513);
 }
 
 .private-panel,
@@ -1357,4 +1357,10 @@ body {
   color: rgba(255, 255, 255, 0.62);
   font-size: 1rem;
   line-height: 1.9;
+}
+
+
+/* ── 全站深色：纯白卡片翻为半透深色（不影响 bg-white/5 等带透明度变体）── */
+.bg-white {
+  background-color: rgb(255 255 255 / 0.045) !important;
 }

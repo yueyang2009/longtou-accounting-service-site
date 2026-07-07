@@ -54,7 +54,7 @@ export function HomeHeader() {
         "sticky top-0 z-50 border-b backdrop-blur-xl transition-all duration-300",
         onDarkSurface
           ? "border-white/10 bg-[#111816]/88 text-white"
-          : "border-brand-line bg-[#FAF8F4]/94 text-brand-ink shadow-sm"
+          : "border-white/10 bg-[#111816]/90 text-white"
       ].join(" ")}
     >
       <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6">
@@ -62,7 +62,7 @@ export function HomeHeader() {
           href="/"
           className={[
             "inline-flex items-center rounded-full px-3 py-1.5 transition",
-            onDarkSurface ? "bg-white" : "bg-white/70 ring-1 ring-brand-line"
+            onDarkSurface ? "bg-white" : "bg-white"
           ].join(" ")}
         >
           <BrandLogo className="h-10 w-auto max-w-[166px]" />
@@ -76,7 +76,7 @@ export function HomeHeader() {
               className={[
                 "text-[15px] font-semibold tracking-[-0.01em] transition-colors",
                 index >= 6 ? "ml-1" : "",
-                onDarkSurface ? "text-white/72 hover:text-white" : "text-brand-ink/72 hover:text-brand-ink"
+                onDarkSurface ? "text-white/72 hover:text-white" : "text-white/72 hover:text-white"
               ].join(" ")}
             >
               {item.label}
@@ -92,7 +92,7 @@ export function HomeHeader() {
             "hidden rounded-full px-5 py-2.5 text-[15px] font-bold transition lg:inline-flex",
             onDarkSurface
               ? "bg-[#d9c7a5] text-[#111816] hover:bg-[#eadabd]"
-              : "bg-brand-emerald text-white hover:bg-brand-emerald-hover"
+              : "bg-[#d9c7a5] text-[#111816] hover:bg-[#eadabd]"
           ].join(" ")}
         >
           申请企业财税风险诊断

@@ -243,7 +243,7 @@ export default function HomePage() {
               ))}
               </div>
             </div>
-            <p className="ml-auto mt-10 max-w-3xl border-l-4 border-[#24352A] bg-white px-7 py-6 text-base font-medium leading-8 text-brand-ink shadow-consult">
+            <p className="ml-auto mt-10 max-w-3xl border-l-4 border-[#d9c7a5] bg-white px-7 py-6 text-base font-medium leading-8 text-brand-ink shadow-consult">
               这些问题，不是单纯财务问题，而是经营秩序问题。龙头会服把财税问题放回经营现场，陪老板一起做判断。
             </p>
           </div>
