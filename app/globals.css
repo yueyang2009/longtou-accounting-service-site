@@ -52,6 +52,22 @@ body {
 .prose-caishui p {
   margin: 1rem 0;
 }
+.prose-caishui img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 2rem 0;
+  border-radius: 12px;
+  border: 1px solid #E6E1D8;
+  background: #FFFFFF;
+}
+.prose-caishui img + em {
+  display: block;
+  margin: -1.25rem 0 2rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #555555;
+}
 .prose-caishui strong {
   color: #1F1F1F;
   font-weight: 700;

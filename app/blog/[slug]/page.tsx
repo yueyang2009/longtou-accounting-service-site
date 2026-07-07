@@ -18,7 +18,13 @@ export async function generateStaticParams() {
 // ── markdown → html ──
 async function markdownToHtml(md: string): Promise<string> {
   const result = await remark().use(html).process(md);
-  return result.toString();
+  // 文章正文经 dangerouslySetInnerHTML 注入，Next 的 basePath 不会自动重写，
+  // 故在此手动为 /images/ 资源补齐 basePath（线上 GitHub Pages 子路径）。
+  const basePath =
+    process.env.GITHUB_PAGES === "true" ? "/longtou-accounting-service-site" : "";
+  return result
+    .toString()
+    .replace(/src="\/images\//g, `src="${basePath}/images/`);
 }
 
 // ── 页面 ──
