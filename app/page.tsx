@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Minus } from "lucide-react";
 
-import { BrandLogo } from "@/components/BrandLogo";
-import { MobileNav } from "@/components/MobileNav";
+import { HomeHeader } from "@/components/HomeHeader";
 import {
   annualPlan,
   annualTimeline,
@@ -159,46 +158,11 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-brand-paper private-advisory-site">
       {/* ── Header ── */}
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#111816]/92 text-white backdrop-blur-xl">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-          <Link href="/" className="inline-flex items-center rounded-full bg-white px-3 py-1.5">
-            <BrandLogo className="h-9 w-auto max-w-[150px]" />
-          </Link>
-          <nav className="hidden items-center gap-8 lg:flex">
-            <Link href="#pain" className="text-sm text-white/62 hover:text-white">痛点</Link>
-            <Link href="#annual" className="text-sm text-white/62 hover:text-white">年度顾问</Link>
-            <Link href="#method" className="text-sm text-white/62 hover:text-white">方法</Link>
-            <Link href="#principles" className="text-sm text-white/62 hover:text-white">坚持</Link>
-            <Link href="#team" className="text-sm text-white/62 hover:text-white">团队</Link>
-            <Link href="#cases" className="text-sm text-white/62 hover:text-white">案例</Link>
-            <span className="text-white/16">|</span>
-            <Link href="/about" className="text-sm text-white/62 hover:text-white">关于</Link>
-            <Link href="/blog" className="text-sm text-white/62 hover:text-white">文章</Link>
-          </nav>
-          <MobileNav
-            links={[
-              { href: "#pain", label: "痛点" },
-              { href: "#annual", label: "年度顾问" },
-              { href: "#method", label: "方法" },
-              { href: "#principles", label: "坚持" },
-              { href: "#team", label: "团队" },
-              { href: "#cases", label: "案例" },
-              { href: "/about", label: "关于" },
-              { href: "/blog", label: "文章" },
-            ]}
-          />
-          <Link
-            href="/contact"
-            className="hidden lg:inline-flex premium-button bg-[#d9c7a5] px-5 py-2 text-sm font-semibold text-[#111816] transition hover:bg-[#eadabd]"
-          >
-            申请企业财税风险诊断（限量开放）
-          </Link>
-        </div>
-      </header>
+      <HomeHeader />
 
       <main>
         {/* ── Hero ── */}
-        <section className="private-hero hero-cinematic grain relative overflow-hidden border-b border-white/10 bg-[#111816] text-white">
+        <section data-header-theme="dark" className="private-hero hero-cinematic grain relative overflow-hidden border-b border-white/10 bg-[#111816] text-white">
           <div className="absolute -left-24 top-12 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(217,199,165,0.22)_0%,rgba(26,57,43,0.20)_42%,rgba(17,24,22,0)_72%)] blur-3xl" />
           <div className="absolute right-0 top-0 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(58,90,71,0.34)_0%,rgba(17,24,22,0.40)_48%,rgba(17,24,22,0)_74%)] blur-3xl" />
           <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(217,199,165,0.18)_0%,rgba(17,24,22,0)_70%)] blur-3xl" />
@@ -243,7 +207,7 @@ export default function HomePage() {
         </section>
 
         {/* ── 私密顾问背书 ── */}
-        <section className="private-trust-strip border-b border-[#d9c7a5]/18 bg-[#111816] text-white">
+        <section data-header-theme="dark" className="private-trust-strip border-b border-[#d9c7a5]/18 bg-[#111816] text-white">
           <div className="mx-auto grid max-w-7xl gap-px bg-white/10 px-6 md:grid-cols-4 md:px-0">
             {trustMetrics.map((m) => (
               <div key={m.label} className="bg-[#111816] px-6 py-7 md:px-8">
@@ -421,7 +385,7 @@ export default function HomePage() {
         </section>
 
         {/* ── 我们坚持什么 ── */}
-        <section id="principles" className="section-reveal dark-slab border-b border-brand-line">
+        <section id="principles" data-header-theme="dark" className="section-reveal dark-slab border-b border-brand-line">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
               <div>
@@ -507,7 +471,7 @@ export default function HomePage() {
         </section>
 
         {/* ── 判断与行动 ── */}
-        <section className="section-reveal private-final-cta border-b border-brand-line bg-brand-soft">
+        <section data-header-theme="dark" className="section-reveal private-final-cta border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-3xl px-6 py-28 text-center md:py-36">
             <SectionTitle
               label="行动"

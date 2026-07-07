@@ -554,10 +554,6 @@ body {
     linear-gradient(180deg, #111816 0, #111816 28rem, #FAF8F4 28rem);
 }
 
-.private-advisory-site header button[aria-label*="菜单"] span span {
-  background-color: rgba(255, 255, 255, 0.86);
-}
-
 .private-hero {
   min-height: calc(100vh - 4rem);
 }

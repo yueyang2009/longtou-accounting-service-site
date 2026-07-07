@@ -11,9 +11,10 @@ export interface MobileNavLink {
 
 interface MobileNavProps {
   links: MobileNavLink[];
+  triggerTone?: "dark" | "light";
 }
 
-export function MobileNav({ links }: MobileNavProps) {
+export function MobileNav({ links, triggerTone = "dark" }: MobileNavProps) {
   const [open, setOpen] = useState(false);
 
   const toggle = useCallback(() => setOpen((v) => !v), []);
@@ -55,19 +56,19 @@ export function MobileNav({ links }: MobileNavProps) {
         {/* Three-line hamburger that becomes an X when open */}
         <span className="flex flex-col items-center justify-center gap-[5px]">
           <span
-            className={`block h-[2px] w-5 rounded-full bg-brand-ink transition-all duration-200 ${
+            className={`block h-[2px] w-5 rounded-full transition-all duration-200 ${
               open ? "translate-y-[7px] rotate-45" : ""
-            }`}
+            } ${triggerTone === "light" ? "bg-white" : "bg-brand-ink"}`}
           />
           <span
-            className={`block h-[2px] w-5 rounded-full bg-brand-ink transition-all duration-200 ${
+            className={`block h-[2px] w-5 rounded-full transition-all duration-200 ${
               open ? "opacity-0" : ""
-            }`}
+            } ${triggerTone === "light" ? "bg-white" : "bg-brand-ink"}`}
           />
           <span
-            className={`block h-[2px] w-5 rounded-full bg-brand-ink transition-all duration-200 ${
+            className={`block h-[2px] w-5 rounded-full transition-all duration-200 ${
               open ? "-translate-y-[7px] -rotate-45" : ""
-            }`}
+            } ${triggerTone === "light" ? "bg-white" : "bg-brand-ink"}`}
           />
         </span>
       </button>
