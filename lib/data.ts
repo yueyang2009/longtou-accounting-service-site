@@ -51,7 +51,7 @@ export const brand = {
   slogan: "让企业账更清楚，让经营决策更可靠",
   subtitle: "双师带队，专注中小企业财税规范与经营体系建设",
   phone: "18103835769",
-  wechat: "李小阳TEL18103835769",
+  wechat: "李岳阳TEL18103835769",
   wechatQr: `${siteBasePath}/images/wechat-qr.jpg`,
   feishuQr: `${siteBasePath}/images/feishu-qr.jpg`
 };
