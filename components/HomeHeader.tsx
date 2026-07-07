@@ -11,9 +11,9 @@ const homeLinks = [
   { href: "#annual", label: "年度顾问" },
   { href: "#method", label: "方法" },
   { href: "#principles", label: "坚持" },
-  { href: "#team", label: "团队" },
   { href: "#cases", label: "案例" },
   { href: "/about", label: "关于" },
+  { href: "/team", label: "团队" },
   { href: "/blog", label: "文章" }
 ];
 
