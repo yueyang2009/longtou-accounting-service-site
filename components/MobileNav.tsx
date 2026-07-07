@@ -83,7 +83,7 @@ export function MobileNav({ links }: MobileNavProps) {
 
       {/* Slide-out panel from right */}
       <div
-        className={`fixed inset-y-0 right-0 z-50 flex w-72 flex-col border-l border-white/10 bg-[#24352A] shadow-2xl transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed inset-y-0 right-0 z-50 flex w-72 flex-col border-l border-brand-line bg-brand-card shadow-2xl transition-transform duration-300 ease-in-out lg:hidden ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
         role="dialog"
@@ -94,7 +94,7 @@ export function MobileNav({ links }: MobileNavProps) {
         <div className="flex h-16 items-center justify-end px-5">
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-white/70 hover:text-white"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-brand-muted hover:text-brand-ink"
             onClick={close}
             aria-label="关闭菜单"
           >
@@ -109,7 +109,7 @@ export function MobileNav({ links }: MobileNavProps) {
               key={link.href}
               href={link.href}
               onClick={close}
-              className="rounded-md px-4 py-4 text-lg font-medium text-white/85 transition hover:bg-white/10 hover:text-white"
+              className="rounded-md px-4 py-4 text-lg font-medium text-brand-ink transition hover:bg-brand-soft"
             >
               {link.label}
             </Link>
@@ -117,11 +117,11 @@ export function MobileNav({ links }: MobileNavProps) {
         </nav>
 
         {/* CTA at bottom */}
-        <div className="mt-auto border-t border-white/10 px-5 py-6">
+        <div className="mt-auto border-t border-brand-line px-5 py-6">
           <Link
             href="/contact"
             onClick={close}
-            className="flex w-full items-center justify-center rounded-md bg-white px-5 py-3 text-sm font-semibold text-[#24352A] transition hover:bg-white/90"
+            className="flex w-full items-center justify-center rounded-full bg-brand-emerald px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-emerald-hover"
           >
             申请企业财税风险诊断
           </Link>
