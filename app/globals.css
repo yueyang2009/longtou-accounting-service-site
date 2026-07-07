@@ -97,6 +97,13 @@ body {
   color: #1F1F1F;
 }
 
+.prose-caishui .article-signature {
+  text-align: right;
+  margin-top: 2.5rem;
+  font-weight: 600;
+  color: #1F1F1F;
+}
+
 /* ── 极淡纸张颗粒纹理 ── */
 .paper-grain {
   position: relative;
