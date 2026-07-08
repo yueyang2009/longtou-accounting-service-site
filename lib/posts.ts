@@ -4,12 +4,16 @@ import matter from "gray-matter";
 
 const POSTS_DIR = path.join(process.cwd(), "posts");
 
+/** 模块（行业）展示顺序；未在此列出的分类会排在最后 */
+export const CATEGORY_ORDER = ["医美行业", "加油站行业"];
+
 export type PostMeta = {
   slug: string;
   title: string;
   date: string;
   excerpt: string;
   tags: string[];
+  category: string;
 };
 
 export type Post = PostMeta & {
@@ -33,6 +37,7 @@ export function getAllPosts(): PostMeta[] {
         date: data.date || "",
         excerpt: data.excerpt || "",
         tags: data.tags || [],
+        category: data.category || "未分类",
       };
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1)); // newest first
@@ -53,6 +58,26 @@ export function getPostBySlug(slug: string): Post | null {
     date: data.date || "",
     excerpt: data.excerpt || "",
     tags: data.tags || [],
+    category: data.category || "未分类",
     content,
   };
+}
+
+/** 按 CATEGORY_ORDER 聚合出模块导航（含各模块文章数） */
+export function getCategories(
+  posts: PostMeta[]
+): { name: string; count: number }[] {
+  const counter = new Map<string, number>();
+  for (const post of posts) {
+    const cat = post.category || "未分类";
+    counter.set(cat, (counter.get(cat) || 0) + 1);
+  }
+  const ordered = CATEGORY_ORDER.filter((c) => counter.has(c)).map((c) => ({
+    name: c,
+    count: counter.get(c)!,
+  }));
+  const rest = Array.from(counter.keys())
+    .filter((c) => !CATEGORY_ORDER.includes(c))
+    .map((c) => ({ name: c, count: counter.get(c)! }));
+  return [...ordered, ...rest];
 }

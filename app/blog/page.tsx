@@ -1,13 +1,14 @@
 import Link from "next/link";
 
 import { BrandLogo } from "@/components/BrandLogo";
-import { BlogSearchClient } from "@/components/BlogSearchClient";
+import { BlogModulesClient } from "@/components/BlogModulesClient";
 import { MobileNav } from "@/components/MobileNav";
 import { brand, navItems } from "@/lib/data";
-import { getAllPosts } from "@/lib/posts";
+import { getAllPosts, getCategories } from "@/lib/posts";
 
 export default function BlogPage() {
   const posts = getAllPosts();
+  const categories = getCategories(posts);
 
   return (
     <div className="min-h-screen bg-brand-paper">
@@ -58,18 +59,18 @@ export default function BlogPage() {
               文章
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-brand-muted">
-              围绕企业经营诊断、财税合规、数字化改造和 AI 应用的实践思考。
+              按行业查看经营诊断与财税合规的实践思考。选你所在的行业，只看对你有用的内容。
             </p>
           </div>
         </section>
 
-        {/* ── 文章列表（含搜索） ── */}
+        {/* ── 模块分组 + 搜索 ── */}
         <section>
           <div className="mx-auto max-w-4xl px-6 py-16 md:py-20">
             {posts.length === 0 ? (
               <p className="text-center text-brand-muted">暂无文章</p>
             ) : (
-              <BlogSearchClient posts={posts} />
+              <BlogModulesClient posts={posts} categories={categories} />
             )}
           </div>
         </section>
@@ -87,4 +88,3 @@ export default function BlogPage() {
     </div>
   );
 }
-
