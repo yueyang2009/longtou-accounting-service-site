@@ -5,7 +5,7 @@ import matter from "gray-matter";
 const POSTS_DIR = path.join(process.cwd(), "posts");
 
 /** 模块（行业）展示顺序；未在此列出的分类会排在最后 */
-export const CATEGORY_ORDER = ["医美行业", "加油站行业"];
+export const CATEGORY_ORDER = ["医美行业", "加油站", "医疗器械"];
 
 export type PostMeta = {
   slug: string;
@@ -72,9 +72,9 @@ export function getCategories(
     const cat = post.category || "未分类";
     counter.set(cat, (counter.get(cat) || 0) + 1);
   }
-  const ordered = CATEGORY_ORDER.filter((c) => counter.has(c)).map((c) => ({
+  const ordered = CATEGORY_ORDER.map((c) => ({
     name: c,
-    count: counter.get(c)!,
+    count: counter.get(c) || 0,
   }));
   const rest = Array.from(counter.keys())
     .filter((c) => !CATEGORY_ORDER.includes(c))
