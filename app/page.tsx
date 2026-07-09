@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Minus } from "lucide-react";
+import type { ReactNode } from "react";
 
 import { HomeHeader } from "@/components/HomeHeader";
 import {
@@ -18,17 +19,23 @@ import {
 function SectionTitle({
   label,
   title,
-  description
+  description,
+  staggered = false,
 }: {
   label?: string;
-  title: string;
+  title: ReactNode;
   description?: string;
+  staggered?: boolean;
 }) {
   return (
-    <div className="mx-auto max-w-3xl text-center">
+    <div className={`mx-auto max-w-3xl ${staggered ? "text-left" : "text-center"}`}>
       {label && <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-brand-muted">{label}</p>}
       <h2 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-5xl">{title}</h2>
-      {description ? <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-brand-muted">{description}</p> : null}
+      {description ? (
+        <p className={`mt-6 max-w-2xl text-base leading-8 text-brand-muted ${staggered ? "" : "mx-auto"}`}>
+          {description}
+        </p>
+      ) : null}
     </div>
   );
 }
@@ -241,7 +248,13 @@ export default function HomePage() {
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle
               label="年度顾问"
-              title="我们陪伴企业走完一年，而不是解决一个问题。"
+              staggered
+              title={
+                <>
+                  我们陪伴企业走完一年
+                  <span className="mt-2 block pl-10 md:pl-24">而不是解决一个问题</span>
+                </>
+              }
               description="真正的规范不是一次交流完成的，而是在经营节奏里持续看见、判断、修正和沉淀。"
             />
             <div className="mt-16">
