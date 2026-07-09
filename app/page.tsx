@@ -417,7 +417,7 @@ export default function HomePage() {
         {/* ── 团队 ── */}
         <section id="team" className="section-reveal border-b border-brand-line">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
-            <SectionTitle label="团队实力" title="先看人，再谈合作。" />
+            <SectionTitle label="团队实力" title="先看人 再谈合作" />
             <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {experts.map((expert) => (
                 <div key={expert.name} className="interactive-card border border-brand-line p-7">
