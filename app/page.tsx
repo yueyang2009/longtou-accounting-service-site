@@ -399,7 +399,7 @@ export default function HomePage() {
               <div>
                 <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/50">Principles</p>
                 <h2 className="text-3xl font-semibold leading-tight tracking-tight text-white md:text-5xl">
-                  我们坚持什么
+                  我们坚持什么？
                 </h2>
               </div>
               <div className="grid gap-px overflow-hidden border border-white/12 bg-brand-card/12 md:grid-cols-2">
