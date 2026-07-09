@@ -173,8 +173,10 @@ export default function HomePage() {
               <p className="mb-7 w-fit border border-[#d9c7a5]/30 bg-[#d9c7a5]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#e9d9bc]">
                 企业财税与经营参谋团队
               </p>
-              <h1 className="max-w-3xl text-4xl font-semibold leading-[1.12] tracking-tight text-white md:text-6xl">
-                让企业经营更规范，让老板决策更从容。
+              <h1 className="max-w-3xl text-3xl font-semibold leading-[1.2] tracking-tight text-white md:text-5xl">
+                让企业经营更规范，
+                <br />
+                让老板决策更从容。
               </h1>
               <p className="mt-8 max-w-2xl text-lg leading-8 text-white/66">
                 以财税为切入点，将利润、现金流、风险与组织协同置于同一经营节奏中分析。核心不是处理单点问题，而是建立持续经营判断能力。
