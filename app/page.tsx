@@ -281,7 +281,15 @@ export default function HomePage() {
         {/* ── 方法论 ── */}
         <section id="method" className="section-reveal private-method-band border-b border-brand-line">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
-            <SectionTitle label="龙头方法" title="先看清，再理顺；先建立，再陪跑。" />
+            <SectionTitle
+              label="龙头方法"
+              title={
+                <>
+                  <span className="block w-fit mx-auto md:-translate-x-10">先看清 再理顺</span>
+                  <span className="mt-2 block w-fit mx-auto md:translate-x-10">先建立 再陪跑</span>
+                </>
+              }
+            />
             <div className="mt-12 grid gap-px overflow-hidden border border-brand-line/70 bg-brand-line md:grid-cols-4">
               {longtouMethod.map((item) => (
                 <div key={item.title} className="private-method-card interactive-card bg-brand-card p-8 rounded-card">
