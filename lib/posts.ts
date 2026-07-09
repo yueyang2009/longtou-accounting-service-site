@@ -4,6 +4,22 @@ import matter from "gray-matter";
 
 const POSTS_DIR = path.join(process.cwd(), "posts");
 
+/**
+ * frontmatter 里裸写的日期（如 `date: 2026-03-24`）会被 YAML 解析成 Date 对象，
+ * 直接渲染会触发 "Objects are not valid as a React child" 导致整站构建失败。
+ * 这里统一转成 YYYY-MM-DD 字符串，保证页面渲染与排序稳定。
+ */
+function normalizeDate(d: unknown): string {
+  if (d == null) return "";
+  if (d instanceof Date) {
+    const y = d.getUTCFullYear();
+    const m = String(d.getUTCMonth() + 1).padStart(2, "0");
+    const day = String(d.getUTCDate()).padStart(2, "0");
+    return `${y}-${m}-${day}`;
+  }
+  return String(d);
+}
+
 /** 模块（行业）展示顺序；未在此列出的分类会排在最后 */
 export const CATEGORY_ORDER = ["医美行业", "加油站", "医疗器械"];
 
@@ -34,7 +50,7 @@ export function getAllPosts(): PostMeta[] {
       return {
         slug,
         title: data.title || slug,
-        date: data.date || "",
+        date: normalizeDate(data.date),
         excerpt: data.excerpt || "",
         tags: data.tags || [],
         category: data.category || "未分类",
@@ -55,7 +71,7 @@ export function getPostBySlug(slug: string): Post | null {
   return {
     slug,
     title: data.title || slug,
-    date: data.date || "",
+    date: normalizeDate(data.date),
     excerpt: data.excerpt || "",
     tags: data.tags || [],
     category: data.category || "未分类",
