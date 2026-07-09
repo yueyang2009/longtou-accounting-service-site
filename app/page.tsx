@@ -420,12 +420,16 @@ export default function HomePage() {
             <SectionTitle label="团队实力" title="先看人 再谈合作" />
             <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {experts.map((expert) => (
-                <div key={expert.name} className="interactive-card border border-brand-line p-7">
+                <Link
+                  key={expert.name}
+                  href={`/team#${expert.slug}`}
+                  className="interactive-card border border-brand-line p-7 transition hover:border-brand-ink/40 hover:shadow-sm"
+                >
                   <p className="text-lg font-semibold text-brand-ink">{expert.name}</p>
                   <p className="mt-1 text-sm font-medium text-brand-muted">{expert.title}</p>
                   <p className="mt-4 text-sm leading-6 text-brand-muted">{expert.focus}</p>
                   <p className="mt-4 text-xs font-semibold text-brand-ink">{expert.credential}</p>
-                </div>
+                </Link>
               ))}
             </div>
             <div className="mt-14 border-t border-[#d9c7a5]/18 pt-10">

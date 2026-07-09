@@ -36,6 +36,7 @@ export type Expert = {
   title: string;
   focus: string;
   credential: string;
+  slug: string;
 };
 
 export type Insight = {
@@ -343,25 +344,29 @@ export const experts: Expert[] = [
     name: "杜楠楠",
     title: "高端财税事业部 总经理",
     focus: "税务合规筹划、股权架构设计、历史乱账清理、财务体系搭建",
-    credential: "专业财税顾问"
+    credential: "专业财税顾问",
+    slug: "du-nannan"
   },
   {
     name: "李岳阳",
     title: "高端财税事业部",
     focus: "财税合规、ERP实施、股权架构、企业经营落地",
-    credential: "财税与经营顾问"
+    credential: "财税与经营顾问",
+    slug: "li-yueyang"
   },
   {
     name: "刘宏义",
     title: "高端财税事业部",
     focus: "内部控制、税收风险防范、IPO辅导、专项审计",
-    credential: "风险与内控顾问"
+    credential: "风险与内控顾问",
+    slug: "liu-hongyi"
   },
   {
     name: "吴新明",
     title: "高端财税事业部",
     focus: "上市辅导、IPO审计、税务筹划、尽职调查",
-    credential: "税务与审计顾问"
+    credential: "税务与审计顾问",
+    slug: "wu-xinming"
   }
 ];
 

@@ -8,6 +8,7 @@ export type OrbitMember = {
   avatar: string;
   summary: string;
   fullIntro: string;
+  slug: string;
 };
 
 export function TeamOrbit({ members }: { members: OrbitMember[] }) {
@@ -30,6 +31,20 @@ export function TeamOrbit({ members }: { members: OrbitMember[] }) {
       if (rafRef.current) window.cancelAnimationFrame(rafRef.current);
     };
   }, [isHovering]);
+
+  // 从 URL hash（如 /team#du-nannan）自动选中对应专家标签页
+  useEffect(() => {
+    const selectFromHash = () => {
+      const target = window.location.hash.replace(/^#/, "");
+      if (!target) return;
+      const idx = members.findIndex((m) => m.slug === target);
+      if (idx >= 0) setActiveIndex(idx);
+    };
+
+    selectFromHash();
+    window.addEventListener("hashchange", selectFromHash);
+    return () => window.removeEventListener("hashchange", selectFromHash);
+  }, [members]);
 
   const activeMember = members[activeIndex] ?? members[0];
 
