@@ -490,7 +490,14 @@ export default function HomePage() {
           <div className="mx-auto max-w-3xl px-6 py-28 text-center md:py-36">
             <SectionTitle
               label="行动"
-              title="如果你正在考虑，我们建议先做一次判断。"
+              staggered
+              title={
+                <>
+                  如果你正在考虑
+                  <br />
+                  <span className="pl-10 md:pl-24">我们建议先做一次判断</span>
+                </>
+              }
             />
             <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-brand-muted">
               年度顾问更适合年营收2000万以上、已有稳定经营规模、且老板愿意参与经营管理的企业。
