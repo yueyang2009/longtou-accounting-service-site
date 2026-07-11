@@ -288,7 +288,7 @@ export default function HomePage() {
             />
             <div className="mt-16">
               <div className="hidden h-px bg-brand-line md:block" />
-              <div className="grid gap-5 md:-mt-3 md:grid-cols-5">
+              <div className="grid gap-5 md:-mt-3 md:grid-cols-3 lg:grid-cols-5">
                 {annualTimeline.map((item) => (
                   <div key={item.title} className="bg-brand-paper md:pt-0">
                     <div className="mb-7 hidden h-6 w-6 rounded-full border border-brand-ink bg-white md:block" />
@@ -296,8 +296,8 @@ export default function HomePage() {
                       className="timeline-flip"
                       front={
                         <>
-                          <h3 className="text-xl font-semibold leading-snug text-brand-ink">{item.title}</h3>
-                          <ul className="mt-6 space-y-3">
+                          <h3 className="text-base font-semibold leading-tight text-brand-ink">{item.title}</h3>
+                          <ul className="mt-5 space-y-2.5">
                             {item.items.map((li) => (
                               <li key={li} className="text-sm leading-6 text-brand-muted">{li}</li>
                             ))}
