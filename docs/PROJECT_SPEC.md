@@ -17,7 +17,7 @@
 
 - `/` 首页
 - `/about` 关于我们
-- `/annual-advisory` 年度顾问
+- `/why-annual-advisor` 年度顾问（新版；旧 `/annual-advisory` 已删除）
 - `/solutions` 解决方案
 - `/team` 团队
 - `/insights` 洞察

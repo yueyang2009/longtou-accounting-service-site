@@ -45,7 +45,6 @@ export default function AboutPage() {
             <Link href="/" className="text-sm text-brand-muted hover:text-brand-ink">首页</Link>
             <Link href="/about" className="text-sm font-medium text-brand-ink">关于</Link>
             <Link href="/team" className="text-sm text-brand-muted hover:text-brand-ink">团队</Link>
-            <Link href="/annual-advisory" className="text-sm text-brand-muted hover:text-brand-ink">年度顾问</Link>
             <Link href="/why-annual-advisor" className="text-sm text-brand-muted hover:text-brand-ink">为什么需要</Link>
             <Link href="/services" className="text-sm text-brand-muted hover:text-brand-ink">服务体系</Link>
           </nav>
@@ -54,7 +53,6 @@ export default function AboutPage() {
               { href: "/", label: "首页" },
               { href: "/about", label: "关于" },
               { href: "/team", label: "团队" },
-              { href: "/annual-advisory", label: "年度顾问" },
               { href: "/why-annual-advisor", label: "为什么需要" },
               { href: "/services", label: "服务体系" },
             ]}

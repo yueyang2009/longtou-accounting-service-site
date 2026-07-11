@@ -39,14 +39,12 @@ export default function ServicesPage() {
             <Link href="/" className="text-sm text-brand-muted hover:text-brand-ink">首页</Link>
             <Link href="/services" className="text-sm font-medium text-brand-ink">服务体系</Link>
             <Link href="/about" className="text-sm text-brand-muted hover:text-brand-ink">关于</Link>
-            <Link href="/annual-advisory" className="text-sm text-brand-muted hover:text-brand-ink">年度顾问</Link>
           </nav>
           <MobileNav
             links={[
               { href: "/", label: "首页" },
               { href: "/services", label: "服务体系" },
               { href: "/about", label: "关于" },
-              { href: "/annual-advisory", label: "年度顾问" },
             ]}
           />
           <Link href="/contact" className="hidden lg:inline-flex rounded-full bg-brand-emerald px-5 py-2 text-sm font-medium text-white transition hover:bg-brand-emerald-hover">

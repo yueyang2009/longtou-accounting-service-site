@@ -18,7 +18,6 @@ const navLinks = [
   { href: "/", label: "首页" },
   { href: "/team", label: "团队" },
   { href: "/about", label: "关于" },
-  { href: "/annual-advisory", label: "年度顾问" },
   { href: "/services", label: "服务体系" },
   { href: "/contact", label: "联系我们" }
 ];
