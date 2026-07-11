@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { brand } from "@/lib/data";
 import { DimOnClick } from "@/components/DimOnClick";
+import { BackToHomeBtn } from "@/components/BackToHomeBtn";
 
 export const metadata: Metadata = {
   title: `${brand.name}｜${brand.slogan}`,
@@ -15,6 +16,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         {children}
         <DimOnClick />
+        <BackToHomeBtn />
       </body>
     </html>
   );
