@@ -104,7 +104,8 @@ const advisorMembers: AdvisorMember[] = [
     name: "赵艳婷",
     title: "高端财税事业部 高级顾问",
     credential: "注册会计师",
-    focus: "财税体系建设、数据洞察、战略驱动、企业全生命周期陪伴"
+    focus: "财税体系建设、数据洞察、战略驱动、企业全生命周期陪伴",
+    avatar: `${assetBasePath}/images/team/zhao-yanting.png`
   },
   {
     name: "王锋",
