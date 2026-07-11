@@ -2052,8 +2052,12 @@ input[type=checkbox]{accent-color:#d9c7a5}
                 Chart.defaults.borderColor = 'rgba(217,199,165,.12)';
             }
             initProjectSelector();
-            // 展示页固定数据时点，避免浏览时被误解为实时生产数据
-            document.getElementById('updateTime').textContent = '2026年6月30日';
+            // 展示数据时点 = 查看人打开页面的当天日期（如今日查看即显示今日）
+            (function () {
+                var d = new Date();
+                var el = document.getElementById('updateTime');
+                if (el) el.textContent = d.getFullYear() + '年' + (d.getMonth() + 1) + '月' + d.getDate() + '日';
+            })();
             refreshData();
             
             // 点击外部关闭下拉框
