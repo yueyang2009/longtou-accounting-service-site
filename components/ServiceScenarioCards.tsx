@@ -64,12 +64,10 @@ export function ServiceScenarioCards() {
           >
             <div className="flip-card-inner">
               <div className="flip-card-face flip-card-front">
-                <span className="flip-hint">点击翻转查看简介 ↻</span>
                 <p className="text-base font-semibold text-brand-ink">{s.title}</p>
                 <p className="mt-2 text-sm leading-6 text-brand-muted">{s.desc}</p>
               </div>
               <div className="flip-card-face flip-card-back">
-                <span className="flip-hint flip-hint-gold">点击返回 ↺</span>
                 <p className="text-base font-semibold text-brand-gold">{s.title}</p>
                 <p className="mt-2 text-[13px] leading-[1.55] text-brand-body">{s.intro}</p>
               </div>
