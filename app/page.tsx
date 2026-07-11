@@ -21,14 +21,16 @@ function SectionTitle({
   title,
   description,
   staggered = false,
+  wide = false,
 }: {
   label?: string;
   title: ReactNode;
   description?: string;
   staggered?: boolean;
+  wide?: boolean;
 }) {
   return (
-    <div className={`mx-auto max-w-3xl ${staggered ? "text-left" : "text-center"}`}>
+    <div className={`mx-auto ${wide ? "max-w-5xl" : "max-w-3xl"} ${staggered ? "text-left" : "text-center"}`}>
       {label && <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-brand-muted">{label}</p>}
       <h2 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-5xl">{title}</h2>
       {description ? (
@@ -456,7 +458,8 @@ export default function HomePage() {
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle
               label="精选案例"
-              title="来自真实企业的财税与经营问题解决实践"
+              wide
+              title={<span className="whitespace-nowrap">来自真实企业的财税与经营问题解决实践</span>}
             />
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               {clientStories.map((story) => (
