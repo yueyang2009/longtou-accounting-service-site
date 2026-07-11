@@ -169,14 +169,9 @@ export default function TeamPage() {
 
         <section className="team-advisor-matrix">
           <div className="mx-auto max-w-7xl px-6 py-24 md:py-28">
-            <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
-              <div>
-                <p className="team-section-eyebrow">Expert Matrix</p>
-                <h2>高级顾问矩阵</h2>
-              </div>
-              <p className="team-section-lead">
-                核心顾问席位之外，我们以专业方向组织顾问矩阵。部分成员头像待补齐，当前先以专业档案展示，后续可直接替换为人物照片。
-              </p>
+            <div>
+              <p className="team-section-eyebrow">Expert Matrix</p>
+              <h2>高级顾问矩阵</h2>
             </div>
 
             <AdvisorMatrix members={advisorMembers} />
