@@ -11,7 +11,7 @@ export function Hero() {
         <div className="flex flex-col justify-center">
           <p className="mb-5 text-sm font-semibold text-brand-gold">{brand.name} · {brand.positioning}</p>
           <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-brand-ink md:text-6xl">
-            企业财税问题，往往不是不会做，而是没人帮你看清楚
+            企业财税问题，往往不是不会做，而是没人帮您看清楚
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-brand-muted">
             龙头会服 · 企业经营财税顾问

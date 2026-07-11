@@ -59,7 +59,7 @@ export default function BlogPage() {
               文章
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-brand-muted">
-              按行业查看经营诊断与财税合规的实践思考。选你所在的行业，只看对你有用的内容。
+              按行业查看经营诊断与财税合规的实践思考。选您所在的行业，只看对您有用的内容。
             </p>
           </div>
         </section>

@@ -7,7 +7,7 @@ export function PainSection() {
   return (
     <section className="bg-brand-soft py-20">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <SectionHeader title="如果你有以下情况，说明企业财税系统需要升级" />
+        <SectionHeader title="如果您有以下情况，说明企业财税系统需要升级" />
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {painPoints.map((item) => (
             <div key={item.title} className="border border-brand-line bg-white p-6 rounded-card">

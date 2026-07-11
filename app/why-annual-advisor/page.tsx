@@ -262,7 +262,7 @@ export default function WhyAnnualAdvisorPage() {
               </span>
             </h1>
             <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-brand-body">
-              不是代账，也不是一次性的咨询，而是签约后进入企业经营尽调与全年顾问服务周期，帮你建立持续经营判断能力。
+              不是代账，也不是一次性的咨询，而是签约后进入企业经营尽调与全年顾问服务周期，帮您建立持续经营判断能力。
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link
@@ -297,7 +297,7 @@ export default function WhyAnnualAdvisorPage() {
         {/* ═══════════ ③ 核心服务价值 ═══════════ */}
         <section className="border-b border-white/10">
           <div className="mx-auto max-w-4xl px-6 py-24 md:py-28">
-            <SectionTitle eyebrow="核心服务价值" title="年度顾问为你创造什么价值？" />
+            <SectionTitle eyebrow="核心服务价值" title="年度顾问为您创造什么价值？" />
             <ValueGroup />
           </div>
         </section>
