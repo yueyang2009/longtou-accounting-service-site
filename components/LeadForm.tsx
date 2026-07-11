@@ -47,13 +47,13 @@ export function LeadForm() {
   };
 
   return (
-    <div className="border border-brand-line bg-white p-6 shadow-consult rounded-card">
-      <div className="mb-6 flex items-center justify-between border-b border-brand-line pb-4">
+    <div className="border border-brand-line/40 bg-brand-soft p-6 shadow-consult rounded-card">
+      <div className="mb-6 flex items-center justify-between border-b border-brand-line/40 pb-4">
         <div>
-          <p className="text-sm font-semibold text-brand-muted">经营诊断申请</p>
-          <h3 className="mt-1 text-2xl font-semibold">申请企业财税风险诊断（限量开放）</h3>
+          <p className="text-sm font-semibold text-brand-gold">经营诊断申请</p>
+          <h3 className="mt-1 text-2xl font-semibold text-[#ede9e0]">申请企业财税风险诊断（限量开放）</h3>
         </div>
-        <span className="rounded-md bg-brand-soft px-3 py-1 text-sm text-brand-muted">Step {step}/3</span>
+        <span className="rounded-md border border-brand-gold/30 bg-brand-gold/10 px-3 py-1 text-sm text-brand-gold">Step {step}/3</span>
       </div>
 
       {step === 1 ? (
@@ -82,7 +82,7 @@ export function LeadForm() {
             <Label htmlFor="revenue">企业阶段</Label>
             <select
               id="revenue"
-              className="mt-2 h-11 w-full rounded-md border border-brand-line bg-white px-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-emerald/20"
+              className="mt-2 h-11 w-full rounded-md border border-brand-line/40 bg-[#0c1310] px-3 text-sm text-[#ede9e0] placeholder:text-brand-muted/60 focus:border-brand-gold/50 focus:outline-none focus:ring-2 focus:ring-brand-gold/20"
               value={form.revenueRange}
               onChange={(event) => setForm({ ...form, revenueRange: event.target.value })}
             >
@@ -101,7 +101,7 @@ export function LeadForm() {
           <Label>目前最关注的问题</Label>
           <div className="mt-3 grid gap-3 sm:grid-cols-2">
             {formPainOptions.map((pain) => (
-              <label key={pain} className="flex cursor-pointer items-center gap-3 border border-brand-line p-3 text-sm">
+              <label key={pain} className="flex cursor-pointer items-center gap-3 border border-brand-line/40 bg-[#0c1310] p-3 text-sm text-[#e9e3d5] hover:border-brand-gold/30 transition-colors">
                 <input
                   type="checkbox"
                   checked={form.painPoints.includes(pain)}
@@ -125,8 +125,8 @@ export function LeadForm() {
                   key={String(value)}
                   type="button"
                   onClick={() => setForm({ ...form, hasFinanceTeam: value })}
-                  className={`border p-3 text-sm ${
-                    form.hasFinanceTeam === value ? "border-brand-emerald bg-brand-emerald text-white" : "border-brand-line bg-white"
+                  className={`border p-3 text-sm transition-colors ${
+                    form.hasFinanceTeam === value ? "border-brand-gold bg-brand-gold text-[#0c1310] font-semibold" : "border-brand-line/40 bg-[#0c1310] text-[#e9e3d5] hover:border-brand-gold/30"
                   }`}
                 >
                   {value ? "有" : "没有"}
@@ -142,8 +142,8 @@ export function LeadForm() {
                   key={String(value)}
                   type="button"
                   onClick={() => setForm({ ...form, auditHistory: value })}
-                  className={`border p-3 text-sm ${
-                    form.auditHistory === value ? "border-brand-emerald bg-brand-emerald text-white" : "border-brand-line bg-white"
+                  className={`border p-3 text-sm transition-colors ${
+                    form.auditHistory === value ? "border-brand-gold bg-brand-gold text-[#0c1310] font-semibold" : "border-brand-line/40 bg-[#0c1310] text-[#e9e3d5] hover:border-brand-gold/30"
                   }`}
                 >
                   {value ? "做过" : "没有"}
@@ -172,8 +172,8 @@ export function LeadForm() {
       </div>
 
       {result ? (
-        <div className="mt-6 border border-brand-line bg-brand-soft p-4">
-          <p className="text-sm font-semibold text-brand-ink">信息已记录</p>
+        <div className="mt-6 border border-brand-gold/30 bg-[#0c1310] p-4">
+          <p className="text-sm font-semibold text-brand-gold">信息已记录</p>
           <p className="mt-2 text-sm leading-6 text-brand-muted">
             后续交流会围绕企业阶段、财务团队、审计经历和当前问题展开，不急于给出标准化方案。
           </p>
