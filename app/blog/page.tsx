@@ -1,9 +1,8 @@
 import Link from "next/link";
 
-import { BrandLogo } from "@/components/BrandLogo";
 import { BlogModulesClient } from "@/components/BlogModulesClient";
-import { MobileNav } from "@/components/MobileNav";
-import { brand, navItems } from "@/lib/data";
+import { HomeHeader } from "@/components/HomeHeader";
+import { brand } from "@/lib/data";
 import { getAllPosts, getCategories } from "@/lib/posts";
 
 export default function BlogPage() {
@@ -13,40 +12,7 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-brand-paper">
       {/* ── Header ── */}
-      <header className="sticky top-0 z-50 border-b border-brand-line bg-[#111816]/90 backdrop-blur">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-          <Link href="/" className="inline-flex items-center rounded-full bg-white px-2 py-1">
-            <BrandLogo className="h-9 w-auto max-w-[150px]" />
-          </Link>
-          <nav className="hidden items-center gap-6 lg:flex">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`text-sm ${
-                  item.href === "/blog"
-                    ? "font-medium text-brand-ink"
-                    : "text-brand-muted hover:text-brand-ink"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-          <MobileNav
-            links={[
-              ...navItems,
-              { href: "/contact", label: "申请财税诊断" },
-            ]}
-          />
-          <Link
-            href="/contact"
-            className="hidden lg:inline-flex rounded-full bg-brand-emerald px-5 py-2 text-sm font-medium text-white transition hover:bg-brand-emerald-hover"
-          >
-            申请企业财税风险诊断（限量开放）
-          </Link>
-        </div>
-      </header>
+      <HomeHeader />
 
       <main>
         {/* ── 页头 ── */}

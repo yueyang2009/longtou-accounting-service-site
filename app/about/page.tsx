@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Minus } from "lucide-react";
 
-import { BrandLogo } from "@/components/BrandLogo";
-import { MobileNav } from "@/components/MobileNav";
+import { HomeHeader } from "@/components/HomeHeader";
 import { brand } from "@/lib/data";
 
 function Label({ text }: { text: string }) {
@@ -36,35 +35,7 @@ function QuoteLine({ children }: { children: string }) {
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-brand-paper">
-      <header className="sticky top-0 z-50 border-b border-brand-line bg-[#111816]/90 backdrop-blur">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-          <Link href="/" className="inline-flex items-center rounded-full bg-white px-2 py-1">
-            <BrandLogo className="h-9 w-auto max-w-[150px]" />
-          </Link>
-          <nav className="hidden items-center gap-6 lg:flex">
-            <Link href="/" className="text-sm text-brand-muted hover:text-brand-ink">首页</Link>
-            <Link href="/about" className="text-sm font-medium text-brand-ink">关于</Link>
-            <Link href="/team" className="text-sm text-brand-muted hover:text-brand-ink">团队</Link>
-            <Link href="/why-annual-advisor" className="text-sm text-brand-muted hover:text-brand-ink">为什么需要</Link>
-            <Link href="/services" className="text-sm text-brand-muted hover:text-brand-ink">服务体系</Link>
-          </nav>
-          <MobileNav
-            links={[
-              { href: "/", label: "首页" },
-              { href: "/about", label: "关于" },
-              { href: "/team", label: "团队" },
-              { href: "/why-annual-advisor", label: "为什么需要" },
-              { href: "/services", label: "服务体系" },
-            ]}
-          />
-          <Link
-            href="/contact"
-            className="hidden lg:inline-flex rounded-full bg-brand-emerald px-5 py-2 text-sm font-medium text-white transition hover:bg-brand-emerald-hover"
-          >
-            申请企业财税风险诊断（限量开放）
-          </Link>
-        </div>
-      </header>
+      <HomeHeader />
 
       <main>
 

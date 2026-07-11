@@ -57,16 +57,18 @@ export const brand = {
   feishuQr: `${siteBasePath}/images/feishu-qr.jpg`
 };
 
-export const navItems = [
-  { label: "首页", href: "/" },
-  { label: "文章", href: "/blog" },
-  { label: "关于我们", href: "/about" },
-  { label: "团队", href: "/team" },
-  { label: "年度顾问", href: "/why-annual-advisor" },
-  { label: "服务体系", href: "/services" },
-  { label: "经营看板示例", href: "/dashboard-demo.html" },
-  { label: "联系我们", href: "/contact" }
+export const siteNavLinks = [
+  { href: "/", label: "主页" },
+  { href: "/why-annual-advisor", label: "年度顾问" },
+  { href: "/services", label: "服务体系" },
+  { href: "/about", label: "关于" },
+  { href: "/team", label: "团队" },
+  { href: "/blog", label: "文章" },
+  { href: "/dashboard-demo.html", label: "经营看板示例" }
 ];
+
+// 子页全局导航沿用同一套链接，避免与首页导航分叉
+export const navItems = siteNavLinks;
 
 export const painPoints = [
   {

@@ -5,16 +5,7 @@ import { useEffect, useState } from "react";
 
 import { BrandLogo } from "@/components/BrandLogo";
 import { MobileNav } from "@/components/MobileNav";
-
-const homeLinks = [
-  { href: "/", label: "主页" },
-  { href: "/why-annual-advisor", label: "年度顾问" },
-  { href: "/services", label: "服务体系" },
-  { href: "/about", label: "关于" },
-  { href: "/team", label: "团队" },
-  { href: "/blog", label: "文章" },
-  { href: "/dashboard-demo.html", label: "经营看板示例" }
-];
+import { siteNavLinks } from "@/lib/data";
 
 export function HomeHeader() {
   const [onDarkSurface, setOnDarkSurface] = useState(true);
@@ -69,7 +60,7 @@ export function HomeHeader() {
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
-          {homeLinks.map((item, index) => {
+          {siteNavLinks.map((item, index) => {
             const cls = [
               "text-[15px] font-semibold tracking-[-0.01em] transition-colors",
               index >= 6 ? "ml-1" : "",
@@ -87,7 +78,7 @@ export function HomeHeader() {
           })}
         </nav>
 
-        <MobileNav links={homeLinks} triggerTone={onDarkSurface ? "light" : "dark"} />
+        <MobileNav links={siteNavLinks} triggerTone={onDarkSurface ? "light" : "dark"} />
 
         <Link
           href="/contact"

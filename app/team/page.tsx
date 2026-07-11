@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Award, Handshake, ShieldCheck, Users } from "lucide-react";
 
-import { BrandLogo } from "@/components/BrandLogo";
-import { MobileNav } from "@/components/MobileNav";
+import { HomeHeader } from "@/components/HomeHeader";
 import { TeamOrbit, type OrbitMember } from "@/components/TeamOrbit";
 import { brand, trustMetrics } from "@/lib/data";
 
@@ -13,14 +12,6 @@ export const metadata: Metadata = {
   title: `团队介绍｜${brand.name}`,
   description: "龙头会服高端财税事业部专家顾问团队，覆盖财务、税务、法律、经营与企业内控。"
 };
-
-const navLinks = [
-  { href: "/", label: "首页" },
-  { href: "/team", label: "团队" },
-  { href: "/about", label: "关于" },
-  { href: "/services", label: "服务体系" },
-  { href: "/contact", label: "联系我们" }
-];
 
 const coreMembers: OrbitMember[] = [
   {
@@ -162,33 +153,7 @@ const teamValues = [
 export default function TeamPage() {
   return (
     <div className="min-h-screen bg-[#0f1513] text-white">
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0f1513]/90 backdrop-blur-xl">
-        <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6">
-          <Link href="/" className="inline-flex items-center rounded-full bg-white px-3 py-1.5">
-            <BrandLogo className="h-10 w-auto max-w-[166px]" />
-          </Link>
-          <nav className="hidden items-center gap-7 lg:flex">
-            {navLinks.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`text-[15px] font-semibold transition ${
-                  item.href === "/team" ? "text-[#e9d9bc]" : "text-white/64 hover:text-white"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-          <MobileNav links={navLinks} triggerTone="light" />
-          <Link
-            href="/contact"
-            className="hidden rounded-full bg-[#d9c7a5] px-5 py-2.5 text-[15px] font-bold text-[#111816] transition hover:bg-[#eadabd] lg:inline-flex"
-          >
-            申请企业财税风险诊断
-          </Link>
-        </div>
-      </header>
+      <HomeHeader />
 
       <main>
         <TeamOrbit members={coreMembers} />

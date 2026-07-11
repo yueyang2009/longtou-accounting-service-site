@@ -4,8 +4,7 @@ import { useState, type ReactNode } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-import { BrandLogo } from "@/components/BrandLogo";
-import { MobileNav } from "@/components/MobileNav";
+import { HomeHeader } from "@/components/HomeHeader";
 import { brand, trustMetrics } from "@/lib/data";
 
 /* ── 聚光交互：点击某卡片时高亮它、淡化其他 ── */
@@ -226,33 +225,7 @@ export default function WhyAnnualAdvisorPage() {
       </div>
 
       {/* ── Header ── */}
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#111816]/85 backdrop-blur">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-          <Link href="/" className="inline-flex items-center rounded-full bg-white px-2 py-1">
-            <BrandLogo className="h-9 w-auto max-w-[150px]" />
-          </Link>
-          <nav className="hidden items-center gap-6 lg:flex">
-            <Link href="/" className="text-sm text-white/60 transition hover:text-brand-gold">首页</Link>
-            <Link href="/why-annual-advisor" className="text-sm font-medium text-brand-gold">年度顾问</Link>
-            <Link href="/services" className="text-sm text-white/60 transition hover:text-brand-gold">服务体系</Link>
-            <Link href="/about" className="text-sm text-white/60 transition hover:text-brand-gold">关于</Link>
-          </nav>
-          <MobileNav
-            links={[
-              { href: "/", label: "首页" },
-              { href: "/why-annual-advisor", label: "年度顾问" },
-              { href: "/services", label: "服务体系" },
-              { href: "/about", label: "关于" },
-            ]}
-          />
-          <Link
-            href="/contact"
-            className="hidden lg:inline-flex rounded-full bg-[#d9c7a5] px-5 py-2 text-sm font-semibold text-[#111816] transition hover:bg-[#eadabd]"
-          >
-            申请企业财税风险诊断（限量开放）
-          </Link>
-        </div>
-      </header>
+      <HomeHeader />
 
       <main className="relative z-10">
         {/* ═══════════ ① 服务定位（Hero） ═══════════ */}
