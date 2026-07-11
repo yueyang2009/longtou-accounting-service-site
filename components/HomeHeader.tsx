@@ -8,7 +8,7 @@ import { MobileNav } from "@/components/MobileNav";
 
 const homeLinks = [
   { href: "#pain", label: "痛点" },
-  { href: "#annual", label: "年度顾问" },
+  { href: "/why-annual-advisor", label: "年度顾问" },
   { href: "#method", label: "方法" },
   { href: "#principles", label: "坚持" },
   { href: "#cases", label: "案例" },
