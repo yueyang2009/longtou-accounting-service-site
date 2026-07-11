@@ -70,7 +70,8 @@ const advisorMembers: AdvisorMember[] = [
     name: "赵娟",
     title: "高端财税事业部 高级顾问",
     credential: "注册会计师 / 税务师 / 资深财税咨询师",
-    focus: "内控设计、审计、预算管理、成本管控、财税咨询"
+    focus: "内控设计、审计、预算管理、成本管控、财税咨询",
+    avatar: `${assetBasePath}/images/team/zhaojuan.png`
   },
   {
     name: "王慧现",
