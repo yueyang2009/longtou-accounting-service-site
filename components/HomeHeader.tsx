@@ -14,11 +14,13 @@ const homeLinks = [
   { href: "#cases", label: "案例" },
   { href: "/about", label: "关于" },
   { href: "/team", label: "团队" },
-  { href: "/blog", label: "文章" }
+  { href: "/blog", label: "文章" },
+  { href: "/dashboard-demo.html", label: "经营看板示例" }
 ];
 
 export function HomeHeader() {
   const [onDarkSurface, setOnDarkSurface] = useState(true);
+  const base = process.env.NODE_ENV === "production" ? "/longtou-accounting-service-site" : "";
 
   useEffect(() => {
     let frame = 0;
@@ -69,19 +71,22 @@ export function HomeHeader() {
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
-          {homeLinks.map((item, index) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={[
-                "text-[15px] font-semibold tracking-[-0.01em] transition-colors",
-                index >= 6 ? "ml-1" : "",
-                onDarkSurface ? "text-white/72 hover:text-white" : "text-white/72 hover:text-white"
-              ].join(" ")}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {homeLinks.map((item, index) => {
+            const cls = [
+              "text-[15px] font-semibold tracking-[-0.01em] transition-colors",
+              index >= 6 ? "ml-1" : "",
+              onDarkSurface ? "text-white/72 hover:text-white" : "text-white/72 hover:text-white"
+            ].join(" ");
+            return item.href.endsWith(".html") ? (
+              <a key={item.href} href={`${base}${item.href}`} className={cls}>
+                {item.label}
+              </a>
+            ) : (
+              <Link key={item.href} href={item.href} className={cls}>
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <MobileNav links={homeLinks} triggerTone={onDarkSurface ? "light" : "dark"} />
