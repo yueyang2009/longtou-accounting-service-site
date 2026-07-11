@@ -251,7 +251,7 @@ export default function WhyAnnualAdvisorPage() {
             <Eyebrow>龙头会服 · 企业年度财税顾问计划</Eyebrow>
             <h1 className="mt-7 text-4xl font-semibold leading-[1.2] tracking-tight text-white md:text-6xl">
               <span className="block">企业年度财税顾问</span>
-              <span className="mt-2 block">
+              <span className="mt-2 block whitespace-normal md:whitespace-nowrap">
                 <span className="text-gradient-gold">基于完整经营周期</span>的长期专业支持
               </span>
             </h1>
