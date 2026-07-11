@@ -1373,7 +1373,8 @@ body {
   border: 1px solid rgba(217, 199, 165, 0.28);
 }
 
-.team-mini-card h3 {
+.team-mini-card h3,
+.advisor-face-front h3 {
   margin-top: 1.3rem;
   color: #fff;
   font-size: 1.55rem;
@@ -1616,6 +1617,62 @@ body {
 }
 .flip-card.is-flipped .flip-card-back {
   box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+}
+
+/* ── 高级顾问矩阵：点击翻转（正面名片 / 背面大照片+姓名+头衔）── */
+.advisor-flip-card {
+  height: 19rem;
+}
+.advisor-face-front {
+  position: relative;
+  /* 沿用 .flip-card-face 容器样式，内部元素靠 .team-mini-* 类 */
+}
+.advisor-face-back {
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  text-align: center;
+}
+.advisor-photo-wrap {
+  margin-bottom: 0.4rem;
+}
+.advisor-photo {
+  display: block;
+  height: 7rem;
+  width: 7rem;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid rgba(217, 199, 165, 0.5);
+}
+.advisor-photo-placeholder {
+  display: grid;
+  height: 7rem;
+  width: 7rem;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(217, 199, 165, 0.28);
+  background: rgba(217, 199, 165, 0.08);
+  color: #e9d9bc;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+.advisor-back-name {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 650;
+  letter-spacing: -0.04em;
+}
+.advisor-back-title {
+  color: rgba(217, 199, 165, 0.88);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.advisor-back-hint,
+.advisor-flip-hint {
+  margin-top: 0.6rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
 }
 
 

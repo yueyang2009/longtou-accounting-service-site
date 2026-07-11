@@ -4,6 +4,7 @@ import { ArrowRight, Award, Handshake, ShieldCheck, Users } from "lucide-react";
 
 import { HomeHeader } from "@/components/HomeHeader";
 import { TeamOrbit, type OrbitMember } from "@/components/TeamOrbit";
+import { AdvisorMatrix, type AdvisorMember } from "@/components/AdvisorMatrix";
 import { brand, trustMetrics } from "@/lib/data";
 
 const assetBasePath = process.env.GITHUB_PAGES === "true" ? "/longtou-accounting-service-site" : "";
@@ -52,7 +53,7 @@ const coreMembers: OrbitMember[] = [
   }
 ];
 
-const advisorMembers = [
+const advisorMembers: AdvisorMember[] = [
   {
     name: "李现文",
     title: "高端财税事业部 高级顾问",
@@ -171,32 +172,7 @@ export default function TeamPage() {
               </p>
             </div>
 
-            <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {advisorMembers.map((member) => (
-                <article key={member.name} className="team-mini-card">
-                  <div className="team-mini-card-top">
-                    {member.avatar ? (
-                      <img
-                        src={member.avatar}
-                        alt={member.name}
-                        className="team-mini-avatar"
-                      />
-                    ) : (
-                      <>
-                        <span>{member.name.slice(0, 1)}</span>
-                        <p>头像待补</p>
-                      </>
-                    )}
-                  </div>
-                  <div>
-                    <h3>{member.name}</h3>
-                    <p className="team-mini-title">{member.title}</p>
-                    <p className="team-mini-credential">{member.credential}</p>
-                    <p className="team-mini-focus">{member.focus}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
+            <AdvisorMatrix members={advisorMembers} />
           </div>
         </section>
 
