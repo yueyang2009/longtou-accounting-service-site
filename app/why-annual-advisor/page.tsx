@@ -256,9 +256,10 @@ export default function WhyAnnualAdvisorPage() {
 
       <main className="relative z-10">
         {/* ═══════════ ① 服务定位（Hero） ═══════════ */}
-        <section className="relative overflow-hidden border-b border-white/10">
+        <section className="ppt-hero relative overflow-hidden border-b border-white/10">
           <div className="annual-grid-bg" />
-          <div className="relative mx-auto max-w-4xl px-6 py-28 text-center md:py-36">
+          <div className="ppt-veil" />
+          <div className="ppt-content relative mx-auto max-w-4xl px-6 py-28 text-center md:py-36">
             <Eyebrow>龙头会服 · 企业年度财税顾问计划</Eyebrow>
             <h1 className="mt-7 text-4xl font-semibold leading-[1.2] tracking-tight text-white md:text-6xl">
               <span className="block">企业年度财税顾问</span>
