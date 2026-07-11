@@ -5,8 +5,8 @@ import { useState } from "react";
 type Scenario = {
   title: string;
   desc: string; // 正面：能力简述
-  intro: string; // 背面：业务简介（待替换为具体介绍）
-  wide?: boolean; // 是否跨两列
+  intro: string; // 背面：业务简介
+  key?: boolean; // 是否重点业务（金边强调，尺寸仍一致）
 };
 
 // 背面 intro 暂用页面「重点业务说明」现有文案占位，待用户提供具体介绍后替换
@@ -38,7 +38,7 @@ const scenarios: Scenario[] = [
   {
     title: "高端合规账体系",
     desc: "构建同时满足合规要求与经营分析的财务体系",
-    wide: true,
+    key: true,
     intro:
       "代账只解决“报得出去”，解决不了老板看账时的一堆问号——成本准不准、利润真不真、库存对不对、钱到底在哪。我们帮企业建一套合规账，不只为应付税局，更让老板每个月能看清经营实况，决策有依据。",
   },
@@ -48,7 +48,7 @@ export function ServiceScenarioCards() {
   const [flipped, setFlipped] = useState<number | null>(null);
 
   return (
-    <div className="mt-8 grid gap-4 md:grid-cols-2">
+    <div className="mt-8 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
       {scenarios.map((s, i) => {
         const isFlipped = flipped === i;
         return (
@@ -58,7 +58,7 @@ export function ServiceScenarioCards() {
             onClick={() => setFlipped(isFlipped ? null : i)}
             aria-expanded={isFlipped}
             aria-label={`${s.title}：点击翻转查看业务简介`}
-            className={`flip-card group w-full text-left ${s.wide ? "md:col-span-2" : ""} ${
+            className={`flip-card group w-full text-left ${s.key ? "is-key" : ""} ${
               isFlipped ? "is-flipped" : ""
             }`}
           >
@@ -71,7 +71,7 @@ export function ServiceScenarioCards() {
               <div className="flip-card-face flip-card-back">
                 <span className="flip-hint flip-hint-gold">点击返回 ↺</span>
                 <p className="text-base font-semibold text-brand-gold">{s.title}</p>
-                <p className="mt-2 text-sm leading-6 text-brand-body">{s.intro}</p>
+                <p className="mt-2 text-[13px] leading-[1.55] text-brand-body">{s.intro}</p>
               </div>
             </div>
           </button>
