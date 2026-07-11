@@ -878,7 +878,8 @@ body {
   .dashboard-bar,
   .dashboard-risk-cell,
   .dashboard-review-card::after,
-  .dashboard-step {
+  .dashboard-step,
+  .annual-fade-up {
     animation: none;
   }
 }
@@ -1377,5 +1378,122 @@ body {
   color: rgba(255, 255, 255, 0.62);
   font-size: 1rem;
   line-height: 1.9;
+}
+
+
+/* ════════════════════════════════════════════════
+   年度顾问页 · 墨绿 + 淡金 主题
+   ════════════════════════════════════════════════ */
+.annual-page {
+  position: relative;
+  color: rgb(184 178 166);
+  background:
+    radial-gradient(120% 75% at 50% -12%, rgba(217, 199, 165, 0.10), transparent 44%),
+    radial-gradient(85% 55% at 86% 6%, rgba(34, 78, 58, 0.55), transparent 42%),
+    radial-gradient(70% 50% at 8% 100%, rgba(34, 78, 58, 0.42), transparent 46%),
+    linear-gradient(180deg, #0e1512 0%, #0a0f0d 100%);
+  background-attachment: fixed;
+}
+
+.annual-glow {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(78px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.annual-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(217, 199, 165, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(217, 199, 165, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(circle at 50% 28%, black 0%, transparent 64%);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.annual-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(217, 199, 165, 0.30);
+  background: rgba(217, 199, 165, 0.08);
+  padding: 0.5rem 0.9rem;
+  color: #e9d9bc;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(100deg, #f2e7d2 0%, #d9c7a5 52%, #b89f6f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.annual-band {
+  background:
+    radial-gradient(circle at 14% 10%, rgba(217, 199, 165, 0.07), transparent 30%),
+    linear-gradient(180deg, #111816 0%, #0a0f0d 100%);
+}
+
+.annual-fade-up {
+  animation: card-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* 互动卡片激活（聚光聚焦） */
+.interactive-card.is-active {
+  border-color: rgba(217, 199, 165, 0.55) !important;
+  box-shadow: 0 0 0 1px rgba(217, 199, 165, 0.16) inset,
+    0 22px 70px rgba(0, 0, 0, 0.34);
+  transform: translateY(-4px) scale(1.012);
+  background: linear-gradient(150deg, rgba(217, 199, 165, 0.13), rgba(255, 255, 255, 0.05));
+}
+.interactive-card.is-active .annual-card-title {
+  color: #f2e7d2;
+}
+.interactive-card.is-active .annual-accent {
+  opacity: 1;
+  color: #d9c7a5;
+}
+
+.annual-card-title {
+  transition: color 0.3s ease;
+}
+
+.annual-accent {
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.annual-badge {
+  display: grid;
+  place-items: center;
+  height: 2.75rem;
+  width: 2.75rem;
+  flex-shrink: 0;
+  border-radius: 999px;
+  border: 1px solid rgba(217, 199, 165, 0.28);
+  background: rgba(217, 199, 165, 0.08);
+  color: #e9d9bc;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.annual-hint {
+  opacity: 0;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+.group:hover .annual-hint {
+  opacity: 0.85;
+}
+.interactive-card.is-active .annual-hint {
+  opacity: 1;
+  color: #d9c7a5;
 }
 
