@@ -1757,3 +1757,12 @@ body {
   filter: saturate(0.55) brightness(0.9);
 }
 
+/* ── 博客：行业模块（医美/加油站/医疗器械）文章标题高对比处理 ── */
+.blog-title-featured {
+  background: #0a0a0a;
+  color: #e9d8ad;
+  padding: 0.2em 0.55em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+

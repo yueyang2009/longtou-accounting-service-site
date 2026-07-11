@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Calendar, Tag, Search, X } from "lucide-react";
 import type { PostMeta } from "@/lib/posts";
+import { CATEGORY_ORDER } from "@/lib/posts";
 
 export function BlogModulesClient({
   posts,
@@ -114,6 +115,7 @@ export function BlogModulesClient({
 }
 
 function ArticleCard({ post }: { post: PostMeta }) {
+  const featured = CATEGORY_ORDER.includes(post.category);
   return (
     <Link
       href={`/blog/${post.slug}`}
@@ -139,7 +141,13 @@ function ArticleCard({ post }: { post: PostMeta }) {
       </div>
 
       {/* 标题 */}
-      <h3 className="text-xl font-semibold leading-snug tracking-tight text-brand-ink transition group-hover:text-brand-emerald md:text-2xl">
+      <h3
+        className={
+          featured
+            ? "blog-title-featured inline-block rounded-lg text-xl font-bold leading-snug tracking-tight md:text-2xl"
+            : "text-xl font-semibold leading-snug tracking-tight text-brand-ink transition group-hover:text-brand-emerald md:text-2xl"
+        }
+      >
         {post.title}
       </h3>
 
