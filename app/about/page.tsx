@@ -39,25 +39,27 @@ export default function AboutPage() {
 
       <main>
 
-        {/* ── 为什么存在 ── */}
-        <section className="border-b border-brand-line">
-          <div className="mx-auto max-w-3xl px-6 py-24 md:py-32">
-            <Label text="起源" />
-            <Heading hero>为什么存在龙头会服？</Heading>
-            <Body>
-              <p>
-                河南有大量年营收在2000万到2亿之间的民营企业。业务基础扎实，老板能干，团队能打。但几乎所有的企业都面临同一个问题：财务体系跟不上业务发展。
-              </p>
-              <p>
-                代账公司解决了申报问题，但解决不了经营问题。专职会计完成了日常核算，但提供不了决策支持。
-              </p>
-              <p>
-                龙头会服的成立，就是为了填补这个空白——不是替代代账，不是替代会计，而是在它们之上，提供一个能把财务数据翻译成经营决策的顾问层。
-              </p>
-              <QuoteLine>
-                龙头会服存在的唯一理由：让成长型民营企业在经营决策时，手里有真实的数据。
-              </QuoteLine>
-            </Body>
+        {/* ── 为什么存在（Hero 渐变，与年度顾问页首个模块一致） ── */}
+        <section className="ppt-hero annual-band relative overflow-hidden border-b border-white/10">
+          <div className="annual-grid-bg" />
+          <div className="ppt-veil" />
+          <div className="ppt-content relative mx-auto max-w-3xl px-6 py-28 text-center md:py-36">
+            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.12em] text-[#8a857a]">起源</p>
+            <h1 className="text-4xl font-semibold leading-[1.2] tracking-tight text-white md:text-6xl">
+              为什么存在龙头会服？
+            </h1>
+            <p className="mx-auto mt-8 max-w-2xl text-left text-base leading-8 text-brand-body">
+              河南有大量年营收在2000万到2亿之间的民营企业。业务基础扎实，老板能干，团队能打。但几乎所有的企业都面临同一个问题：财务体系跟不上业务发展。
+            </p>
+            <p className="mx-auto mt-5 max-w-2xl text-left text-base leading-8 text-brand-body">
+              代账公司解决了申报问题，但解决不了经营问题。专职会计完成了日常核算，但提供不了决策支持。
+            </p>
+            <p className="mx-auto mt-5 max-w-2xl text-left text-base leading-8 text-brand-body">
+              龙头会服的成立，就是为了填补这个空白——不是替代代账，不是替代会计，而是在它们之上，提供一个能把财务数据翻译成经营决策的顾问层。
+            </p>
+            <p className="mx-auto mt-8 max-w-2xl border-l-4 border-[#d9c7a5] bg-white/5 px-6 py-5 text-left text-lg font-medium leading-7 text-white">
+              龙头会服存在的唯一理由：让成长型民营企业在经营决策时，手里有真实的数据。
+            </p>
           </div>
         </section>
 

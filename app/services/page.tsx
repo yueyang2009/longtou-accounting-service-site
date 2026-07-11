@@ -39,15 +39,20 @@ export default function ServicesPage() {
         {/* ════════════════════════════════════════
             ① 页面定位
             ════════════════════════════════════════ */}
-        <section className="border-b border-brand-line">
-          <div className="mx-auto max-w-3xl px-6 py-24 md:py-32">
-            <Label text="龙头会服 · 能力体系" />
-            <h1 className="text-4xl font-semibold leading-tight tracking-tight text-brand-ink md:text-6xl">
+        {/* ════════════════════════════════════════
+            ① 页面定位（Hero 渐变，与年度顾问页首个模块一致）
+            ════════════════════════════════════════ */}
+        <section className="ppt-hero annual-band relative overflow-hidden border-b border-white/10">
+          <div className="annual-grid-bg" />
+          <div className="ppt-veil" />
+          <div className="ppt-content relative mx-auto max-w-4xl px-6 py-28 text-center md:py-36">
+            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.12em] text-[#8a857a]">龙头会服 · 能力体系</p>
+            <h1 className="text-4xl font-semibold leading-[1.2] tracking-tight text-white md:text-6xl">
               我们不是提供单一服务 <br />
               而是基于企业经营系统提供
-              <span className="text-brand-gold">持续判断与支持能力</span>
+              <span className="text-gradient-gold">持续判断与支持能力</span>
             </h1>
-            <p className="mt-8 max-w-2xl text-lg leading-8 text-brand-muted">
+            <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-brand-body">
               本页面用于说明龙头会服的能力结构与问题解决方式。
             </p>
           </div>

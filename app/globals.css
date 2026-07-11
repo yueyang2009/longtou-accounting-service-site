@@ -1800,6 +1800,12 @@ body {
   transform: none;
   filter: blur(0);
 }
+/* 首个 Hero 模块使用 ppt 渐变扫光（与年度顾问页一致），豁免滚动进场隐藏 */
+.services-reveal > section.ppt-hero {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+}
 /* 无脚本 / 禁用 JS 时直接显示，避免内容永久隐藏 */
 @media (scripting: none) {
   .services-reveal > section {
