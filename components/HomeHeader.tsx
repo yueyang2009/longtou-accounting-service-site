@@ -7,11 +7,9 @@ import { BrandLogo } from "@/components/BrandLogo";
 import { MobileNav } from "@/components/MobileNav";
 
 const homeLinks = [
-  { href: "#pain", label: "痛点" },
+  { href: "/", label: "主页" },
   { href: "/why-annual-advisor", label: "年度顾问" },
-  { href: "#method", label: "方法" },
-  { href: "#principles", label: "坚持" },
-  { href: "#cases", label: "案例" },
+  { href: "/services", label: "服务体系" },
   { href: "/about", label: "关于" },
   { href: "/team", label: "团队" },
   { href: "/blog", label: "文章" },
