@@ -1365,6 +1365,14 @@ body {
   letter-spacing: 0.12em;
 }
 
+.team-mini-avatar {
+  height: 3.4rem;
+  width: 3.4rem;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1px solid rgba(217, 199, 165, 0.28);
+}
+
 .team-mini-card h3 {
   margin-top: 1.3rem;
   color: #fff;

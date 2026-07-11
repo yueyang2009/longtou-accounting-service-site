@@ -123,7 +123,8 @@ const advisorMembers = [
     name: "李静雯",
     title: "高端财税事业部 高级顾问",
     credential: "注册税务师 / 中级会计师",
-    focus: "企业工商全流程服务、税务历史问题处理、税务规划、民营企业财务系统建设"
+    focus: "企业工商全流程服务、税务历史问题处理、税务规划、民营企业财务系统建设",
+    avatar: `${assetBasePath}/images/team/li-jingwen.png`
   }
 ];
 
@@ -174,8 +175,18 @@ export default function TeamPage() {
               {advisorMembers.map((member) => (
                 <article key={member.name} className="team-mini-card">
                   <div className="team-mini-card-top">
-                    <span>{member.name.slice(0, 1)}</span>
-                    <p>头像待补</p>
+                    {member.avatar ? (
+                      <img
+                        src={member.avatar}
+                        alt={member.name}
+                        className="team-mini-avatar"
+                      />
+                    ) : (
+                      <>
+                        <span>{member.name.slice(0, 1)}</span>
+                        <p>头像待补</p>
+                      </>
+                    )}
                   </div>
                   <div>
                     <h3>{member.name}</h3>
