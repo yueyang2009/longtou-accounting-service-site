@@ -1520,7 +1520,6 @@ body {
 /* ── 服务体系页：应用场景卡片「点击翻转 + 放大」效果 ── */
 .flip-card {
   position: relative;
-  min-height: 168px;
   perspective: 1500px;
   background: none;
   border: none;
@@ -1538,9 +1537,8 @@ body {
 }
 
 .flip-card-inner {
-  position: relative;
+  display: grid;
   width: 100%;
-  min-height: 168px;
   transform-style: preserve-3d;
   transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
@@ -1549,10 +1547,10 @@ body {
 }
 
 .flip-card-face {
-  position: absolute;
-  inset: 0;
+  grid-area: 1 / 1;
   display: flex;
   flex-direction: column;
+  min-height: 168px;
   border-radius: 16px;
   padding: 1.5rem;
   -webkit-backface-visibility: hidden;
