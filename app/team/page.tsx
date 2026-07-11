@@ -77,7 +77,8 @@ const advisorMembers: AdvisorMember[] = [
     name: "王慧现",
     title: "高端财税事业部 高级顾问",
     credential: "注册会计师 / 中级会计师",
-    focus: "财务组织管理体系、财务核算体系、流程信息化、财务分析、全面预算管理、财税咨询及规划"
+    focus: "财务组织管理体系、财务核算体系、流程信息化、财务分析、全面预算管理、财税咨询及规划",
+    avatar: `${assetBasePath}/images/team/wang-huixian.png`
   },
   {
     name: "朱丽君",
