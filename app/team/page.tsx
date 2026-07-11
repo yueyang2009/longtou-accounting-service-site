@@ -97,7 +97,8 @@ const advisorMembers: AdvisorMember[] = [
     name: "赵会婷",
     title: "高端财税事业部 高级顾问",
     credential: "注册会计师",
-    focus: "高新技术企业审计、中小企业财税问题诊断与处理"
+    focus: "高新技术企业审计、中小企业财税问题诊断与处理",
+    avatar: `${assetBasePath}/images/team/zhao-huiting.png`
   },
   {
     name: "赵艳婷",
