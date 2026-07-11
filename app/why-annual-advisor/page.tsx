@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { HomeHeader } from "@/components/HomeHeader";
+import { FlipCard } from "@/components/FlipCard";
 import { brand, trustMetrics } from "@/lib/data";
 
 /* ── 聚光交互：点击某卡片时高亮它、淡化其他 ── */
@@ -47,7 +48,7 @@ function SectionTitle({
 function CardHint() {
   return (
     <span className="annual-accent annual-hint mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-brand-gold/70">
-      点击聚焦
+      点击翻转
       <ArrowRight className="h-3.5 w-3.5" />
     </span>
   );
@@ -55,31 +56,37 @@ function CardHint() {
 
 /* ② 企业为什么需要财税顾问 */
 function WhyGroup() {
-  const spot = useSpotlight();
-  const items = [
-    ["管控财税风险", "降低税务稽查罚款损失"],
-    ["合法合规筹划", "充分享受各项税收优惠"],
-    ["处理高难度财税事项", "税会差异、税务稽查等复杂事项从容应对"],
-    ["规范账务与申报", "减少涉税失误，守住合规底线"],
+  const items: { title: string; desc: string; back: string }[] = [
+    { title: "管控财税风险", desc: "降低税务稽查罚款损失", back: "稽查一次，罚款可能吞掉全年利润；事前管控，远胜事后补救。" },
+    { title: "合法合规筹划", desc: "充分享受各项税收优惠", back: "政策红利不主动用，就等于替企业白白多缴税。" },
+    { title: "处理高难度财税事项", desc: "税会差异、税务稽查等复杂事项从容应对", back: "专业的事交给专业的人，老板不必亲自啃政策条文。" },
+    { title: "规范账务与申报", desc: "减少涉税失误，守住合规底线", back: "账务规范，是融资、投标、股权转让时最硬的底气。" },
   ];
   return (
     <div className="mt-14 grid gap-5 md:grid-cols-2">
-      {items.map(([title, desc], i) => (
-        <div
-          key={title}
-          onClick={() => spot.toggle(i)}
-          className={`group interactive-card p-7 annual-fade-up ${spot.state(i)}`}
+      {items.map((it, i) => (
+        <FlipCard
+          key={it.title}
+          className="annual-fade-up"
           style={{ animationDelay: `${i * 90}ms` }}
-        >
-          <div className="flex items-start gap-4">
-            <span className="annual-badge">{i + 1}</span>
-            <div>
-              <p className="annual-card-title text-xl font-semibold text-white">{title}</p>
-              <p className="mt-3 text-sm leading-7 text-brand-body">{desc}</p>
-              <CardHint />
+          front={
+            <div className="flex items-start gap-4">
+              <span className="annual-badge">{i + 1}</span>
+              <div>
+                <p className="annual-card-title text-xl font-semibold text-white">{it.title}</p>
+                <p className="mt-3 text-sm leading-7 text-brand-body">{it.desc}</p>
+                <CardHint />
+              </div>
             </div>
-          </div>
-        </div>
+          }
+          back={
+            <div className="flip-back-inner">
+              <span className="flip-back-label">深度要点</span>
+              <p className="flip-back-text">{it.back}</p>
+              <span className="flip-back-hint">点击返回 ›</span>
+            </div>
+          }
+        />
       ))}
     </div>
   );
@@ -87,30 +94,38 @@ function WhyGroup() {
 
 /* ③ 核心服务价值 */
 function ValueGroup() {
-  const spot = useSpotlight();
-  const items = [
-    ["全年度财税体检诊断", "全面复盘往期账务税务，清晰列明现存风险并给出落地解决方案"],
-    ["风险前置预警", "实时排查潜在财税隐患，提早沟通处置，避免风险积压爆发"],
-    ["全天候日常答疑支持", "7×8 小时微信、电话、线上会议，随时解答日常财税疑问"],
-    ["一年两次财税健康核查", "每半年开展一次账务、税务专项巡检，及时纠偏"],
-    ["每年 4 次上门深度交流", "与老板、财务总监面对面，把脉经营与财税关键决策"],
+  const items: { title: string; desc: string; back: string }[] = [
+    { title: "全年度财税体检诊断", desc: "全面复盘往期账务税务，清晰列明现存风险并给出落地解决方案", back: "先看清家底，才知道钱该往哪省、风险藏在哪。" },
+    { title: "风险前置预警", desc: "实时排查潜在财税隐患，提早沟通处置，避免风险积压爆发", back: "把雷排在发生之前，而不是爆了再救火。" },
+    { title: "全天候日常答疑支持", desc: "7×8 小时微信、电话、线上会议，随时解答日常财税疑问", back: "日常一个小判断，往往避免一笔大损失。" },
+    { title: "一年两次财税健康核查", desc: "每半年开展一次账务、税务专项巡检，及时纠偏", back: "半年一次体检，经营节奏不跑偏。" },
+    { title: "每年 4 次上门深度交流", desc: "与老板、财务总监面对面，把脉经营与财税关键决策", back: "面对面把脉，顾问才真正懂你的生意。" },
   ];
   return (
     <div className="mt-14 space-y-4">
-      {items.map(([title, desc], i) => (
-        <div
-          key={title}
-          onClick={() => spot.toggle(i)}
-          className={`group interactive-card flex items-start gap-5 p-7 annual-fade-up ${spot.state(i)}`}
+      {items.map((it, i) => (
+        <FlipCard
+          key={it.title}
+          className="annual-fade-up"
           style={{ animationDelay: `${i * 80}ms` }}
-        >
-          <span className="annual-badge">{String(i + 1).padStart(2, "0")}</span>
-          <div>
-            <p className="annual-card-title text-lg font-semibold text-white">{title}</p>
-            <p className="mt-2 text-sm leading-7 text-brand-body">{desc}</p>
-            <CardHint />
-          </div>
-        </div>
+          front={
+            <div className="flex items-start gap-5">
+              <span className="annual-badge">{String(i + 1).padStart(2, "0")}</span>
+              <div>
+                <p className="annual-card-title text-lg font-semibold text-white">{it.title}</p>
+                <p className="mt-2 text-sm leading-7 text-brand-body">{it.desc}</p>
+                <CardHint />
+              </div>
+            </div>
+          }
+          back={
+            <div className="flip-back-inner">
+              <span className="flip-back-label">深度要点</span>
+              <p className="flip-back-text">{it.back}</p>
+              <span className="flip-back-hint">点击返回 ›</span>
+            </div>
+          }
+        />
       ))}
     </div>
   );
@@ -118,28 +133,36 @@ function ValueGroup() {
 
 /* ④ 合作流程 */
 function ProcessGroup() {
-  const spot = useSpotlight();
-  const steps = [
-    { step: "STEP 1", title: "预约一对一沟通", desc: "梳理企业现状与需求，明确顾问切入点" },
-    { step: "STEP 2", title: "确认服务方案", desc: "签订服务合同并完成付款，正式建立合作" },
-    { step: "STEP 3", title: "开展企业财税经营全面尽调", desc: "经营模式、财务结构、税务风险与组织评估" },
-    { step: "STEP 4", title: "量身定制年度顾问服务规划", desc: "结合企业实际，确定全年服务节奏与重点" },
-    { step: "STEP 5", title: "正式开启全年专属陪伴服务", desc: "月度分析、季度沟通、风险预警持续在线" },
+  const steps: { step: string; title: string; desc: string; back: string }[] = [
+    { step: "STEP 1", title: "预约一对一沟通", desc: "梳理企业现状与需求，明确顾问切入点", back: "先聊清楚，再谈合作，不急着签单。" },
+    { step: "STEP 2", title: "确认服务方案", desc: "签订服务合同并完成付款，正式建立合作", back: "方案白纸黑字，服务边界一目了然。" },
+    { step: "STEP 3", title: "开展企业财税经营全面尽调", desc: "经营模式、财务结构、税务风险与组织评估", back: "不走过场，把真实经营摸透。" },
+    { step: "STEP 4", title: "量身定制年度顾问服务规划", desc: "结合企业实际，确定全年服务节奏与重点", back: "不是通用模板，是按你企业长的。" },
+    { step: "STEP 5", title: "正式开启全年专属陪伴服务", desc: "月度分析、季度沟通、风险预警持续在线", back: "签完约，才是服务的开始。" },
   ];
   return (
     <div className="mt-14 grid gap-4 md:grid-cols-5">
       {steps.map((s, i) => (
-        <div
+        <FlipCard
           key={s.step}
-          onClick={() => spot.toggle(i)}
-          className={`group interactive-card p-6 annual-fade-up ${spot.state(i)}`}
+          className="annual-fade-up"
           style={{ animationDelay: `${i * 90}ms` }}
-        >
-          <p className="text-xs font-semibold uppercase tracking-widest text-brand-gold">{s.step}</p>
-          <p className="annual-card-title mt-3 text-lg font-semibold leading-snug text-white">{s.title}</p>
-          <p className="mt-3 text-sm leading-7 text-brand-body">{s.desc}</p>
-          <CardHint />
-        </div>
+          front={
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-brand-gold">{s.step}</p>
+              <p className="annual-card-title mt-3 text-lg font-semibold leading-snug text-white">{s.title}</p>
+              <p className="mt-3 text-sm leading-7 text-brand-body">{s.desc}</p>
+              <CardHint />
+            </div>
+          }
+          back={
+            <div className="flip-back-inner">
+              <span className="flip-back-label">深度要点</span>
+              <p className="flip-back-text">{s.back}</p>
+              <span className="flip-back-hint">点击返回 ›</span>
+            </div>
+          }
+        />
       ))}
     </div>
   );
@@ -182,33 +205,43 @@ function TeamMetrics() {
 
 /* ⑥⑦ 动态复盘 + 可视化看板 */
 function FeaturePanels() {
-  const spot = useSpotlight();
-  const items = [
+  const items: { eyebrow: string; title: string; desc: string; back: string }[] = [
     {
       eyebrow: "动态财税方案复盘",
       title: "让财税方案跟着经营一起走",
       desc: "结合企业经营变化，动态调整定制财税筹划方案，持续适配业务发展。",
+      back: "经营在变，方案也要跟着变，别让旧筹划拖了新业务的后腿。",
     },
     {
       eyebrow: "可视化经营数据看板",
       title: "把专业报表变成老板看得懂的数据",
       desc: "简化专业财务报表，输出老板易懂的经营数据，直观掌握企业盈亏、税负状况。",
+      back: "老板要的是结论，不是一张看不懂的报表。",
     },
   ];
   return (
     <div className="mt-14 grid gap-5 md:grid-cols-2">
       {items.map((it, i) => (
-        <div
+        <FlipCard
           key={it.title}
-          onClick={() => spot.toggle(i)}
-          className={`group interactive-card p-8 annual-fade-up ${spot.state(i)}`}
+          className="annual-fade-up"
           style={{ animationDelay: `${i * 100}ms` }}
-        >
-          <p className="annual-eyebrow !px-4 !py-2 !text-[0.68rem]">{it.eyebrow}</p>
-          <h3 className="annual-card-title mt-6 text-2xl font-semibold text-white">{it.title}</h3>
-          <p className="mt-4 text-sm leading-8 text-brand-body">{it.desc}</p>
-          <CardHint />
-        </div>
+          front={
+            <div>
+              <p className="annual-eyebrow !px-4 !py-2 !text-[0.68rem]">{it.eyebrow}</p>
+              <h3 className="annual-card-title mt-6 text-2xl font-semibold text-white">{it.title}</h3>
+              <p className="mt-4 text-sm leading-8 text-brand-body">{it.desc}</p>
+              <CardHint />
+            </div>
+          }
+          back={
+            <div className="flip-back-inner">
+              <span className="flip-back-label">深度要点</span>
+              <p className="flip-back-text">{it.back}</p>
+              <span className="flip-back-hint">点击返回 ›</span>
+            </div>
+          }
+        />
       ))}
     </div>
   );
@@ -287,7 +320,7 @@ export default function WhyAnnualAdvisorPage() {
             <SectionTitle
               eyebrow="合作流程"
               title="年度顾问的合作流程是怎样的？"
-              desc="五步进入全年专属陪伴，每一个环节都可点击聚焦重点。"
+              desc="五步进入全年专属陪伴，每一个环节都可点击翻看重点。"
             />
             <ProcessGroup />
           </div>

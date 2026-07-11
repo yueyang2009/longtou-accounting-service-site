@@ -1685,6 +1685,50 @@ body {
   }
 }
 
+/* ── 年度顾问页：自适应高度翻转卡（内容长短不一，避免固定 220px 裁切）── */
+.flip-card--auto {
+  height: auto;
+}
+.flip-card--auto .flip-card-inner {
+  height: auto;
+}
+.flip-card--auto .flip-card-face,
+.flip-card--auto .flip-card-back {
+  height: auto;
+  min-height: 9.5rem;
+  padding: 1.75rem;
+}
+
+/* 翻转卡背面内容排版（深度要点） */
+.flip-back-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 0.75rem;
+}
+.flip-back-label {
+  align-self: flex-start;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #e9d9bc;
+  border: 1px solid rgba(217, 199, 165, 0.35);
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+.flip-back-text {
+  color: #f1ece1;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.flip-back-hint {
+  margin-top: auto;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+}
+
 /* ── 服务体系页：滚动进入视口「聚焦浮现」PPT 转场（字从外向内渐变显示）── */
 .services-reveal > section {
   opacity: 0;
