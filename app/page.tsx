@@ -256,7 +256,7 @@ export default function HomePage() {
               title={
                 <>
                   我们陪伴企业走完一年
-                  <span className="mt-2 block pl-10 md:pl-24">而不是解决一个问题</span>
+                  <span className="mt-2 block pl-10 md:pl-[4em]">而不是解决一个问题</span>
                 </>
               }
               description="真正的规范不是一次交流完成的，而是在经营节奏里持续看见、判断、修正和沉淀。"
