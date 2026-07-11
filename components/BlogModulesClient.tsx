@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Calendar, Tag, Search, X } from "lucide-react";
 import type { PostMeta } from "@/lib/posts";
-import { CATEGORY_ORDER } from "@/lib/posts";
+import { CATEGORY_ORDER } from "@/lib/categories";
 
 export function BlogModulesClient({
   posts,

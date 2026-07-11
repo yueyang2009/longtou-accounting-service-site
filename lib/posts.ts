@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { CATEGORY_ORDER } from "./categories";
 
 const POSTS_DIR = path.join(process.cwd(), "posts");
 
@@ -19,9 +20,6 @@ function normalizeDate(d: unknown): string {
   }
   return String(d);
 }
-
-/** 模块（行业）展示顺序；未在此列出的分类会排在最后 */
-export const CATEGORY_ORDER = ["医美行业", "加油站", "医疗器械"];
 
 export type PostMeta = {
   slug: string;
