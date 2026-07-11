@@ -41,7 +41,7 @@ export function BlogModulesClient({
       <div className="mb-8 flex flex-wrap gap-3">
         <a
           href="#all"
-          className="rounded-full border border-brand-line bg-white px-4 py-2 text-sm font-medium text-brand-ink transition hover:border-brand-emerald hover:text-brand-emerald"
+          className="rounded-full border border-brand-line/50 bg-[#1a2420] px-4 py-2 text-sm font-medium text-[#e9e3d5] transition hover:border-[#d9c7a5] hover:text-[#e9d9bc]"
         >
           全部文章
         </a>
@@ -49,7 +49,7 @@ export function BlogModulesClient({
           <a
             key={c.name}
             href={`#cat-${encodeURIComponent(c.name)}`}
-            className="rounded-full border border-brand-line bg-white px-4 py-2 text-sm text-brand-muted transition hover:border-brand-emerald hover:text-brand-emerald"
+            className="rounded-full border border-brand-line/50 bg-[#1a2420] px-4 py-2 text-sm text-[#b8b2a6] transition hover:border-[#d9c7a5] hover:text-[#e9d9bc]"
           >
             {c.name}
             <span className="ml-1 text-xs text-brand-muted/70">{c.count}</span>
@@ -66,7 +66,7 @@ export function BlogModulesClient({
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="搜索文章…"
-            className="w-full rounded-full border border-brand-line bg-white py-2 pl-10 pr-10 text-sm text-brand-ink outline-none transition focus:border-brand-emerald focus:ring-1 focus:ring-brand-emerald"
+            className="w-full rounded-full border border-brand-line/50 bg-[#1a2420] py-2 pl-10 pr-10 text-sm text-[#e9e3d5] outline-none placeholder:text-[#8a857a] transition focus:border-[#d9c7a5] focus:ring-1 focus:ring-[#d9c7a5]/40"
           />
           {query && (
             <button

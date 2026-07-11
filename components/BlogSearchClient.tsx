@@ -30,7 +30,7 @@ export function BlogSearchClient({ posts }: { posts: PostMeta[] }) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="搜索文章…"
-            className="w-full rounded-full border border-brand-line bg-white py-2 pl-10 pr-10 text-sm text-brand-ink outline-none transition focus:border-brand-emerald focus:ring-1 focus:ring-brand-emerald"
+            className="w-full rounded-full border border-brand-line/50 bg-[#1a2420] py-2 pl-10 pr-10 text-sm text-[#e9e3d5] outline-none placeholder:text-[#8a857a] transition focus:border-[#d9c7a5] focus:ring-1 focus:ring-[#d9c7a5]/40"
           />
           {query && (
             <button
