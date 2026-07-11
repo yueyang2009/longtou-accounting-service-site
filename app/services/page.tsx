@@ -126,46 +126,7 @@ export default function ServicesPage() {
         </section>
 
         {/* ════════════════════════════════════════
-            ⑤ 重点业务说明
-            ════════════════════════════════════════ */}
-        <section className="border-b border-brand-line">
-          <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">
-            <Label text="业务说明" />
-            <Heading>重点业务说明</Heading>
-            <div className="mt-10 space-y-6">
-              {[
-                {
-                  title: "审计支持",
-                  desc: "围绕企业经营真实性进行审计分析，包括内部审计、年度审计与专项审计，重点识别流程漏洞与经营风险。"
-                },
-                {
-                  title: "财务乱账重建",
-                  desc: "对历史账务混乱企业进行结构性梳理与财务体系重建。"
-                },
-                {
-                  title: "税务稽查应对",
-                  desc: "针对税务稽查、协查及预警事项提供风险分析与应对支持。"
-                },
-                {
-                  title: "股权架构设计",
-                  desc: "包括控制权设计、股权分配、业务拆分及税务影响测算。"
-                },
-                {
-                  title: "高端合规账体系",
-                  desc: "构建能够同时满足合规要求与经营分析的财务体系。"
-                }
-              ].map((item) => (
-                <div key={item.title} className="border-b border-brand-line pb-6 last:border-0">
-                  <p className="text-base font-semibold text-brand-ink">{item.title}</p>
-                  <p className="mt-2 text-sm leading-7 text-brand-muted">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ════════════════════════════════════════
-            ⑥ 交付结果模块
+            ⑤ 交付结果模块
             ════════════════════════════════════════ */}
         <section className="border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">
