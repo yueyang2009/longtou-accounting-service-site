@@ -222,7 +222,9 @@ export default function HomePage() {
               <div className="lg:sticky lg:top-28">
                 <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-brand-muted">老板痛点</p>
                 <h2 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-5xl">
-                  老板真正焦虑的，从来不是做账。
+                  老板真正焦虑的
+                  <br />
+                  <span className="pl-[3em]">从来不是做账</span>
                 </h2>
                 <p className="mt-6 max-w-md text-base leading-8 text-brand-muted">
                   财税问题真正刺痛老板的，是它背后那张看不清的经营地图：利润真假、现金节奏、历史风险和组织边界。
