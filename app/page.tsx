@@ -158,15 +158,29 @@ function DashboardPreview() {
             </div>
           </div>
 
-          <div className="mt-4 grid gap-3 border border-white/10 bg-black/12 p-4 sm:grid-cols-4">
-            {["看清", "理顺", "建立", "陪跑"].map((item, index) => (
-              <div key={item} className="dashboard-step flex items-center gap-2 text-xs font-medium text-white/55" style={{ animationDelay: `${index * 160}ms` }}>
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/8 text-[#e9d9bc]">
-                  {index + 1}
-                </span>
-                {item}
-              </div>
-            ))}
+          <div className="mt-4 grid gap-3 border border-white/10 bg-black/12 p-4">
+            <div className="flex items-center justify-center gap-8" style={{ transform: "translateX(-2em)" }}>
+              {[
+                { label: "先看清", n: 1, d: "0ms" },
+                { label: "再理顺", n: 2, d: "160ms" }
+              ].map(({ label, n, d }) => (
+                <div key={label} className="dashboard-step flex items-center gap-2 text-xs font-medium text-white/55" style={{ animationDelay: d }}>
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/8 text-[#e9d9bc]">{n}</span>
+                  {label}
+                </div>
+              ))}
+            </div>
+            <div className="flex items-center justify-center gap-8" style={{ transform: "translateX(2em)" }}>
+              {[
+                { label: "先建立", n: 3, d: "320ms" },
+                { label: "再陪跑", n: 4, d: "480ms" }
+              ].map(({ label, n, d }) => (
+                <div key={label} className="dashboard-step flex items-center gap-2 text-xs font-medium text-white/55" style={{ animationDelay: d }}>
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/8 text-[#e9d9bc]">{n}</span>
+                  {label}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
