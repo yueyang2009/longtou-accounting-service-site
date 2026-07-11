@@ -21,9 +21,21 @@
         .rounded-xl{border-radius:12px!important}.shadow-md{box-shadow:0 10px 30px rgba(0,0,0,.35)!important}
         footer{margin-top:48px!important;background:#0a0f0d!important}.showcase-label{display:inline-flex;align-items:center;gap:7px;margin-top:9px;color:#cfc9ba;font-size:12px}.showcase-label i{display:inline-block;width:6px;height:6px;border-radius:100%;background:#e7c98e}
         .advisory-strip{max-width:1500px;margin:18px auto 0;padding:0 16px}.advisory-inner{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:1px;overflow:hidden;border-radius:10px;background:#0e1512;border:1px solid rgba(217,199,165,.16)}.advisory-item{padding:13px 16px;background:#111816;color:#cfc9ba;font-size:12px}.advisory-item b{display:block;margin-top:4px;color:#e9e3d5;font-size:14px}.advisory-item:last-child b{color:#7fd0a8}.advisory-item:last-child:before{content:"●";color:#6cc196;margin-right:7px;font-size:10px}
-        .dashboard-nav{max-width:1500px;margin:14px auto 0;padding:0 16px}.dashboard-nav-inner{position:sticky;top:10px;z-index:20;display:flex;align-items:center;gap:5px;padding:7px;background:rgba(17,24,22,.92);border:1px solid rgba(217,199,165,.16);border-radius:10px;box-shadow:0 8px 23px rgba(0,0,0,.3);backdrop-filter:blur(12px);overflow-x:auto}.dashboard-nav b{padding:0 10px;font-size:12px;white-space:nowrap;color:#d9c7a5}.dashboard-nav a{flex:0 0 auto;padding:9px 11px;border-radius:6px;color:#cfc9ba;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap}.dashboard-nav a:hover{background:rgba(217,199,165,.12);color:#e9d9bc}.dashboard-nav a:first-of-type{background:#15301f;color:#e9d9bc}
-        @media(max-width:700px){.advisory-inner{grid-template-columns:1fr}.advisory-strip{margin-top:12px}.dashboard-nav{margin-top:10px}.dashboard-nav-inner{top:5px}.dashboard-nav b{display:none}header h1{font-size:20px!important}}
+        .dashboard-nav{max-width:1500px;margin:14px auto 0;padding:0 16px}.dashboard-nav-inner{position:sticky;top:78px;z-index:20;display:flex;align-items:center;gap:5px;padding:7px;background:rgba(17,24,22,.92);border:1px solid rgba(217,199,165,.16);border-radius:10px;box-shadow:0 8px 23px rgba(0,0,0,.3);backdrop-filter:blur(12px);overflow-x:auto}.dashboard-nav b{padding:0 10px;font-size:12px;white-space:nowrap;color:#d9c7a5}.dashboard-nav a{flex:0 0 auto;padding:9px 11px;border-radius:6px;color:#cfc9ba;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap}.dashboard-nav a:hover{background:rgba(217,199,165,.12);color:#e9d9bc}.dashboard-nav a:first-of-type{background:#15301f;color:#e9d9bc}
+        @media(max-width:700px){.advisory-inner{grid-template-columns:1fr}.advisory-strip{margin-top:12px}.dashboard-nav{margin-top:10px}.dashboard-nav-inner{top:64px}.dashboard-nav b{display:none}header h1{font-size:20px!important}}
         .back-home-btn{position:fixed;right:22px;bottom:22px;z-index:60;display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;background:#15301f;color:#e9d9bc;font-size:14px;font-weight:700;text-decoration:none;border:1px solid rgba(217,199,165,.4);box-shadow:0 10px 28px rgba(0,0,0,.45);transition:all .2s}.back-home-btn:hover{background:#1c4a2f;color:#fff;transform:translateY(-2px);border-color:#e7c98e}.back-home-btn i{font-size:15px}@media(max-width:700px){.back-home-btn{padding:10px 14px;right:14px;bottom:14px;font-size:13px}}
+        /* 站点统一导航（与主页一致） */
+        .site-nav{position:sticky;top:0;z-index:100;background:rgba(17,24,22,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.1)}
+        .site-nav-inner{max-width:1500px;margin:0 auto;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 24px}
+        .site-nav-logo{display:inline-flex;align-items:center;background:#fff;border-radius:999px;padding:6px 12px;flex:0 0 auto}
+        .site-nav-logo img{height:34px;width:auto;max-width:166px;display:block}
+        .site-nav-links{display:flex;align-items:center;gap:26px;flex:1 1 auto;justify-content:center}
+        .site-nav-links a{color:rgba(255,255,255,.72);font-size:15px;font-weight:600;letter-spacing:-.01em;text-decoration:none;transition:color .2s;white-space:nowrap}
+        .site-nav-links a:hover{color:#fff}
+        .site-nav-links a.active{color:#e9d9bc}
+        .site-nav-cta{flex:0 0 auto;display:inline-flex;align-items:center;background:#d9c7a5;color:#111816;font-size:15px;font-weight:700;padding:10px 20px;border-radius:999px;text-decoration:none;transition:background .2s}
+        .site-nav-cta:hover{background:#eadabd}
+        @media(max-width:1024px){.site-nav-inner{height:56px;justify-content:flex-start;gap:14px;overflow-x:auto}.site-nav-links{justify-content:flex-start;gap:18px;flex:0 0 auto}.site-nav-links a{font-size:13px}.site-nav-cta{display:none}}
     </style>
 
 <style id="brand-theme">
@@ -90,6 +102,26 @@ input[type=checkbox]{accent-color:#d9c7a5}
 </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
+    <!-- 站点统一导航（与主页一致） -->
+    <nav class="site-nav">
+      <div class="site-nav-inner">
+        <a class="site-nav-logo" href="/longtou-accounting-service-site/">
+          <img src="/longtou-accounting-service-site/images/longtou-group-logo.png" alt="龙头集团">
+        </a>
+        <div class="site-nav-links">
+          <a href="/longtou-accounting-service-site/#pain">痛点</a>
+          <a href="/longtou-accounting-service-site/why-annual-advisor">年度顾问</a>
+          <a href="/longtou-accounting-service-site/#method">方法</a>
+          <a href="/longtou-accounting-service-site/#principles">坚持</a>
+          <a href="/longtou-accounting-service-site/#cases">案例</a>
+          <a href="/longtou-accounting-service-site/about">关于</a>
+          <a href="/longtou-accounting-service-site/team">团队</a>
+          <a href="/longtou-accounting-service-site/blog">文章</a>
+          <a href="/longtou-accounting-service-site/dashboard-demo.html" class="active">经营看板示例</a>
+        </div>
+        <a class="site-nav-cta" href="/longtou-accounting-service-site/contact">申请企业财税风险诊断</a>
+      </div>
+    </nav>
     <!-- 数据存储 -->
     <script>
         const rawData = {
