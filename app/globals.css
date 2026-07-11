@@ -1729,32 +1729,42 @@ body {
   letter-spacing: 0.1em;
 }
 
-/* ── 首页「年度时间轴」：等高翻转卡（沿用原浅色卡片配色）──
-   两面都用首页原卡片配色（白底 + brand-line 描边），不引入深底；
-   固定等高保证 5 张卡视觉一致；去掉 scale 放大，点击仅做干净的水平翻转。 */
+/* ── 首页「年度时间轴」：等高翻转卡（浅色原配色，干净单卡）──
+   正面仅阶段标题，背面显示要点列表；固定等高保证5张一致；
+   用 position:absolute 确保正反两面严格重叠，不依赖grid隐式重叠。 */
 .flip-card.timeline-flip {
   height: 16rem;
 }
 .flip-card.timeline-flip .flip-card-inner {
+  position: relative;
   height: 16rem;
+  /* 覆盖基础 grid → 改为相对定位容器，让子元素absolute重叠 */
+  display: block;
+  transform-style: preserve-3d;
   transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.flip-card.timeline-flip.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
 }
 .flip-card.timeline-flip .flip-card-face,
 .flip-card.timeline-flip .flip-card-back {
+  position: absolute;
+  inset: 0;
   height: 16rem;
   padding: 1.25rem;
   background: #ffffff;
   border: 1px solid rgba(20, 33, 27, 0.14);
+  border-radius: 16px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-.flip-card.timeline-flip.is-flipped .flip-card-inner {
-  transform: rotateY(180deg);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .flip-card.timeline-flip:hover:not(.is-flipped) .flip-card-face {
   border-color: rgba(176, 141, 87, 0.45);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
 }
-/* 背面文字改为深色，适配浅色卡片 */
+/* 背面文字改为深色，适配白底卡片 */
 .flip-card.timeline-flip .flip-back-text {
   color: #2b2b2b;
 }
@@ -1770,7 +1780,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   height: 100%;
+  text-align: center;
 }
 
 /* ── 服务体系页：滚动进入视口「聚焦浮现」PPT 转场（字从外向内渐变显示）── */
