@@ -1597,6 +1597,30 @@ body {
   }
 }
 
+/* ── 服务体系页：滚动进入视口「聚焦浮现」PPT 转场（字从外向内渐变显示）── */
+.services-reveal > section {
+  opacity: 0;
+  transform: translateY(42px) scale(0.965);
+  filter: blur(14px);
+  transition: opacity 0.95s cubic-bezier(0.22, 0.61, 0.36, 1),
+              transform 0.95s cubic-bezier(0.22, 0.61, 0.36, 1),
+              filter 0.95s ease;
+  will-change: opacity, transform, filter;
+}
+.services-reveal > section.is-revealed {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+}
+/* 无脚本 / 禁用 JS 时直接显示，避免内容永久隐藏 */
+@media (scripting: none) {
+  .services-reveal > section {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
 .annual-eyebrow {
   display: inline-flex;
   align-items: center;

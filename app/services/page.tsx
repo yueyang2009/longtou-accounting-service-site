@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { BrandLogo } from "@/components/BrandLogo";
 import { MobileNav } from "@/components/MobileNav";
 import { ServiceScenarioCards } from "@/components/ServiceScenarioCards";
+import { SectionReveal } from "@/components/SectionReveal";
 import { brand } from "@/lib/data";
 
 function Label({ text }: { text: string }) {
@@ -55,6 +56,7 @@ export default function ServicesPage() {
       </header>
 
       <main>
+        <SectionReveal>
 
         {/* ════════════════════════════════════════
             ① 页面定位
@@ -228,6 +230,7 @@ export default function ServicesPage() {
             </div>
           </div>
         </section>
+        </SectionReveal>
 
       </main>
 
