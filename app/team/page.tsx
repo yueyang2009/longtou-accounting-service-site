@@ -83,7 +83,8 @@ const advisorMembers: AdvisorMember[] = [
     name: "朱丽君",
     title: "高端财税事业部 高级顾问",
     credential: "注册会计师 / 高新评审专家 / 大型审计项目经理",
-    focus: "内部控制审计、财税业一体化融合、财税合规"
+    focus: "内部控制审计、财税业一体化融合、财税合规",
+    avatar: `${assetBasePath}/images/team/zhu-lijun.png`
   },
   {
     name: "苏瑞利",
