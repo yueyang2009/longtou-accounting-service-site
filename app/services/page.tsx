@@ -43,8 +43,9 @@ export default function ServicesPage() {
           <div className="mx-auto max-w-3xl px-6 py-24 md:py-32">
             <Label text="龙头会服 · 能力体系" />
             <h1 className="text-4xl font-semibold leading-tight tracking-tight text-brand-ink md:text-6xl">
-              我们不是提供单一服务，<br />
-              而是基于企业经营系统提供持续判断与支持能力。
+              我们不是提供单一服务 <br />
+              而是基于企业经营系统提供
+              <span className="text-brand-gold">持续判断与支持能力</span>
             </h1>
             <p className="mt-8 max-w-2xl text-lg leading-8 text-brand-muted">
               本页面用于说明龙头会服的能力结构与问题解决方式。
