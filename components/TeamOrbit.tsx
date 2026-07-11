@@ -136,6 +136,11 @@ export function TeamOrbit({ members }: { members: OrbitMember[] }) {
           </div>
         </aside>
       </div>
+
+      <div className="team-orbit-caption">
+        <p className="team-orbit-caption-eyebrow">Core Seats</p>
+        <h2>核心顾问席位</h2>
+      </div>
     </section>
   );
 }

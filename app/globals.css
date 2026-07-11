@@ -1205,6 +1205,35 @@ body {
   font-size: 0.78rem;
 }
 
+.team-orbit-caption {
+  position: relative;
+  z-index: 2;
+  margin: 3.5rem auto 0;
+  max-width: 80rem;
+  text-align: center;
+}
+
+.team-orbit-caption-eyebrow {
+  width: fit-content;
+  margin: 0 auto;
+  border: 1px solid rgba(217, 199, 165, 0.28);
+  background: rgba(217, 199, 165, 0.08);
+  padding: 0.5rem 0.85rem;
+  color: #e9d9bc;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.team-orbit-caption h2 {
+  margin-top: 0.9rem;
+  color: #fff;
+  font-size: clamp(1.7rem, 3.6vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
 @media (max-width: 900px) {
   .team-orbit-section {
     min-height: auto;
