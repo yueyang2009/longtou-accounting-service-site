@@ -1765,6 +1765,13 @@ body {
 .flip-card.timeline-flip .flip-back-hint {
   color: rgba(20, 33, 27, 0.5);
 }
+/* 正面：只显示阶段标题，垂直居中的干净单卡 */
+.flip-card.timeline-flip .timeline-front {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
 
 /* ── 服务体系页：滚动进入视口「聚焦浮现」PPT 转场（字从外向内渐变显示）── */
 .services-reveal > section {

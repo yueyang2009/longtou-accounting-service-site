@@ -295,20 +295,19 @@ export default function HomePage() {
                     <FlipCard
                       className="timeline-flip"
                       front={
-                        <>
-                          <h3 className="text-base font-semibold leading-tight text-brand-ink">{item.title}</h3>
-                          <ul className="mt-5 space-y-2.5">
-                            {item.items.map((li) => (
-                              <li key={li} className="text-sm leading-6 text-brand-muted">{li}</li>
-                            ))}
-                          </ul>
-                          <span className="mt-auto block pt-5 text-xs font-medium text-brand-gold/70">点击翻看 ›</span>
-                        </>
+                        <div className="timeline-front">
+                          <h3 className="text-lg font-semibold leading-snug text-brand-ink">{item.title}</h3>
+                          <span className="mt-auto block pt-5 text-xs font-medium text-brand-gold/70">点击查看要点 ›</span>
+                        </div>
                       }
                       back={
                         <div className="flip-back-inner">
-                          <span className="flip-back-label">深度要点</span>
-                          <p className="flip-back-text">{item.back}</p>
+                          <h3 className="flip-back-label !text-sm !normal-case !tracking-normal">{item.title}</h3>
+                          <ul className="mt-1 space-y-2.5">
+                            {item.items.map((li) => (
+                              <li key={li} className="flip-back-text !text-sm leading-6">{li}</li>
+                            ))}
+                          </ul>
                           <span className="flip-back-hint">点击返回 ›</span>
                         </div>
                       }
