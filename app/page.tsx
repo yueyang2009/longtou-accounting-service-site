@@ -43,6 +43,7 @@ function SectionTitle({
 }
 
 function DashboardPreview() {
+  const base = process.env.NODE_ENV === "production" ? "/longtou-accounting-service-site" : "";
   const operatingMetrics = [
     { label: "利润质量", value: "已校准", width: "82%", delay: "0ms" },
     { label: "现金流节奏", value: "重点跟踪", width: "68%", delay: "180ms" },
@@ -51,7 +52,17 @@ function DashboardPreview() {
   const riskItems = ["合同", "票据", "回款", "成本", "税负", "流程", "预算", "内控", "股权", "项目", "库存", "薪酬"];
 
   return (
-    <div className="dashboard-stage executive-cockpit private-cockpit relative">
+    <a
+      href={`${base}/dashboard-demo.html`}
+      target="_self"
+      rel="noopener noreferrer"
+      aria-label="查看经营看板示例"
+      className="dashboard-stage executive-cockpit private-cockpit relative block cursor-pointer outline-none transition-transform duration-300 hover:-translate-y-1"
+    >
+      <span className="cockpit-launch-hint">
+        <ArrowRight className="h-4 w-4" />
+        点击查看经营看板示例
+      </span>
       <div className="cockpit-orbit cockpit-orbit-one" />
       <div className="cockpit-orbit cockpit-orbit-two" />
       <div className="private-cockpit-badge hidden lg:block">
@@ -159,7 +170,7 @@ function DashboardPreview() {
           </div>
         </div>
       </div>
-    </div>
+    </a>
   );
 }
 

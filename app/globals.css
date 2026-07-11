@@ -646,6 +646,43 @@ body {
   line-height: 1;
 }
 
+/* 经营决策中枢模块 -> 点击前往经营看板示例 */
+.cockpit-launch-hint {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  z-index: 12;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #111816;
+  background: #d9c7a5;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+  pointer-events: none;
+}
+
+.private-cockpit:hover .cockpit-launch-hint,
+.executive-cockpit:hover .cockpit-launch-hint,
+.dashboard-stage:hover .cockpit-launch-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.private-cockpit:hover .private-cockpit-badge,
+.executive-cockpit:hover .private-cockpit-badge,
+.dashboard-stage:hover .private-cockpit-badge {
+  opacity: 0;
+  transition: opacity 0.28s ease;
+}
+
 .private-trust-strip {
   box-shadow: 0 1px 0 rgba(217, 199, 165, 0.12) inset;
 }
