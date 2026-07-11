@@ -74,18 +74,18 @@ export function MobileNav({ links, triggerTone = "dark" }: MobileNavProps) {
         </span>
       </button>
 
-      {/* Overlay */}
+      {/* Overlay — dense dark backdrop to fully obscure background */}
       <div
-        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 z-40 bg-black/85 backdrop-blur-md transition-opacity duration-300 lg:hidden ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
         onClick={close}
         aria-hidden="true"
       />
 
-      {/* Slide-out panel from right */}
+      {/* Slide-out panel from right — fully opaque, strong separation from background */}
       <div
-        className={`fixed inset-y-0 right-0 z-50 flex w-72 flex-col border-l border-white/10 bg-[#151F18] text-white shadow-2xl transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed inset-y-0 right-0 z-50 flex w-72 flex-col border-l border-white/15 bg-[#111816] text-white shadow-[0_0_40px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out lg:hidden ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
         role="dialog"
