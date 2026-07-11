@@ -1497,3 +1497,35 @@ body {
   color: #d9c7a5;
 }
 
+/* ── 服务数据连体面板单元（照搬首页大气风格 + 墨绿金主题 + 点击聚光） ── */
+.annual-metric-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.75rem 1.5rem;
+  background: linear-gradient(160deg, #131b18 0%, #0d1310 100%);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.35s ease, opacity 0.3s ease, filter 0.3s ease,
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.annual-metric-cell:hover {
+  background: linear-gradient(160deg, #1a2621 0%, #101815 100%);
+  transform: translateY(-3px);
+}
+.annual-metric-cell.is-active {
+  background: linear-gradient(150deg, rgba(217, 199, 165, 0.15), rgba(19, 27, 24, 0.9));
+  box-shadow: 0 0 0 1px rgba(217, 199, 165, 0.28) inset,
+    0 18px 55px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3px) scale(1.02);
+  z-index: 1;
+}
+.annual-metric-cell.is-active .annual-card-title {
+  color: #f2e7d2;
+}
+.annual-metric-cell.is-dimmed {
+  opacity: 0.4;
+  filter: saturate(0.55) brightness(0.9);
+}
+

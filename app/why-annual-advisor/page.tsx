@@ -146,26 +146,32 @@ function ProcessGroup() {
   );
 }
 
-/* ⑤ 服务团队数据 */
+/* ⑤ 服务团队数据 —— 照搬首页连体大面板风格，墨绿金主题 + 点击聚光 */
 function TeamMetrics() {
   const spot = useSpotlight();
   return (
-    <div className="mt-10 grid gap-4 md:grid-cols-4">
-      {trustMetrics.map((m, i) => (
-        <div
-          key={m.label}
-          onClick={() => spot.toggle(i)}
-          className={`group interactive-card p-7 text-center annual-fade-up ${spot.state(i)}`}
-          style={{ animationDelay: `${i * 80}ms` }}
-        >
-          <p className="annual-card-title text-3xl font-semibold tracking-tight text-gradient-gold">{m.value}</p>
-          <div className="mt-3 flex items-baseline justify-center gap-2">
-            <p className="text-sm text-brand-body">{m.label}</p>
-            {m.detail && <p className="text-base font-semibold text-white">{m.detail}</p>}
+    <div className="mt-16">
+      <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.28em] text-brand-gold/80">
+        服务数据
+      </p>
+      <div className="grid grid-cols-2 gap-px overflow-hidden rounded-card border border-brand-gold/20 bg-brand-gold/10 md:grid-cols-4">
+        {trustMetrics.map((m, i) => (
+          <div
+            key={m.label}
+            onClick={() => spot.toggle(i)}
+            className={`group annual-metric-cell annual-fade-up ${spot.state(i)}`}
+            style={{ animationDelay: `${i * 80}ms` }}
+          >
+            <p className="annual-card-title text-4xl font-semibold tracking-tight text-gradient-gold md:text-5xl">
+              {m.value}
+            </p>
+            <div className="mt-4 flex items-baseline justify-center gap-2">
+              <p className="text-sm text-brand-body">{m.label}</p>
+              {m.detail && <p className="text-lg font-semibold text-white">{m.detail}</p>}
+            </div>
           </div>
-          <CardHint />
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
@@ -310,9 +316,9 @@ export default function WhyAnnualAdvisorPage() {
 
         {/* ═══════════ ⑤ 服务团队实力 ═══════════ */}
         <section className="border-b border-white/10">
-          <div className="mx-auto max-w-4xl px-6 py-24 md:py-28">
+          <div className="mx-auto max-w-6xl px-6 py-24 md:py-28">
             <SectionTitle eyebrow="服务团队" title="谁在提供服务？" />
-            <div className="mt-14 space-y-5 text-base leading-8 text-brand-body">
+            <div className="mx-auto mt-14 max-w-3xl space-y-5 text-center text-base leading-8 text-brand-body">
               <p>资深注册会计师、税务师、高级会计师领头，配备 18 人专业注会团队。</p>
               <p>深耕河南全省市场，熟悉本地征管口径、最新财税政策，精准化解实操风险。</p>
             </div>
