@@ -209,8 +209,7 @@ export default function HomePage() {
               </p>
               <h1 className="max-w-3xl text-3xl font-semibold leading-[1.2] tracking-tight text-white md:text-5xl">
                 让企业经营更规范
-                <br />
-                让老板决策更从容
+                <span className="mt-2 block pl-8 md:pl-[3em]">让老板决策更从容</span>
               </h1>
               <p className="mt-8 max-w-2xl text-lg leading-8 text-white/66">
                 以财税为切入点，将利润、现金流、风险与组织协同置于同一经营节奏中分析。核心不是处理单点问题，而是建立持续经营判断能力。
