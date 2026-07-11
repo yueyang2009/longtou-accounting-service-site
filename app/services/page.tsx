@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 import { BrandLogo } from "@/components/BrandLogo";
 import { MobileNav } from "@/components/MobileNav";
+import { ServiceScenarioCards } from "@/components/ServiceScenarioCards";
 import { brand } from "@/lib/data";
 
 function Label({ text }: { text: string }) {
@@ -138,22 +139,9 @@ export default function ServicesPage() {
             <Label text="应用场景" />
             <Heading>基于上述能力，我们可以提供以下支持</Heading>
             <p className="mt-6 text-sm leading-7 text-brand-muted">
-              以下既为能力的具体应用场景，也是独立的产品。详情可咨询
+              以下既为能力的具体应用场景，也是独立的产品。点击卡片可翻转查看业务简介，详情可咨询
             </p>
-            <div className="mt-8 grid gap-4 md:grid-cols-2">
-              {[
-                ["审计支持", "内部审计、年度审计与专项审计，围绕企业经营真实性进行判断"],
-                ["财务乱账重建", "对历史账务混乱企业进行结构性梳理与体系重建"],
-                ["税务稽查应对", "针对稽查、协查及预警事项提供风险分析与应对支持"],
-                ["股权架构设计", "控制权设计、股权分配、业务拆分及税务影响测算"],
-                ["高端合规账体系", "构建同时满足合规要求与经营分析的财务体系"],
-              ].map(([title, desc]) => (
-                <div key={title} className="border border-brand-line bg-brand-card p-6 rounded-card">
-                  <p className="text-base font-semibold text-brand-ink">{title}</p>
-                  <p className="mt-2 text-sm leading-6 text-brand-muted">{desc}</p>
-                </div>
-              ))}
-            </div>
+            <ServiceScenarioCards />
           </div>
         </section>
 
