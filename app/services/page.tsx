@@ -175,7 +175,10 @@ export default function ServicesPage() {
           <div className="mx-auto max-w-3xl px-6 py-24 text-center md:py-28">
             <Label text="下一步" />
             <h2 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-4xl">
-              如果您的企业正面临上述问题，可以先做一次企业财税风险诊断。
+              <span className="inline-block text-left">
+                <span className="block">如果您的企业正面临上述问题</span>
+                <span className="block pl-[6em]">可以先做一次企业财税风险诊断</span>
+              </span>
             </h2>
             <div className="mt-10 flex flex-col items-center gap-4">
               <Link href="/contact" className="inline-flex h-12 items-center gap-2 rounded-full bg-brand-emerald px-7 text-sm font-medium text-white transition hover:bg-brand-emerald-hover">
