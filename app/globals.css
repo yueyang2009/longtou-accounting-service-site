@@ -1285,6 +1285,18 @@ body {
   color: #fff;
 }
 
+.team-advisor-matrix h2 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .team-advisor-matrix h2 {
+    font-size: 2.25rem;
+  }
+}
+
 .team-final-cta-title {
   font-size: clamp(2.4rem, 5vw, 4.5rem);
   font-weight: 650;
