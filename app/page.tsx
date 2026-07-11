@@ -525,7 +525,7 @@ export default function HomePage() {
                 <>
                   如果您正在考虑
                   <br />
-                  <span className="pl-[3em]">我们建议先做一次判断</span>
+                  <span className="pl-[2em]">我们建议先做一次判断</span>
                 </>
               }
             />
