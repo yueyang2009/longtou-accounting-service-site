@@ -1283,10 +1283,33 @@ body {
 .team-final-cta h2 {
   margin-top: 1.2rem;
   color: #fff;
+}
+
+.team-final-cta-title {
   font-size: clamp(2.4rem, 5vw, 4.5rem);
   font-weight: 650;
-  line-height: 1;
-  letter-spacing: -0.06em;
+  line-height: 1.15;
+  letter-spacing: 0;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.team-final-cta-title .cta-row {
+  display: flex;
+}
+
+.team-final-cta-title .cta-row > span {
+  display: inline-block;
+  width: 1em;
+  text-align: center;
+}
+
+.team-final-cta-title .cta-row-2 {
+  margin-left: 4em;
 }
 
 .team-section-lead {

@@ -220,7 +220,14 @@ export default function TeamPage() {
         <section className="team-final-cta">
           <div className="mx-auto max-w-3xl px-6 py-24 text-center md:py-28">
             <p className="team-section-eyebrow mx-auto">Start With Diagnosis</p>
-            <h2>先做一次判断，再决定是否合作</h2>
+            <h2 className="team-final-cta-title" aria-label="先做一次判断，再决定是否合作">
+              <span className="cta-row cta-row-1" aria-hidden="true">
+                <span>先</span><span>做</span><span>一</span><span>次</span><span>判</span><span>断</span>
+              </span>
+              <span className="cta-row cta-row-2" aria-hidden="true">
+                <span>再</span><span>决</span><span>定</span><span>是</span><span>否</span><span>合</span><span>作</span>
+              </span>
+            </h2>
             <p>
               不急着给方案，先把企业所处阶段、真实问题和需要优先处理的事项讲清楚。
             </p>
