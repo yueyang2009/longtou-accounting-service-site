@@ -125,9 +125,9 @@ export default function AboutPage() {
           <div className="mx-auto max-w-3xl px-6 py-24 text-center md:py-28">
             <Label text="信任" />
             <Heading>
-              我们不承诺做不到的事。
+              我们不承诺做不到的事
               <br />
-              但我们承诺，合作期间尽心尽力。
+              但我们承诺合作期间尽心尽力
             </Heading>
             <div className="mt-10 flex flex-col items-center gap-4">
               <Link
