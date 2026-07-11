@@ -501,7 +501,7 @@ export default function HomePage() {
                 </>
               }
             />
-            <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-brand-muted">
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-brand-muted whitespace-normal md:whitespace-nowrap">
               年度顾问更适合年营收2000万以上、已有稳定经营规模、且老板愿意参与经营管理的企业。
             </p>
             <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-brand-body">
