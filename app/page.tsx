@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle2, Minus } from "lucide-react";
 import type { ReactNode } from "react";
 
 import { HomeHeader } from "@/components/HomeHeader";
+import { FlipCard } from "@/components/FlipCard";
 import {
   annualPlan,
   annualTimeline,
@@ -291,14 +292,27 @@ export default function HomePage() {
                 {annualTimeline.map((item) => (
                   <div key={item.title} className="bg-brand-paper md:pt-0">
                     <div className="mb-7 hidden h-6 w-6 rounded-full border border-brand-ink bg-white md:block" />
-                    <div className="timeline-card private-timeline-card border border-brand-line p-7 rounded-card">
-                      <h3 className="text-xl font-semibold leading-snug text-brand-ink">{item.title}</h3>
-                      <ul className="mt-6 space-y-3">
-                        {item.items.map((li) => (
-                          <li key={li} className="text-sm leading-6 text-brand-muted">{li}</li>
-                        ))}
-                      </ul>
-                    </div>
+                    <FlipCard
+                      className="timeline-flip"
+                      front={
+                        <>
+                          <h3 className="text-xl font-semibold leading-snug text-brand-ink">{item.title}</h3>
+                          <ul className="mt-6 space-y-3">
+                            {item.items.map((li) => (
+                              <li key={li} className="text-sm leading-6 text-brand-muted">{li}</li>
+                            ))}
+                          </ul>
+                          <span className="mt-auto block pt-5 text-xs font-medium text-brand-gold/70">点击翻看 ›</span>
+                        </>
+                      }
+                      back={
+                        <div className="flip-back-inner">
+                          <span className="flip-back-label">深度要点</span>
+                          <p className="flip-back-text">{item.back}</p>
+                          <span className="flip-back-hint">点击返回 ›</span>
+                        </div>
+                      }
+                    />
                   </div>
                 ))}
               </div>

@@ -1729,6 +1729,35 @@ body {
   letter-spacing: 0.1em;
 }
 
+/* ── 首页「年度时间轴」：等高翻转卡（浅色主题）──
+   覆盖默认深色半透明翻转面，改用白底卡片 + 固定等高，保证 5 张卡视觉一致；
+   背面沿用默认深色金调渐变，翻转即「揭示」，与全站翻转手感统一。 */
+.flip-card.timeline-flip {
+  height: 16rem;
+}
+.flip-card.timeline-flip .flip-card-inner {
+  height: 16rem;
+}
+.flip-card.timeline-flip .flip-card-face,
+.flip-card.timeline-flip .flip-card-back {
+  height: 16rem;
+}
+.flip-card.timeline-flip .flip-card-face {
+  background: #ffffff;
+  border: 1px solid rgba(20, 33, 27, 0.14);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.flip-card.timeline-flip:hover:not(.is-flipped) .flip-card-face {
+  border-color: rgba(176, 141, 87, 0.5);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+}
+.flip-card.timeline-flip .flip-back-text {
+  color: #f1ece1;
+}
+.flip-card.timeline-flip .flip-back-label {
+  color: #e9d9bc;
+}
+
 /* ── 服务体系页：滚动进入视口「聚焦浮现」PPT 转场（字从外向内渐变显示）── */
 .services-reveal > section {
   opacity: 0;
