@@ -74,9 +74,9 @@ export function MobileNav({ links, triggerTone = "dark" }: MobileNavProps) {
         </span>
       </button>
 
-      {/* Overlay — dense dark backdrop to fully obscure background */}
+      {/* Overlay — fully opaque backdrop, background completely hidden */}
       <div
-        className={`fixed inset-0 z-40 bg-black/85 backdrop-blur-md transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 z-40 bg-[#0f1513] transition-opacity duration-300 lg:hidden ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
         onClick={close}
