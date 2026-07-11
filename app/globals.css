@@ -1912,3 +1912,26 @@ body {
   -webkit-box-decoration-break: clone;
 }
 
+/* ── services 页：问题定义标题，逐字等宽 + 下行错行对齐（"而是"对齐"不是"）── */
+.svc-problem-title {
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 0;
+}
+.svc-problem-line {
+  display: flex;
+}
+.svc-problem-title > span > span,
+.svc-problem-line > span {
+  display: inline-block;
+  width: 1em;
+  text-align: center;
+}
+.svc-ch-space {
+  width: 1em;
+}
+.svc-problem-line2 {
+  margin-left: 10em;
+  margin-top: 0.14em;
+}
+

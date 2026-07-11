@@ -59,7 +59,18 @@ export default function ServicesPage() {
         <section className="border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">
             <Label text="问题定义" />
-            <Heading>企业财税问题，本质上不是财务问题，而是经营系统问题。</Heading>
+            <h2 className="svc-problem-title text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-4xl">
+              <span className="svc-problem-line">
+                <span>企</span><span>业</span><span>财</span><span>税</span><span>问</span><span>题</span>
+                <span className="svc-ch-space" />
+                <span>本</span><span>质</span><span>上</span><span>不</span><span>是</span>
+                <span>财</span><span>务</span><span>问</span><span>题</span>
+              </span>
+              <span className="svc-problem-line svc-problem-line2">
+                <span>而</span><span>是</span>
+                <span>经</span><span>营</span><span>系</span><span>统</span><span>问</span><span>题</span>
+              </span>
+            </h2>
             <Body>
               <p>财务数据无法反映真实经营情况——账面利润与现金状况之间存在系统性差异，但很难定位差异来源。</p>
               <p>税务风险在经营过程中逐步累积——不是企业故意违规，而是在发票管理、资金路径和成本归集中的偏差日积月累。</p>
