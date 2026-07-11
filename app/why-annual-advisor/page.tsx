@@ -338,7 +338,7 @@ export default function WhyAnnualAdvisorPage() {
           <div className="mx-auto max-w-3xl px-6 py-24 text-center md:py-32">
             <Eyebrow>龙头会服</Eyebrow>
             <h2 className="mt-7 text-3xl font-semibold leading-tight tracking-tight text-white md:text-4xl">
-              核心不是解决<span className="text-gradient-gold">单一问题</span>，<br />
+              核心不是解决<span className="text-gradient-gold">单一问题</span><br />
               而是在长期合作中建立清晰稳定的经营判断体系
             </h2>
             <div className="mt-10 flex flex-col items-center gap-4">
