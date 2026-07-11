@@ -162,7 +162,12 @@ function TeamMetrics() {
             className={`group annual-metric-cell annual-fade-up ${spot.state(i)}`}
             style={{ animationDelay: `${i * 80}ms` }}
           >
-            <p className="annual-card-title text-4xl font-semibold tracking-tight text-gradient-gold md:text-5xl">
+            <p
+              className={[
+                "annual-card-title font-semibold tracking-tight text-gradient-gold",
+                m.value.length > 4 ? "text-3xl md:text-4xl whitespace-nowrap" : "text-4xl md:text-5xl"
+              ].join(" ")}
+            >
               {m.value}
             </p>
             <div className="mt-4 flex items-baseline justify-center gap-2">
