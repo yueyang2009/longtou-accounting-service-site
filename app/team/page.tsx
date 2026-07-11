@@ -112,7 +112,8 @@ const advisorMembers: AdvisorMember[] = [
     name: "王锋",
     title: "高端财税事业部 高级顾问",
     credential: "资深财税咨询师 / 培训师 / 股权设计师 / 大学兼职讲师",
-    focus: "税务规划、商业模式、股权及战略设计、财税课程体系开发"
+    focus: "税务规划、商业模式、股权及战略设计、财税课程体系开发",
+    avatar: `${assetBasePath}/images/team/wang-feng.png`
   },
   {
     name: "王玉霞",
