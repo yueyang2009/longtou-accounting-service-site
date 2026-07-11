@@ -249,8 +249,11 @@ export default function WhyAnnualAdvisorPage() {
           <div className="annual-grid-bg" />
           <div className="relative mx-auto max-w-4xl px-6 py-28 text-center md:py-36">
             <Eyebrow>龙头会服 · 企业年度财税顾问计划</Eyebrow>
-            <h1 className="mt-7 text-4xl font-semibold leading-tight tracking-tight text-white md:text-6xl">
-              企业年度财税顾问，是<span className="text-gradient-gold">基于完整经营周期</span>的长期专业支持
+            <h1 className="mt-7 text-4xl font-semibold leading-[1.2] tracking-tight text-white md:text-6xl">
+              <span className="block">企业年度财税顾问</span>
+              <span className="mt-2 block">
+                <span className="text-gradient-gold">基于完整经营周期</span>的长期专业支持
+              </span>
             </h1>
             <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-brand-body">
               不是代账，也不是一次性的咨询，而是签约后进入企业经营尽调与全年顾问服务周期，帮你建立持续经营判断能力。
