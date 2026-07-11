@@ -16,6 +16,7 @@ interface MobileNavProps {
 
 export function MobileNav({ links, triggerTone = "dark" }: MobileNavProps) {
   const [open, setOpen] = useState(false);
+  const base = process.env.NODE_ENV === "production" ? "/longtou-accounting-service-site" : "";
 
   const toggle = useCallback(() => setOpen((v) => !v), []);
   const close = useCallback(() => setOpen(false), []);
@@ -106,16 +107,27 @@ export function MobileNav({ links, triggerTone = "dark" }: MobileNavProps) {
 
         {/* Navigation links */}
         <nav className="flex flex-col gap-1 px-5 pb-8">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={close}
-              className="rounded-md px-4 py-4 text-lg font-medium text-white transition hover:bg-white/10"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {links.map((link) =>
+            link.href.endsWith(".html") ? (
+              <a
+                key={link.href}
+                href={`${base}${link.href}`}
+                onClick={close}
+                className="rounded-md px-4 py-4 text-lg font-medium text-white transition hover:bg-white/10"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={close}
+                className="rounded-md px-4 py-4 text-lg font-medium text-white transition hover:bg-white/10"
+              >
+                {link.label}
+              </Link>
+            )
+          )}
         </nav>
 
         {/* CTA at bottom */}
