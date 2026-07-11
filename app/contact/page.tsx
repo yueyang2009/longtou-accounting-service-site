@@ -11,12 +11,16 @@ export default function ContactPage() {
       <section className="bg-brand-soft py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-[0.9fr_1.1fr] lg:px-8">
           <div>
-            <SectionHeader
-              hero
-              eyebrow="经营交流"
-              title="申请企业财税风险诊断（限量开放）"
-              description="先了解企业阶段与经营现状，判断是否需要年度顾问支持。"
-            />
+            <div className="max-w-3xl">
+              <p className="mb-3 text-sm font-semibold text-brand-gold">经营交流</p>
+              <h2 className="text-3xl font-semibold leading-tight text-brand-ink md:text-5xl">
+                <span className="inline-block text-left">
+                  <span className="block">申请企业财税风险诊断</span>
+                  <span className="block">（限量开放）</span>
+                </span>
+              </h2>
+              <p className="mt-4 text-base leading-7 text-brand-muted">先了解企业阶段与经营现状，判断是否需要年度顾问支持。</p>
+            </div>
             <div className="mt-8 grid gap-4 md:grid-cols-2">
               <div className="border border-brand-line bg-brand-card p-5">
                 <p className="text-sm text-brand-muted">联系电话</p>
