@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 
 export interface MobileNavLink {
@@ -16,10 +17,15 @@ interface MobileNavProps {
 
 export function MobileNav({ links, triggerTone = "dark" }: MobileNavProps) {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const base = process.env.NODE_ENV === "production" ? "/longtou-accounting-service-site" : "";
 
   const toggle = useCallback(() => setOpen((v) => !v), []);
   const close = useCallback(() => setOpen(false), []);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Lock body scroll when menu is open
   useEffect(() => {
@@ -74,24 +80,26 @@ export function MobileNav({ links, triggerTone = "dark" }: MobileNavProps) {
         </span>
       </button>
 
-      {/* Overlay — fully opaque backdrop, background completely hidden */}
-      <div
-        className={`fixed inset-0 z-40 bg-[#0f1513] transition-opacity duration-300 lg:hidden ${
-          open ? "opacity-100" : "pointer-events-none opacity-0"
-        }`}
-        onClick={close}
-        aria-hidden="true"
-      />
+      {mounted
+        ? createPortal(
+          <>
+            {/* Rendered at document root so the header blur cannot trap the fixed layer. */}
+            <div
+              className={`fixed inset-0 z-[100] bg-[#0f1513] transition-opacity duration-300 lg:hidden ${
+                open ? "opacity-100" : "pointer-events-none opacity-0"
+              }`}
+              onClick={close}
+              aria-hidden="true"
+            />
 
-      {/* Slide-out panel from right — fully opaque, strong separation from background */}
-      <div
-        className={`fixed inset-y-0 right-0 z-50 flex w-72 flex-col border-l border-white/15 bg-[#111816] text-white shadow-[0_0_40px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out lg:hidden ${
-          open ? "translate-x-0" : "translate-x-full"
-        }`}
-        role="dialog"
-        aria-modal="true"
-        aria-label="导航菜单"
-      >
+            <div
+              className={`fixed inset-y-0 right-0 z-[110] flex w-72 flex-col border-l border-white/15 bg-[#111816] text-white shadow-[0_0_40px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-in-out lg:hidden ${
+                open ? "translate-x-0" : "translate-x-full"
+              }`}
+              role="dialog"
+              aria-modal="true"
+              aria-label="导航菜单"
+            >
         {/* Close button inside panel */}
         <div className="flex h-16 items-center justify-between px-5">
           <p className="text-sm font-semibold tracking-[0.18em] text-white">导航</p>
@@ -140,7 +148,11 @@ export function MobileNav({ links, triggerTone = "dark" }: MobileNavProps) {
             申请企业财税风险诊断
           </Link>
         </div>
-      </div>
+            </div>
+          </>,
+          document.body
+        )
+        : null}
     </>
   );
 }
