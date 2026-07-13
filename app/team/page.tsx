@@ -58,7 +58,8 @@ const advisorMembers: AdvisorMember[] = [
     name: "李现文",
     title: "高端财税事业部 高级顾问",
     credential: "注册会计师 / 注册税务师",
-    focus: "企业ERP设计与实施、全面预算管理、企业资本运作、股权架构搭建、企业财务体系建设"
+    focus: "企业ERP设计与实施、全面预算管理、企业资本运作、股权架构搭建、企业财务体系建设",
+    avatar: "/images/team/li-xianwen.jpg"
   },
   {
     name: "张亚琼",
