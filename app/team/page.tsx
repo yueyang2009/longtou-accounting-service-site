@@ -5,7 +5,7 @@ import { ArrowRight, Award, Handshake, ShieldCheck, Users } from "lucide-react";
 import { HomeHeader } from "@/components/HomeHeader";
 import { TeamOrbit, type OrbitMember } from "@/components/TeamOrbit";
 import { AdvisorMatrix, type AdvisorMember } from "@/components/AdvisorMatrix";
-import { brand, trustMetrics } from "@/lib/data";
+import { brand, trustMetrics, extendedExperts } from "@/lib/data";
 
 const assetBasePath = process.env.GITHUB_PAGES === "true" ? "/longtou-accounting-service-site" : "";
 
@@ -175,6 +175,29 @@ export default function TeamPage() {
             </div>
 
             <AdvisorMatrix members={advisorMembers} />
+          </div>
+        </section>
+
+        <section className="team-value-section">
+          <div className="mx-auto max-w-7xl px-6 py-24 md:py-28">
+            <div>
+              <p className="team-section-eyebrow">Industry Coverage</p>
+              <h2 className="mt-5 text-3xl font-semibold text-white md:text-4xl">按行业配置专属顾问组</h2>
+              <p className="team-section-lead mt-5">
+                核心顾问之外，我们按行业组建顾问组，覆盖制造、建筑、商贸、科技、餐饮等河南主流产业，确保方案贴合行业真实经营逻辑。
+              </p>
+            </div>
+            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {extendedExperts.map((group) => (
+                <div
+                  key={group}
+                  className="flex items-center gap-3 rounded-card border border-white/10 bg-white/[0.04] px-6 py-5"
+                >
+                  <span className="h-2 w-2 shrink-0 rounded-full bg-[#d9c7a5]" />
+                  <p className="text-sm font-medium text-white">{group}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 

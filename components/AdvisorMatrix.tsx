@@ -35,10 +35,7 @@ export function AdvisorMatrix({ members }: { members: AdvisorMember[] }) {
                   {m.avatar ? (
                     <img src={m.avatar} alt={m.name} className="team-mini-avatar" />
                   ) : (
-                    <>
-                      <span>{m.name.slice(0, 1)}</span>
-                      <p>头像待补</p>
-                    </>
+                    <span>{m.name.slice(0, 1)}</span>
                   )}
                 </div>
                 <h3>{m.name}</h3>
