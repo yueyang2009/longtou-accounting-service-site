@@ -21,6 +21,11 @@ function normalizeDate(d: unknown): string {
   return String(d);
 }
 
+export type PostFaq = {
+  q: string;
+  a: string;
+};
+
 export type PostMeta = {
   slug: string;
   title: string;
@@ -28,6 +33,7 @@ export type PostMeta = {
   excerpt: string;
   tags: string[];
   category: string;
+  faq?: PostFaq[];
 };
 
 export type Post = PostMeta & {
@@ -73,6 +79,7 @@ export function getPostBySlug(slug: string): Post | null {
     excerpt: data.excerpt || "",
     tags: data.tags || [],
     category: data.category || "未分类",
+    faq: data.faq || [],
     content,
   };
 }
