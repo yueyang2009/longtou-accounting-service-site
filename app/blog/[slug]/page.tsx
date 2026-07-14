@@ -3,16 +3,52 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Tag } from "lucide-react";
 import { remark } from "remark";
 import html from "remark-html";
+import type { Metadata } from "next";
 
 import { BrandLogo } from "@/components/BrandLogo";
 import { MobileNav } from "@/components/MobileNav";
 import { brand, navItems } from "@/lib/data";
 import { getPostBySlug, getAllPosts } from "@/lib/posts";
 
+const SITE = "https://yueyang2009.github.io/longtou-accounting-service-site";
+
 // ── 构建时生成所有文章路径 ──
 export async function generateStaticParams() {
   const posts = getAllPosts();
   return posts.map((post) => ({ slug: post.slug }));
+}
+
+// ── 每篇文章的元数据（canonical / OG / Twitter）──
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
+  if (!post) return {};
+
+  const url = `/blog/${post.slug}/`;
+  return {
+    title: post.title,
+    description: post.excerpt,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      locale: "zh_CN",
+      url,
+      title: post.title,
+      description: post.excerpt,
+      publishedTime: post.date || undefined,
+      tags: post.tags,
+      siteName: "龙头会服·高端财税服务团队",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+    },
+  };
 }
 
 // ── markdown → html ──
@@ -38,9 +74,43 @@ export default async function BlogPostPage({
   if (!post) notFound();
 
   const htmlContent = await markdownToHtml(post.content);
+  const postUrl = `${SITE}/blog/${post.slug}/`;
+
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date || undefined,
+    dateModified: post.date || undefined,
+    articleSection: post.category,
+    keywords: post.tags?.join(", "),
+    author: {
+      "@type": "Organization",
+      name: "龙头会服·高端财税服务团队",
+      url: `${SITE}/team/`,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "河南龙头会计服务有限公司",
+      parentOrganization: {
+        "@type": "Organization",
+        name: "龙头集团",
+        description: "知识产权全产业链、全生命周期服务集团",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": postUrl,
+    },
+  };
 
   return (
     <div className="min-h-screen bg-brand-paper">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       {/* ── Header ── */}
       <header className="sticky top-0 z-50 border-b border-brand-line bg-[#111816]/90 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
