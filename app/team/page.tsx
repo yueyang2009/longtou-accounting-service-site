@@ -120,7 +120,8 @@ const advisorMembers: AdvisorMember[] = [
     name: "王玉霞",
     title: "高端财税事业部 高级顾问",
     credential: "注册税务师 / 中级会计师",
-    focus: "财务体系建设、税务合规计划、股权架构设计、企业风险管控"
+    focus: "财务体系建设、税务合规计划、股权架构设计、企业风险管控",
+    avatar: `${assetBasePath}/images/team/wang-yuxia.jpg`
   },
   {
     name: "赵晴",
