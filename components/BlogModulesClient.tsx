@@ -32,7 +32,7 @@ export function BlogModulesClient({
   const groups = categories
     .map((c) => ({
       ...c,
-      items: filtered.filter((p) => (p.category || "\u672a\u5206\u7c7b") === c.name),
+      items: filtered.filter((p) => (p.category || "未分类") === c.name),
     }))
     .filter((g) => g.items.length > 0);
 
@@ -64,9 +64,9 @@ export function BlogModulesClient({
   return (
     <div className="grid gap-8 lg:grid-cols-[220px_1fr]">
       <aside className="lg:sticky lg:top-28 lg:self-start">
-        <nav aria-label="\u6587\u7ae0\u5206\u7c7b\u76ee\u5f55">
+        <nav aria-label="文章分类目录">
           <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-brand-muted">
-            \u535a\u6587\u76ee\u5f55
+            博文目录
           </h3>
           <ul className="space-y-1">
             <li>
@@ -78,7 +78,7 @@ export function BlogModulesClient({
                     : "text-brand-muted hover:bg-brand-soft hover:text-brand-ink"
                 }`}
               >
-                \u5168\u90e8\u6587\u7ae0
+                全部文章
                 <span className="ml-2 text-xs text-brand-muted/60">{posts.length}</span>
               </button>
             </li>
@@ -116,14 +116,14 @@ export function BlogModulesClient({
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="\u641c\u7d22\u6587\u7ae0\u2026"
+              placeholder="搜索文章…"
               className="w-full rounded-full border border-brand-line/50 bg-[#1a2420] py-2 pl-10 pr-10 text-sm text-[#e9e3d5] outline-none placeholder:text-[#8a857a] transition focus:border-[#d9c7a5] focus:ring-1 focus:ring-[#d9c7a5]/40"
             />
             {query && (
               <button
                 onClick={() => setQuery("")}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-brand-muted transition hover:text-brand-ink"
-                aria-label="\u6e05\u9664\u641c\u7d22"
+                aria-label="清除搜索"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -144,7 +144,7 @@ export function BlogModulesClient({
                   {g.name}
                 </h2>
                 <span className="rounded-full bg-brand-soft px-2.5 py-0.5 text-xs text-brand-muted">
-                  {g.items.length} \u7bc7
+                  {g.items.length} 篇
                 </span>
               </div>
               <div className="space-y-6">
@@ -157,7 +157,7 @@ export function BlogModulesClient({
 
           {groups.length === 0 && (
             <p className="py-12 text-center text-brand-muted">
-              \u6ca1\u6709\u627e\u5230\u76f8\u5173\u6587\u7ae0\uff0c\u8bd5\u8bd5\u5176\u4ed6\u5173\u952e\u8bcd\uff1f
+              没有找到相关文章，试试其他关键词？
             </p>
           )}
         </div>
@@ -208,7 +208,7 @@ function ArticleCard({ post }: { post: PostMeta }) {
       )}
 
       <div className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-brand-emerald opacity-0 transition group-hover:opacity-100">
-        \u9605\u8bfb\u5168\u6587 <ArrowRight className="h-3.5 w-3.5" />
+        阅读全文 <ArrowRight className="h-3.5 w-3.5" />
       </div>
     </Link>
   );
