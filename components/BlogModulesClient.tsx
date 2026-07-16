@@ -84,24 +84,48 @@ export function BlogModulesClient({
             </li>
             {categories.map((c) => (
               <li key={c.name}>
-                <button
-                  onClick={() => scrollToSection(c.name)}
-                  className={`w-full rounded-lg px-3 py-2 text-left text-sm transition ${
-                    activeCategory === c.name
-                      ? "bg-[#1a2420] font-medium text-[#e9d9bc]"
-                      : "text-brand-muted hover:bg-brand-soft hover:text-brand-ink"
-                  }`}
-                >
-                  <span className="inline-flex items-center gap-2">
-                    <ChevronRight
-                      className={`h-3 w-3 shrink-0 transition ${
-                        activeCategory === c.name ? "rotate-90 text-[#d9c7a5]" : "text-brand-muted/40"
-                      }`}
-                    />
-                    {c.name}
-                  </span>
-                  <span className="ml-auto text-xs text-brand-muted/60">{c.count}</span>
-                </button>
+                {/*
+                  Find matching group items for this category
+                */}
+                {(() => {
+                  const items = groups.find((g) => g.name === c.name)?.items ?? filtered.filter((p) => (p.category || "未分类") === c.name);
+                  return (
+                    <>
+                      <button
+                        onClick={() => scrollToSection(c.name)}
+                        className={`w-full rounded-lg px-3 py-2 text-left text-sm transition ${
+                          activeCategory === c.name
+                            ? "bg-[#1a2420] font-medium text-[#e9d9bc]"
+                            : "text-brand-muted hover:bg-brand-soft hover:text-brand-ink"
+                        }`}
+                      >
+                        <span className="inline-flex items-center gap-2">
+                          <ChevronRight
+                            className={`h-3 w-3 shrink-0 transition ${
+                              activeCategory === c.name ? "rotate-90 text-[#d9c7a5]" : "text-brand-muted/40"
+                            }`}
+                          />
+                          {c.name}
+                        </span>
+                        <span className="ml-auto text-xs text-brand-muted/60">{c.count}</span>
+                      </button>
+                      {activeCategory === c.name && items.length > 0 && (
+                        <ul className="ml-4 mt-1 space-y-0.5 border-l border-brand-line/30 pl-3">
+                          {items.map((post) => (
+                            <li key={post.slug}>
+                              <Link
+                                href={`/blog/${post.slug}`}
+                                className="block rounded px-2 py-1.5 text-xs text-brand-muted/80 transition hover:text-[#e9d9bc] hover:bg-[#1a2420]/60"
+                              >
+                                {post.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </>
+                  );
+                })()}
               </li>
             ))}
           </ul>
