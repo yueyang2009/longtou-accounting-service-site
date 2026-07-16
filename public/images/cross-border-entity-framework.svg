@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1216" height="832" viewBox="0 0 1216 832">
+<rect width="1216" height="832" fill="#f6efe2"/>
+<defs><filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#1a2420" flood-opacity="0.13"/></filter></defs>
+<text x="72" y="92" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#c79a4b" text-anchor="start">Gimi · 跨境电商财税系列</text>
+<text x="72" y="146" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="42" font-weight="800" fill="#18211d" text-anchor="start">规模化跨境电商的成熟架构设计顺序</text>
+<text x="72" y="196" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="23" font-weight="500" fill="#6c665b" text-anchor="start">先业务，后主体；先证据，后筹划；先合规，再效率。</text>
+<g filter="url(#shadow)"><rect x="150" y="275" width="916" height="84" rx="24" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<circle cx="205" cy="317" r="30" fill="#173f36"/>
+<text x="205" y="327" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="25" font-weight="800" fill="#fff" text-anchor="middle">1</text>
+<text x="260" y="311" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="26" font-weight="800" fill="#18211d" text-anchor="start">先定业务链</text>
+<text x="260" y="343" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="20" font-weight="500" fill="#6c665b" text-anchor="start">销售主体、采购主体、出口主体</text>
+<g filter="url(#shadow)"><rect x="150" y="390" width="916" height="84" rx="24" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<circle cx="205" cy="432" r="30" fill="#173f36"/>
+<text x="205" y="442" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="25" font-weight="800" fill="#fff" text-anchor="middle">2</text>
+<text x="260" y="426" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="26" font-weight="800" fill="#18211d" text-anchor="start">再定资金链</text>
+<text x="260" y="458" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="20" font-weight="500" fill="#6c665b" text-anchor="start">收款账户、结算路径、回流方式</text>
+<g filter="url(#shadow)"><rect x="150" y="505" width="916" height="84" rx="24" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<circle cx="205" cy="547" r="30" fill="#173f36"/>
+<text x="205" y="557" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="25" font-weight="800" fill="#fff" text-anchor="middle">3</text>
+<text x="260" y="541" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="26" font-weight="800" fill="#18211d" text-anchor="start">同步定税务链</text>
+<text x="260" y="573" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="20" font-weight="500" fill="#6c665b" text-anchor="start">收入确认、成本费用、境内外申报</text>
+<g filter="url(#shadow)"><rect x="150" y="620" width="916" height="84" rx="24" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<circle cx="205" cy="662" r="30" fill="#173f36"/>
+<text x="205" y="672" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="25" font-weight="800" fill="#fff" text-anchor="middle">4</text>
+<text x="260" y="656" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="26" font-weight="800" fill="#18211d" text-anchor="start">最后定管理链</text>
+<text x="260" y="688" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="20" font-weight="500" fill="#6c665b" text-anchor="start">报表、权限、审计、风险预警</text>
+<text x="608" y="760" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="26" font-weight="800" fill="#18211d" text-anchor="middle">成熟架构不是“公司越多越好”，而是每个主体都有功能、数据和责任。</text>
+<text x="72" y="780" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="22" font-weight="700" fill="#173f36" text-anchor="start">龙头会服 · 高端财税事业部</text>
+</svg>

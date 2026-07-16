@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1216" height="832" viewBox="0 0 1216 832">
+<rect width="1216" height="832" fill="#f6efe2"/>
+<defs><filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#1a2420" flood-opacity="0.13"/></filter></defs>
+<text x="72" y="92" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#c79a4b" text-anchor="start">Gimi · 跨境电商财税系列</text>
+<text x="72" y="146" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="42" font-weight="800" fill="#18211d" text-anchor="start">为什么老板会注册香港公司、美国公司？</text>
+<text x="72" y="196" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="23" font-weight="500" fill="#6c665b" text-anchor="start">不是为了“多一个壳”，而是为了匹配收款、平台、品牌和本地化运营。</text>
+<g filter="url(#shadow)"><rect x="86" y="300" width="300" height="210" rx="30" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<text x="236" y="365" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="34" font-weight="800" fill="#173f36" text-anchor="middle">香港公司</text>
+<text x="236" y="420" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="21" font-weight="500" fill="#6c665b" text-anchor="middle">收款便利 / 结算中转 / 品牌背书</text>
+<g filter="url(#shadow)"><rect x="408" y="300" width="300" height="210" rx="30" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<text x="558" y="365" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="34" font-weight="800" fill="#173f36" text-anchor="middle">美国公司</text>
+<text x="558" y="420" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="21" font-weight="500" fill="#6c665b" text-anchor="middle">平台入驻 / 本地交易 / 海外合规</text>
+<g filter="url(#shadow)"><rect x="730" y="300" width="300" height="210" rx="30" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<text x="880" y="365" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="34" font-weight="800" fill="#173f36" text-anchor="middle">国内公司</text>
+<text x="880" y="420" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="21" font-weight="500" fill="#6c665b" text-anchor="middle">供应链 / 采购生产 / 运营团队</text>
+<line x1="230" y1="570" x2="985" y2="570" stroke="#d7c7a7" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 12"/>
+<text x="608" y="620" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="28" font-weight="800" fill="#18211d" text-anchor="middle">注册海外主体不是终点，关键是它承担什么真实业务功能</text>
+<text x="72" y="780" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="22" font-weight="700" fill="#173f36" text-anchor="start">龙头会服 · 高端财税事业部</text>
+</svg>

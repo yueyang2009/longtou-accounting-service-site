@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1216" height="832" viewBox="0 0 1216 832">
+<rect width="1216" height="832" fill="#f6efe2"/>
+<defs><filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#1a2420" flood-opacity="0.13"/></filter></defs>
+<text x="72" y="92" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#c79a4b" text-anchor="start">Gimi · 跨境电商财税系列</text>
+<text x="72" y="146" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="42" font-weight="800" fill="#18211d" text-anchor="start">常见海外架构误区</text>
+<text x="72" y="196" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="23" font-weight="500" fill="#6c665b" text-anchor="start">很多风险不是因为没有公司，而是因为公司之间没有真实、合理、可证明的关系。</text>
+<g filter="url(#shadow)"><rect x="96" y="285" width="450" height="140" rx="26" fill="#fff7ed" stroke="#d6a69a" stroke-width="2"/></g>
+<text x="134" y="343" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="30" font-weight="800" fill="#9b3f30" text-anchor="start">× 空壳公司</text>
+<text x="134" y="385" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="21" font-weight="500" fill="#6c665b" text-anchor="start">海外没有人员、仓储、合同与决策</text>
+<g filter="url(#shadow)"><rect x="616" y="285" width="450" height="140" rx="26" fill="#fff7ed" stroke="#d6a69a" stroke-width="2"/></g>
+<text x="654" y="343" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="30" font-weight="800" fill="#9b3f30" text-anchor="start">× 收入乱放</text>
+<text x="654" y="385" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="21" font-weight="500" fill="#6c665b" text-anchor="start">哪里收款就把利润放哪里</text>
+<g filter="url(#shadow)"><rect x="96" y="475" width="450" height="140" rx="26" fill="#fff7ed" stroke="#d6a69a" stroke-width="2"/></g>
+<text x="134" y="533" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="30" font-weight="800" fill="#9b3f30" text-anchor="start">× 关联交易无定价</text>
+<text x="134" y="575" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="21" font-weight="500" fill="#6c665b" text-anchor="start">国内供货价、服务费、品牌费说不清</text>
+<g filter="url(#shadow)"><rect x="616" y="475" width="450" height="140" rx="26" fill="#fff7ed" stroke="#d6a69a" stroke-width="2"/></g>
+<text x="654" y="533" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="30" font-weight="800" fill="#9b3f30" text-anchor="start">× 资金回流无路径</text>
+<text x="654" y="575" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="21" font-weight="500" fill="#6c665b" text-anchor="start">老板个人账户、亲友账户频繁周转</text>
+<text x="608" y="720" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="28" font-weight="800" fill="#18211d" text-anchor="middle">架构越复杂，越需要证据链；否则不是节税工具，而是风险放大器。</text>
+<text x="72" y="780" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="22" font-weight="700" fill="#173f36" text-anchor="start">龙头会服 · 高端财税事业部</text>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1216" height="832" viewBox="0 0 1216 832">
+<rect width="1216" height="832" fill="#f6efe2"/>
+<defs><filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#1a2420" flood-opacity="0.13"/></filter></defs>
+<text x="72" y="92" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#c79a4b" text-anchor="start">Gimi · 跨境电商财税系列</text>
+<text x="72" y="146" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="42" font-weight="800" fill="#18211d" text-anchor="start">海外公司架构的税务风险点</text>
+<text x="72" y="196" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="23" font-weight="500" fill="#6c665b" text-anchor="start">注册地只是形式，经营实质、关联交易和资金路径才是审查重点。</text>
+<g filter="url(#shadow)"><rect x="105" y="310" width="170" height="260" rx="28" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<text x="190" y="365" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="25" font-weight="800" fill="#173f36" text-anchor="middle">实际管理机构</text>
+<text x="190" y="430" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="18" font-weight="500" fill="#6c665b" text-anchor="middle">决策与控制是否</text>
+<text x="190" y="462" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="18" font-weight="500" fill="#6c665b" text-anchor="middle">仍在国内</text>
+<g filter="url(#shadow)"><rect x="310" y="310" width="170" height="260" rx="28" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<text x="395" y="365" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="25" font-weight="800" fill="#173f36" text-anchor="middle">关联交易</text>
+<text x="395" y="430" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="18" font-weight="500" fill="#6c665b" text-anchor="middle">价格是否</text>
+<text x="395" y="462" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="18" font-weight="500" fill="#6c665b" text-anchor="middle">符合独立交易原则</text>
+<g filter="url(#shadow)"><rect x="515" y="310" width="170" height="260" rx="28" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<text x="600" y="365" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="25" font-weight="800" fill="#173f36" text-anchor="middle">CFC/反避税</text>
+<text x="600" y="430" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="18" font-weight="500" fill="#6c665b" text-anchor="middle">低税地利润留存是否</text>
+<text x="600" y="462" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="18" font-weight="500" fill="#6c665b" text-anchor="middle">有实质</text>
+<g filter="url(#shadow)"><rect x="720" y="310" width="170" height="260" rx="28" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<text x="805" y="365" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="25" font-weight="800" fill="#173f36" text-anchor="middle">境外费用</text>
+<text x="805" y="430" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="18" font-weight="500" fill="#6c665b" text-anchor="middle">广告、仓储、服务费证据是否</text>
+<text x="805" y="462" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="18" font-weight="500" fill="#6c665b" text-anchor="middle">完整</text>
+<g filter="url(#shadow)"><rect x="925" y="310" width="170" height="260" rx="28" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<text x="1010" y="365" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="25" font-weight="800" fill="#173f36" text-anchor="middle">资金回流</text>
+<text x="1010" y="430" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="18" font-weight="500" fill="#6c665b" text-anchor="middle">分红、服务费、借款路径是否</text>
+<text x="1010" y="462" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="18" font-weight="500" fill="#6c665b" text-anchor="middle">清晰</text>
+<line x1="185" y1="630" x2="1030" y2="630" stroke="#c79a4b" stroke-width="5" stroke-linecap="round"/>
+<text x="608" y="700" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="28" font-weight="800" fill="#18211d" text-anchor="middle">税务机关最终看的不是注册地，而是经营实质、利润归属与证据链。</text>
+<text x="72" y="780" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="22" font-weight="700" fill="#173f36" text-anchor="start">龙头会服 · 高端财税事业部</text>
+</svg>
