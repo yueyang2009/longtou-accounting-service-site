@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 
 import { BrandLogo } from "@/components/BrandLogo";
 import { MobileNav } from "@/components/MobileNav";
+import { ArticleTOC } from "@/components/ArticleTOC";
 import { brand, navItems } from "@/lib/data";
 import { getPostBySlug, getAllPosts } from "@/lib/posts";
 
@@ -73,6 +74,7 @@ export default async function BlogPostPage({
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
+  const headings = extractHeadings(post.content);
   const htmlContent = await markdownToHtml(post.content);
   const postUrl = `${SITE}/blog/${post.slug}/`;
 
@@ -166,7 +168,8 @@ export default async function BlogPostPage({
 
       <main>
         {/* ── 文章头部 ── */}
-        <article className="mx-auto max-w-3xl px-6 py-16 md:py-24">
+        <div className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:py-24 lg:grid-cols-[1fr_220px]">
+          <article className="min-w-0">
           {/* 返回 */}
           <Link
             href="/blog"
@@ -214,6 +217,9 @@ export default async function BlogPostPage({
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
         </article>
+          </article>
+          <ArticleTOC headings={headings} />
+        </div>
       </main>
 
       {/* ── Footer ── */}
