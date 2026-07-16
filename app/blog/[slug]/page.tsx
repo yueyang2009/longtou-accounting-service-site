@@ -217,9 +217,8 @@ export default async function BlogPostPage({
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
         </article>
-          </article>
-          <ArticleTOC headings={headings} />
-        </div>
+        <ArticleTOC headings={headings} />
+      </div>
       </main>
 
       {/* ── Footer ── */}
