@@ -31,19 +31,28 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  openGraph: {
-    type: "website",
-    locale: "zh_CN",
-    url: "/",
-    siteName: "龙头会服·高端财税服务团队",
-    title: `${brand.name}｜${brand.slogan}`,
-    description: "企业财税与经营参谋团队，专注中小企业财税规范与经营体系建设。",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `${brand.name}｜${brand.slogan}`,
-    description: "企业财税与经营参谋团队，专注中小企业财税规范与经营体系建设。",
-  },
+ openGraph: {
+    images: [
+      {
+        url: `${SITE}/images/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: `${brand.name}｜${brand.slogan}`,
+      },
+    ],
+   type: "website",
+   locale: "zh_CN",
+   url: "/",
+   siteName: "龙头会服·高端财税服务团队",
+   title: `${brand.name}｜${brand.slogan}`,
+   description: "企业财税与经营参谋团队，专注中小企业财税规范与经营体系建设。",
+ },
+ twitter: {
+   card: "summary_large_image",
+    images: `${SITE}/images/og-image.jpg`,
+   title: `${brand.name}｜${brand.slogan}`,
+   description: "企业财税与经营参谋团队，专注中小企业财税规范与经营体系建设。",
+ },
   robots: {
     index: true,
     follow: true,
