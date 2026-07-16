@@ -7,7 +7,6 @@ import type { Metadata } from "next";
 
 import { BrandLogo } from "@/components/BrandLogo";
 import { MobileNav } from "@/components/MobileNav";
-import { ArticleTOC } from "@/components/ArticleTOC";
 import { brand, navItems } from "@/lib/data";
 import { getPostBySlug, getAllPosts } from "@/lib/posts";
 
@@ -74,7 +73,6 @@ export default async function BlogPostPage({
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
-  const headings = extractHeadings(post.content);
   const htmlContent = await markdownToHtml(post.content);
   const postUrl = `${SITE}/blog/${post.slug}/`;
 
@@ -217,7 +215,6 @@ export default async function BlogPostPage({
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
         </article>
-        <ArticleTOC headings={headings} />
       </div>
       </main>
 
