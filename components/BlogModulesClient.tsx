@@ -42,7 +42,7 @@ export function BlogModulesClient({
         for (const entry of entries) {
           if (entry.isIntersecting) {
             const id = entry.target.getAttribute("id");
-            if (id) setActiveCategory(decodeURIComponent(id.replace("cat-", "")));
+            if (id) setActiveCategory((prev) => { const n = decodeURIComponent(id.replace("cat-", "")); return prev === null ? n : prev; });
           }
         }
       },
@@ -54,10 +54,15 @@ export function BlogModulesClient({
     return () => observer.disconnect();
   }, [groups]);
 
+  const toggleCategory = (name: string) => {
+    setActiveCategory((prev) => (prev === name ? null : name));
+    scrollToSection(name);
+  };
+
   const scrollToSection = (name: string) => {
     const el = sectionRefs.current[name];
     if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      el.scrollIntoView({ behavior: "instant", block: "start" });
     }
   };
 
@@ -71,7 +76,7 @@ export function BlogModulesClient({
           <ul className="space-y-1">
             <li>
               <button
-                onClick={() => scrollToSection("all")}
+                onClick={() => toggleCategory("all")}
                 className={`w-full rounded-lg px-3 py-2 text-left text-sm transition ${
                   activeCategory === "all" || !activeCategory
                     ? "bg-[#1a2420] font-medium text-[#e9d9bc]"
@@ -92,7 +97,7 @@ export function BlogModulesClient({
                   return (
                     <>
                       <button
-                        onClick={() => scrollToSection(c.name)}
+                        onClick={() => toggleCategory(c.name)}
                         className={`w-full rounded-lg px-3 py-2 text-left text-sm transition ${
                           activeCategory === c.name
                             ? "bg-[#1a2420] font-medium text-[#e9d9bc]"
