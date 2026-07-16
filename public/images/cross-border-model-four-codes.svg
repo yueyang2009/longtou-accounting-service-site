@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1216" height="832" viewBox="0 0 1216 832">
+<rect width="1216" height="832" fill="#f6efe2"/>
+<defs><filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#1a2420" flood-opacity="0.13"/></filter></defs>
+<text x="72" y="92" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#c79a4b" text-anchor="start">Gimi · 跨境电商财税系列</text>
+<text x="72" y="146" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="42" font-weight="800" fill="#18211d" text-anchor="start">9610、9710、9810、1210分别解决什么问题？</text>
+<text x="72" y="196" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="23" font-weight="500" fill="#6c665b" text-anchor="start">四个监管代码背后，是四种不同的经营逻辑。</text>
+<g filter="url(#shadow)"><rect x="90" y="300" width="235" height="235" rx="26" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<text x="208" y="365" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="44" font-weight="800" fill="#173f36" text-anchor="middle">9610</text>
+<text x="208" y="420" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="27" font-weight="800" fill="#18211d" text-anchor="middle">零售出口</text>
+<text x="208" y="468" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="20" font-weight="500" fill="#6c665b" text-anchor="middle">小订单 / 高频 / C端</text>
+<g filter="url(#shadow)"><rect x="365" y="300" width="235" height="235" rx="26" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<text x="483" y="365" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="44" font-weight="800" fill="#173f36" text-anchor="middle">9710</text>
+<text x="483" y="420" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="27" font-weight="800" fill="#18211d" text-anchor="middle">B2B出口</text>
+<text x="483" y="468" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="20" font-weight="500" fill="#6c665b" text-anchor="middle">企业客户 / 合同订单</text>
+<g filter="url(#shadow)"><rect x="640" y="300" width="235" height="235" rx="26" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<text x="758" y="365" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="44" font-weight="800" fill="#173f36" text-anchor="middle">9810</text>
+<text x="758" y="420" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="27" font-weight="800" fill="#18211d" text-anchor="middle">海外仓出口</text>
+<text x="758" y="468" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="20" font-weight="500" fill="#6c665b" text-anchor="middle">先备货 / 本地配送</text>
+<g filter="url(#shadow)"><rect x="915" y="300" width="235" height="235" rx="26" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<text x="1033" y="365" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="44" font-weight="800" fill="#173f36" text-anchor="middle">1210</text>
+<text x="1033" y="420" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="27" font-weight="800" fill="#18211d" text-anchor="middle">保税进口</text>
+<text x="1033" y="468" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="20" font-weight="500" fill="#6c665b" text-anchor="middle">保税仓 / 进口零售</text>
+<text x="608" y="640" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="28" font-weight="800" fill="#18211d" text-anchor="middle">模式不是代码选择，而是业务流程、货物流、资金流和税务管理路径的选择。</text>
+<text x="72" y="780" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="22" font-weight="700" fill="#173f36" text-anchor="start">龙头会服 · 高端财税事业部</text>
+</svg>

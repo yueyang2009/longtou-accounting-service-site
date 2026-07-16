@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1216" height="832" viewBox="0 0 1216 832">
+<rect width="1216" height="832" fill="#f6efe2"/>
+<defs><filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#1a2420" flood-opacity="0.13"/></filter></defs>
+<text x="72" y="92" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#c79a4b" text-anchor="start">Gimi · 跨境电商财税系列</text>
+<text x="72" y="146" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="42" font-weight="800" fill="#18211d" text-anchor="start">经营模式选择的四个判断维度</text>
+<text x="72" y="196" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="23" font-weight="500" fill="#6c665b" text-anchor="start">产品、客户、履约和财税能力，共同决定企业应选择哪种模式。</text>
+<g filter="url(#shadow)"><rect x="108" y="315" width="215" height="220" rx="26" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<text x="216" y="380" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="28" font-weight="800" fill="#173f36" text-anchor="middle">产品特点</text>
+<text x="216" y="440" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="19" font-weight="500" fill="#6c665b" text-anchor="middle">低值快消 / 大型设备 / 标品 / 定制</text>
+<g filter="url(#shadow)"><rect x="363" y="315" width="215" height="220" rx="26" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<text x="471" y="380" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="28" font-weight="800" fill="#173f36" text-anchor="middle">销售方式</text>
+<text x="471" y="440" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="19" font-weight="500" fill="#6c665b" text-anchor="middle">C端消费者 / B端企业 / 平台 / 独立站</text>
+<g filter="url(#shadow)"><rect x="618" y="315" width="215" height="220" rx="26" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<text x="726" y="380" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="28" font-weight="800" fill="#173f36" text-anchor="middle">履约能力</text>
+<text x="726" y="440" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="19" font-weight="500" fill="#6c665b" text-anchor="middle">国内直发 / 海外仓 / 保税仓</text>
+<g filter="url(#shadow)"><rect x="873" y="315" width="215" height="220" rx="26" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<text x="981" y="380" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="28" font-weight="800" fill="#173f36" text-anchor="middle">财税能力</text>
+<text x="981" y="440" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="19" font-weight="500" fill="#6c665b" text-anchor="middle">核算、资料、申报、资金计划</text>
+<line x1="170" y1="610" x2="1045" y2="610" stroke="#c79a4b" stroke-width="5" stroke-linecap="round"/>
+<text x="608" y="685" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="30" font-weight="800" fill="#18211d" text-anchor="middle">不要先问“哪个税低”，先问“我的业务适合哪条路”。</text>
+<text x="72" y="780" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="22" font-weight="700" fill="#173f36" text-anchor="start">龙头会服 · 高端财税事业部</text>
+</svg>

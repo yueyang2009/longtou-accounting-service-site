@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1216" height="832" viewBox="0 0 1216 832">
+<rect width="1216" height="832" fill="#f6efe2"/>
+<defs><filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#1a2420" flood-opacity="0.13"/></filter></defs>
+<text x="72" y="92" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#c79a4b" text-anchor="start">Gimi · 跨境电商财税系列</text>
+<text x="72" y="146" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="42" font-weight="800" fill="#18211d" text-anchor="start">企业应该按发展阶段选择模式</text>
+<text x="72" y="196" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="23" font-weight="500" fill="#6c665b" text-anchor="start">初创看灵活，成长看规范，规模看供应链与资金效率。</text>
+<g filter="url(#shadow)"><rect x="140" y="270" width="936" height="76" rx="22" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<circle cx="200" cy="308" r="30" fill="#173f36"/>
+<text x="200" y="318" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="24" font-weight="800" fill="#fff" text-anchor="middle">1</text>
+<text x="260" y="302" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="26" font-weight="800" fill="#18211d" text-anchor="start">初创测试</text>
+<text x="455" y="302" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="28" font-weight="800" fill="#c79a4b" text-anchor="start">9610</text>
+<text x="260" y="334" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="19" font-weight="500" fill="#6c665b" text-anchor="start">快速试错，订单碎片化</text>
+<g filter="url(#shadow)"><rect x="140" y="375" width="936" height="76" rx="22" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<circle cx="200" cy="413" r="30" fill="#173f36"/>
+<text x="200" y="423" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="24" font-weight="800" fill="#fff" text-anchor="middle">2</text>
+<text x="260" y="407" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="26" font-weight="800" fill="#18211d" text-anchor="start">B2B增长</text>
+<text x="455" y="407" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="28" font-weight="800" fill="#c79a4b" text-anchor="start">9710</text>
+<text x="260" y="439" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="19" font-weight="500" fill="#6c665b" text-anchor="start">客户更稳定，合同资料更重要</text>
+<g filter="url(#shadow)"><rect x="140" y="480" width="936" height="76" rx="22" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<circle cx="200" cy="518" r="30" fill="#173f36"/>
+<text x="200" y="528" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="24" font-weight="800" fill="#fff" text-anchor="middle">3</text>
+<text x="260" y="512" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="26" font-weight="800" fill="#18211d" text-anchor="start">规模品牌</text>
+<text x="455" y="512" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="28" font-weight="800" fill="#c79a4b" text-anchor="start">9810</text>
+<text x="260" y="544" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="19" font-weight="500" fill="#6c665b" text-anchor="start">海外仓提升体验，也锁住现金</text>
+<g filter="url(#shadow)"><rect x="140" y="585" width="936" height="76" rx="22" fill="#fffaf0" stroke="#d7c7a7" stroke-width="2"/></g>
+<circle cx="200" cy="623" r="30" fill="#173f36"/>
+<text x="200" y="633" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="24" font-weight="800" fill="#fff" text-anchor="middle">4</text>
+<text x="260" y="617" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="26" font-weight="800" fill="#18211d" text-anchor="start">进口零售</text>
+<text x="455" y="617" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="28" font-weight="800" fill="#c79a4b" text-anchor="start">1210</text>
+<text x="260" y="649" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="19" font-weight="500" fill="#6c665b" text-anchor="start">适合保税进口场景</text>
+<text x="608" y="735" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="26" font-weight="800" fill="#18211d" text-anchor="middle">企业阶段变了，监管模式、财务核算和管理颗粒度也要跟着升级。</text>
+<text x="72" y="780" font-family="Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif" font-size="22" font-weight="700" fill="#173f36" text-anchor="start">龙头会服 · 高端财税事业部</text>
+</svg>
