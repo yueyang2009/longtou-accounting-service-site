@@ -15,6 +15,7 @@ export function BlogModulesClient({
 }) {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const userActionRef = useRef(false);
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
 
   const filtered = useMemo(() => {
@@ -42,7 +43,13 @@ export function BlogModulesClient({
         for (const entry of entries) {
           if (entry.isIntersecting) {
             const id = entry.target.getAttribute("id");
-            if (id) setActiveCategory((prev) => { const n = decodeURIComponent(id.replace("cat-", "")); return prev === null ? n : prev; });
+            if (id) setActiveCategory((prev) => {
+              if (userActionRef.current) {
+                userActionRef.current = false;
+                return prev;
+              }
+              return decodeURIComponent(id.replace("cat-", ""));
+            });
           }
         }
       },
@@ -55,8 +62,15 @@ export function BlogModulesClient({
   }, [groups]);
 
   const toggleCategory = (name: string) => {
-    setActiveCategory((prev) => (prev === name ? null : name));
-    scrollToSection(name);
+    setActiveCategory((prev) => {
+      if (prev === name) {
+        userActionRef.current = true;
+        return null;
+      }
+      userActionRef.current = false;
+      scrollToSection(name);
+      return name;
+    });
   };
 
   const scrollToSection = (name: string) => {
