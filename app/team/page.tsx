@@ -174,9 +174,35 @@ const teamValues = [
 ];
 
 export default function TeamPage() {
+  const SITE = "https://yueyang2009.github.io/longtou-accounting-service-site";
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      ...coreMembers.map((m) => ({
+        "@type": "Person",
+        name: m.name,
+        jobTitle: m.title,
+        description: m.fullIntro,
+        affiliation: { "@id": `${SITE}/#organization` },
+        sameAs: `${SITE}/team/#${m.slug}`,
+      })),
+      ...advisorMembers.map((m) => ({
+        "@type": "Person",
+        name: m.name,
+        jobTitle: m.title,
+        description: `${m.credential}。${m.focus}`,
+        affiliation: { "@id": `${SITE}/#organization` },
+      })),
+    ],
+  };
+
   return (
-    <div className="min-h-screen bg-[#0f1513] text-white">
-      <HomeHeader />
+      <div className="min-h-screen bg-[#0f1513] text-white">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <HomeHeader />
 
       <main>
         <TeamOrbit members={coreMembers} />
