@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle2, Minus } from "lucide-react";
 import type { ReactNode } from "react";
 
 import { HomeHeader } from "@/components/HomeHeader";
+import { HomeSectionMotion } from "@/components/HomeSectionMotion";
 import { FlipCard } from "@/components/FlipCard";
 import {
   annualPlan,
@@ -194,6 +195,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-brand-paper private-advisory-site">
       {/* ── Header ── */}
       <HomeHeader />
+      <HomeSectionMotion />
 
       <main>
         {/* ── Hero ── */}
