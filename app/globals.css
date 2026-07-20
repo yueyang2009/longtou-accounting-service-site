@@ -2320,3 +2320,118 @@ footer.bg-brand-emerald {
     background: rgba(25, 35, 31, 0.92) !important;
   }
 }
+
+/* ── 首页主模块卡片抽出感 ── */
+.private-advisory-site main {
+  position: relative;
+  padding: 1.25rem clamp(0.85rem, 2.2vw, 2rem) 2.5rem;
+}
+
+.private-advisory-site main > section {
+  position: relative;
+  width: min(100%, 1440px);
+  margin: clamp(1.25rem, 3vw, 2.5rem) auto;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: clamp(24px, 3vw, 38px);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.026) 46%, rgba(217, 199, 165, 0.045)),
+    rgba(8, 16, 14, 0.54) !important;
+  box-shadow:
+    0 34px 110px rgba(0, 0, 0, 0.34),
+    0 1px 0 rgba(255, 255, 255, 0.12) inset,
+    0 -1px 0 rgba(255, 255, 255, 0.035) inset;
+  -webkit-backdrop-filter: blur(24px) saturate(1.22);
+  backdrop-filter: blur(24px) saturate(1.22);
+}
+
+.private-advisory-site main > section:first-child {
+  margin-top: 1.25rem;
+  min-height: calc(100vh - 118px);
+}
+
+.private-advisory-site main > section + section {
+  margin-top: clamp(1.6rem, 4vw, 3.75rem);
+}
+
+.private-advisory-site main > section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.16), transparent 24%, transparent 78%, rgba(217, 199, 165, 0.06)),
+    radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.13), transparent 24rem),
+    radial-gradient(circle at 86% 12%, rgba(217, 199, 165, 0.10), transparent 22rem);
+  opacity: 0.72;
+}
+
+.private-advisory-site main > section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.private-advisory-site main > section::after {
+  content: "";
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: -1px;
+  height: 1px;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(217, 199, 165, 0.30), transparent);
+}
+
+@media (min-width: 1024px) {
+  .private-advisory-site main > section:nth-child(2n) {
+    width: min(calc(100% - 2.4rem), 1390px);
+    transform: translateX(-0.35rem);
+  }
+
+  .private-advisory-site main > section:nth-child(2n + 3) {
+    width: min(calc(100% - 3.6rem), 1360px);
+    transform: translateX(0.35rem);
+  }
+
+  .private-advisory-site main > section:hover {
+    border-color: rgba(217, 199, 165, 0.28) !important;
+    box-shadow:
+      0 42px 130px rgba(0, 0, 0, 0.42),
+      0 0 0 1px rgba(217, 199, 165, 0.08),
+      0 1px 0 rgba(255, 255, 255, 0.16) inset;
+  }
+}
+
+@media (max-width: 768px) {
+  .private-advisory-site main {
+    padding: 0.75rem 0.75rem 1.75rem;
+  }
+
+  .private-advisory-site main > section {
+    border-radius: 24px;
+    margin: 1rem auto;
+  }
+
+  .private-advisory-site main > section:first-child {
+    min-height: auto;
+  }
+}
+
+/* 修正：主模块卡片化时，保留 Hero 背景光斑的绝对定位 */
+.private-advisory-site main > section > .absolute,
+.private-advisory-site main > section > .hero-grid,
+.private-advisory-site main > section > .private-marble,
+.private-advisory-site main > section > .annual-grid-bg,
+.private-advisory-site main > section > .ppt-veil {
+  position: absolute !important;
+}
+
+.private-advisory-site main > section > .mx-auto,
+.private-advisory-site main > section > .ppt-content,
+.private-advisory-site main > section > .team-orbit-copy,
+.private-advisory-site main > section > .team-orbit-layout {
+  position: relative;
+  z-index: 2;
+}
