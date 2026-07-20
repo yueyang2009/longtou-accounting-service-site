@@ -2039,3 +2039,284 @@ body {
   }
 }
 
+
+/* ── 2026-07 玻璃拟态视觉升级 ── */
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background:
+    radial-gradient(circle at 12% 4%, rgba(217, 199, 165, 0.18), transparent 30rem),
+    radial-gradient(circle at 86% 12%, rgba(65, 102, 80, 0.30), transparent 34rem),
+    radial-gradient(circle at 50% 82%, rgba(255, 255, 255, 0.055), transparent 30rem),
+    linear-gradient(180deg, #08100e 0%, #0e1714 46%, #07100e 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 22% 18%, rgba(217, 199, 165, 0.16), transparent 16rem),
+    radial-gradient(circle at 80% 28%, rgba(58, 90, 71, 0.28), transparent 20rem),
+    radial-gradient(circle at 58% 88%, rgba(255, 255, 255, 0.065), transparent 18rem);
+  filter: blur(8px);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 74px 74px;
+  mask-image: radial-gradient(circle at 50% 18%, black 0%, transparent 70%);
+  opacity: 0.28;
+}
+
+.private-advisory-site,
+.min-h-screen.bg-brand-paper,
+.private-ivory-section,
+.private-report-section,
+.private-method-band,
+.private-annual-plan,
+.dark-slab,
+.cinematic-band,
+.hero-base,
+section.bg-brand-soft,
+section.bg-brand-paper,
+section:not(.private-hero):not(.annual-band):not(.team-orbit-section) {
+  background: transparent !important;
+}
+
+.private-hero,
+.annual-band,
+.team-orbit-section,
+.private-final-cta {
+  background:
+    radial-gradient(circle at 15% 10%, rgba(217, 199, 165, 0.22), transparent 25rem),
+    radial-gradient(circle at 88% 6%, rgba(54, 92, 70, 0.42), transparent 31rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.02) 38%, rgba(217, 199, 165, 0.045)),
+    rgba(8, 16, 14, 0.72) !important;
+}
+
+.private-hero::after,
+.annual-band::after,
+.private-final-cta::after {
+  content: "";
+  position: absolute;
+  inset: 1.25rem;
+  z-index: 0;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 32px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 42%, rgba(217, 199, 165, 0.04));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+header.sticky {
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  background: rgba(9, 17, 15, 0.58) !important;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(26px) saturate(1.35);
+  backdrop-filter: blur(26px) saturate(1.35);
+}
+
+header.sticky a[href="/"] {
+  background: rgba(255, 255, 255, 0.88) !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.20), inset 0 1px 0 rgba(255,255,255,0.85);
+}
+
+.premium-button,
+a.rounded-full,
+button.rounded-full {
+  box-shadow: 0 14px 36px rgba(217, 199, 165, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.38);
+}
+
+:where(.report-card,
+.interactive-card,
+.timeline-card,
+.timeline-flip,
+.private-memo-row,
+.private-panel,
+.private-process-card,
+.private-method-card,
+.dark-card,
+.metric-card,
+.dashboard-shell,
+.dashboard-surface,
+.dashboard-card,
+.dashboard-panel,
+.dashboard-review-card,
+.cockpit-primary-card,
+.cockpit-risk-card,
+.cockpit-review-card,
+.cockpit-mini-card,
+.team-metric,
+.prose-caishui blockquote,
+.private-cockpit-badge,
+section p.bg-brand-card,
+section p.bg-brand-soft,
+section div.bg-brand-card,
+section div.bg-brand-soft,
+article.bg-brand-card,
+article .bg-brand-soft) {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.115), rgba(255, 255, 255, 0.035) 48%, rgba(217, 199, 165, 0.055)) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(1.25);
+  backdrop-filter: blur(22px) saturate(1.25);
+  box-shadow:
+    0 22px 70px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.035) !important;
+}
+
+:where(.report-card,
+.interactive-card,
+.timeline-card,
+.private-panel,
+.private-process-card,
+.private-method-card,
+.dark-card,
+.metric-card,
+.dashboard-card,
+.dashboard-panel,
+.dashboard-review-card,
+.cockpit-primary-card,
+.cockpit-risk-card,
+.cockpit-review-card,
+.cockpit-mini-card) {
+  position: relative;
+  overflow: hidden;
+}
+
+:where(.report-card,
+.interactive-card,
+.timeline-card,
+.private-panel,
+.private-process-card,
+.private-method-card,
+.dark-card,
+.metric-card,
+.dashboard-card,
+.dashboard-panel,
+.dashboard-review-card,
+.cockpit-primary-card,
+.cockpit-risk-card,
+.cockpit-review-card,
+.cockpit-mini-card)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.20), transparent 28%),
+    radial-gradient(circle at 78% 12%, rgba(217,199,165,0.16), transparent 34%);
+  opacity: 0.62;
+}
+
+:where(.report-card,
+.interactive-card,
+.timeline-card,
+.private-panel,
+.private-process-card,
+.private-method-card,
+.dark-card,
+.metric-card,
+.dashboard-card,
+.dashboard-panel,
+.dashboard-review-card,
+.cockpit-primary-card,
+.cockpit-risk-card,
+.cockpit-review-card,
+.cockpit-mini-card) > * {
+  position: relative;
+  z-index: 1;
+}
+
+:where(.report-card,
+.interactive-card,
+.timeline-card,
+.private-panel,
+.private-process-card,
+.private-method-card,
+.dark-card,
+.metric-card):hover {
+  border-color: rgba(217, 199, 165, 0.38) !important;
+  box-shadow:
+    0 28px 92px rgba(0, 0, 0, 0.30),
+    0 0 0 1px rgba(217, 199, 165, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22) !important;
+}
+
+.private-cockpit-shell {
+  border-radius: 28px !important;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.14), rgba(255,255,255,0.035) 42%, rgba(217,199,165,0.08)),
+    rgba(12, 20, 18, 0.58) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(1.38);
+  backdrop-filter: blur(28px) saturate(1.38);
+  box-shadow:
+    0 44px 130px rgba(0, 0, 0, 0.46),
+    0 0 0 1px rgba(255, 255, 255, 0.12) inset,
+    0 0 70px rgba(217, 199, 165, 0.10) !important;
+}
+
+.cockpit-surface {
+  border-radius: 22px !important;
+  background: rgba(11, 18, 16, 0.58) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.3);
+  backdrop-filter: blur(24px) saturate(1.3);
+}
+
+.cockpit-primary-card.dashboard-panel,
+.cockpit-risk-card.dashboard-panel,
+.cockpit-mini-card.dashboard-card,
+.cockpit-review-card.dashboard-review-card,
+.cockpit-risk-cell {
+  border-radius: 16px !important;
+}
+
+.cockpit-review-card.dashboard-review-card {
+  background:
+    linear-gradient(135deg, rgba(217, 199, 165, 0.28), rgba(255,255,255,0.07)) !important;
+}
+
+.private-memo-row:hover,
+.private-method-card:hover {
+  background:
+    linear-gradient(135deg, rgba(217,199,165,0.16), rgba(255,255,255,0.06)) !important;
+}
+
+.prose-caishui img {
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 22px 70px rgba(0,0,0,0.28);
+}
+
+footer,
+footer.bg-brand-emerald {
+  background: rgba(6, 12, 11, 0.68) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(22px) saturate(1.2);
+  backdrop-filter: blur(22px) saturate(1.2);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :where(.report-card,
+  .interactive-card,
+  .timeline-card,
+  .private-panel,
+  .private-process-card,
+  .dark-card,
+  .dashboard-shell,
+  .dashboard-surface) {
+    background: rgba(25, 35, 31, 0.92) !important;
+  }
+}
