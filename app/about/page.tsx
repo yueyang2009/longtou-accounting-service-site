@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Minus } from "lucide-react";
 
 import { HomeHeader } from "@/components/HomeHeader";
+import { HomeSectionMotion } from "@/components/HomeSectionMotion";
 import { brand } from "@/lib/data";
 
 function Label({ text }: { text: string }) {
@@ -34,8 +35,9 @@ function QuoteLine({ children }: { children: string }) {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-brand-paper">
+    <div className="glass-section-page min-h-screen bg-brand-paper">
       <HomeHeader />
+      <HomeSectionMotion rootSelector=".glass-section-page main" />
 
       <main>
 

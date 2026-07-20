@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { HomeHeader } from "@/components/HomeHeader";
+import { HomeSectionMotion } from "@/components/HomeSectionMotion";
 import { FlipCard } from "@/components/FlipCard";
 import { brand, trustMetrics } from "@/lib/data";
 
@@ -249,7 +250,7 @@ function FeaturePanels() {
 
 export default function WhyAnnualAdvisorPage() {
   return (
-    <div className="annual-page min-h-screen">
+    <div className="annual-page glass-section-page min-h-screen">
       {/* 全局墨绿+淡金光晕 */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
         <div className="annual-glow left-[-10rem] top-[-8rem] h-[26rem] w-[26rem] bg-[radial-gradient(circle,rgba(217,199,165,0.16),transparent_70%)]" />
@@ -259,6 +260,7 @@ export default function WhyAnnualAdvisorPage() {
 
       {/* ── Header ── */}
       <HomeHeader />
+      <HomeSectionMotion rootSelector=".glass-section-page main" />
 
       <main className="relative z-10">
         {/* ═══════════ ① 服务定位（Hero） ═══════════ */}

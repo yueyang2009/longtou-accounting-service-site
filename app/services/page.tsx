@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { HomeHeader } from "@/components/HomeHeader";
+import { HomeSectionMotion } from "@/components/HomeSectionMotion";
 import { ServiceScenarioCards } from "@/components/ServiceScenarioCards";
 import { SectionReveal } from "@/components/SectionReveal";
 import { brand } from "@/lib/data";
@@ -30,8 +31,9 @@ function QuoteLine({ children }: { children: string }) {
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-brand-paper">
+    <div className="glass-section-page min-h-screen bg-brand-paper">
       <HomeHeader />
+      <HomeSectionMotion rootSelector=".glass-section-page main" sectionSelector=".services-reveal > section" />
 
       <main>
         <SectionReveal>

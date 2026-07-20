@@ -2,12 +2,20 @@
 
 import { useEffect } from "react";
 
-export function HomeSectionMotion() {
+type HomeSectionMotionProps = {
+  rootSelector?: string;
+  sectionSelector?: string;
+};
+
+export function HomeSectionMotion({
+  rootSelector = ".private-advisory-site main",
+  sectionSelector = ":scope > section",
+}: HomeSectionMotionProps = {}) {
   useEffect(() => {
-    const root = document.querySelector<HTMLElement>(".private-advisory-site main");
+    const root = document.querySelector<HTMLElement>(rootSelector);
     if (!root) return;
 
-    const sections = Array.from(root.querySelectorAll<HTMLElement>(":scope > section"));
+    const sections = Array.from(root.querySelectorAll<HTMLElement>(sectionSelector));
     if (sections.length === 0) return;
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -20,6 +28,7 @@ export function HomeSectionMotion() {
       section.classList.add("home-motion-section");
       section.style.setProperty("--section-index", String(index));
     });
+    sections[0]?.classList.add("is-section-active");
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -44,7 +53,7 @@ export function HomeSectionMotion() {
 
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
-  }, []);
+  }, [rootSelector, sectionSelector]);
 
   return null;
 }
