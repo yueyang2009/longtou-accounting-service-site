@@ -5,6 +5,8 @@ import type { ReactNode } from "react";
 import { HomeHeader } from "@/components/HomeHeader";
 import { Footer } from "@/components/Footer";
 import { Marquee } from "@/components/Marquee";
+import { ParticleHeadline } from "@/components/ParticleHeadline";
+import { IndustryScenes } from "@/components/IndustryScenes";
 import { HomeSectionMotion } from "@/components/HomeSectionMotion";
 import { FlipCard } from "@/components/FlipCard";
 import {
@@ -26,17 +28,25 @@ function SectionTitle({
   description,
   staggered = false,
   wide = false,
+  particleLines,
+  particleColor = "#1c2b22",
 }: {
   label?: string;
   title: ReactNode;
   description?: string;
   staggered?: boolean;
   wide?: boolean;
+  particleLines?: { text: string; indent?: number }[];
+  particleColor?: string;
 }) {
   return (
     <div className={`mx-auto ${wide ? "max-w-5xl" : "max-w-3xl"} ${staggered ? "text-left" : "text-center"}`}>
       {label && <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-brand-muted">{label}</p>}
-      <h2 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-5xl">{title}</h2>
+      {particleLines ? (
+        <ParticleHeadline lines={particleLines} color={particleColor} className="mt-1" />
+      ) : (
+        <h2 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-5xl">{title}</h2>
+      )}
       {description ? (
         <p className={`mt-6 max-w-2xl text-base leading-8 text-brand-muted ${staggered ? "" : "mx-auto"}`}>
           {description}
@@ -212,9 +222,11 @@ export default function HomePage() {
               <p className="mb-7 w-fit border border-[#d9c7a5]/30 bg-[#d9c7a5]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#e9d9bc]">
                 企业财税与经营参谋团队
               </p>
-              <h1 className="max-w-3xl text-4xl font-semibold leading-[1.15] tracking-tight text-white md:text-6xl">
-                让企业经营更规范 <span className="pl-4 md:pl-[2em]">让老板决策更从容</span>
-              </h1>
+              <ParticleHeadline
+                lines={[{ text: "让企业经营更规范" }, { text: "让老板决策更从容", indent: 2 }]}
+                color="#e9d9bc"
+                className="max-w-3xl"
+              />
               <p className="mt-8 max-w-2xl text-lg leading-8 text-white/66">
                 以财税为切入点，将利润、现金流、风险与组织协同置于同一经营节奏中分析。核心不是处理单点问题，而是建立持续经营判断能力。
               </p>
@@ -263,17 +275,16 @@ export default function HomePage() {
           />
         </section>
 
+        {/* ── 行业场景动画 ── */}
+        <IndustryScenes />
+
         {/* ── 痛点 ── */}
         <section id="pain" className="section-reveal private-ivory-section border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
               <div className="lg:sticky lg:top-28">
                 <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-brand-muted">老板痛点</p>
-                <h2 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-5xl">
-                  老板真正焦虑的
-                  <br />
-                  <span className="pl-[3em]">从来不是做账</span>
-                </h2>
+                <ParticleHeadline lines={[{ text: "老板真正焦虑的" }, { text: "从来不是做账", indent: 3 }]} />
                 <p className="mt-6 max-w-md text-base leading-8 text-brand-muted">
                   财税问题真正刺痛老板的，是它背后那张看不清的经营地图：利润真假、现金节奏、历史风险和组织边界。
                 </p>
@@ -299,6 +310,7 @@ export default function HomePage() {
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle
               label="年度顾问"
+              particleLines={[{ text: "我们陪伴企业走完一年" }, { text: "而不是解决一个问题", indent: 4 }]}
               staggered
               title={
                 <>
@@ -346,6 +358,7 @@ export default function HomePage() {
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle
               label="龙头方法"
+              particleLines={[{ text: "先看清 再理顺" }, { text: "先建立 再陪跑" }]}
               title={
                 <>
                   <span className="block w-fit mx-auto md:-translate-x-10">先看清 再理顺</span>
@@ -375,7 +388,7 @@ export default function HomePage() {
         {/* ── 服务：年度顾问 ── */}
         <section className="section-reveal private-annual-plan border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
-            <SectionTitle label="核心服务" title={annualPlan.title} />
+            <SectionTitle label="核心服务" title={annualPlan.title} particleLines={[{ text: annualPlan.title }]} />
             <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-7 text-brand-muted">
               {annualPlan.summary}
             </p>
@@ -432,6 +445,7 @@ export default function HomePage() {
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle
               label="How We Start"
+              particleLines={[{ text: "我们如何开始合作？" }]}
               title="我们如何开始合作？"
               description="先理解企业，再定义计划。合作开始之前，我们更关心问题是否被看清楚。"
             />
@@ -461,9 +475,7 @@ export default function HomePage() {
             <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
               <div>
                 <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/50">Principles</p>
-                <h2 className="text-3xl font-semibold leading-tight tracking-tight text-white md:text-5xl">
-                  我们坚持什么？
-                </h2>
+                <ParticleHeadline lines={[{ text: "我们坚持什么？" }]} color="#d9c7a5" />
               </div>
               <div className="grid gap-px overflow-hidden border border-white/12 bg-brand-card/12 md:grid-cols-2">
                 {principles.map((item) => (
@@ -480,7 +492,7 @@ export default function HomePage() {
         {/* ── 团队 ── */}
         <section id="team" className="section-reveal border-b border-brand-line">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
-            <SectionTitle label="团队实力" title="先看人 再谈合作" />
+            <SectionTitle label="团队实力" title="先看人 再谈合作" particleLines={[{ text: "先看人 再谈合作" }]} />
             <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {experts.map((expert) => (
                 <Link
@@ -518,6 +530,7 @@ export default function HomePage() {
             <SectionTitle
               label="精选案例"
               wide
+              particleLines={[{ text: "来自真实企业的财税与经营问题解决实践" }]}
               title={<span className="whitespace-nowrap">来自真实企业的财税与经营问题解决实践</span>}
             />
             <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -555,6 +568,7 @@ export default function HomePage() {
             <SectionTitle
               label="行动"
               staggered
+              particleLines={[{ text: "如果您正在考虑" }, { text: "我们建议先做一次判断", indent: 2 }]}
               title={
                 <>
                   如果您正在考虑
