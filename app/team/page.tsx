@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Award, Handshake, ShieldCheck, Users } from "lucide-react";
 
 import { HomeHeader } from "@/components/HomeHeader";
+import { Footer } from "@/components/Footer";
 import { TeamOrbit, type OrbitMember } from "@/components/TeamOrbit";
 import { AdvisorMatrix, type AdvisorMember } from "@/components/AdvisorMatrix";
 import { brand, trustMetrics, extendedExperts } from "@/lib/data";
@@ -268,12 +269,7 @@ export default function TeamPage() {
         </section>
       </main>
 
-      <footer className="border-t border-white/10 bg-[#0f1513]">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-8 text-sm text-white/52 md:flex-row md:items-center md:justify-between">
-          <p>{brand.name} · {brand.positioning}</p>
-          <p>电话 {brand.phone}</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

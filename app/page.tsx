@@ -3,6 +3,8 @@ import { ArrowRight, CheckCircle2, Minus } from "lucide-react";
 import type { ReactNode } from "react";
 
 import { HomeHeader } from "@/components/HomeHeader";
+import { Footer } from "@/components/Footer";
+import { Marquee } from "@/components/Marquee";
 import { HomeSectionMotion } from "@/components/HomeSectionMotion";
 import { FlipCard } from "@/components/FlipCard";
 import {
@@ -210,7 +212,7 @@ export default function HomePage() {
               <p className="mb-7 w-fit border border-[#d9c7a5]/30 bg-[#d9c7a5]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#e9d9bc]">
                 企业财税与经营参谋团队
               </p>
-              <h1 className="max-w-3xl text-3xl font-semibold leading-[1.2] tracking-tight text-white md:text-5xl">
+              <h1 className="max-w-3xl text-4xl font-semibold leading-[1.15] tracking-tight text-white md:text-6xl">
                 让企业经营更规范 <span className="pl-4 md:pl-[2em]">让老板决策更从容</span>
               </h1>
               <p className="mt-8 max-w-2xl text-lg leading-8 text-white/66">
@@ -241,6 +243,24 @@ export default function HomePage() {
             </div>
             <DashboardPreview />
           </div>
+        </section>
+
+        {/* ── 已服务行业 · 横向缓动滚条 ── */}
+        <section className="border-y border-white/8 bg-brand-soft py-6">
+          <Marquee
+            items={[
+              "制造业",
+              "外贸进出口",
+              "农产品加工",
+              "建筑工程",
+              "电商零售",
+              "技术服务",
+              "物流运输",
+              "餐饮连锁",
+              "医疗器械",
+              "新能源",
+            ]}
+          />
         </section>
 
         {/* ── 痛点 ── */}
@@ -569,12 +589,7 @@ export default function HomePage() {
       </main>
 
       {/* ── Footer ── */}
-      <footer className="bg-brand-emerald text-white">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8">
-          <p className="text-sm text-white/60">{brand.name} · {brand.positioning}</p>
-          <p className="text-sm text-white/60">电话 {brand.phone}</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

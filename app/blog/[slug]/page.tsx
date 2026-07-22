@@ -8,6 +8,7 @@ import type { Metadata } from "next";
 import { BrandLogo } from "@/components/BrandLogo";
 import { MobileNav } from "@/components/MobileNav";
 import { brand, navItems } from "@/lib/data";
+import { Footer } from "@/components/Footer";
 import { getPostBySlug, getAllPosts } from "@/lib/posts";
 
 const SITE = "https://yueyang2009.github.io/longtou-accounting-service-site";
@@ -219,14 +220,7 @@ export default async function BlogPostPage({
       </main>
 
       {/* ── Footer ── */}
-      <footer className="bg-brand-emerald text-white">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8">
-          <p className="text-sm text-white/60">
-            {brand.name} · {brand.positioning}
-          </p>
-          <p className="text-sm text-white/60">电话 {brand.phone}</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

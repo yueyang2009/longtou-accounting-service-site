@@ -32,7 +32,8 @@ const config: Config = {
         "card-hover": "0 4px 12px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.03)"
       },
       fontFamily: {
-        sans: ["Inter", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "sans-serif"]
+        sans: ["Inter", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "sans-serif"],
+        serif: ['"Noto Serif SC"', '"Songti SC"', '"STSong"', '"SimSun"', "serif"]
       },
       maxWidth: {
         "8xl": "1440px",

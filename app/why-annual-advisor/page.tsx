@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { HomeHeader } from "@/components/HomeHeader";
+import { Footer } from "@/components/Footer";
 import { HomeSectionMotion } from "@/components/HomeSectionMotion";
 import { FlipCard } from "@/components/FlipCard";
 import { brand, trustMetrics } from "@/lib/data";
@@ -369,12 +370,7 @@ export default function WhyAnnualAdvisorPage() {
         </section>
       </main>
 
-      <footer className="relative z-10 border-t border-white/10 bg-[#0a0f0d] text-white">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8">
-          <p className="text-sm text-white/60">{brand.name} · {brand.positioning}</p>
-          <p className="text-sm text-white/60">电话 {brand.phone}</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
