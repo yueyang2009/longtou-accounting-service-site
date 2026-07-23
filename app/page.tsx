@@ -29,7 +29,7 @@ function SectionTitle({
   staggered = false,
   wide = false,
   particleLines,
-  particleColor = "#1c2b22",
+  particleColor = "#d9c7a5",
 }: {
   label?: string;
   title: ReactNode;
@@ -43,9 +43,9 @@ function SectionTitle({
     <div className={`mx-auto ${wide ? "max-w-5xl" : "max-w-3xl"} ${staggered ? "text-left" : "text-center"}`}>
       {label && <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-brand-muted">{label}</p>}
       {particleLines ? (
-        <ParticleHeadline lines={particleLines} color={particleColor} align={staggered ? "left" : "center"} className="mt-1" />
+        <ParticleHeadline lines={particleLines} color={particleColor} fontWeight={800} align={staggered ? "left" : "center"} className="mt-1" />
       ) : (
-        <h2 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-5xl">{title}</h2>
+        <h2 className="text-3xl font-bold leading-tight tracking-tight text-[#d9c7a5] md:text-5xl">{title}</h2>
       )}
       {description ? (
         <ParticleHeadline
@@ -94,7 +94,7 @@ function DashboardPreview() {
           <div className="flex items-center justify-between border-b border-white/10 pb-5">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/42">Operating cockpit</p>
-              <p className="mt-2 text-2xl font-semibold tracking-tight">经营决策中枢</p>
+              <p className="mt-2 text-2xl font-bold tracking-tight text-[#d9c7a5]">经营决策中枢</p>
             </div>
             <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5">
               <span className="dashboard-dot h-2 w-2 rounded-full bg-[#d9c7a5]" />
@@ -139,7 +139,7 @@ function DashboardPreview() {
                 ].map(([label, value], index) => (
                   <div key={label} className="cockpit-mini-card dashboard-card border border-white/10 bg-brand-card/[0.055] p-4" style={{ animationDelay: `${index * 120}ms` }}>
                     <p className="text-xs whitespace-nowrap text-white/46">{label}</p>
-                    <p className="mt-3 text-lg font-semibold tracking-tight whitespace-nowrap text-white">{value}</p>
+                    <p className="mt-3 text-lg font-bold tracking-tight whitespace-nowrap text-[#d9c7a5]">{value}</p>
                   </div>
                 ))}
               </div>
@@ -147,7 +147,7 @@ function DashboardPreview() {
               <div className="grid gap-4 lg:grid-cols-[1fr_0.82fr]">
                 <div className="cockpit-risk-card dashboard-panel border border-white/10 bg-brand-card/[0.045] p-5">
                   <div className="flex items-center justify-between">
-                    <p className="text-sm font-semibold text-white">风险雷达</p>
+                    <p className="text-sm font-bold text-[#d9c7a5]">风险雷达</p>
                     <p className="text-xs text-white/42">前置识别</p>
                   </div>
                   <div className="mt-5 grid grid-cols-4 gap-2">
@@ -171,7 +171,7 @@ function DashboardPreview() {
                 </div>
                 <div className="dashboard-review-card cockpit-review-card border border-[#d9c7a5]/22 bg-[#d9c7a5]/12 p-5 text-white">
                   <p className="text-xs uppercase tracking-[0.24em] text-[#e9d9bc]/60">Next action</p>
-                  <p className="mt-3 text-2xl font-semibold leading-tight">老板经营简报</p>
+                  <p className="mt-3 text-2xl font-bold leading-tight text-[#d9c7a5]">老板经营简报</p>
                   <p className="mt-4 text-xs leading-5 text-white/52">把账、税、利润、现金流放回经营会议桌。</p>
                 </div>
               </div>
@@ -230,7 +230,7 @@ export default function HomePage() {
               </p>
               <ParticleHeadline
                 lines={[{ text: "让企业经营更规范", indent: -1 }, { text: "让老板决策更从容", indent: 1 }]}
-                color="#f2e7d2"
+                color="#d9c7a5"
                 className="max-w-3xl"
               />
               <ParticleHeadline
@@ -360,7 +360,7 @@ export default function HomePage() {
                       className="timeline-flip"
                       front={
                         <div className="timeline-front">
-                          <h3 className="text-lg font-semibold leading-snug text-brand-ink">{item.title}</h3>
+                          <h3 className="text-lg font-bold leading-snug text-[#d9c7a5]">{item.title}</h3>
                           <span className="mt-auto block pt-5 text-xs font-medium text-brand-gold/70">点击查看要点 ›</span>
                         </div>
                       }
@@ -525,12 +525,12 @@ export default function HomePage() {
             <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
               <div>
                 <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/50">Principles</p>
-                <ParticleHeadline lines={[{ text: "我们坚持什么？" }]} color="#f2e7d2" />
+                <ParticleHeadline lines={[{ text: "我们坚持什么？" }]} color="#d9c7a5" fontWeight={800} />
               </div>
               <div className="grid gap-px overflow-hidden border border-white/12 bg-brand-card/12 md:grid-cols-2">
                 {principles.map((item) => (
                   <div key={item.title} className="dark-card interactive-card p-8 md:p-10">
-                    <ParticleHeadline text={item.title} fontSize={24} lineHeight={1.3} fontWeight={700} color="#ffffff" align="left" />
+                    <ParticleHeadline text={item.title} fontSize={24} lineHeight={1.3} fontWeight={800} color="#d9c7a5" align="left" />
                     <ParticleHeadline text={item.description} fontSize={14} lineHeight={1.75} fontWeight={500} color="#f2e7d2" align="left" className="mt-5" />
                   </div>
                 ))}
@@ -558,7 +558,7 @@ export default function HomePage() {
               ))}
             </div>
             <div className="mt-14 border-t border-[#d9c7a5]/18 pt-10">
-              <ParticleHeadline text="服务数据" fontSize={12} lineHeight={1.4} fontWeight={700} color="#3a352c" align="left" className="mb-6 uppercase tracking-[0.22em]" />
+              <ParticleHeadline text="服务数据" fontSize={12} lineHeight={1.4} fontWeight={800} color="#d9c7a5" align="left" className="mb-6 uppercase tracking-[0.22em]" />
               <div className="grid grid-cols-2 gap-px overflow-hidden rounded-card border border-white/10 bg-white/10 md:grid-cols-4">
                 {trustMetrics.map((m) => (
                   <div key={m.label} className="team-metric bg-[#111816] px-6 py-7">

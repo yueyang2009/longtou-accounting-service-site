@@ -151,7 +151,7 @@ export function IndustryScenes() {
               <div className="mb-5 flex h-24 items-center justify-center rounded-xl border border-white/8 bg-[#0a0f0d]">
                 {item.scene}
               </div>
-              <h3 className="text-lg font-semibold tracking-tight text-brand-ink">{item.name}</h3>
+              <h3 className="text-lg font-bold tracking-tight text-[#d9c7a5]">{item.name}</h3>
               <p className="mt-2 text-sm leading-6 text-brand-muted">{item.note}</p>
             </div>
           ))}
