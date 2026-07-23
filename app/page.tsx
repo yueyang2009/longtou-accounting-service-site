@@ -231,7 +231,7 @@ export default function HomePage() {
               <ParticleHeadline
                 lines={[{ text: "让企业经营更规范" }, { text: "让老板决策更从容", indent: 2 }]}
                 color="#f2e7d2"
-                className="max-w-3xl -ml-8"
+                className="max-w-3xl md:-translate-x-[1em]"
               />
               <ParticleHeadline
                 text="以财税为切入点，将利润、现金流、风险与组织协同置于同一经营节奏中分析。核心不是处理单点问题，而是建立持续经营判断能力。"
