@@ -77,7 +77,7 @@ function DashboardPreview() {
       target="_self"
       rel="noopener noreferrer"
       aria-label="查看经营看板示例"
-      className="dashboard-stage executive-cockpit private-cockpit relative block cursor-pointer outline-none transition-transform duration-300 hover:-translate-y-1"
+      className="dashboard-stage executive-cockpit private-cockpit relative block cursor-pointer outline-none transition-transform duration-300 lg:translate-x-[1em] hover:-translate-y-1"
     >
       <span className="cockpit-launch-hint">
         <ArrowRight className="h-4 w-4" />
