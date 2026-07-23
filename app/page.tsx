@@ -229,9 +229,9 @@ export default function HomePage() {
                 企业财税与经营参谋团队
               </p>
               <ParticleHeadline
-                lines={[{ text: "让企业经营更规范" }, { text: "让老板决策更从容", indent: 2 }]}
+                lines={[{ text: "让企业经营更规范", indent: -1 }, { text: "让老板决策更从容", indent: 1 }]}
                 color="#f2e7d2"
-                className="max-w-3xl md:w-[calc(100%+2em)] md:max-w-[calc(48rem+2em)] md:-translate-x-[1em]"
+                className="max-w-3xl"
               />
               <ParticleHeadline
                 text="以财税为切入点，将利润、现金流、风险与组织协同置于同一经营节奏中分析。核心不是处理单点问题，而是建立持续经营判断能力。"
