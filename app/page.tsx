@@ -48,15 +48,9 @@ function SectionTitle({
         <h2 className="text-3xl font-bold leading-tight tracking-tight text-[#d9c7a5] md:text-5xl">{title}</h2>
       )}
       {description ? (
-        <ParticleHeadline
-          text={description}
-          fontSize={16}
-          lineHeight={2}
-          fontWeight={500}
-          color="#3a352c"
-          align={staggered ? "left" : "center"}
-          className={`mt-6 max-w-2xl ${staggered ? "" : "mx-auto"}`}
-        />
+        <p className={`mt-6 max-w-2xl text-base font-medium leading-8 text-[#3a352c] ${staggered ? "" : "mx-auto"}`}>
+          {description}
+        </p>
       ) : null}
     </div>
   );
@@ -233,15 +227,9 @@ export default function HomePage() {
                 color="#d9c7a5"
                 className="max-w-3xl"
               />
-              <ParticleHeadline
-                text="以财税为切入点，将利润、现金流、风险与组织协同置于同一经营节奏中分析。核心不是处理单点问题，而是建立持续经营判断能力。"
-                fontSize={18}
-                lineHeight={2}
-                fontWeight={500}
-                color="#ffffff"
-                align="left"
-                className="mt-8 max-w-2xl"
-              />
+              <p className="mt-8 max-w-2xl text-lg font-medium leading-9 text-white/80">
+                以财税为切入点，将利润、现金流、风险与组织协同置于同一经营节奏中分析。核心不是处理单点问题，而是建立持续经营判断能力。
+              </p>
               <div className="mt-11 flex flex-col gap-4 sm:flex-row">
                 <Link
                   href="/why-annual-advisor"
@@ -297,41 +285,22 @@ export default function HomePage() {
               <div className="lg:sticky lg:top-28">
                 <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-brand-muted">老板痛点</p>
                 <ParticleHeadline lines={[{ text: "老板真正焦虑的" }, { text: "从来不是做账", indent: 3 }]} color="#d9c7a5" className="-ml-8" />
-                <ParticleHeadline
-                  text="财税问题真正刺痛老板的，是它背后那张看不清的经营地图：利润真假、现金节奏、历史风险和组织边界。"
-                  fontSize={16}
-                  lineHeight={2}
-                  fontWeight={500}
-                  color="#3a352c"
-                  align="left"
-                  className="mt-6 max-w-md"
-                />
+                <p className="mt-6 max-w-md text-base font-medium leading-8 text-[#3a352c]">
+                  财税问题真正刺痛老板的，是它背后那张看不清的经营地图：利润真假、现金节奏、历史风险和组织边界。
+                </p>
               </div>
               <div className="grid gap-px overflow-hidden border border-brand-line bg-brand-line">
               {homePainCards.map((item, i) => (
                 <div key={item} className="private-memo-row bg-brand-card p-7 md:p-9">
                   <p className="mb-4 text-xs font-semibold tracking-[0.18em] text-brand-muted">0{i + 1}</p>
-                  <ParticleHeadline
-                    text={item}
-                    fontSize={24}
-                    lineHeight={1.3}
-                    fontWeight={700}
-                    color="#d9c7a5"
-                    align="left"
-                  />
+                  <h3 className="text-2xl font-bold leading-snug text-[#d9c7a5]">{item}</h3>
                 </div>
               ))}
               </div>
             </div>
-            <ParticleHeadline
-              text={"这些问题，不是单纯财务问题，而是经营秩序问题。\n龙头会服把财税问题放回经营现场，陪老板一起做判断。"}
-              fontSize={16}
-              lineHeight={2}
-              fontWeight={500}
-              color="#d9c7a5"
-              align="left"
-              className="ml-auto mt-10 max-w-3xl border-l-4 border-[#d9c7a5] bg-brand-card px-7 py-6 shadow-consult"
-            />
+            <p className="ml-auto mt-10 max-w-3xl whitespace-pre-line border-l-4 border-[#d9c7a5] bg-brand-card px-7 py-6 text-base font-semibold leading-8 text-[#d9c7a5] shadow-consult">
+              {"这些问题，不是单纯财务问题，而是经营秩序问题。\n龙头会服把财税问题放回经营现场，陪老板一起做判断。"}
+            </p>
           </div>
         </section>
 
@@ -400,26 +369,12 @@ export default function HomePage() {
               {longtouMethod.map((item) => (
                 <div key={item.title} className="private-method-card interactive-card bg-brand-card p-8 rounded-card">
                   <p className="mb-3 text-xs font-semibold text-brand-muted">{item.step}</p>
-                  <ParticleHeadline
-                    text={item.title}
-                    fontSize={30}
-                    lineHeight={1.2}
-                    fontWeight={700}
-                    color="#d9c7a5"
-                    align="left"
-                  />
+                  <h3 className="text-3xl font-bold leading-tight text-[#d9c7a5]">{item.title}</h3>
                   <ul className="mt-8 space-y-3">
                     {item.items.map((li) => (
                       <li key={li} className="flex items-start gap-3 text-sm leading-6 text-brand-muted">
                         <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand-ink" />
-                        <ParticleHeadline
-                          text={li}
-                          fontSize={14}
-                          lineHeight={1.5}
-                          fontWeight={500}
-                          color="#3a352c"
-                          align="left"
-                        />
+                        <span>{li}</span>
                       </li>
                     ))}
                   </ul>
@@ -433,35 +388,29 @@ export default function HomePage() {
         <section className="section-reveal private-annual-plan border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle label="核心服务" title={annualPlan.title} particleLines={[{ text: annualPlan.title }]} />
-            <ParticleHeadline
-              text={annualPlan.summary}
-              fontSize={16}
-              lineHeight={1.75}
-              fontWeight={500}
-              color="#3a352c"
-              align="center"
-              className="mx-auto mt-6 max-w-2xl"
-            />
+            <p className="mx-auto mt-6 max-w-2xl text-center text-base font-medium leading-7 text-[#3a352c]">
+              {annualPlan.summary}
+            </p>
 
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               <div className="private-panel interactive-card border border-brand-line bg-brand-card p-8 rounded-card">
-                <ParticleHeadline text="适合这样的企业" fontSize={18} lineHeight={1.3} fontWeight={700} color="#d9c7a5" align="left" />
+                <h3 className="text-lg font-bold leading-snug text-[#d9c7a5]">适合这样的企业</h3>
                 <ul className="mt-6 space-y-4">
                   {annualPlan.suitable.map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm leading-6 text-brand-muted">
                       <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand-ink" />
-                      <ParticleHeadline text={item} fontSize={14} lineHeight={1.5} fontWeight={500} color="#3a352c" align="left" />
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
               <div className="private-panel interactive-card border border-brand-line bg-brand-card p-8 rounded-card">
-                <ParticleHeadline text="年度顾问包含" fontSize={18} lineHeight={1.3} fontWeight={700} color="#d9c7a5" align="left" />
+                <h3 className="text-lg font-bold leading-snug text-[#d9c7a5]">年度顾问包含</h3>
                 <ul className="mt-6 space-y-4">
                   {annualPlan.whatYouGet.map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm leading-6 text-brand-muted">
                       <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand-ink" />
-                      <ParticleHeadline text={item} fontSize={14} lineHeight={1.5} fontWeight={500} color="#3a352c" align="left" />
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -472,8 +421,8 @@ export default function HomePage() {
               {annualPlan.process.map((step) => (
                 <div key={step.step} className="private-process-card interactive-card border border-brand-line bg-brand-card p-6 rounded-card">
                   <p className="text-xs font-semibold text-brand-muted">{step.step}</p>
-                  <ParticleHeadline text={step.title} fontSize={20} lineHeight={1.3} fontWeight={700} color="#d9c7a5" align="left" className="mt-3" />
-                  <ParticleHeadline text={step.desc} fontSize={14} lineHeight={1.5} fontWeight={500} color="#3a352c" align="left" className="mt-3" />
+                  <h3 className="mt-3 text-xl font-bold leading-snug text-[#d9c7a5]">{step.title}</h3>
+                  <p className="mt-3 text-sm font-medium leading-6 text-[#3a352c]">{step.desc}</p>
                 </div>
               ))}
             </div>
@@ -509,8 +458,8 @@ export default function HomePage() {
                     <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">
                       Step {index + 1}
                     </p>
-                    <ParticleHeadline text={step.title} fontSize={18} lineHeight={1.3} fontWeight={700} color="#d9c7a5" align="left" className="mt-5" />
-                    <ParticleHeadline text={step.description} fontSize={14} lineHeight={1.75} fontWeight={500} color="#3a352c" align="left" className="mt-5" />
+                    <h3 className="mt-5 text-lg font-bold leading-snug text-[#d9c7a5]">{step.title}</h3>
+                    <p className="mt-5 text-sm font-medium leading-7 text-[#3a352c]">{step.description}</p>
                   </div>
                   </div>
                 ))}
@@ -530,8 +479,8 @@ export default function HomePage() {
               <div className="grid gap-px overflow-hidden border border-white/12 bg-brand-card/12 md:grid-cols-2">
                 {principles.map((item) => (
                   <div key={item.title} className="dark-card interactive-card p-8 md:p-10">
-                    <ParticleHeadline text={item.title} fontSize={24} lineHeight={1.3} fontWeight={800} color="#d9c7a5" align="left" />
-                    <ParticleHeadline text={item.description} fontSize={14} lineHeight={1.75} fontWeight={500} color="#f2e7d2" align="left" className="mt-5" />
+                    <h3 className="text-2xl font-bold leading-snug text-[#d9c7a5]">{item.title}</h3>
+                    <p className="mt-5 text-sm font-medium leading-7 text-[#f2e7d2]">{item.description}</p>
                   </div>
                 ))}
               </div>
@@ -550,15 +499,15 @@ export default function HomePage() {
                   href={`/team#${expert.slug}`}
                   className="interactive-card border border-brand-line p-7 transition hover:border-brand-ink/40 hover:shadow-sm"
                 >
-                  <ParticleHeadline text={expert.name} fontSize={18} lineHeight={1.3} fontWeight={700} color="#d9c7a5" align="left" />
-                  <ParticleHeadline text={expert.title} fontSize={14} lineHeight={1.4} fontWeight={500} color="#3a352c" align="left" className="mt-1" />
-                  <ParticleHeadline text={expert.focus} fontSize={14} lineHeight={1.5} fontWeight={500} color="#3a352c" align="left" className="mt-4" />
-                  <ParticleHeadline text={expert.credential} fontSize={12} lineHeight={1.4} fontWeight={700} color="#d9c7a5" align="left" className="mt-4" />
+                  <h3 className="text-lg font-bold leading-snug text-[#d9c7a5]">{expert.name}</h3>
+                  <p className="mt-1 text-sm font-medium leading-6 text-[#3a352c]">{expert.title}</p>
+                  <p className="mt-4 text-sm font-medium leading-6 text-[#3a352c]">{expert.focus}</p>
+                  <p className="mt-4 text-xs font-bold leading-5 text-[#d9c7a5]">{expert.credential}</p>
                 </Link>
               ))}
             </div>
             <div className="mt-14 border-t border-[#d9c7a5]/18 pt-10">
-              <ParticleHeadline text="服务数据" fontSize={12} lineHeight={1.4} fontWeight={800} color="#d9c7a5" align="left" className="mb-6 uppercase tracking-[0.22em]" />
+              <p className="mb-6 text-xs font-extrabold uppercase leading-5 tracking-[0.22em] text-[#d9c7a5]">服务数据</p>
               <div className="grid grid-cols-2 gap-px overflow-hidden rounded-card border border-white/10 bg-white/10 md:grid-cols-4">
                 {trustMetrics.map((m) => (
                   <div key={m.label} className="team-metric bg-[#111816] px-6 py-7">
@@ -589,19 +538,19 @@ export default function HomePage() {
                   <p className="inline-block border border-brand-ink/20 bg-brand-soft px-3 py-1 text-xs font-semibold text-brand-ink">
                     {story.type}
                   </p>
-                  <ParticleHeadline text={story.background} fontSize={18} lineHeight={1.35} fontWeight={700} color="#d9c7a5" align="left" className="mt-5" />
+                  <h3 className="mt-5 text-lg font-bold leading-snug text-[#d9c7a5]">{story.background}</h3>
                   <div className="mt-5 space-y-3">
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">问题</p>
-                      <ParticleHeadline text={story.problem} fontSize={14} lineHeight={1.5} fontWeight={500} color="#3a352c" align="left" className="mt-1.5" />
+                      <p className="mt-1.5 text-sm font-medium leading-6 text-[#3a352c]">{story.problem}</p>
                     </div>
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">处理</p>
-                      <ParticleHeadline text={story.process} fontSize={14} lineHeight={1.5} fontWeight={500} color="#3a352c" align="left" className="mt-1.5" />
+                      <p className="mt-1.5 text-sm font-medium leading-6 text-[#3a352c]">{story.process}</p>
                     </div>
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">结果</p>
-                      <ParticleHeadline text={story.result} fontSize={14} lineHeight={1.5} fontWeight={500} color="#d9c7a5" align="left" className="mt-1.5 border-l-4 border-brand-ink bg-brand-soft px-5 py-3" />
+                      <p className="mt-1.5 border-l-4 border-brand-ink bg-brand-soft px-5 py-3 text-sm font-semibold leading-6 text-[#d9c7a5]">{story.result}</p>
                     </div>
                   </div>
                 </article>
@@ -623,9 +572,9 @@ export default function HomePage() {
                 className="mt-1"
               />
             </div>
-            <ParticleHeadline text="年度顾问更适合年营收2000万以上、已有稳定经营规模、且老板愿意参与经营管理的企业。" fontSize={16} lineHeight={1.75} fontWeight={500} color="#3a352c" align="center" className="mx-auto mt-6 max-w-2xl" />
-            <ParticleHeadline text="如果企业还处于初创阶段，或者只需要基础代账服务，年度顾问可能不是当前最优选择。" fontSize={14} lineHeight={1.5} fontWeight={500} color="#3a352c" align="center" className="mx-auto mt-4 max-w-xl" />
-            <ParticleHeadline text="不急着给方案，先把企业所处阶段、真实问题和需要优先处理的事项讲清楚。" fontSize={16} lineHeight={1.75} fontWeight={500} color="#3a352c" align="center" className="mx-auto mt-6 max-w-xl" />
+            <p className="mx-auto mt-6 max-w-2xl text-base font-medium leading-7 text-[#3a352c]">年度顾问更适合年营收2000万以上、已有稳定经营规模、且老板愿意参与经营管理的企业。</p>
+            <p className="mx-auto mt-4 max-w-xl text-sm font-medium leading-6 text-[#3a352c]">如果企业还处于初创阶段，或者只需要基础代账服务，年度顾问可能不是当前最优选择。</p>
+            <p className="mx-auto mt-6 max-w-xl text-base font-medium leading-7 text-[#3a352c]">不急着给方案，先把企业所处阶段、真实问题和需要优先处理的事项讲清楚。</p>
             <div className="mt-10 flex flex-col items-center gap-4">
               <Link
                 href="/contact"
