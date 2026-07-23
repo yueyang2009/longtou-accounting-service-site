@@ -43,14 +43,20 @@ function SectionTitle({
     <div className={`mx-auto ${wide ? "max-w-5xl" : "max-w-3xl"} ${staggered ? "text-left" : "text-center"}`}>
       {label && <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-brand-muted">{label}</p>}
       {particleLines ? (
-        <ParticleHeadline lines={particleLines} color={particleColor} className="mt-1" />
+        <ParticleHeadline lines={particleLines} color={particleColor} align={staggered ? "left" : "center"} className="mt-1" />
       ) : (
         <h2 className="text-3xl font-semibold leading-tight tracking-tight text-brand-ink md:text-5xl">{title}</h2>
       )}
       {description ? (
-        <p className={`mt-6 max-w-2xl text-base leading-8 text-brand-muted ${staggered ? "" : "mx-auto"}`}>
-          {description}
-        </p>
+        <ParticleHeadline
+          text={description}
+          fontSize={16}
+          lineHeight={2}
+          fontWeight={500}
+          color="#3a352c"
+          align={staggered ? "left" : "center"}
+          className={`mt-6 max-w-2xl ${staggered ? "" : "mx-auto"}`}
+        />
       ) : null}
     </div>
   );
@@ -224,12 +230,18 @@ export default function HomePage() {
               </p>
               <ParticleHeadline
                 lines={[{ text: "让企业经营更规范" }, { text: "让老板决策更从容", indent: 2 }]}
-                color="#e9d9bc"
+                color="#f2e7d2"
                 className="max-w-3xl"
               />
-              <p className="mt-8 max-w-2xl text-lg leading-8 text-white/66">
-                以财税为切入点，将利润、现金流、风险与组织协同置于同一经营节奏中分析。核心不是处理单点问题，而是建立持续经营判断能力。
-              </p>
+              <ParticleHeadline
+                text="以财税为切入点，将利润、现金流、风险与组织协同置于同一经营节奏中分析。核心不是处理单点问题，而是建立持续经营判断能力。"
+                fontSize={18}
+                lineHeight={2}
+                fontWeight={500}
+                color="#ffffff"
+                align="left"
+                className="mt-8 max-w-2xl"
+              />
               <div className="mt-11 flex flex-col gap-4 sm:flex-row">
                 <Link
                   href="/why-annual-advisor"
@@ -285,23 +297,41 @@ export default function HomePage() {
               <div className="lg:sticky lg:top-28">
                 <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-brand-muted">老板痛点</p>
                 <ParticleHeadline lines={[{ text: "老板真正焦虑的" }, { text: "从来不是做账", indent: 3 }]} />
-                <p className="mt-6 max-w-md text-base leading-8 text-brand-muted">
-                  财税问题真正刺痛老板的，是它背后那张看不清的经营地图：利润真假、现金节奏、历史风险和组织边界。
-                </p>
+                <ParticleHeadline
+                  text="财税问题真正刺痛老板的，是它背后那张看不清的经营地图：利润真假、现金节奏、历史风险和组织边界。"
+                  fontSize={16}
+                  lineHeight={2}
+                  fontWeight={500}
+                  color="#3a352c"
+                  align="left"
+                  className="mt-6 max-w-md"
+                />
               </div>
               <div className="grid gap-px overflow-hidden border border-brand-line bg-brand-line">
               {homePainCards.map((item, i) => (
                 <div key={item} className="private-memo-row bg-brand-card p-7 md:p-9">
                   <p className="mb-4 text-xs font-semibold tracking-[0.18em] text-brand-muted">0{i + 1}</p>
-                  <p className="text-2xl font-semibold leading-snug text-brand-ink">{item}</p>
+                  <ParticleHeadline
+                    text={item}
+                    fontSize={24}
+                    lineHeight={1.3}
+                    fontWeight={700}
+                    color="#d9c7a5"
+                    align="left"
+                  />
                 </div>
               ))}
               </div>
             </div>
-            <p className="ml-auto mt-10 max-w-3xl border-l-4 border-[#d9c7a5] bg-brand-card px-7 py-6 text-base font-medium leading-8 text-brand-ink shadow-consult">
-              这些问题，不是单纯财务问题，而是经营秩序问题。<br />
-              龙头会服把财税问题放回经营现场，陪老板一起做判断。
-            </p>
+            <ParticleHeadline
+              text={"这些问题，不是单纯财务问题，而是经营秩序问题。\n龙头会服把财税问题放回经营现场，陪老板一起做判断。"}
+              fontSize={16}
+              lineHeight={2}
+              fontWeight={500}
+              color="#d9c7a5"
+              align="left"
+              className="ml-auto mt-10 max-w-3xl border-l-4 border-[#d9c7a5] bg-brand-card px-7 py-6 shadow-consult"
+            />
           </div>
         </section>
 
@@ -370,12 +400,26 @@ export default function HomePage() {
               {longtouMethod.map((item) => (
                 <div key={item.title} className="private-method-card interactive-card bg-brand-card p-8 rounded-card">
                   <p className="mb-3 text-xs font-semibold text-brand-muted">{item.step}</p>
-                  <h3 className="text-3xl font-semibold tracking-tight text-brand-ink">{item.title}</h3>
+                  <ParticleHeadline
+                    text={item.title}
+                    fontSize={30}
+                    lineHeight={1.2}
+                    fontWeight={700}
+                    color="#d9c7a5"
+                    align="left"
+                  />
                   <ul className="mt-8 space-y-3">
                     {item.items.map((li) => (
                       <li key={li} className="flex items-start gap-3 text-sm leading-6 text-brand-muted">
                         <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand-ink" />
-                        {li}
+                        <ParticleHeadline
+                          text={li}
+                          fontSize={14}
+                          lineHeight={1.5}
+                          fontWeight={500}
+                          color="#3a352c"
+                          align="left"
+                        />
                       </li>
                     ))}
                   </ul>
@@ -389,29 +433,35 @@ export default function HomePage() {
         <section className="section-reveal private-annual-plan border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
             <SectionTitle label="核心服务" title={annualPlan.title} particleLines={[{ text: annualPlan.title }]} />
-            <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-7 text-brand-muted">
-              {annualPlan.summary}
-            </p>
+            <ParticleHeadline
+              text={annualPlan.summary}
+              fontSize={16}
+              lineHeight={1.75}
+              fontWeight={500}
+              color="#3a352c"
+              align="center"
+              className="mx-auto mt-6 max-w-2xl"
+            />
 
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               <div className="private-panel interactive-card border border-brand-line bg-brand-card p-8 rounded-card">
-                <h3 className="text-lg font-semibold text-brand-ink">适合这样的企业</h3>
+                <ParticleHeadline text="适合这样的企业" fontSize={18} lineHeight={1.3} fontWeight={700} color="#d9c7a5" align="left" />
                 <ul className="mt-6 space-y-4">
                   {annualPlan.suitable.map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm leading-6 text-brand-muted">
                       <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand-ink" />
-                      {item}
+                      <ParticleHeadline text={item} fontSize={14} lineHeight={1.5} fontWeight={500} color="#3a352c" align="left" />
                     </li>
                   ))}
                 </ul>
               </div>
               <div className="private-panel interactive-card border border-brand-line bg-brand-card p-8 rounded-card">
-                <h3 className="text-lg font-semibold text-brand-ink">年度顾问包含</h3>
+                <ParticleHeadline text="年度顾问包含" fontSize={18} lineHeight={1.3} fontWeight={700} color="#d9c7a5" align="left" />
                 <ul className="mt-6 space-y-4">
                   {annualPlan.whatYouGet.map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm leading-6 text-brand-muted">
                       <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand-ink" />
-                      {item}
+                      <ParticleHeadline text={item} fontSize={14} lineHeight={1.5} fontWeight={500} color="#3a352c" align="left" />
                     </li>
                   ))}
                 </ul>
@@ -422,8 +472,8 @@ export default function HomePage() {
               {annualPlan.process.map((step) => (
                 <div key={step.step} className="private-process-card interactive-card border border-brand-line bg-brand-card p-6 rounded-card">
                   <p className="text-xs font-semibold text-brand-muted">{step.step}</p>
-                  <p className="mt-3 text-xl font-semibold text-brand-ink">{step.title}</p>
-                  <p className="mt-3 text-sm leading-6 text-brand-muted">{step.desc}</p>
+                  <ParticleHeadline text={step.title} fontSize={20} lineHeight={1.3} fontWeight={700} color="#d9c7a5" align="left" className="mt-3" />
+                  <ParticleHeadline text={step.desc} fontSize={14} lineHeight={1.5} fontWeight={500} color="#3a352c" align="left" className="mt-3" />
                 </div>
               ))}
             </div>
@@ -455,13 +505,13 @@ export default function HomePage() {
                 {cooperationSteps.map((step, index) => (
                   <div key={step.title} className="bg-brand-card">
                     <div className="mb-7 hidden h-6 w-6 rounded-full border border-brand-ink bg-white md:block" />
-                    <div className="timeline-card border border-brand-line p-8">
-                      <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">
-                        Step {index + 1}
-                      </p>
-                      <h3 className="mt-5 text-lg font-semibold tracking-tight text-brand-ink">{step.title}</h3>
-                      <p className="mt-5 text-sm leading-7 text-brand-muted">{step.description}</p>
-                    </div>
+                  <div className="timeline-card border border-brand-line p-8">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">
+                      Step {index + 1}
+                    </p>
+                    <ParticleHeadline text={step.title} fontSize={18} lineHeight={1.3} fontWeight={700} color="#d9c7a5" align="left" className="mt-5" />
+                    <ParticleHeadline text={step.description} fontSize={14} lineHeight={1.75} fontWeight={500} color="#3a352c" align="left" className="mt-5" />
+                  </div>
                   </div>
                 ))}
               </div>
@@ -475,13 +525,13 @@ export default function HomePage() {
             <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
               <div>
                 <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/50">Principles</p>
-                <ParticleHeadline lines={[{ text: "我们坚持什么？" }]} color="#d9c7a5" />
+                <ParticleHeadline lines={[{ text: "我们坚持什么？" }]} color="#f2e7d2" />
               </div>
               <div className="grid gap-px overflow-hidden border border-white/12 bg-brand-card/12 md:grid-cols-2">
                 {principles.map((item) => (
                   <div key={item.title} className="dark-card interactive-card p-8 md:p-10">
-                    <h3 className="text-2xl font-semibold tracking-tight text-white">{item.title}</h3>
-                    <p className="mt-5 text-sm leading-7 text-white/62">{item.description}</p>
+                    <ParticleHeadline text={item.title} fontSize={24} lineHeight={1.3} fontWeight={700} color="#ffffff" align="left" />
+                    <ParticleHeadline text={item.description} fontSize={14} lineHeight={1.75} fontWeight={500} color="#f2e7d2" align="left" className="mt-5" />
                   </div>
                 ))}
               </div>
@@ -500,15 +550,15 @@ export default function HomePage() {
                   href={`/team#${expert.slug}`}
                   className="interactive-card border border-brand-line p-7 transition hover:border-brand-ink/40 hover:shadow-sm"
                 >
-                  <p className="text-lg font-semibold text-brand-ink">{expert.name}</p>
-                  <p className="mt-1 text-sm font-medium text-brand-muted">{expert.title}</p>
-                  <p className="mt-4 text-sm leading-6 text-brand-muted">{expert.focus}</p>
-                  <p className="mt-4 text-xs font-semibold text-brand-ink">{expert.credential}</p>
+                  <ParticleHeadline text={expert.name} fontSize={18} lineHeight={1.3} fontWeight={700} color="#d9c7a5" align="left" />
+                  <ParticleHeadline text={expert.title} fontSize={14} lineHeight={1.4} fontWeight={500} color="#3a352c" align="left" className="mt-1" />
+                  <ParticleHeadline text={expert.focus} fontSize={14} lineHeight={1.5} fontWeight={500} color="#3a352c" align="left" className="mt-4" />
+                  <ParticleHeadline text={expert.credential} fontSize={12} lineHeight={1.4} fontWeight={700} color="#d9c7a5" align="left" className="mt-4" />
                 </Link>
               ))}
             </div>
             <div className="mt-14 border-t border-[#d9c7a5]/18 pt-10">
-              <p className="mb-6 text-xs font-semibold uppercase tracking-[0.22em] text-[#d9c7a5]/80">服务数据</p>
+              <ParticleHeadline text="服务数据" fontSize={12} lineHeight={1.4} fontWeight={700} color="#3a352c" align="left" className="mb-6 uppercase tracking-[0.22em]" />
               <div className="grid grid-cols-2 gap-px overflow-hidden rounded-card border border-white/10 bg-white/10 md:grid-cols-4">
                 {trustMetrics.map((m) => (
                   <div key={m.label} className="team-metric bg-[#111816] px-6 py-7">
@@ -539,21 +589,19 @@ export default function HomePage() {
                   <p className="inline-block border border-brand-ink/20 bg-brand-soft px-3 py-1 text-xs font-semibold text-brand-ink">
                     {story.type}
                   </p>
-                  <h3 className="mt-5 text-lg font-semibold leading-snug text-brand-ink">{story.background}</h3>
+                  <ParticleHeadline text={story.background} fontSize={18} lineHeight={1.35} fontWeight={700} color="#d9c7a5" align="left" className="mt-5" />
                   <div className="mt-5 space-y-3">
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">问题</p>
-                      <p className="mt-1.5 text-sm leading-6 text-brand-muted">{story.problem}</p>
+                      <ParticleHeadline text={story.problem} fontSize={14} lineHeight={1.5} fontWeight={500} color="#3a352c" align="left" className="mt-1.5" />
                     </div>
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">处理</p>
-                      <p className="mt-1.5 text-sm leading-6 text-brand-muted">{story.process}</p>
+                      <ParticleHeadline text={story.process} fontSize={14} lineHeight={1.5} fontWeight={500} color="#3a352c" align="left" className="mt-1.5" />
                     </div>
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">结果</p>
-                      <p className="mt-1.5 border-l-4 border-brand-ink bg-brand-soft px-5 py-3 text-sm font-medium leading-6 text-brand-ink">
-                        {story.result}
-                      </p>
+                      <ParticleHeadline text={story.result} fontSize={14} lineHeight={1.5} fontWeight={500} color="#d9c7a5" align="left" className="mt-1.5 border-l-4 border-brand-ink bg-brand-soft px-5 py-3" />
                     </div>
                   </div>
                 </article>
@@ -565,27 +613,19 @@ export default function HomePage() {
         {/* ── 判断与行动 ── */}
         <section data-header-theme="dark" className="section-reveal private-final-cta border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-3xl px-6 py-28 text-center md:py-36">
-            <SectionTitle
-              label="行动"
-              staggered
-              particleLines={[{ text: "如果您正在考虑" }, { text: "我们建议先做一次判断", indent: 2 }]}
-              title={
-                <>
-                  如果您正在考虑
-                  <br />
-                  <span className="pl-[2em]">我们建议先做一次判断</span>
-                </>
-              }
-            />
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-brand-muted whitespace-normal md:whitespace-nowrap">
-              年度顾问更适合年营收2000万以上、已有稳定经营规模、且老板愿意参与经营管理的企业。
-            </p>
-            <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-brand-body">
-              如果企业还处于初创阶段，或者只需要基础代账服务，年度顾问可能不是当前最优选择。
-            </p>
-            <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-brand-muted">
-              不急着给方案，先把企业所处阶段、真实问题和需要优先处理的事项讲清楚。
-            </p>
+            {/* 行动标题：直接粒子，左对齐，金色 */}
+            <div className="mx-auto max-w-3xl px-6 text-left">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-brand-muted">行动</p>
+              <ParticleHeadline
+                lines={[{ text: "如果您正在考虑", indent: 1 }, { text: "我们建议先做一次判断", indent: 2 }]}
+                color="#d9c7a5"
+                align="left"
+                className="mt-1"
+              />
+            </div>
+            <ParticleHeadline text="年度顾问更适合年营收2000万以上、已有稳定经营规模、且老板愿意参与经营管理的企业。" fontSize={16} lineHeight={1.75} fontWeight={500} color="#3a352c" align="center" className="mx-auto mt-6 max-w-2xl" />
+            <ParticleHeadline text="如果企业还处于初创阶段，或者只需要基础代账服务，年度顾问可能不是当前最优选择。" fontSize={14} lineHeight={1.5} fontWeight={500} color="#3a352c" align="center" className="mx-auto mt-4 max-w-xl" />
+            <ParticleHeadline text="不急着给方案，先把企业所处阶段、真实问题和需要优先处理的事项讲清楚。" fontSize={16} lineHeight={1.75} fontWeight={500} color="#3a352c" align="center" className="mx-auto mt-6 max-w-xl" />
             <div className="mt-10 flex flex-col items-center gap-4">
               <Link
                 href="/contact"

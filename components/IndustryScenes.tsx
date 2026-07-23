@@ -133,10 +133,16 @@ export function IndustryScenes() {
       <div className="mx-auto max-w-7xl px-6 py-28 md:py-36">
         <div className="lg:sticky lg:top-28">
           <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-brand-muted">服务行业</p>
-          <ParticleHeadline lines={[{ text: "每个行业" }, { text: "都有自己的财税命题", indent: 3 }]} />
-          <p className="mt-6 max-w-md text-base leading-8 text-brand-muted">
-            从制造业的产线成本，到外贸的出口退税、农产品的免税备案——不同行业的财税风险，藏在各自的经营细节里。我们服务过的，是一个个具体的现场。
-          </p>
+          <ParticleHeadline lines={[{ text: "每个行业" }, { text: "都有自己的财税命题", indent: 3 }]} color="#d9c7a5" />
+          <ParticleHeadline
+            text="从制造业的产线成本，到外贸的出口退税、农产品的免税备案——不同行业的财税风险，藏在各自的经营细节里。我们服务过的，是一个个具体的现场。"
+            fontSize={16}
+            lineHeight={2}
+            fontWeight={500}
+            color="#3a352c"
+            align="left"
+            className="mt-6 max-w-md"
+          />
         </div>
 
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">

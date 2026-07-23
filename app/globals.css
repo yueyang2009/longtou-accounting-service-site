@@ -2900,7 +2900,7 @@ footer.bg-brand-emerald {
 .private-memo-row,
 .flip-card.timeline-flip .flip-card-face,
 .flip-card.timeline-flip .flip-card-back {
-  border: 1px solid rgba(217, 199, 165, 0.45) !important;
+  border: 2px solid rgba(217, 199, 165, 0.55) !important;
 }
 
 .interactive-card:hover,
@@ -2910,5 +2910,5 @@ footer.bg-brand-emerald {
 .dark-card:hover,
 .private-memo-row:hover,
 .flip-card.timeline-flip:hover .flip-card-face {
-  border-color: rgba(217, 199, 165, 0.78) !important;
+  border-color: rgba(217, 199, 165, 0.88) !important;
 }
