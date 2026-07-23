@@ -296,7 +296,7 @@ export default function HomePage() {
             <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
               <div className="lg:sticky lg:top-28">
                 <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-brand-muted">老板痛点</p>
-                <ParticleHeadline lines={[{ text: "老板真正焦虑的" }, { text: "从来不是做账", indent: 3 }]} />
+                <ParticleHeadline lines={[{ text: "老板真正焦虑的" }, { text: "从来不是做账", indent: 3 }]} color="#d9c7a5" className="-ml-8" />
                 <ParticleHeadline
                   text="财税问题真正刺痛老板的，是它背后那张看不清的经营地图：利润真假、现金节奏、历史风险和组织边界。"
                   fontSize={16}
