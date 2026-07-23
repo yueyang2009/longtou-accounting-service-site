@@ -223,7 +223,7 @@ export default function HomePage() {
                 企业财税与经营参谋团队
               </p>
               <ParticleHeadline
-                lines={[{ text: "让企业经营更规范", indent: -1 }, { text: "让老板决策更从容", indent: 1 }]}
+                lines={[{ text: "让企业经营更规范", indent: -1 }, { text: "让老板决策更从容", indent: 0 }]}
                 color="#d9c7a5"
                 className="max-w-3xl"
               />
