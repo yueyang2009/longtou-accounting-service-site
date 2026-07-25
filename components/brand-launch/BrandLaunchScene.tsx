@@ -51,8 +51,9 @@ export function BrandLaunchScene({ progress, target }: Props) {
       // The particles settle directly at the final left-side IP position as a soft vortex, never as a rectangular pixel card.
       const targetAngle = Math.random() * Math.PI * 2;
       const targetRadius = Math.pow(Math.random(), .7);
-      targets[i * 3] = -1.62 + Math.cos(targetAngle) * targetRadius * .8;
-      targets[i * 3 + 1] = .72 + Math.sin(targetAngle) * targetRadius * 1.1;
+      // Matches the final desktop Longling frame: left column and raised to the brand-title height.
+      targets[i * 3] = -1.5 + Math.cos(targetAngle) * targetRadius * .72;
+      targets[i * 3 + 1] = 1.35 + Math.sin(targetAngle) * targetRadius * 1.0;
       targets[i * 3 + 2] = (Math.random() - .5) * .34;
       scales[i] = 0.8 + Math.random() * 2.2;
       seeds[i] = Math.random();
