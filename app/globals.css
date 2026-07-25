@@ -2963,6 +2963,24 @@ footer.bg-brand-emerald {
   transition: opacity 700ms ease, visibility 700ms ease;
 }
 
+/* The site-wide card rule targets direct section children. Reassert the intro's layered stage. */
+.private-advisory-site main > section.brand-launch > .brand-launch-canvas,
+.private-advisory-site main > section.brand-launch > .brand-launch-vignette,
+.private-advisory-site main > section.brand-launch > .brand-launch-oriental,
+.private-advisory-site main > section.brand-launch > .brand-launch-copy,
+.private-advisory-site main > section.brand-launch > .brand-launch-ip,
+.private-advisory-site main > section.brand-launch > .brand-launch-enter,
+.private-advisory-site main > section.brand-launch > .brand-launch-scroll {
+  position: absolute !important;
+}
+.private-advisory-site main > section.brand-launch > .brand-launch-canvas { z-index: 0 !important; }
+.private-advisory-site main > section.brand-launch > .brand-launch-vignette,
+.private-advisory-site main > section.brand-launch > .brand-launch-oriental { z-index: 1 !important; }
+.private-advisory-site main > section.brand-launch > .brand-launch-ip { z-index: 3 !important; }
+.private-advisory-site main > section.brand-launch > .brand-launch-copy,
+.private-advisory-site main > section.brand-launch > .brand-launch-scroll { z-index: 4 !important; }
+.private-advisory-site main > section.brand-launch > .brand-launch-enter { z-index: 6 !important; }
+
 .brand-launch-overlay.is-leaving {
   opacity: 0;
   visibility: hidden;
