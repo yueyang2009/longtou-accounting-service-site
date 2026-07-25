@@ -3104,11 +3104,21 @@ footer.bg-brand-emerald {
 }
 
 .brand-phase-brand .brand-launch-ip {
-  left: min(79%, calc(50% + 360px));
+  left: max(24%, calc(50% - 420px));
   bottom: 2%;
-  width: min(25vw, 330px);
+  width: min(33vw, 460px);
   transition-delay: 80ms;
 }
+
+.brand-phase-brand .brand-launch-copy {
+  left: min(62%, calc(50% + 200px));
+  top: 50%;
+  width: min(40vw, 590px);
+  text-align: left;
+}
+
+.brand-phase-brand .brand-launch-copy .brand-launch-line { margin-left: 0; }
+.brand-phase-brand .brand-launch-enter { left: min(62%, calc(50% + 200px)); }
 
 .brand-launch-scroll {
   position: absolute;
@@ -3155,6 +3165,9 @@ footer.bg-brand-emerald {
   .brand-launch h1 { font-size: clamp(3rem, 16vw, 5rem); }
   .brand-launch-ip { width: min(73vw, 360px); bottom: 4%; }
   .brand-phase-brand .brand-launch-ip { left: 50%; bottom: 2%; width: min(54vw, 280px); }
+  .brand-phase-brand .brand-launch-copy { left: 50%; width: min(90vw, 720px); text-align: center; }
+  .brand-phase-brand .brand-launch-copy .brand-launch-line { margin-left: auto; }
+  .brand-phase-brand .brand-launch-enter { left: 50%; }
   .brand-launch-copy { top: 37%; }
   .brand-launch-enter { bottom: 7%; font-size: 12px; white-space: nowrap; }
   .brand-launch-scroll { right: 16px; }

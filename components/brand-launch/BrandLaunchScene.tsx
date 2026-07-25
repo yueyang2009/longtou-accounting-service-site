@@ -75,7 +75,7 @@ export function BrandLaunchScene({ progress, target }: Props) {
     // Sample the approved 龙灵 artwork itself, so the convergence uses its real silhouette rather than a generic figure.
     const sourceImage = new Image();
     const basePath = window.location.pathname.startsWith("/longtou-accounting-service-site") ? "/longtou-accounting-service-site" : "";
-    sourceImage.src = `${basePath}/images/longling-final-ip.png`;
+    sourceImage.src = `${basePath}/images/longling-brand-ip.png`;
     sourceImage.onload = () => {
       const sampleSize = 220;
       const canvas = document.createElement("canvas");
