@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { Footer } from "@/components/Footer";
 import { HomeHeader } from "@/components/HomeHeader";
-import { BreakEvenStudio } from "@/components/BreakEvenStudio";
+import { BreakEvenModeTabs } from "@/components/BreakEvenModeTabs";
 
 export const metadata: Metadata = {
   title: "盈亏平衡点决策模型",
@@ -14,7 +14,7 @@ export default function BreakEvenPage() {
   return (
     <div className="min-h-screen bg-brand-paper">
       <HomeHeader />
-      <BreakEvenStudio />
+      <BreakEvenModeTabs />
       <Footer />
     </div>
   );
