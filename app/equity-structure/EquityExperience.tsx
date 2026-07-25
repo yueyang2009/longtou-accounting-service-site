@@ -35,6 +35,14 @@ const suggestions = [
   ["03", "资本规划设计", "支持融资、并购和退出", "围绕资本动作预留股权、税务与治理空间。"],
 ];
 
+const relationshipPaths = [
+  "M500 78 V106 H300 V124", "M500 78 V124", "M500 106 H700 V124",
+  "M300 186 V232 H500", "M500 186 V266", "M700 186 V232 H500",
+  "M500 266 H180 V282", "M500 266 H393 V282", "M500 266 H607 V282", "M500 266 H820 V282",
+  "M180 344 V410 H104 V453", "M180 410 H290 V453", "M393 344 V410 H430 V453",
+  "M393 410 H600 V453", "M607 344 V410 H600", "M820 344 V410 H896 V453",
+];
+
 export function EquityExperience() {
   const [expanded, setExpanded] = useState(false);
   const [scan, setScan] = useState(0);
@@ -49,7 +57,7 @@ export function EquityExperience() {
       <article className="constellation-panel panel">
         <div className="panel-top"><div><p className="eyebrow">CONTROL MAP / 01</p><h2>四级股权架构图</h2></div><div className="map-key"><span className="key-dot" /> 控制关系动态演算</div></div>
         <div className="hierarchy-map">
-          <div className="hierarchy-glow" /><svg className="hierarchy-lines" viewBox="0 0 1000 440" preserveAspectRatio="none" aria-hidden="true"><path d="M500 70V105M500 105H500M500 155V190M500 190H180M500 190H500M500 190H820M180 245V285M500 245V285M820 245V285M180 285H105M180 285H355M500 285H355M500 285H605M820 285H605M820 285H895" /><path className="hierarchy-pulse" d="M500 70V105M500 155V190M180 245V285M500 245V285M820 245V285" /></svg>
+          <div className="hierarchy-glow" /><svg className="hierarchy-lines" viewBox="0 0 1000 650" preserveAspectRatio="none" aria-hidden="true">{relationshipPaths.map((path, index) => <g key={path}><path className="hierarchy-link" d={path} /><path className="hierarchy-pulse" d={path} style={{ animationDelay: `${index * -0.18}s` }} /></g>)}</svg>
           {hierarchy.map((level, levelIndex) => <div className={`hierarchy-level level-${levelIndex}`} key={levelIndex}>{level.map((node, index) => <button key={node.id} className={`structure-node ${node.kind ?? ""} ${node.active ? "is-active" : ""}`} onClick={() => node.id === "technology" && setExpanded(true)}><span className="structure-orb" /><b>{node.name}</b><em>{node.caption}</em><strong>{node.share}</strong>{node.active && <small>点击穿透</small>}</button>)}</div>)}
           <div className="level-label label-0">L1 / 控制主体</div><div className="level-label label-1">L2 / 控股平台</div><div className="level-label label-2">L3 / 业务与资本平台</div><div className="level-label label-3">L4 / 经营与资产主体</div>
         </div>
