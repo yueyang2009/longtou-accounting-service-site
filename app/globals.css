@@ -2950,6 +2950,25 @@ footer.bg-brand-emerald {
     linear-gradient(180deg, #01030b 0%, #030818 48%, #02040d 100%) !important;
 }
 
+.private-advisory-site main > section.brand-launch-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 100;
+  width: 100% !important;
+  height: 100svh !important;
+  min-height: 100svh !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  transition: opacity 700ms ease, visibility 700ms ease;
+}
+
+.brand-launch-overlay.is-leaving {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .brand-launch-canvas,
 .brand-launch-canvas canvas,
 .brand-launch-vignette,
@@ -3087,12 +3106,39 @@ footer.bg-brand-emerald {
 .brand-launch-scroll span { margin-top: 12px; color: #e5bd68; animation: brand-scroll 1.8s ease-in-out infinite; }
 @keyframes brand-scroll { 50% { transform: translateY(7px); opacity: .35; } }
 
+.brand-launch-enter {
+  position: absolute;
+  z-index: 6;
+  left: 50%;
+  bottom: 8%;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 22px;
+  border: 1px solid rgba(228, 193, 113, .72);
+  background: rgba(3, 13, 31, .62);
+  color: #f7e3ae;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  opacity: 0;
+  cursor: pointer;
+  transform: translate(-50%, 16px);
+  transition: opacity 500ms ease, transform 600ms cubic-bezier(.16, 1, .3, 1), background 200ms ease;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+.brand-launch-enter:hover { background: rgba(31, 80, 142, .72); }
+.brand-launch-enter span { font-size: 18px; line-height: 0; }
+.brand-phase-brand .brand-launch-enter { opacity: 1; transform: translate(-50%, 0); }
+
 @media (max-width: 768px) {
   .private-advisory-site main > section.brand-launch { min-height: 720px; }
   .brand-launch h1 { font-size: clamp(3rem, 16vw, 5rem); }
   .brand-launch-ip { width: min(73vw, 360px); bottom: 4%; }
   .brand-phase-brand .brand-launch-ip { left: 50%; bottom: 2%; width: min(54vw, 280px); }
   .brand-launch-copy { top: 37%; }
+  .brand-launch-enter { bottom: 7%; font-size: 12px; white-space: nowrap; }
   .brand-launch-scroll { right: 16px; }
 }
 

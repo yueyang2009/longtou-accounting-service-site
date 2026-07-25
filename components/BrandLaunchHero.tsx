@@ -8,6 +8,8 @@ import { phaseFromProgress, useBrandLaunchProgress } from "./brand-launch/Animat
 export function BrandLaunchHero() {
   const { progress, target } = useBrandLaunchProgress(true);
   const [phase, setPhase] = useState("water");
+  const [leaving, setLeaving] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
     let frame = 0;
@@ -19,8 +21,16 @@ export function BrandLaunchHero() {
     return () => cancelAnimationFrame(frame);
   }, [target]);
 
+  useEffect(() => {
+    if (!leaving) return;
+    const timer = window.setTimeout(() => setDismissed(true), 700);
+    return () => window.clearTimeout(timer);
+  }, [leaving]);
+
+  if (dismissed) return null;
+
   return (
-    <section data-header-theme="dark" className={`brand-launch brand-phase-${phase}`} aria-label="龙头会服品牌开场">
+    <section data-header-theme="dark" className={`brand-launch brand-launch-overlay brand-phase-${phase} ${leaving ? "is-leaving" : ""}`} aria-label="龙头会服品牌开场">
       <BrandLaunchScene progress={progress} target={target} />
       <div className="brand-launch-vignette" />
       <div className="brand-launch-oriental" aria-hidden="true" />
@@ -34,6 +44,9 @@ export function BrandLaunchHero() {
       <div className="brand-launch-ip" aria-label="龙头会服品牌IP龙灵">
         <Image src="/images/longling-final-ip.png" alt="龙灵，龙头会服品牌IP" fill priority sizes="(max-width: 768px) 70vw, 390px" />
       </div>
+      <button type="button" className="brand-launch-enter" onClick={() => setLeaving(true)}>
+        进入龙头会服官网 <span>→</span>
+      </button>
       <p className="brand-launch-scroll">SCROLL TO AWAKEN <span>↓</span></p>
     </section>
   );

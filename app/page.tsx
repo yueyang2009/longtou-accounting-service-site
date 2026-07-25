@@ -10,6 +10,7 @@ import { IndustryScenes } from "@/components/IndustryScenes";
 import { HomeSectionMotion } from "@/components/HomeSectionMotion";
 import { FlipCard } from "@/components/FlipCard";
 import { BrandLaunchHero } from "@/components/BrandLaunchHero";
+import { HomeBusinessHero } from "@/components/HomeBusinessHero";
 import {
   annualPlan,
   annualTimeline,
@@ -212,6 +213,7 @@ export default function HomePage() {
 
       <main>
         <BrandLaunchHero />
+        <HomeBusinessHero />
 
         {/* ── 已服务行业 · 横向缓动滚条 ── */}
         <section className="border-y border-white/8 bg-brand-soft py-6">
