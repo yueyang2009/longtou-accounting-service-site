@@ -42,7 +42,7 @@ export function EquityExperience() {
 
   return <main className="equity-page">
     <div className="equity-noise" /><div className="equity-stars" />
-    <header className="equity-header"><a className="equity-brand" href="/">LONGTOU <span>ADVISORY</span></a><div className="equity-header-center"><span className="live-dot" />企业结构数字驾驶舱 <i>DEMO</i></div><a className="equity-back" href="/">返回官网 <ChevronRight size={15} /></a></header>
+    <header className="equity-header"><a className="equity-brand" href="https://yueyang2009.github.io/longtou-accounting-service-site/">LONGTOU <span>ADVISORY</span></a><div className="equity-header-center"><span className="live-dot" />企业结构数字驾驶舱 <i>DEMO</i></div><a className="equity-back" href="https://yueyang2009.github.io/longtou-accounting-service-site/">返回官网 <ChevronRight size={15} /></a></header>
     <section className="equity-intro"><div><p className="eyebrow"><Sparkles size={14} /> EQUITY INTELLIGENCE SYSTEM</p><h1>企业控制画像</h1><p className="intro-copy">用穿透视角，看清集团控制力、资产边界与资本未来。</p></div><div className="demo-badge"><span>模拟演示环境</span><small>本页面不连接工商数据，仅用于官网展示</small></div></section>
     <section className="profile-grid">{equityData.profile.map((item, index) => <article className={`profile-card profile-${index}`} key={item.label}><span>{item.label}</span><strong>{item.value}</strong><small>{item.detail}</small></article>)}</section>
     <section className="cockpit-grid">
