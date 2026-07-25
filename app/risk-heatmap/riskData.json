@@ -8,5 +8,19 @@
   {"name":"研发费用加计扣除归集不规范","probability":2,"impact":3,"level":"中","color":"yellow","description":"存在补税风险","advice":"按项目建立研发辅助账，明确人员、材料及设备费用的归集边界。","consequences":["加计扣除被调减","补缴税款及滞纳金"]},
   {"name":"合同印花税漏申报","probability":3,"impact":2,"level":"中","color":"yellow","description":"补税及滞纳金","advice":"合同签订环节同步登记印花税台账，按税目和期限设置申报提醒。","consequences":["补缴印花税","产生滞纳金"]},
   {"name":"工资社保申报不一致","probability":2,"impact":2,"level":"低","color":"green","description":"日常提示风险","advice":"每月核对工资表、个税申报表和社保缴费基数，留存差异说明。","consequences":["日常数据比对提示"]},
-  {"name":"申报偶尔逾期","probability":1,"impact":1,"level":"低","color":"green","description":"风险可控","advice":"建立申报日历与双人复核机制，提前完成资料归集和申报。","consequences":["产生轻微信用扣分"]}
+  {"name":"申报偶尔逾期","probability":1,"impact":1,"level":"低","color":"green","description":"风险可控","advice":"建立申报日历与双人复核机制，提前完成资料归集和申报。","consequences":["产生轻微信用扣分"]},
+  {"name":"个人微信、支付宝收取经营款","probability":4,"impact":4,"level":"极高","color":"red","description":"资金流与申报收入脱节","advice":"将经营收款统一纳入对公账户及收银系统，定期核对平台流水、开票与申报数据。","consequences":["收入完整性被质疑","补税及滞纳金","影响纳税信用"]},
+  {"name":"合同金额与开票金额不一致","probability":3,"impact":4,"level":"高","color":"orange","description":"业务、合同与发票口径存在差异","advice":"建立合同台账和开票审批联动机制，对折扣、返利及变更事项保留依据。","consequences":["触发数据比对","收入确认被关注","合同证据链不足"]},
+  {"name":"存货账实不符、长期负库存","probability":3,"impact":4,"level":"高","color":"orange","description":"存货流转与成本结转逻辑异常","advice":"建立定期盘点及差异分析机制，打通采购、仓储、销售与财务数据。","consequences":["成本真实性受质疑","可能影响增值税核查","经营损失难以解释"]},
+  {"name":"关联方资金往来无协议无利息","probability":3,"impact":3,"level":"中","color":"yellow","description":"关联交易商业合理性不足","advice":"先确认关联关系，再按交易实质完善协议、审批及利息或资金占用安排。","consequences":["关联交易被问询","税会处理调整风险"]},
+  {"name":"大额现金支付、备用金长期挂账","probability":3,"impact":3,"level":"中","color":"yellow","description":"资金支付留痕不足","advice":"压降现金结算，建立备用金清理机制，确保支付用途、审批及凭证完整。","consequences":["支出真实性受质疑","内控缺陷暴露"]},
+  {"name":"暂估成本长期未取得发票未冲回","probability":3,"impact":3,"level":"中","color":"yellow","description":"成本与发票取得节奏失衡","advice":"按供应商建立暂估台账，设置发票催收、冲回和纳税调整的月度复核。","consequences":["所得税纳税调整","成本跨期风险"]},
+  {"name":"固定资产购置与折旧台账不完整","probability":2,"impact":3,"level":"中","color":"yellow","description":"资产管理与税前扣除依据不足","advice":"完善固定资产卡片、验收单、折旧政策和处置审批留档。","consequences":["折旧扣除被调减","资产损失难以核实"]},
+  {"name":"业务招待费、福利费超限扣除","probability":3,"impact":2,"level":"中","color":"yellow","description":"费用限额及用途分类不清","advice":"按税前扣除口径建立费用分类台账，月度预警限额使用情况。","consequences":["企业所得税纳税调增","费用归类不规范"]},
+  {"name":"工资表、个税、社保基数口径差异","probability":3,"impact":3,"level":"中","color":"yellow","description":"人事与财税数据未形成闭环","advice":"每月进行工资、个税、社保及银行代发四表核对，留存差异说明。","consequences":["社保个税交叉比对提示","劳动用工争议风险"]},
+  {"name":"研发人员工时及项目证据不足","probability":2,"impact":3,"level":"中","color":"yellow","description":"研发活动真实性和归集依据不足","advice":"完善立项、工时、成果和费用辅助账证据链，按项目归集研发支出。","consequences":["研发加计扣除被调减","高新资格申报风险"]},
+  {"name":"建筑项目异地预缴税款遗漏","probability":2,"impact":4,"level":"高","color":"orange","description":"项目所在地涉税义务未完整处理","advice":"按项目建立跨区域涉税事项和预缴税款台账，衔接合同、结算和申报。","consequences":["补缴税款及滞纳金","项目税务管理风险"]},
+  {"name":"税收优惠资格条件未持续复核","probability":2,"impact":4,"level":"高","color":"orange","description":"优惠政策适用条件可能发生变化","advice":"建立优惠事项年度复核清单，对收入结构、人员、研发及备案资料进行动态管理。","consequences":["优惠被追溯调整","补税及滞纳金"]},
+  {"name":"工商年报、财务报表与税务数据不一致","probability":2,"impact":2,"level":"低","color":"green","description":"多端披露数据缺乏核对","advice":"在年报和汇算清缴前建立跨系统数据核对表，统一统计口径与差异说明。","consequences":["外部信息比对提示"]},
+  {"name":"应收账款长期挂账、坏账证据不足","probability":2,"impact":3,"level":"中","color":"yellow","description":"债权管理与损失证据链不完整","advice":"按账龄制定催收计划，留存对账、催收、诉讼或核销等证据。","consequences":["坏账损失扣除受限","现金流风险被低估"]}
 ]
