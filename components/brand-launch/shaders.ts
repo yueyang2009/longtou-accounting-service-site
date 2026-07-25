@@ -34,6 +34,7 @@ export const particleVertexShader = /* glsl */ `
   attribute vec3 aTarget;
   uniform float uTime;
   uniform float uPhase;
+  uniform vec3 uTargetCenter;
   varying float vAlpha;
   void main() {
     vec3 p = position;
@@ -41,7 +42,7 @@ export const particleVertexShader = /* glsl */ `
     p.x += cos(aSeed * 18.0 + uTime) * swirl;
     p.z += sin(aSeed * 18.0 + uTime) * swirl;
     float gather = smoothstep(.32, .72, uPhase);
-    p = mix(p, aTarget, gather);
+    p = mix(p, aTarget + uTargetCenter, gather);
     vAlpha = smoothstep(0.0, .12, uPhase) * (1.0 - smoothstep(.72, .96, uPhase));
     vec4 mvPosition = modelViewMatrix * vec4(p, 1.0);
     gl_PointSize = min(aScale * (48.0 / -mvPosition.z), 14.0);

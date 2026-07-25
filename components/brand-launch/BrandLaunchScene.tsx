@@ -51,9 +51,9 @@ export function BrandLaunchScene({ progress, target }: Props) {
       // The particles settle directly at the final left-side IP position as a soft vortex, never as a rectangular pixel card.
       const targetAngle = Math.random() * Math.PI * 2;
       const targetRadius = Math.pow(Math.random(), .7);
-      // Matches the final desktop Longling frame: left column and raised to the brand-title height.
-      targets[i * 3] = -1.5 + Math.cos(targetAngle) * targetRadius * .72;
-      targets[i * 3 + 1] = 1.35 + Math.sin(targetAngle) * targetRadius * 1.0;
+      // Local water-vortex offsets. Its center is projected from the actual IP image element every frame.
+      targets[i * 3] = Math.cos(targetAngle) * targetRadius * .72;
+      targets[i * 3 + 1] = Math.sin(targetAngle) * targetRadius * 1.0;
       targets[i * 3 + 2] = (Math.random() - .5) * .34;
       scales[i] = 0.8 + Math.random() * 2.2;
       seeds[i] = Math.random();
@@ -66,7 +66,7 @@ export function BrandLaunchScene({ progress, target }: Props) {
     particlesGeometry.setAttribute("aSeed", new THREE.BufferAttribute(seeds, 1));
     const particleMaterial = new THREE.ShaderMaterial({
       vertexShader: particleVertexShader, fragmentShader: particleFragmentShader,
-      uniforms: { uTime: { value: 0 }, uPhase: { value: 0 } }, transparent: true, depthWrite: false, blending: THREE.NormalBlending,
+      uniforms: { uTime: { value: 0 }, uPhase: { value: 0 }, uTargetCenter: { value: new THREE.Vector3(-1.5, 1.35, 0) } }, transparent: true, depthWrite: false, blending: THREE.NormalBlending,
     });
     const particles = new THREE.Points(particlesGeometry, particleMaterial);
     scene.add(particles);
@@ -167,6 +167,20 @@ export function BrandLaunchScene({ progress, target }: Props) {
     const resize = () => { camera.aspect = container.clientWidth / container.clientHeight; camera.updateProjectionMatrix(); renderer.setSize(container.clientWidth, container.clientHeight); };
     const observer = new ResizeObserver(resize); observer.observe(container);
     const clock = new THREE.Clock();
+    const projectedIpCenter = new THREE.Vector3();
+    const ipNdc = new THREE.Vector3();
+    const ipRay = new THREE.Vector3();
+    const syncParticleTargetToIp = () => {
+      const ip = document.querySelector<HTMLElement>(".brand-launch-ip");
+      if (!ip) return;
+      const rect = ip.getBoundingClientRect();
+      ipNdc.set((rect.left + rect.width * .5) / window.innerWidth * 2 - 1, -((rect.top + rect.height * .5) / window.innerHeight) * 2 + 1, .5);
+      ipNdc.unproject(camera);
+      ipRay.copy(ipNdc).sub(camera.position).normalize();
+      const distance = -camera.position.z / ipRay.z;
+      projectedIpCenter.copy(camera.position).add(ipRay.multiplyScalar(distance));
+      particleMaterial.uniforms.uTargetCenter.value.copy(projectedIpCenter);
+    };
     let frame = 0;
     const render = () => {
       const t = clock.getElapsedTime();
@@ -188,6 +202,8 @@ export function BrandLaunchScene({ progress, target }: Props) {
       camera.position.x += (pointer.x * .48 - camera.position.x) * .025;
       camera.position.y += ((1.2 - p * .38) - camera.position.y) * .02;
       camera.lookAt(0, 1.2, 0);
+      camera.updateMatrixWorld();
+      syncParticleTargetToIp();
       renderer.render(scene, camera);
       frame = requestAnimationFrame(render);
     };

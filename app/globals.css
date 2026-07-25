@@ -3083,9 +3083,9 @@ footer.bg-brand-emerald {
 .brand-launch-ip {
   position: absolute;
   z-index: 3;
-  left: 50%;
-  bottom: 3.5%;
-  width: min(31vw, 400px);
+  left: max(24%, calc(50% - 420px));
+  bottom: 28%;
+  width: min(33vw, 460px);
   aspect-ratio: .88;
   opacity: 0;
   transform: translateX(-50%) translateY(45px) scale(.84);
