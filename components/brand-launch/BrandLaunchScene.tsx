@@ -35,7 +35,7 @@ export function BrandLaunchScene({ progress, target }: Props) {
     water.position.y = -1.18;
     scene.add(water);
 
-    const particleCount = 4400;
+    const particleCount = 3000;
     const positions = new Float32Array(particleCount * 3);
     const scales = new Float32Array(particleCount);
     const seeds = new Float32Array(particleCount);
@@ -47,7 +47,7 @@ export function BrandLaunchScene({ progress, target }: Props) {
       positions[i * 3] = Math.cos(a) * r * (1 - rise * 0.35) + dragonCurve;
       positions[i * 3 + 1] = -1.05 + rise * 4.1;
       positions[i * 3 + 2] = Math.sin(a) * r * 0.5;
-      scales[i] = 1.2 + Math.random() * 3.4;
+      scales[i] = 0.8 + Math.random() * 2.2;
       seeds[i] = Math.random();
     }
     const particlesGeometry = new THREE.BufferGeometry();
@@ -56,24 +56,81 @@ export function BrandLaunchScene({ progress, target }: Props) {
     particlesGeometry.setAttribute("aSeed", new THREE.BufferAttribute(seeds, 1));
     const particleMaterial = new THREE.ShaderMaterial({
       vertexShader: particleVertexShader, fragmentShader: particleFragmentShader,
-      uniforms: { uTime: { value: 0 }, uPhase: { value: 0 } }, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+      uniforms: { uTime: { value: 0 }, uPhase: { value: 0 } }, transparent: true, depthWrite: false, blending: THREE.NormalBlending,
     });
     const particles = new THREE.Points(particlesGeometry, particleMaterial);
     scene.add(particles);
 
     const dragon = new THREE.Group();
-    const dragonMaterial = new THREE.MeshPhysicalMaterial({ color: 0x0b55b8, metalness: 0.72, roughness: 0.22, transparent: true, opacity: 0 });
+    const dragonMaterial = new THREE.MeshStandardMaterial({ color: 0x0a4a9e, metalness: 0.78, roughness: 0.28, transparent: true, opacity: 0 });
+    const silver = new THREE.MeshStandardMaterial({ color: 0xb5d8f9, metalness: 0.9, roughness: 0.2, transparent: true, opacity: 0 });
+    const gold = new THREE.MeshStandardMaterial({ color: 0xecc36d, metalness: 0.8, roughness: 0.24, transparent: true, opacity: 0 });
+    const dragonMaterials = [dragonMaterial, silver, gold];
     const spine = new THREE.CatmullRomCurve3(Array.from({ length: 14 }, (_, i) => {
       const t = i / 13;
       return new THREE.Vector3(Math.sin(t * Math.PI * 2.1) * 0.82, -0.7 + t * 4.25, Math.cos(t * Math.PI * 2.1) * 0.25);
     }));
-    const body = new THREE.Mesh(new THREE.TubeGeometry(spine, 120, 0.23, 10, false), dragonMaterial);
-    dragon.add(body);
-    const head = new THREE.Mesh(new THREE.SphereGeometry(0.56, 32, 24), dragonMaterial);
-    head.position.set(0.52, 3.42, 0);
-    head.scale.set(1.28, 0.82, 0.98);
+    // Fragmented scales form a water-sculpture body: intentionally no TubeGeometry / smooth pipe.
+    for (let i = 0; i < 29; i++) {
+      const t = i / 30;
+      const point = spine.getPointAt(t);
+      const scale = 0.31 - t * 0.16;
+      for (const side of [-1, 1]) {
+        const scaleMesh = new THREE.Mesh(new THREE.IcosahedronGeometry(scale, 1), i % 3 === 0 ? silver : dragonMaterial);
+        scaleMesh.position.copy(point).add(new THREE.Vector3(side * (0.11 + scale * .45), 0, (i % 2 ? .09 : -.09)));
+        scaleMesh.scale.set(1.35, .42, .75);
+        scaleMesh.rotation.set(i * .35, side * .45, side * .65);
+        dragon.add(scaleMesh);
+      }
+      if (i % 2 === 0) {
+        const fin = new THREE.Mesh(new THREE.ConeGeometry(scale * .42, scale * 1.9, 4), silver);
+        fin.position.copy(point).add(new THREE.Vector3(0, scale * 1.22, 0));
+        fin.rotation.z = Math.PI;
+        dragon.add(fin);
+      }
+    }
+    // Four expressive limbs and three claws give the rising creature an anime-character silhouette.
+    for (let index = 0; index < 2; index++) {
+      const t = [.38, .6][index];
+      const anchor = spine.getPointAt(t);
+      for (const side of [-1, 1]) {
+        const shoulder = new THREE.Mesh(new THREE.SphereGeometry(.19, 14, 10), silver);
+        shoulder.position.copy(anchor).add(new THREE.Vector3(side * .22, -.02, .05));
+        dragon.add(shoulder);
+        const arm = new THREE.Mesh(new THREE.CapsuleGeometry(.105, .46, 5, 10), dragonMaterial);
+        arm.position.copy(anchor).add(new THREE.Vector3(side * .43, -.36 - index * .08, .12));
+        arm.rotation.z = side * .68;
+        dragon.add(arm);
+        const paw = new THREE.Mesh(new THREE.SphereGeometry(.15, 14, 10), silver);
+        paw.position.copy(anchor).add(new THREE.Vector3(side * .66, -.63 - index * .08, .18));
+        dragon.add(paw);
+        for (const clawIndex of [-1, 0, 1]) {
+          const claw = new THREE.Mesh(new THREE.ConeGeometry(.035, .22, 5), gold);
+          claw.position.copy(paw.position).add(new THREE.Vector3(side * .08, -.14, clawIndex * .07));
+          claw.rotation.z = Math.PI;
+          dragon.add(claw);
+        }
+      }
+    }
+    const head = new THREE.Group();
+    head.position.set(.55, 3.45, 0);
+    const skull = new THREE.Mesh(new THREE.SphereGeometry(.52, 24, 18), dragonMaterial);
+    skull.scale.set(1.25, .8, .82); head.add(skull);
+    const snout = new THREE.Mesh(new THREE.SphereGeometry(.31, 20, 14), silver);
+    snout.position.set(.42, -.08, .02); snout.scale.set(1.45, .58, .72); head.add(snout);
+    for (const side of [-1, 1]) {
+      const brow = new THREE.Mesh(new THREE.ConeGeometry(.16, .55, 4), silver);
+      brow.position.set(.1, .27, side * .3); brow.rotation.z = Math.PI * .42; brow.rotation.x = side * .45; head.add(brow);
+      const eye = new THREE.Mesh(new THREE.SphereGeometry(.064, 12, 10), gold);
+      eye.position.set(.36, .08, side * .42); head.add(eye);
+      const horn = new THREE.Mesh(new THREE.ConeGeometry(.09, .7, 6), gold);
+      horn.position.set(-.16, .5, side * .31); horn.rotation.z = side * -.32; horn.rotation.x = side * -.45; head.add(horn);
+      const whisker = new THREE.Mesh(new THREE.TorusGeometry(.35, .025, 8, 20, Math.PI * .7), silver);
+      whisker.position.set(.64, -.22, side * .28); whisker.rotation.set(side * .82, .5, side * .7); head.add(whisker);
+      const mane = new THREE.Mesh(new THREE.ConeGeometry(.14, .56, 5), silver);
+      mane.position.set(-.42, .08, side * .4); mane.rotation.z = side * 1.1; head.add(mane);
+    }
     dragon.add(head);
-    const gold = new THREE.MeshBasicMaterial({ color: 0xf6c768, transparent: true, opacity: 0 });
     for (const x of [-0.2, 0.2]) {
       const horn = new THREE.Mesh(new THREE.ConeGeometry(0.085, 0.52, 12), gold);
       horn.position.set(0.52 + x, 3.86, 0);
@@ -109,14 +166,13 @@ export function BrandLaunchScene({ progress, target }: Props) {
       waterMaterial.uniforms.uEnergy.value = clamp01(p * 2.2);
       particleMaterial.uniforms.uTime.value = t;
       particleMaterial.uniforms.uPhase.value = Math.min(p * 1.5, 1);
-      dragonMaterial.opacity = dragonReveal * (1 - mascotReveal) * .96;
-      gold.opacity = dragonMaterial.opacity;
+      dragonMaterials.forEach((material) => { material.opacity = dragonReveal * (1 - mascotReveal) * .92; });
       formalLongling.visible = mascotReveal > .02 && formalLongling.children.length > 0;
       formalLongling.scale.setScalar(Math.max(mascotReveal * 1.2, 0.0001));
       formalLongling.position.y = -0.64 + Math.sin(t * 1.3) * 0.025;
       dragon.rotation.y = t * 0.14 + pointer.x * 0.24;
       dragon.position.y = Math.sin(t * 1.1) * .08;
-      particles.rotation.y = t * .05 + pointer.x * .16;
+      particles.rotation.y = t * .025 + pointer.x * .11;
       camera.position.x += (pointer.x * .48 - camera.position.x) * .025;
       camera.position.y += ((1.2 - p * .38) - camera.position.y) * .02;
       camera.lookAt(0, 1.2, 0);
@@ -126,7 +182,7 @@ export function BrandLaunchScene({ progress, target }: Props) {
     frame = requestAnimationFrame(render);
     return () => {
       cancelAnimationFrame(frame); observer.disconnect(); container.removeEventListener("pointermove", onPointer);
-      particlesGeometry.dispose(); particleMaterial.dispose(); water.geometry.dispose(); waterMaterial.dispose(); dragonMaterial.dispose(); gold.dispose(); renderer.dispose();
+      particlesGeometry.dispose(); particleMaterial.dispose(); water.geometry.dispose(); waterMaterial.dispose(); dragonMaterials.forEach((material) => material.dispose()); renderer.dispose();
       container.removeChild(renderer.domElement);
     };
   }, [progress, target]);

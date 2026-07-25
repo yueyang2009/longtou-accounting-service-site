@@ -41,7 +41,7 @@ export const particleVertexShader = /* glsl */ `
     p.z += sin(aSeed * 18.0 + uTime) * swirl;
     vAlpha = smoothstep(0.0, .18, uPhase) * (1.0 - smoothstep(.83, 1.0, uPhase));
     vec4 mvPosition = modelViewMatrix * vec4(p, 1.0);
-    gl_PointSize = aScale * (190.0 / -mvPosition.z);
+    gl_PointSize = min(aScale * (48.0 / -mvPosition.z), 14.0);
     gl_Position = projectionMatrix * mvPosition;
   }
 `;
@@ -50,7 +50,7 @@ export const particleFragmentShader = /* glsl */ `
   varying float vAlpha;
   void main() {
     float d = length(gl_PointCoord - .5);
-    float glow = smoothstep(.5, 0.0, d);
-    gl_FragColor = vec4(.25, .7, 1.0, glow * vAlpha);
+    float glow = smoothstep(.5, .08, d);
+    gl_FragColor = vec4(.18, .58, .96, glow * vAlpha * .62);
   }
 `;
