@@ -7,6 +7,7 @@ import { phaseFromProgress, useBrandLaunchProgress } from "./brand-launch/Animat
 
 export function BrandLaunchHero() {
   const { progress, target } = useBrandLaunchProgress(true);
+  const assetBase = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const [phase, setPhase] = useState("water");
   const [leaving, setLeaving] = useState(false);
   const [dismissed, setDismissed] = useState(false);
@@ -42,7 +43,7 @@ export function BrandLaunchHero() {
         <p className="brand-launch-subtitle">连接企业资源　陪伴企业成长</p>
       </div>
       <div className="brand-launch-ip" aria-label="龙头会服品牌IP龙灵">
-        <Image src="/images/longling-final-ip.png" alt="龙灵，龙头会服品牌IP" fill priority sizes="(max-width: 768px) 70vw, 390px" />
+        <Image src={`${assetBase}/images/longling-final-ip.png`} alt="龙灵，龙头会服品牌IP" fill priority sizes="(max-width: 768px) 70vw, 390px" />
       </div>
       <button type="button" className="brand-launch-enter" onClick={() => setLeaving(true)}>
         进入龙头会服官网 <span>→</span>
