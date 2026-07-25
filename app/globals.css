@@ -3105,7 +3105,7 @@ footer.bg-brand-emerald {
 
 .brand-phase-brand .brand-launch-ip {
   left: max(24%, calc(50% - 420px));
-  bottom: 2%;
+  bottom: 16%;
   width: min(33vw, 460px);
   transition-delay: 80ms;
 }
