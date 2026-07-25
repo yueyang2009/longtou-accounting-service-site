@@ -18,13 +18,22 @@ export function useBrandLaunchProgress(enabled: boolean) {
 
   useEffect(() => {
     if (!enabled) return;
+    const startedAt = performance.now();
+    let frame = 0;
     const updateTarget = () => {
       const scrollRange = Math.max(window.innerHeight * 1.35, 1);
-      target.current = Math.min(Math.max(window.scrollY / scrollRange, 0), 1);
+      const scrollProgress = Math.min(Math.max(window.scrollY / scrollRange, 0), 1);
+      target.current = Math.max(target.current, scrollProgress);
+    };
+    const autoplay = (now: number) => {
+      const introProgress = Math.min((now - startedAt) / 8200, 1);
+      target.current = Math.max(target.current, introProgress);
+      frame = requestAnimationFrame(autoplay);
     };
     updateTarget();
+    frame = requestAnimationFrame(autoplay);
     window.addEventListener("scroll", updateTarget, { passive: true });
-    return () => window.removeEventListener("scroll", updateTarget);
+    return () => { window.removeEventListener("scroll", updateTarget); cancelAnimationFrame(frame); };
   }, [enabled]);
 
   return { progress, target };

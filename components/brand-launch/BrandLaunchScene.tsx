@@ -37,6 +37,7 @@ export function BrandLaunchScene({ progress, target }: Props) {
 
     const particleCount = 3000;
     const positions = new Float32Array(particleCount * 3);
+    const targets = new Float32Array(particleCount * 3);
     const scales = new Float32Array(particleCount);
     const seeds = new Float32Array(particleCount);
     for (let i = 0; i < particleCount; i++) {
@@ -47,11 +48,20 @@ export function BrandLaunchScene({ progress, target }: Props) {
       positions[i * 3] = Math.cos(a) * r * (1 - rise * 0.35) + dragonCurve;
       positions[i * 3 + 1] = -1.05 + rise * 4.1;
       positions[i * 3 + 2] = Math.sin(a) * r * 0.5;
+      // A compact humanoid silhouette: particles first settle into this shape, then dissolve into the approved IP image.
+      const targetRise = Math.random();
+      const isHead = targetRise > .6;
+      const targetRadius = isHead ? .45 * Math.sqrt(Math.random()) : .62 * Math.sqrt(Math.random());
+      const targetAngle = Math.random() * Math.PI * 2;
+      targets[i * 3] = Math.cos(targetAngle) * targetRadius * (isHead ? 1 : .72);
+      targets[i * 3 + 1] = isHead ? .72 + targetRise * .92 : -1.0 + targetRise * 1.72;
+      targets[i * 3 + 2] = Math.sin(targetAngle) * targetRadius * .26;
       scales[i] = 0.8 + Math.random() * 2.2;
       seeds[i] = Math.random();
     }
     const particlesGeometry = new THREE.BufferGeometry();
     particlesGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    particlesGeometry.setAttribute("aTarget", new THREE.BufferAttribute(targets, 3));
     particlesGeometry.setAttribute("aScale", new THREE.BufferAttribute(scales, 1));
     particlesGeometry.setAttribute("aSeed", new THREE.BufferAttribute(seeds, 1));
     const particleMaterial = new THREE.ShaderMaterial({
@@ -138,6 +148,8 @@ export function BrandLaunchScene({ progress, target }: Props) {
       dragon.add(horn);
     }
     scene.add(dragon);
+    // The previous procedural dragon is retained only as source code during this iteration; it is never rendered.
+    dragon.visible = false;
 
     const ambient = new THREE.AmbientLight(0x2f70bb, 1.8);
     const key = new THREE.PointLight(0x75c8ff, 24, 12); key.position.set(2, 4, 3);
@@ -160,13 +172,12 @@ export function BrandLaunchScene({ progress, target }: Props) {
       progress.current += (target.current - progress.current) * 0.035;
       phase.current = progress.current;
       const p = progress.current;
-      const dragonReveal = clamp01((p - .18) / .36);
       const mascotReveal = clamp01((p - .62) / .22);
       waterMaterial.uniforms.uTime.value = t;
       waterMaterial.uniforms.uEnergy.value = clamp01(p * 2.2);
       particleMaterial.uniforms.uTime.value = t;
       particleMaterial.uniforms.uPhase.value = Math.min(p * 1.5, 1);
-      dragonMaterials.forEach((material) => { material.opacity = dragonReveal * (1 - mascotReveal) * .92; });
+      dragonMaterials.forEach((material) => { material.opacity = 0; });
       formalLongling.visible = mascotReveal > .02 && formalLongling.children.length > 0;
       formalLongling.scale.setScalar(Math.max(mascotReveal * 1.2, 0.0001));
       formalLongling.position.y = -0.64 + Math.sin(t * 1.3) * 0.025;

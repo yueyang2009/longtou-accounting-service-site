@@ -31,6 +31,7 @@ export const waterFragmentShader = /* glsl */ `
 export const particleVertexShader = /* glsl */ `
   attribute float aScale;
   attribute float aSeed;
+  attribute vec3 aTarget;
   uniform float uTime;
   uniform float uPhase;
   varying float vAlpha;
@@ -39,7 +40,9 @@ export const particleVertexShader = /* glsl */ `
     float swirl = sin(aSeed * 31.0 + uTime * 1.25) * (0.15 + uPhase * .5);
     p.x += cos(aSeed * 18.0 + uTime) * swirl;
     p.z += sin(aSeed * 18.0 + uTime) * swirl;
-    vAlpha = smoothstep(0.0, .18, uPhase) * (1.0 - smoothstep(.83, 1.0, uPhase));
+    float gather = smoothstep(.34, .76, uPhase);
+    p = mix(p, aTarget, gather);
+    vAlpha = smoothstep(0.0, .12, uPhase) * (1.0 - smoothstep(.76, .98, uPhase));
     vec4 mvPosition = modelViewMatrix * vec4(p, 1.0);
     gl_PointSize = min(aScale * (48.0 / -mvPosition.z), 14.0);
     gl_Position = projectionMatrix * mvPosition;
