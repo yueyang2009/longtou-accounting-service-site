@@ -1,0 +1,24 @@
+{
+  "company": "龙头控股集团",
+  "controller": "张三",
+  "profile": [
+    { "label": "实际控制人", "value": "张三", "detail": "最终受益人" },
+    { "label": "控制企业数量", "value": "18家", "detail": "集团控制网络" },
+    { "label": "股权层级", "value": "4层", "detail": "股权穿透深度" },
+    { "label": "资产规模", "value": "12.8亿元", "detail": "模拟估值口径" },
+    { "label": "产业布局", "value": "制造 / 科技 / 投资 / 国际贸易", "detail": "多元业务板块" }
+  ],
+  "nodes": [
+    { "id": "manufacturing", "name": "龙头制造有限公司", "share": "100%", "role": "制造板块", "x": 20, "y": 23, "tone": "gold" },
+    { "id": "technology", "name": "龙头科技有限公司", "share": "80%", "role": "数字技术", "x": 78, "y": 20, "tone": "violet" },
+    { "id": "supply", "name": "龙头供应链有限公司", "share": "65%", "role": "供应链枢纽", "x": 87, "y": 55, "tone": "blue" },
+    { "id": "investment", "name": "龙头投资有限公司", "share": "100%", "role": "资本平台", "x": 70, "y": 84, "tone": "gold" },
+    { "id": "overseas", "name": "海外子公司", "share": "70%", "role": "国际贸易", "x": 30, "y": 82, "tone": "green" },
+    { "id": "family", "name": "家族资产管理平台", "share": "90%", "role": "家族传承", "x": 10, "y": 55, "tone": "violet" }
+  ],
+  "technologyChain": [
+    { "name": "龙头科技有限公司", "share": "80%", "caption": "数字技术主体" },
+    { "name": "技术研发中心有限公司", "share": "100%", "caption": "研发资产承载" },
+    { "name": "核心资产公司", "share": "75%", "caption": "核心资产隔离" }
+  ]
+}
