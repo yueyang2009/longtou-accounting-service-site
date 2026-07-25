@@ -213,7 +213,7 @@ export default function HomePage() {
 
       <main>
         <BrandLaunchHero />
-        <HomeBusinessHero />
+        <HomeBusinessHero dashboard={<DashboardPreview />} />
 
         {/* ── 已服务行业 · 横向缓动滚条 ── */}
         <section className="border-y border-white/8 bg-brand-soft py-6">
