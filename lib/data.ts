@@ -64,6 +64,7 @@ export const siteNavLinks = [
   { href: "/about", label: "关于" },
   { href: "/team", label: "团队" },
   { href: "/blog", label: "文章" },
+  { href: "/break-even", label: "盈亏平衡点" },
   { href: "/dashboard-demo.html", label: "经营看板示例" }
 ];
 
