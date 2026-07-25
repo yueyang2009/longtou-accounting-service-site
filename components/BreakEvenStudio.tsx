@@ -33,7 +33,7 @@ function Slider({ label, value, min, max, step, unit, onChange }: { label: strin
 
 function Kpi({ label, value, unit, tone = "normal", detail }: { label: string; value: string; unit?: string; tone?: "normal" | "gold" | "danger"; detail: string }) {
   const color = tone === "gold" ? "text-brand-gold" : tone === "danger" ? "text-[#e58f80]" : "text-brand-ink";
-  return <div className="border border-brand-line/80 bg-brand-card p-5 md:p-6"><p className="text-xs tracking-[0.12em] text-brand-muted">{label}</p><p className={`mt-4 font-display text-3xl font-semibold tracking-tight md:text-4xl ${color}`}>{value}<span className="ml-1.5 font-sans text-xs font-normal text-brand-muted">{unit}</span></p><p className="mt-4 text-xs leading-5 text-brand-muted">{detail}</p></div>;
+  return <div className="be-kpi border border-brand-line/80 p-5 md:p-6"><p className="text-xs tracking-[0.12em] text-brand-muted">{label}</p><p className={`mt-4 font-display text-3xl font-semibold tracking-tight md:text-4xl ${color}`}>{value}<span className="ml-1.5 font-sans text-xs font-normal text-brand-muted">{unit}</span></p><p className="mt-4 text-xs leading-5 text-brand-muted">{detail}</p></div>;
 }
 
 function MiniChart({ input, result }: { input: Inputs; result: ReturnType<typeof calc> }) {

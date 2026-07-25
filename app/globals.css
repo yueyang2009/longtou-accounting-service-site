@@ -32,6 +32,11 @@ body {
 .be-slider { accent-color: #d9c7a5; cursor: pointer; }
 .be-slider::-webkit-slider-runnable-track { height: 3px; background: rgba(255,255,255,.18); }
 .be-slider::-webkit-slider-thumb { margin-top: -5px; height: 13px; width: 13px; border-radius: 50%; background: #d9c7a5; border: 0; }
+.be-kpi {
+  background: linear-gradient(145deg, #1b2821, #111a16 72%) !important;
+  border-color: rgba(217, 199, 165, .24) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.035) !important;
+}
 
 ::selection {
   color: #fff;
