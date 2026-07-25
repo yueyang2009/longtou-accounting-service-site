@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import equityData from "./equityData.json";
 import "./equity.css";
 
-type StructureNode = { id: string; name: string; caption: string; share: string; kind?: "person" | "group"; active?: boolean };
+type StructureNode = { id: string; name: string; caption: string; share: string; kind?: "person" | "group" | "partnership"; active?: boolean };
 
 const hierarchy: StructureNode[][] = [
   [{ id: "controller", name: "张三", caption: "实际控制人", share: "最终受益人", kind: "person" }],
