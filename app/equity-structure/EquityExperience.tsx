@@ -9,15 +9,21 @@ type StructureNode = { id: string; name: string; caption: string; share: string;
 
 const hierarchy: StructureNode[][] = [
   [{ id: "controller", name: "张三", caption: "实际控制人", share: "最终受益人", kind: "person" }],
-  [{ id: "group", name: "龙头控股集团", caption: "集团控股平台", share: "控制比例 100%", kind: "group" }],
+  [
+    { id: "family-lp", name: "龙腾家族持股合伙企业（有限合伙）", caption: "家族持股平台", share: "出资份额 90%", kind: "partnership" },
+    { id: "group", name: "龙头控股集团", caption: "集团控股平台", share: "控制比例 100%", kind: "group" },
+    { id: "incentive-lp", name: "领航企业管理合伙企业（有限合伙）", caption: "员工持股平台", share: "出资份额 10%", kind: "partnership" },
+  ],
   [
     { id: "manufacturing", name: "龙头制造有限公司", caption: "制造板块", share: "持股 100%" },
     { id: "technology", name: "龙头科技有限公司", caption: "数字技术平台", share: "持股 80%", active: true },
     { id: "investment", name: "龙头投资有限公司", caption: "资本运作平台", share: "持股 100%" },
+    { id: "wealth", name: "家族资产管理有限公司", caption: "财富管理平台", share: "持股 90%" },
   ],
   [
     { id: "supply", name: "龙头供应链有限公司", caption: "供应链枢纽", share: "持股 65%" },
     { id: "research", name: "技术研发中心有限公司", caption: "研发资产承载", share: "持股 100%" },
+    { id: "industry-lp", name: "中原产业投资合伙企业（有限合伙）", caption: "项目投资载体", share: "持股 75%", kind: "partnership" },
     { id: "overseas", name: "海外子公司", caption: "国际贸易主体", share: "持股 70%" },
     { id: "family", name: "家族资产管理平台", caption: "家族财富平台", share: "持股 90%" },
   ],
