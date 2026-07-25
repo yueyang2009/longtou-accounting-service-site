@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Minus } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import type { ReactNode } from "react";
 
 import { HomeHeader } from "@/components/HomeHeader";
@@ -9,6 +9,7 @@ import { ParticleHeadline } from "@/components/ParticleHeadline";
 import { IndustryScenes } from "@/components/IndustryScenes";
 import { HomeSectionMotion } from "@/components/HomeSectionMotion";
 import { FlipCard } from "@/components/FlipCard";
+import { BrandLaunchHero } from "@/components/BrandLaunchHero";
 import {
   annualPlan,
   annualTimeline,
@@ -210,52 +211,7 @@ export default function HomePage() {
       <HomeSectionMotion />
 
       <main>
-        {/* ── Hero ── */}
-        <section data-header-theme="dark" className="private-hero hero-cinematic grain relative overflow-hidden border-b border-white/10 bg-[#111816] text-white">
-          <div className="absolute -left-24 top-12 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(217,199,165,0.22)_0%,rgba(26,57,43,0.20)_42%,rgba(17,24,22,0)_72%)] blur-3xl" />
-          <div className="absolute right-0 top-0 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(58,90,71,0.34)_0%,rgba(17,24,22,0.40)_48%,rgba(17,24,22,0)_74%)] blur-3xl" />
-          <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(217,199,165,0.18)_0%,rgba(17,24,22,0)_70%)] blur-3xl" />
-          <div className="hero-grid absolute inset-0" />
-          <div className="private-marble absolute inset-0" />
-          <div className="relative z-10 mx-auto grid max-w-7xl gap-16 px-6 py-24 md:py-32 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
-            <div>
-              <p className="mb-7 w-fit border border-[#d9c7a5]/30 bg-[#d9c7a5]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#e9d9bc]">
-                企业财税与经营参谋团队
-              </p>
-              <ParticleHeadline
-                lines={[{ text: "让企业经营更规范", indent: -1 }, { text: "让老板决策更从容", indent: 0 }]}
-                color="#d9c7a5"
-                className="max-w-3xl"
-              />
-              <p className="mt-8 max-w-2xl text-lg font-medium leading-9 text-white/80">
-                以财税为切入点，将利润、现金流、风险与组织协同置于同一经营节奏中分析。核心不是处理单点问题，而是建立持续经营判断能力。
-              </p>
-              <div className="mt-11 flex flex-col gap-4 sm:flex-row">
-                <Link
-                  href="/why-annual-advisor"
-                  className="premium-button inline-flex h-12 items-center gap-2 bg-[#d9c7a5] px-7 text-sm font-semibold text-[#111816] transition hover:bg-[#eadabd]"
-                >
-                  了解年度顾问计划
-                </Link>
-                <Link
-                  href="/services"
-                  className="inline-flex h-12 items-center gap-2 rounded-full border border-white/14 bg-white/5 px-7 text-sm font-medium text-white/72 transition hover:border-[#d9c7a5]/42 hover:text-white hover-lift"
-                >
-                  查看服务体系
-                </Link>
-              </div>
-              <div className="mt-14 grid gap-3 text-sm text-white/58 sm:grid-cols-3">
-                {["注册会计师团队", "年度顾问机制", "本地经营判断"].map((item) => (
-                  <span key={item} className="flex items-center gap-2 border-t border-white/10 pt-4">
-                    <Minus className="h-4 w-4 text-[#d9c7a5]" />
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <DashboardPreview />
-          </div>
-        </section>
+        <BrandLaunchHero />
 
         {/* ── 已服务行业 · 横向缓动滚条 ── */}
         <section className="border-y border-white/8 bg-brand-soft py-6">
