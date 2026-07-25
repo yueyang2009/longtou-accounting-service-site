@@ -191,7 +191,8 @@ export function BrandLaunchScene({ progress, target }: Props) {
       waterMaterial.uniforms.uTime.value = t;
       waterMaterial.uniforms.uEnergy.value = clamp01(p * 2.2);
       particleMaterial.uniforms.uTime.value = t;
-      particleMaterial.uniforms.uPhase.value = Math.min(p * 1.5, 1);
+      // Keep particle timing on the same 0–1 timeline as the IP reveal; prevents a blank gap before Longling appears.
+      particleMaterial.uniforms.uPhase.value = p;
       dragonMaterials.forEach((material) => { material.opacity = 0; });
       formalLongling.visible = mascotReveal > .02 && formalLongling.children.length > 0;
       formalLongling.scale.setScalar(Math.max(mascotReveal * 1.2, 0.0001));
