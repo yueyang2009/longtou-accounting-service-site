@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 export function BackToHomeBtn() {
   const pathname = usePathname();
   // 首页不显示
-  if (pathname === "/" || pathname === "") return null;
+  if (pathname === "/" || pathname === "" || pathname === "/equity-structure") return null;
 
   return (
     <Link

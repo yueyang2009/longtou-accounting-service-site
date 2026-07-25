@@ -48,9 +48,8 @@ export function EquityExperience() {
   const [scan, setScan] = useState(0);
   useEffect(() => { const timer = window.setInterval(() => setScan((v) => (v + 1) % 101), 70); return () => window.clearInterval(timer); }, []);
 
-  return <main className="equity-page">
+  return <main className="equity-page" data-header-theme="dark">
     <div className="equity-noise" /><div className="equity-stars" />
-    <header className="equity-header"><a className="equity-brand" href="https://yueyang2009.github.io/longtou-accounting-service-site/">LONGTOU <span>ADVISORY</span></a><div className="equity-header-center"><span className="live-dot" />企业结构数字驾驶舱 <i>DEMO</i></div><a className="equity-back" href="https://yueyang2009.github.io/longtou-accounting-service-site/">返回官网 <ChevronRight size={15} /></a></header>
     <section className="equity-intro"><div><p className="eyebrow"><Sparkles size={14} /> EQUITY INTELLIGENCE SYSTEM</p><h1>企业控制画像</h1><p className="intro-copy">用穿透视角，看清集团控制力、资产边界与资本未来。</p></div><div className="demo-badge"><span>模拟演示环境</span><small>本页面不连接工商数据，仅用于官网展示</small></div></section>
     <section className="profile-grid">{equityData.profile.map((item, index) => <article className={`profile-card profile-${index}`} key={item.label}><span>{item.label}</span><strong>{item.value}</strong><small>{item.detail}</small></article>)}</section>
     <section className="cockpit-grid">
@@ -67,6 +66,5 @@ export function EquityExperience() {
     </section>
     <section className={`penetration panel ${expanded ? "is-open" : ""}`}><div className="penetration-title"><div><p className="eyebrow">EQUITY LOOK-THROUGH / 03</p><h2>动态股权穿透</h2></div><span>{expanded ? "穿透星图已启动" : "等待节点指令"}</span></div>{expanded ? <div className="penetration-galaxy">{equityData.technologyChain.map((item, index) => <div className={`penetration-orb depth-${index}`} key={item.name}><span className="penetration-ring" /><Layers3 size={17}/><b>{item.name}</b><em>{item.caption}</em><strong>{item.share}</strong></div>)}<svg viewBox="0 0 1000 250" preserveAspectRatio="none" aria-hidden="true"><path d="M190 125 C330 35 430 35 500 125 S700 215 810 125" className="penetration-link" /><path d="M190 125 C330 35 430 35 500 125 S700 215 810 125" className="penetration-flow" /></svg><p>持股路径数据流正在穿透：龙头科技有限公司 → 技术研发中心有限公司 → 核心资产公司</p></div> : <div className="chain-wrap"><button className="open-chain" onClick={() => setExpanded(true)}>启动「龙头科技有限公司」动态穿透 <ChevronRight size={18} /></button></div>}</section>
     <section className="strategy"><div className="strategy-heading"><p className="eyebrow">STRATEGY BLUEPRINT / 04</p><h2>顶层设计，从看见结构开始</h2></div><div className="strategy-grid">{suggestions.map(([num, title, subtitle, text]) => <article className="strategy-card" key={num}><span>{num}</span><h3>{title}</h3><b>{subtitle}</b><p>{text}</p><i>战略模块 <ChevronRight size={15}/></i></article>)}</div></section>
-    <footer className="equity-footer"><span>龙头会服 · 高端财税团队</span><span>战略架构 / 财税合规 / 资本规划</span></footer>
   </main>;
 }

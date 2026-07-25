@@ -61,6 +61,7 @@ export const siteNavLinks = [
   { href: "/", label: "主页" },
   { href: "/why-annual-advisor", label: "年度顾问" },
   { href: "/services", label: "服务体系" },
+  { href: "/equity-structure", label: "股权设计" },
   { href: "/about", label: "关于" },
   { href: "/team", label: "团队" },
   { href: "/blog", label: "文章" },
