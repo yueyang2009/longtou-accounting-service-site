@@ -22,5 +22,17 @@
   {"name":"建筑项目异地预缴税款遗漏","probability":2,"impact":4,"level":"高","color":"orange","description":"项目所在地涉税义务未完整处理","advice":"按项目建立跨区域涉税事项和预缴税款台账，衔接合同、结算和申报。","consequences":["补缴税款及滞纳金","项目税务管理风险"]},
   {"name":"税收优惠资格条件未持续复核","probability":2,"impact":4,"level":"高","color":"orange","description":"优惠政策适用条件可能发生变化","advice":"建立优惠事项年度复核清单，对收入结构、人员、研发及备案资料进行动态管理。","consequences":["优惠被追溯调整","补税及滞纳金"]},
   {"name":"工商年报、财务报表与税务数据不一致","probability":2,"impact":2,"level":"低","color":"green","description":"多端披露数据缺乏核对","advice":"在年报和汇算清缴前建立跨系统数据核对表，统一统计口径与差异说明。","consequences":["外部信息比对提示"]},
-  {"name":"应收账款长期挂账、坏账证据不足","probability":2,"impact":3,"level":"中","color":"yellow","description":"债权管理与损失证据链不完整","advice":"按账龄制定催收计划，留存对账、催收、诉讼或核销等证据。","consequences":["坏账损失扣除受限","现金流风险被低估"]}
+  {"name":"应收账款长期挂账、坏账证据不足","probability":2,"impact":3,"level":"中","color":"yellow","description":"债权管理与损失证据链不完整","advice":"按账龄制定催收计划，留存对账、催收、诉讼或核销等证据。","consequences":["坏账损失扣除受限","现金流风险被低估"]},
+  {"name":"预收款长期挂账未及时确认收入","probability":4,"impact":3,"level":"高","color":"orange","description":"收入确认时点存在滞后","advice":"按合同履约节点复核预收款，建立发货、验收、开票与收入确认的联动台账。","consequences":["收入跨期确认风险","补税及滞纳金"]},
+  {"name":"采购付款、发票与入库主体不一致","probability":3,"impact":4,"level":"高","color":"orange","description":"采购业务证据链存在断点","advice":"对采购主体、合同、付款、入库和发票进行五单匹配，异常交易单独说明。","consequences":["进项抵扣被质疑","采购真实性核查风险"]},
+  {"name":"销售返利折让缺乏合规依据","probability":3,"impact":3,"level":"中","color":"yellow","description":"价格调整证据不足","advice":"在合同中明确返利、折让条款，留存结算单、审批单及红字发票处理依据。","consequences":["收入确认口径争议","发票处理不规范"]},
+  {"name":"以个人名义签署经营合同","probability":3,"impact":3,"level":"中","color":"yellow","description":"合同主体与实际经营主体不一致","advice":"统一以公司主体签约、收付款和开票；历史合同按业务实质补充授权及承接文件。","consequences":["业务归属不清","收入成本真实性受关注"]},
+  {"name":"佣金咨询费缺乏服务成果佐证","probability":3,"impact":4,"level":"高","color":"orange","description":"大额服务支出商业合理性不足","advice":"完善服务合同、工作成果、验收记录和支付审批，建立服务费真实性档案。","consequences":["税前扣除受限","交易真实性被问询"]},
+  {"name":"租赁税费申报及代扣义务遗漏","probability":3,"impact":3,"level":"中","color":"yellow","description":"租赁相关税费处理不完整","advice":"按租赁合同建立税费清单，复核发票取得、印花税及代扣代缴义务。","consequences":["补税及滞纳金","合同涉税风险"]},
+  {"name":"在建工程长期未转固","probability":2,"impact":3,"level":"中","color":"yellow","description":"资产达到可使用状态后仍未结转","advice":"按项目复核完工及使用状态，及时转固并执行对应折旧和税务处理。","consequences":["折旧计提不准确","资产税务处理调整"]},
+  {"name":"跨部门费用分摊缺少合理依据","probability":3,"impact":3,"level":"中","color":"yellow","description":"成本归属与受益原则不清","advice":"制定费用分摊办法，明确受益对象、分摊口径和审批留痕。","consequences":["成本列支不合理","关联交易解释压力"]},
+  {"name":"对外担保及或有事项未充分披露","probability":2,"impact":4,"level":"高","color":"orange","description":"潜在偿债责任未纳入经营判断","advice":"建立对外担保和诉讼事项台账，定期由法务、业务和财务共同复核。","consequences":["潜在负债被低估","影响融资及信用判断"]},
+  {"name":"电子发票重复报销或重复入账","probability":3,"impact":2,"level":"中","color":"yellow","description":"票据查重控制不足","advice":"启用发票号码与金额双重查重规则，报销环节设置系统校验和复核。","consequences":["费用虚增风险","内控缺陷暴露"]},
+  {"name":"供应商异常名录未持续监控","probability":3,"impact":4,"level":"高","color":"orange","description":"上游风险未被及时识别","advice":"建立供应商准入与存续监控机制，定期核验工商、税务状态及交易异常信号。","consequences":["异常凭证风险上升","供应链合规风险"]},
+  {"name":"政府补助收入确认及纳税处理不当","probability":2,"impact":3,"level":"中","color":"yellow","description":"补助条件、会计确认与税务口径未协同","advice":"逐项梳理补助文件、用途限制和验收条件，建立会计与税务处理备忘录。","consequences":["收入确认调整","税收优惠适用争议"]}
 ]
