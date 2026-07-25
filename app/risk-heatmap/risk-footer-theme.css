@@ -1,0 +1,14 @@
+/* 页面收尾延续主页墨绿色，避免风险页在底部突然落入纯黑。 */
+.risk-page { padding-bottom: 64px; }
+.risk-bottom {
+  margin-top: 52px;
+  margin-bottom: 0;
+  padding: 42px 46px;
+  border: 1px solid rgba(217, 199, 165, .2);
+  border-radius: 16px;
+  background: linear-gradient(120deg, #111816 0%, #17231d 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+}
+.risk-shell footer,
+.risk-shell footer .bg-\[\#0a0f0d\] { background-color: #0f1513 !important; }
+@media (max-width: 580px) { .risk-bottom { padding: 28px 22px; } }

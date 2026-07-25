@@ -4,6 +4,7 @@ import { HomeHeader } from "@/components/HomeHeader";
 import { RiskHeatmapExperience } from "./RiskHeatmapExperience";
 import "./risk-heatmap.css";
 import "./risk-brand.css";
+import "./risk-footer-theme.css";
 
 export const metadata: Metadata = { title: "企业财税风险智能雷达", description: "龙头会服·高端财税团队模拟企业财税风险扫描与风险矩阵展示。" };
 
