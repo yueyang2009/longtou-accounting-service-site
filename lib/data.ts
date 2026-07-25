@@ -62,6 +62,7 @@ export const siteNavLinks = [
   { href: "/why-annual-advisor", label: "年度顾问" },
   { href: "/services", label: "服务体系" },
   { href: "/equity-structure", label: "股权设计" },
+  { href: "/risk-heatmap", label: "风险热力图" },
   { href: "/about", label: "关于" },
   { href: "/team", label: "团队" },
   { href: "/blog", label: "文章" },

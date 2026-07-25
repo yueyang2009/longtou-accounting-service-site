@@ -1,0 +1,12 @@
+[
+  {"name":"取得上游虚开发票、异常凭证","probability":3,"impact":5,"level":"极高","color":"red","description":"进项转出、罚款、移送稽查","advice":"核验上游交易真实性，建立发票、合同、物流与资金流四方比对机制。","consequences":["进项税额转出","行政罚款","存在被移送稽查风险"]},
+  {"name":"私户收款隐匿未开票收入","probability":4,"impact":4,"level":"极高","color":"red","description":"偷税认定，滞纳金及罚款风险","advice":"建立收入管理体系，规范资金流与业务流，确保收入及时入账和开票。","consequences":["补缴税款","加收滞纳金","行政罚款","影响企业纳税信用"]},
+  {"name":"股东长期大额借款跨年未归还","probability":4,"impact":3,"level":"高","color":"orange","description":"可能视同分红征收个人所得税","advice":"逐笔核验借款用途及股东身份，形成清收计划并留存生产经营用途证据。","consequences":["可能视同股息红利","补缴个人所得税","资金占用合规风险"]},
+  {"name":"成本费用白条入账","probability":4,"impact":3,"level":"高","color":"orange","description":"纳税调增风险","advice":"完善报销审核与票据取得流程，对无票支出建立台账并预先进行税会处理。","consequences":["企业所得税纳税调增","费用真实性被质疑","内控缺陷暴露"]},
+  {"name":"进销品名严重不匹配","probability":3,"impact":4,"level":"高","color":"orange","description":"触发风险比对","advice":"统一业务、合同、发票和存货编码口径，定期开展进销项品名匹配检查。","consequences":["触发系统风险比对","进项抵扣真实性受质疑","面临税务核查"]},
+  {"name":"税负率长期低于行业水平","probability":3,"impact":3,"level":"中","color":"yellow","description":"系统风险预警","advice":"按月跟踪税负率与行业区间，留存价格、成本和经营波动的合理性说明。","consequences":["税务系统预警","被要求解释经营波动"]},
+  {"name":"研发费用加计扣除归集不规范","probability":2,"impact":3,"level":"中","color":"yellow","description":"存在补税风险","advice":"按项目建立研发辅助账，明确人员、材料及设备费用的归集边界。","consequences":["加计扣除被调减","补缴税款及滞纳金"]},
+  {"name":"合同印花税漏申报","probability":3,"impact":2,"level":"中","color":"yellow","description":"补税及滞纳金","advice":"合同签订环节同步登记印花税台账，按税目和期限设置申报提醒。","consequences":["补缴印花税","产生滞纳金"]},
+  {"name":"工资社保申报不一致","probability":2,"impact":2,"level":"低","color":"green","description":"日常提示风险","advice":"每月核对工资表、个税申报表和社保缴费基数，留存差异说明。","consequences":["日常数据比对提示"]},
+  {"name":"申报偶尔逾期","probability":1,"impact":1,"level":"低","color":"green","description":"风险可控","advice":"建立申报日历与双人复核机制，提前完成资料归集和申报。","consequences":["产生轻微信用扣分"]}
+]
