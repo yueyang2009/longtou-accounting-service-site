@@ -32,7 +32,7 @@ export function BrandLaunchHero() {
         <p className="brand-launch-subtitle">连接企业资源　陪伴企业成长</p>
       </div>
       <div className="brand-launch-ip" aria-label="龙头会服品牌IP龙灵">
-        <Image src="/images/longling-brand-ip.png" alt="龙灵，龙头会服品牌IP" fill priority sizes="(max-width: 768px) 70vw, 390px" />
+        <Image src="/images/longling-final-ip.png" alt="龙灵，龙头会服品牌IP" fill priority sizes="(max-width: 768px) 70vw, 390px" />
       </div>
       <p className="brand-launch-scroll">SCROLL TO AWAKEN <span>↓</span></p>
     </section>

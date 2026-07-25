@@ -2,12 +2,12 @@
 
 import { useEffect, useRef } from "react";
 
-export type BrandPhase = "water" | "dragon" | "reveal" | "brand";
+export type BrandPhase = "water" | "gather" | "reveal" | "brand";
 
 export function phaseFromProgress(progress: number): BrandPhase {
-  if (progress < 0.25) return "water";
-  if (progress < 0.57) return "dragon";
-  if (progress < 0.8) return "reveal";
+  if (progress < 0.3) return "water";
+  if (progress < 0.72) return "gather";
+  if (progress < 0.88) return "reveal";
   return "brand";
 }
 

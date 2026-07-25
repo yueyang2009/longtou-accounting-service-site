@@ -61,7 +61,8 @@ export function BrandLaunchScene({ progress, target }: Props) {
     }
     const particlesGeometry = new THREE.BufferGeometry();
     particlesGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    particlesGeometry.setAttribute("aTarget", new THREE.BufferAttribute(targets, 3));
+    const targetAttribute = new THREE.BufferAttribute(targets, 3);
+    particlesGeometry.setAttribute("aTarget", targetAttribute);
     particlesGeometry.setAttribute("aScale", new THREE.BufferAttribute(scales, 1));
     particlesGeometry.setAttribute("aSeed", new THREE.BufferAttribute(seeds, 1));
     const particleMaterial = new THREE.ShaderMaterial({
@@ -70,6 +71,38 @@ export function BrandLaunchScene({ progress, target }: Props) {
     });
     const particles = new THREE.Points(particlesGeometry, particleMaterial);
     scene.add(particles);
+
+    // Sample the approved 龙灵 artwork itself, so the convergence uses its real silhouette rather than a generic figure.
+    const sourceImage = new Image();
+    const basePath = window.location.pathname.startsWith("/longtou-accounting-service-site") ? "/longtou-accounting-service-site" : "";
+    sourceImage.src = `${basePath}/images/longling-final-ip.png`;
+    sourceImage.onload = () => {
+      const sampleSize = 220;
+      const canvas = document.createElement("canvas");
+      canvas.width = sampleSize;
+      canvas.height = sampleSize;
+      const context = canvas.getContext("2d", { willReadFrequently: true });
+      if (!context) return;
+      context.drawImage(sourceImage, 0, 0, sampleSize, sampleSize);
+      const imageData = context.getImageData(0, 0, sampleSize, sampleSize).data;
+      const pixels: Array<[number, number]> = [];
+      for (let y = 2; y < sampleSize - 2; y += 2) {
+        for (let x = 2; x < sampleSize - 2; x += 2) {
+          const offset = (y * sampleSize + x) * 4;
+          const r = imageData[offset]; const g = imageData[offset + 1]; const b = imageData[offset + 2];
+          // White background is excluded; pale robe pixels are retained to preserve the whole IP outline.
+          if (Math.min(r, g, b) < 238 || Math.max(r, g, b) - Math.min(r, g, b) > 18) pixels.push([x, y]);
+        }
+      }
+      if (!pixels.length) return;
+      for (let i = 0; i < particleCount; i++) {
+        const [x, y] = pixels[Math.floor(Math.random() * pixels.length)];
+        targets[i * 3] = (x / sampleSize - .5) * 2.45;
+        targets[i * 3 + 1] = (.5 - y / sampleSize) * 3.9 + .35;
+        targets[i * 3 + 2] = (Math.random() - .5) * .16;
+      }
+      targetAttribute.needsUpdate = true;
+    };
 
     const dragon = new THREE.Group();
     const dragonMaterial = new THREE.MeshStandardMaterial({ color: 0x0a4a9e, metalness: 0.78, roughness: 0.28, transparent: true, opacity: 0 });
