@@ -5,6 +5,16 @@ import { useEffect, useState } from "react";
 import { BrandLaunchScene } from "./brand-launch/BrandLaunchScene";
 import { phaseFromProgress, useBrandLaunchProgress } from "./brand-launch/AnimationController";
 
+const ipParticleSeeds = Array.from({ length: 180 }, (_, index) => ({
+  id: index,
+  x: 8 + (index * 47) % 84,
+  y: 5 + (index * 29) % 90,
+  dx: ((index * 71) % 240) - 120,
+  dy: ((index * 37) % 260) - 130,
+  delay: (index % 36) * 0.028,
+  size: 2 + (index % 4),
+}));
+
 export function BrandLaunchHero() {
   const { progress, target } = useBrandLaunchProgress(true);
   const assetBase = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -35,6 +45,18 @@ export function BrandLaunchHero() {
       <BrandLaunchScene progress={progress} target={target} />
       <div className="brand-launch-vignette" />
       <div className="brand-launch-oriental" aria-hidden="true" />
+      <div className="brand-launch-ip-particles" aria-hidden="true">
+        {ipParticleSeeds.map((particle) => (
+          <i
+            key={particle.id}
+            style={{
+              "--particle-x": `${particle.x}%`, "--particle-y": `${particle.y}%`,
+              "--particle-dx": `${particle.dx}px`, "--particle-dy": `${particle.dy}px`,
+              "--particle-delay": `${particle.delay}s`, "--particle-size": `${particle.size}px`,
+            } as React.CSSProperties}
+          />
+        ))}
+      </div>
       <div className="brand-launch-copy">
         <p className="brand-launch-kicker">LONGTOU · CORPORATE SERVICE PLATFORM</p>
         <h1>龙头会服</h1>

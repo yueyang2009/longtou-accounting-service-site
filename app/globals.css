@@ -2967,6 +2967,7 @@ footer.bg-brand-emerald {
 .private-advisory-site main > section.brand-launch > .brand-launch-canvas,
 .private-advisory-site main > section.brand-launch > .brand-launch-vignette,
 .private-advisory-site main > section.brand-launch > .brand-launch-oriental,
+.private-advisory-site main > section.brand-launch > .brand-launch-ip-particles,
 .private-advisory-site main > section.brand-launch > .brand-launch-copy,
 .private-advisory-site main > section.brand-launch > .brand-launch-ip,
 .private-advisory-site main > section.brand-launch > .brand-launch-enter,
@@ -2976,6 +2977,7 @@ footer.bg-brand-emerald {
 .private-advisory-site main > section.brand-launch > .brand-launch-canvas { z-index: 0 !important; }
 .private-advisory-site main > section.brand-launch > .brand-launch-vignette,
 .private-advisory-site main > section.brand-launch > .brand-launch-oriental { z-index: 1 !important; }
+.private-advisory-site main > section.brand-launch > .brand-launch-ip-particles { z-index: 2 !important; }
 .private-advisory-site main > section.brand-launch > .brand-launch-ip { z-index: 3 !important; }
 .private-advisory-site main > section.brand-launch > .brand-launch-copy,
 .private-advisory-site main > section.brand-launch > .brand-launch-scroll { z-index: 4 !important; }
@@ -3096,6 +3098,39 @@ footer.bg-brand-emerald {
   mask-image: radial-gradient(ellipse at 50% 48%, #000 44%, rgba(0,0,0,.8) 61%, transparent 75%);
 }
 
+.brand-launch-ip-particles {
+  position: absolute;
+  left: max(24%, calc(50% - 420px));
+  bottom: 28%;
+  width: min(33vw, 460px);
+  aspect-ratio: .88;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: 50%;
+  transition: opacity 260ms ease;
+}
+.brand-launch-ip-particles i {
+  position: absolute;
+  left: var(--particle-x);
+  top: var(--particle-y);
+  width: var(--particle-size);
+  height: var(--particle-size);
+  border-radius: 999px;
+  background: #75c6ff;
+  box-shadow: 0 0 9px #1f84ff, 0 0 16px rgba(92, 183, 255, .85);
+  opacity: 0;
+}
+.brand-phase-gather .brand-launch-ip-particles { opacity: 1; }
+.brand-phase-gather .brand-launch-ip-particles i { animation: ip-particle-converge 1.35s cubic-bezier(.16, .8, .22, 1) var(--particle-delay) both; }
+.brand-phase-reveal .brand-launch-ip-particles,
+.brand-phase-brand .brand-launch-ip-particles { opacity: 0; }
+@keyframes ip-particle-converge {
+  0% { opacity: 0; transform: translate(var(--particle-dx), var(--particle-dy)) scale(.15); }
+  22% { opacity: .95; }
+  100% { opacity: .88; transform: translate(0, 0) scale(1); }
+}
+
 .brand-launch-ip img { object-fit: cover; object-position: center; }
 .brand-phase-reveal .brand-launch-ip,
 .brand-phase-brand .brand-launch-ip {
@@ -3170,6 +3205,7 @@ footer.bg-brand-emerald {
   .private-advisory-site main > section.brand-launch { min-height: 720px; }
   .brand-launch h1 { font-size: clamp(3rem, 16vw, 5rem); }
   .brand-launch-ip { width: min(73vw, 360px); bottom: 4%; }
+  .brand-launch-ip-particles { left: 50%; bottom: 4%; width: min(73vw, 360px); transform: translateX(-50%); }
   .brand-phase-brand .brand-launch-ip { left: 50%; bottom: 2%; width: min(54vw, 280px); }
   .brand-phase-brand .brand-launch-copy { left: 50%; width: min(90vw, 720px); text-align: center; }
   .brand-phase-brand .brand-launch-copy .brand-launch-line { margin-left: auto; }

@@ -69,6 +69,8 @@ export function BrandLaunchScene({ progress, target }: Props) {
       uniforms: { uTime: { value: 0 }, uPhase: { value: 0 }, uTargetCenter: { value: new THREE.Vector3(-1.5, 1.35, 0) } }, transparent: true, depthWrite: false, blending: THREE.NormalBlending,
     });
     const particles = new THREE.Points(particlesGeometry, particleMaterial);
+    // Final convergence uses a DOM layer locked to the IP element, avoiding camera-projection drift.
+    particles.visible = false;
     scene.add(particles);
 
 
