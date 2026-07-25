@@ -48,14 +48,12 @@ export function BrandLaunchScene({ progress, target }: Props) {
       positions[i * 3] = Math.cos(a) * r * (1 - rise * 0.35) + dragonCurve;
       positions[i * 3 + 1] = -1.05 + rise * 4.1;
       positions[i * 3 + 2] = Math.sin(a) * r * 0.5;
-      // A compact humanoid silhouette: particles first settle into this shape, then dissolve into the approved IP image.
-      const targetRise = Math.random();
-      const isHead = targetRise > .6;
-      const targetRadius = isHead ? .45 * Math.sqrt(Math.random()) : .62 * Math.sqrt(Math.random());
+      // The particles settle directly at the final left-side IP position as a soft vortex, never as a rectangular pixel card.
       const targetAngle = Math.random() * Math.PI * 2;
-      targets[i * 3] = Math.cos(targetAngle) * targetRadius * (isHead ? 1 : .72);
-      targets[i * 3 + 1] = isHead ? .72 + targetRise * .92 : -1.0 + targetRise * 1.72;
-      targets[i * 3 + 2] = Math.sin(targetAngle) * targetRadius * .26;
+      const targetRadius = Math.pow(Math.random(), .7);
+      targets[i * 3] = -1.62 + Math.cos(targetAngle) * targetRadius * .8;
+      targets[i * 3 + 1] = .72 + Math.sin(targetAngle) * targetRadius * 1.1;
+      targets[i * 3 + 2] = (Math.random() - .5) * .34;
       scales[i] = 0.8 + Math.random() * 2.2;
       seeds[i] = Math.random();
     }
@@ -72,37 +70,6 @@ export function BrandLaunchScene({ progress, target }: Props) {
     const particles = new THREE.Points(particlesGeometry, particleMaterial);
     scene.add(particles);
 
-    // Sample the approved 龙灵 artwork itself, so the convergence uses its real silhouette rather than a generic figure.
-    const sourceImage = new Image();
-    const basePath = window.location.pathname.startsWith("/longtou-accounting-service-site") ? "/longtou-accounting-service-site" : "";
-    sourceImage.src = `${basePath}/images/longling-brand-ip.png`;
-    sourceImage.onload = () => {
-      const sampleSize = 220;
-      const canvas = document.createElement("canvas");
-      canvas.width = sampleSize;
-      canvas.height = sampleSize;
-      const context = canvas.getContext("2d", { willReadFrequently: true });
-      if (!context) return;
-      context.drawImage(sourceImage, 0, 0, sampleSize, sampleSize);
-      const imageData = context.getImageData(0, 0, sampleSize, sampleSize).data;
-      const pixels: Array<[number, number]> = [];
-      for (let y = 2; y < sampleSize - 2; y += 2) {
-        for (let x = 2; x < sampleSize - 2; x += 2) {
-          const offset = (y * sampleSize + x) * 4;
-          const r = imageData[offset]; const g = imageData[offset + 1]; const b = imageData[offset + 2];
-          // White background is excluded; pale robe pixels are retained to preserve the whole IP outline.
-          if (Math.min(r, g, b) < 238 || Math.max(r, g, b) - Math.min(r, g, b) > 18) pixels.push([x, y]);
-        }
-      }
-      if (!pixels.length) return;
-      for (let i = 0; i < particleCount; i++) {
-        const [x, y] = pixels[Math.floor(Math.random() * pixels.length)];
-        targets[i * 3] = (x / sampleSize - .5) * 2.45;
-        targets[i * 3 + 1] = (.5 - y / sampleSize) * 3.9 + .35;
-        targets[i * 3 + 2] = (Math.random() - .5) * .16;
-      }
-      targetAttribute.needsUpdate = true;
-    };
 
     const dragon = new THREE.Group();
     const dragonMaterial = new THREE.MeshStandardMaterial({ color: 0x0a4a9e, metalness: 0.78, roughness: 0.28, transparent: true, opacity: 0 });
