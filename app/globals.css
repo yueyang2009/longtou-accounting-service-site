@@ -3600,3 +3600,159 @@ footer.bg-brand-emerald {
     will-change: auto;
   }
 }
+
+/* ── 沙暴主体：斜向风墙、涡旋卷动、前景高速颗粒，制造一次势能峰值 ── */
+.brand-launch-storm,
+.brand-launch-gusts {
+  position: absolute !important;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.brand-launch-storm {
+  z-index: 1;
+  opacity: .96;
+  mix-blend-mode: screen;
+}
+
+.brand-launch-gusts {
+  z-index: 3;
+  perspective: 760px;
+  transform-style: preserve-3d;
+  mask-image: linear-gradient(90deg, transparent 0%, black 9%, black 88%, transparent 100%);
+}
+
+.storm-wall,
+.storm-vortex,
+.storm-pressure {
+  position: absolute;
+  pointer-events: none;
+}
+
+.storm-wall {
+  left: -36%;
+  top: -18%;
+  width: 92%;
+  height: 142%;
+  opacity: 0;
+  transform-origin: 72% 52%;
+  filter: blur(10px) saturate(.78);
+  background:
+    linear-gradient(104deg, transparent 0 12%, rgba(126, 118, 104, .12) 20%, rgba(217, 199, 165, .24) 38%, rgba(238, 220, 184, .16) 51%, transparent 72%),
+    repeating-linear-gradient(106deg, transparent 0 18px, rgba(217,199,165,.105) 19px 21px, transparent 22px 44px);
+  animation: storm-wall-drive 4.9s cubic-bezier(.12, .72, .12, 1) forwards;
+}
+
+.storm-wall-back {
+  z-index: 0;
+  animation-duration: 5.4s;
+  filter: blur(18px) saturate(.66);
+  opacity: 0;
+}
+
+.storm-wall-mid {
+  z-index: 1;
+  top: -24%;
+  animation-delay: .18s;
+}
+
+.storm-vortex {
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  width: min(74vw, 760px);
+  aspect-ratio: 1;
+  border-radius: 999px;
+  opacity: 0;
+  transform: translate(-62%, -48%) rotate(-18deg) scale(.72);
+  filter: blur(1.2px);
+  background:
+    conic-gradient(from 212deg, transparent 0 20deg, rgba(217,199,165,.20) 38deg, transparent 68deg, rgba(157,145,124,.16) 94deg, transparent 138deg, rgba(238,220,184,.18) 166deg, transparent 220deg, rgba(217,199,165,.12) 246deg, transparent 330deg),
+    radial-gradient(circle, transparent 0 32%, rgba(217,199,165,.10) 33% 34%, transparent 42% 100%);
+  mask-image: radial-gradient(circle, transparent 0 24%, black 34%, black 58%, transparent 74%);
+  animation: storm-vortex-surge 4.8s cubic-bezier(.13, .76, .14, 1) .18s forwards;
+}
+
+.storm-pressure {
+  z-index: 3;
+  left: -16%;
+  top: 34%;
+  width: 132%;
+  height: 24%;
+  opacity: 0;
+  transform: rotate(-8deg) translateX(-10%);
+  filter: blur(12px);
+  background: linear-gradient(90deg, transparent, rgba(238,220,184,.18) 18%, rgba(217,199,165,.28) 42%, rgba(126,118,104,.13) 64%, transparent);
+  animation: storm-pressure-sweep 3.4s cubic-bezier(.1, .74, .16, 1) .28s forwards;
+}
+
+.brand-launch-gusts i {
+  --gust-top: 50%;
+  --gust-left: -20%;
+  --gust-travel: 120vw;
+  --gust-travel-mid: 92vw;
+  --gust-rise: 0px;
+  --gust-rise-end: 0px;
+  --gust-delay: 0ms;
+  --gust-duration: 1.4s;
+  --gust-width: 60px;
+  --gust-opacity: .38;
+  --gust-blur: .4px;
+  position: absolute;
+  left: var(--gust-left);
+  top: var(--gust-top);
+  width: var(--gust-width);
+  height: 2px;
+  border-radius: 999px;
+  opacity: 0;
+  background: linear-gradient(90deg, transparent, rgba(244,229,199,.72), rgba(168,156,134,.42), transparent);
+  box-shadow: 0 0 10px rgba(217,199,165,.18);
+  filter: blur(var(--gust-blur));
+  transform: translate3d(0, 0, 110px) rotate(-10deg) scaleX(.55);
+  will-change: transform, opacity;
+  animation: storm-gust-slash var(--gust-duration) cubic-bezier(.06, .72, .18, 1) var(--gust-delay) both;
+}
+
+@keyframes storm-wall-drive {
+  0% { opacity: 0; transform: translate3d(-24%, 9%, 0) rotate(-14deg) skewX(-8deg) scale(.9); }
+  18% { opacity: .42; }
+  42% { opacity: .82; transform: translate3d(24%, -2%, 0) rotate(-8deg) skewX(-16deg) scale(1.08); }
+  68% { opacity: .32; transform: translate3d(48%, -5%, 0) rotate(-3deg) skewX(-6deg) scale(.98); }
+  100% { opacity: 0; transform: translate3d(68%, -8%, 0) rotate(0deg) skewX(0deg) scale(.88); }
+}
+
+@keyframes storm-vortex-surge {
+  0% { opacity: 0; transform: translate(-68%, -44%) rotate(-34deg) scale(.56); }
+  22% { opacity: .38; }
+  46% { opacity: .74; transform: translate(-50%, -50%) rotate(118deg) scale(1.05); }
+  72% { opacity: .26; transform: translate(-50%, -50%) rotate(248deg) scale(.72); }
+  100% { opacity: 0; transform: translate(-50%, -50%) rotate(326deg) scale(.28); }
+}
+
+@keyframes storm-pressure-sweep {
+  0% { opacity: 0; transform: rotate(-10deg) translateX(-24%) scaleX(.6); }
+  32% { opacity: .74; }
+  58% { opacity: .42; transform: rotate(-7deg) translateX(16%) scaleX(1.08); }
+  100% { opacity: 0; transform: rotate(-4deg) translateX(46%) scaleX(.72); }
+}
+
+@keyframes storm-gust-slash {
+  0% { opacity: 0; transform: translate3d(0, 0, 180px) rotate(-12deg) scaleX(.35); }
+  18% { opacity: var(--gust-opacity); }
+  64% { opacity: var(--gust-opacity); transform: translate3d(var(--gust-travel-mid), var(--gust-rise), 60px) rotate(-8deg) scaleX(1.5); }
+  100% { opacity: 0; transform: translate3d(var(--gust-travel), var(--gust-rise-end), -40px) rotate(-4deg) scaleX(.72); }
+}
+
+@media (max-width: 768px) {
+  .storm-wall { filter: blur(14px); }
+  .storm-vortex { width: 110vw; filter: blur(2px); }
+  .brand-launch-gusts i:nth-child(2n) { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-launch-storm,
+  .brand-launch-gusts {
+    display: none !important;
+  }
+}

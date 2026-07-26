@@ -51,6 +51,28 @@ const fragmentSeeds = Array.from({ length: 860 }, (_, index) => {
   };
 });
 
+
+const gustSeeds = Array.from({ length: 64 }, (_, index) => {
+  const lane = index % 8;
+  const depth = index % 4;
+  const travel = 122 + depth * 18 + (index % 7) * 7;
+  const rise = -28 + lane * 4 + ((index * 17) % 26);
+  return {
+    id: index,
+    top: `${14 + lane * 9.5 + Math.sin(index * 1.7) * 5}%`,
+    left: `${-24 - (index % 5) * 18}%`,
+    travel: `${travel}vw`,
+    travelMid: `${travel * 0.78}vw`,
+    rise: `${rise}px`,
+    riseEnd: `${rise * 1.2}px`,
+    delay: `${(index % 16) * 55}ms`,
+    duration: `${1.35 + depth * 0.18 + (index % 5) * 0.07}s`,
+    width: `${42 + depth * 18 + (index % 6) * 9}px`,
+    opacity: [0.22, 0.36, 0.52, 0.68][depth],
+    blur: `${depth === 0 ? 1.4 : depth === 1 ? 0.8 : 0.25}px`,
+  };
+});
+
 export function BrandLaunchHero() {
   const assetBase = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const [leaving, setLeaving] = useState(false);
@@ -72,6 +94,32 @@ export function BrandLaunchHero() {
     >
       <div className="brand-launch-depth" aria-hidden="true" />
       <div className="brand-launch-noise" aria-hidden="true" />
+      <div className="brand-launch-storm" aria-hidden="true">
+        <span className="storm-wall storm-wall-back" />
+        <span className="storm-wall storm-wall-mid" />
+        <span className="storm-vortex" />
+        <span className="storm-pressure" />
+      </div>
+      <div className="brand-launch-gusts" aria-hidden="true">
+        {gustSeeds.map((gust) => (
+          <i
+            key={gust.id}
+            style={{
+              "--gust-top": gust.top,
+              "--gust-left": gust.left,
+              "--gust-travel": gust.travel,
+              "--gust-travel-mid": gust.travelMid,
+              "--gust-rise": gust.rise,
+              "--gust-rise-end": gust.riseEnd,
+              "--gust-delay": gust.delay,
+              "--gust-duration": gust.duration,
+              "--gust-width": gust.width,
+              "--gust-opacity": gust.opacity,
+              "--gust-blur": gust.blur,
+            } as CSSProperties}
+          />
+        ))}
+      </div>
       <div className="brand-launch-fragments" aria-hidden="true">
         {fragmentSeeds.map((fragment) => (
           <i
