@@ -3464,3 +3464,20 @@ footer.bg-brand-emerald {
     transform: translate(-50%, 0);
   }
 }
+
+/* ── 首页首屏标题：粒子汇聚后保持克制字号 ── */
+.hero-particle-title canvas {
+  width: min(100%, 42rem) !important;
+}
+
+@media (max-width: 768px) {
+  .hero-particle-title canvas {
+    width: min(100%, 23rem) !important;
+  }
+}
+
+/* ── 开场动画粒子加密后，单颗更细，整体更像克制的品牌凝聚 ── */
+.brand-launch-fragments i {
+  box-shadow: 0 0 11px rgba(217, 199, 165, 0.28);
+  animation-duration: 5.2s;
+}

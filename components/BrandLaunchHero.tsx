@@ -4,24 +4,27 @@ import Image from "next/image";
 import type { CSSProperties } from "react";
 import { useEffect, useState } from "react";
 
-const fragmentSeeds = Array.from({ length: 96 }, (_, index) => {
-  const col = index % 12;
-  const row = Math.floor(index / 12);
-  const targetX = -33 + col * 6;
-  const targetY = -19 + row * 5.4;
-  const angle = (index * 137.5 * Math.PI) / 180;
-  const distance = 120 + ((index * 37) % 170);
+const fragmentSeeds = Array.from({ length: 320 }, (_, index) => {
+  const cols = 32;
+  const rows = 10;
+  const col = index % cols;
+  const row = Math.floor(index / cols) % rows;
+  const targetX = -104 + col * 6.7 + ((row % 2) * 2.2);
+  const targetY = -31 + row * 6.9 + ((col % 3) - 1) * 0.9;
+  const angle = (index * 137.508 * Math.PI) / 180;
+  const distance = 135 + ((index * 41) % 240);
+  const orbit = 24 + (index % 9) * 3.8;
 
   return {
     id: index,
-    left: `${50 + Math.cos(angle) * (26 + (index % 5) * 4)}%`,
-    top: `${50 + Math.sin(angle) * (22 + (index % 7) * 3)}%`,
+    left: `${50 + Math.cos(angle) * orbit}%`,
+    top: `${50 + Math.sin(angle) * (orbit * 0.72)}%`,
     tx: `${targetX}px`,
     ty: `${targetY}px`,
     sx: `${Math.cos(angle) * distance}px`,
-    sy: `${Math.sin(angle) * distance}px`,
-    delay: `${(index % 24) * 42}ms`,
-    size: `${1.5 + (index % 4) * 0.45}px`,
+    sy: `${Math.sin(angle) * distance * 0.78}px`,
+    delay: `${(index % 64) * 16}ms`,
+    size: `${1.05 + (index % 5) * 0.28}px`,
   };
 });
 
