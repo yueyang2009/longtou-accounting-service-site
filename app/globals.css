@@ -3481,3 +3481,122 @@ footer.bg-brand-emerald {
   box-shadow: 0 0 11px rgba(217, 199, 165, 0.28);
   animation-duration: 5.2s;
 }
+
+/* ── 开场粒子风暴增强版：暖金灰细尘翻涌后自然收束 ── */
+.brand-launch-fragments {
+  perspective: 900px;
+  transform-style: preserve-3d;
+  mask-image: radial-gradient(ellipse at center, black 0 62%, rgba(0,0,0,.78) 76%, transparent 94%);
+}
+
+.brand-launch-fragments::before,
+.brand-launch-fragments::after {
+  content: "";
+  position: absolute;
+  inset: -16%;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(circle at 18% 44%, rgba(217, 199, 165, .16) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 64% 35%, rgba(180, 168, 145, .13) 0 1px, transparent 2.2px),
+    radial-gradient(circle at 42% 72%, rgba(238, 220, 184, .10) 0 1px, transparent 1.7px);
+  background-size: 38px 38px, 61px 61px, 83px 83px;
+  filter: blur(.28px);
+  animation: brand-dust-veil 5.4s cubic-bezier(.18, .78, .2, 1) forwards;
+}
+
+.brand-launch-fragments::after {
+  inset: -24%;
+  opacity: 0;
+  background-size: 72px 72px, 110px 110px, 150px 150px;
+  filter: blur(1.3px);
+  animation-duration: 6.2s;
+  animation-delay: .18s;
+}
+
+.brand-launch-fragments i {
+  --fragment-duration: 5.2s;
+  --fragment-opacity: .58;
+  --fragment-blur: 0px;
+  --fragment-color: rgba(217, 199, 165, 0.72);
+  --fragment-mx: 120px;
+  --fragment-my: 0px;
+  --fragment-rotate: 0deg;
+  background: var(--fragment-color);
+  box-shadow: 0 0 8px rgba(217, 199, 165, 0.20);
+  filter: blur(var(--fragment-blur));
+  will-change: transform, opacity;
+  animation-name: brand-fragment-storm;
+  animation-duration: var(--fragment-duration);
+  animation-timing-function: cubic-bezier(.16, .78, .18, 1);
+  animation-delay: var(--fragment-delay);
+  animation-fill-mode: forwards;
+}
+
+@keyframes brand-fragment-storm {
+  0% {
+    opacity: 0;
+    transform: translate3d(var(--fragment-sx), var(--fragment-sy), -180px) rotate(var(--fragment-rotate)) scale(.42);
+  }
+  14% {
+    opacity: var(--fragment-opacity);
+    transform: translate3d(var(--fragment-sx-mid), var(--fragment-sy-mid), 80px) rotate(calc(var(--fragment-rotate) + 48deg)) scale(.86);
+  }
+  34% {
+    opacity: var(--fragment-opacity);
+    transform: translate3d(var(--fragment-mx), var(--fragment-my), 36px) rotate(calc(var(--fragment-rotate) + 118deg)) scale(1.02);
+  }
+  58% {
+    opacity: .62;
+    transform: translate3d(var(--fragment-tx-mid), var(--fragment-ty-mid), -18px) rotate(calc(var(--fragment-rotate) + 170deg)) scale(.82);
+  }
+  82% {
+    opacity: .34;
+    transform: translate3d(var(--fragment-tx), var(--fragment-ty), 0) rotate(calc(var(--fragment-rotate) + 210deg)) scale(.56);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--fragment-tx), var(--fragment-ty), 0) rotate(calc(var(--fragment-rotate) + 230deg)) scale(.28);
+  }
+}
+
+@keyframes brand-dust-veil {
+  0% {
+    opacity: 0;
+    transform: translate3d(-10%, 3%, 0) rotate(-2deg) scale(1.08);
+  }
+  18% {
+    opacity: .44;
+  }
+  54% {
+    opacity: .28;
+    transform: translate3d(7%, -2%, 0) rotate(1.2deg) scale(1.02);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(12%, -4%, 0) rotate(2.2deg) scale(.98);
+  }
+}
+
+@media (max-width: 768px) {
+  .brand-launch-fragments i:nth-child(3n) {
+    display: none;
+  }
+
+  .brand-launch-fragments::before,
+  .brand-launch-fragments::after {
+    background-size: 48px 48px, 82px 82px, 118px 118px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-launch-fragments::before,
+  .brand-launch-fragments::after {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+
+  .brand-launch-fragments i {
+    will-change: auto;
+  }
+}

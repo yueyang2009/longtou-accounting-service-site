@@ -4,27 +4,50 @@ import Image from "next/image";
 import type { CSSProperties } from "react";
 import { useEffect, useState } from "react";
 
-const fragmentSeeds = Array.from({ length: 320 }, (_, index) => {
-  const cols = 32;
-  const rows = 10;
+const fragmentSeeds = Array.from({ length: 860 }, (_, index) => {
+  const cols = 43;
+  const rows = 20;
   const col = index % cols;
   const row = Math.floor(index / cols) % rows;
-  const targetX = -104 + col * 6.7 + ((row % 2) * 2.2);
-  const targetY = -31 + row * 6.9 + ((col % 3) - 1) * 0.9;
+  const depth = index % 5;
+  const targetX = -132 + col * 6.25 + ((row % 2) * 2.4);
+  const targetY = -43 + row * 4.55 + ((col % 4) - 1.5) * 0.72;
   const angle = (index * 137.508 * Math.PI) / 180;
-  const distance = 135 + ((index * 41) % 240);
-  const orbit = 24 + (index % 9) * 3.8;
+  const band = Math.sin(index * 0.29) * 10;
+  const distance = 190 + depth * 44 + ((index * 53) % 310);
+  const orbit = 31 + depth * 5.4 + (index % 13) * 2.1;
+  const flowX = 120 + depth * 34 + ((index * 19) % 120);
+  const flowY = -34 + ((index * 23) % 96) - depth * 5;
+  const opacity = [0.26, 0.36, 0.52, 0.68, 0.44][depth];
+  const blur = [0.9, 0.55, 0.2, 0, 0.35][depth];
+  const size = [0.8, 1.05, 1.3, 1.68, 1.12][depth] + (index % 4) * 0.12;
+  const color = depth === 3
+    ? "rgba(238, 220, 184, 0.88)"
+    : depth === 2
+      ? "rgba(217, 199, 165, 0.76)"
+      : "rgba(166, 154, 132, 0.58)";
 
   return {
     id: index,
-    left: `${50 + Math.cos(angle) * orbit}%`,
-    top: `${50 + Math.sin(angle) * (orbit * 0.72)}%`,
+    left: `${50 + Math.cos(angle) * orbit + band}%`,
+    top: `${50 + Math.sin(angle) * (orbit * 0.58) + Math.cos(index * 0.17) * 8}%`,
     tx: `${targetX}px`,
     ty: `${targetY}px`,
-    sx: `${Math.cos(angle) * distance}px`,
-    sy: `${Math.sin(angle) * distance * 0.78}px`,
-    delay: `${(index % 64) * 16}ms`,
-    size: `${1.05 + (index % 5) * 0.28}px`,
+    sx: `${Math.cos(angle) * distance - flowX}px`,
+    sy: `${Math.sin(angle) * distance * 0.55 + flowY}px`,
+    sxMid: `${(Math.cos(angle) * distance - flowX) * 0.58}px`,
+    syMid: `${(Math.sin(angle) * distance * 0.55 + flowY) * 0.52}px`,
+    txMid: `${targetX * 0.42}px`,
+    tyMid: `${targetY * 0.42}px`,
+    mx: `${flowX}px`,
+    my: `${flowY}px`,
+    delay: `${(index % 96) * 11}ms`,
+    duration: `${4.9 + depth * 0.38 + (index % 7) * 0.06}s`,
+    size: `${size}px`,
+    opacity,
+    blur: `${blur}px`,
+    color,
+    rotate: `${(index * 29) % 360}deg`,
   };
 });
 
@@ -60,8 +83,19 @@ export function BrandLaunchHero() {
               "--fragment-ty": fragment.ty,
               "--fragment-sx": fragment.sx,
               "--fragment-sy": fragment.sy,
+              "--fragment-sx-mid": fragment.sxMid,
+              "--fragment-sy-mid": fragment.syMid,
+              "--fragment-tx-mid": fragment.txMid,
+              "--fragment-ty-mid": fragment.tyMid,
               "--fragment-delay": fragment.delay,
+              "--fragment-duration": fragment.duration,
               "--fragment-size": fragment.size,
+              "--fragment-opacity": fragment.opacity,
+              "--fragment-blur": fragment.blur,
+              "--fragment-color": fragment.color,
+              "--fragment-mx": fragment.mx,
+              "--fragment-my": fragment.my,
+              "--fragment-rotate": fragment.rotate,
             } as CSSProperties}
           />
         ))}
