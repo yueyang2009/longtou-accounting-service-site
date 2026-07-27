@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
-import { ArrowDownRight, ArrowUpRight, CalendarRange, ChevronRight, CircleDollarSign, SlidersHorizontal, TrendingUp, WalletCards, type LucideIcon } from "lucide-react";
+import { Activity, ArrowDownRight, ArrowUpRight, CalendarRange, ChevronRight, CircleDollarSign, Landmark, ShieldAlert, SlidersHorizontal, TrendingUp, WalletCards, type LucideIcon } from "lucide-react";
 
 type ForecastRow = {
   month: string;
@@ -19,6 +20,12 @@ const metricDefinitions: Array<{ label: string; key: "revenue" | "cost" | "profi
   { label: "预测支出", key: "cost", Icon: ArrowDownRight, note: "成本及费用" },
   { label: "经营利润", key: "profit", Icon: ArrowUpRight, note: "利润率" },
   { label: "期末现金", key: "cash", Icon: WalletCards, note: "现金余额" },
+];
+const fundingMetrics: Array<{ label: string; value: string; unit: string; Icon: LucideIcon }> = [
+  { label: "当前可用资金", value: "5,645", unit: "万元", Icon: WalletCards },
+  { label: "13周期末资金", value: "5,691", unit: "万元", Icon: Activity },
+  { label: "未使用授信", value: "6,370", unit: "万元", Icon: Landmark },
+  { label: "流动性余量", value: "8,561", unit: "万元", Icon: ShieldAlert },
 ];
 
 function makeForecast(months: number, growth: number, costChange: number, collectionDays: number): ForecastRow[] {
@@ -75,6 +82,7 @@ function Chart({ rows }: { rows: ForecastRow[] }) {
 }
 
 export function ComprehensiveBudgetDashboard() {
+  const base = process.env.NODE_ENV === "production" ? "/longtou-accounting-service-site" : "";
   const [months, setMonths] = useState<(typeof horizons)[number]>(12);
   const [growth, setGrowth] = useState(8);
   const [costChange, setCostChange] = useState(3);
@@ -115,7 +123,23 @@ export function ComprehensiveBudgetDashboard() {
         </div>
       </div>
 
-      <div className="mt-7 grid border border-dashed border-[#d9c7a5]/35 bg-[#111b15] p-6 md:grid-cols-[1fr_auto] md:items-center"><div><p className="text-sm font-semibold tracking-[.16em] text-[#d9c7a5]">资金预算</p><h3 className="mt-3 text-xl font-bold text-white">资金预算模块 · 预留位置</h3><p className="mt-2 text-sm leading-7 text-white/52">下一阶段可接入融资、授信、资金池、付款计划和现金缺口预警，实现预算到资金的完整闭环。</p></div><div className="mt-5 flex items-center gap-2 text-sm font-semibold text-white/45 md:mt-0">即将接入 <ChevronRight className="h-4 w-4" /></div></div>
+      <section className="mt-7 overflow-hidden border border-[#d9c7a5]/35 bg-[linear-gradient(125deg,#111b15,#172a1d_55%,#102218)]">
+        <div className="grid gap-8 p-7 md:p-9 xl:grid-cols-[1.05fr_.95fr] xl:items-end">
+          <div>
+            <p className="text-sm font-semibold tracking-[.16em] text-[#d9c7a5]">资金滚动预测</p>
+            <h3 className="mt-3 text-3xl font-bold leading-tight text-white">把资金安全线前置到<br />未来 13 周与 12 个月</h3>
+            <p className="mt-5 max-w-xl text-sm leading-7 text-white/60">参照资金滚动预测模型，资金驾驶舱以银行可用资金为起点，将经营、投资、融资计划按日期滚动推演，并按照情景系数、回款概率与最低安全资金线形成预警。</p>
+            <div className="mt-7 flex flex-wrap gap-3"><a href={`${base}/cash-flow-forecast.html`} className="inline-flex items-center gap-2 bg-[#d9c7a5] px-5 py-3 text-sm font-bold text-[#111816] transition hover:bg-[#eadabd]">启动资金管理驾驶舱 <ChevronRight className="h-4 w-4" /></a><Link href="/contact" className="inline-flex items-center gap-2 border border-white/18 px-5 py-3 text-sm font-semibold text-white/80 transition hover:border-[#d9c7a5] hover:text-[#d9c7a5]">申请资金体系诊断</Link></div>
+          </div>
+          <div className="grid border border-white/12 sm:grid-cols-2">
+            {fundingMetrics.map(({ label, value, unit, Icon }) => <div key={label} className="border-b border-r border-white/12 bg-[#0d1711]/65 p-5 even:border-r-0 last:border-b-0 sm:nth-[3]:border-b-0"><div className="flex items-center justify-between text-xs text-white/50"><span>{label}</span><Icon className="h-4 w-4 text-[#d9c7a5]" /></div><p className="mt-4 text-2xl font-semibold text-white">{value}<span className="ml-1 text-xs font-normal text-white/45">{unit}</span></p></div>)}
+          </div>
+        </div>
+        <div className="grid border-t border-white/10 bg-black/10 md:grid-cols-4">{[
+          ['01','账户资金','银行余额、受限资金、多币种折算与账户时效'],['02','收支计划','按日期、概率、状态、优先级与责任人滚动维护'],['03','融资安排','授信占用、提款、还本、付息与到期续签预警'],['04','风险闭环','安全资金线、缺口、4周覆盖率与模型勾稽校验'],
+        ].map(([no, title, desc]) => <div key={no} className="border-b border-r border-white/10 p-5 last:border-r-0 md:border-b-0"><p className="text-xs font-semibold text-[#d9c7a5]">{no}</p><p className="mt-5 font-semibold text-white">{title}</p><p className="mt-2 text-xs leading-6 text-white/48">{desc}</p></div>)}
+        </div>
+      </section>
     </div>
   </section>;
 }
