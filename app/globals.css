@@ -24,6 +24,11 @@ body {
 }
 
 /* 盈亏平衡点：克制的经营模型视觉，避免与咨询主站割裂 */
+
+/* 全面预算：原生范围控件与主站墨绿/淡金主题一致 */
+.budget-range {
+  accent-color: #d9c7a5;
+}
 .be-grid {
   background-image: linear-gradient(rgba(217, 199, 165, .07) 1px, transparent 1px), linear-gradient(90deg, rgba(217, 199, 165, .07) 1px, transparent 1px);
   background-size: 36px 36px;

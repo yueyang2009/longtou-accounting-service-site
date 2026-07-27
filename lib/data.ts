@@ -57,17 +57,31 @@ export const brand = {
   feishuQr: `${siteBasePath}/images/feishu-qr.jpg`
 };
 
-export const siteNavLinks = [
+export type SiteNavChild = {
+  href: string;
+  label: string;
+};
+
+export type SiteNavLink = SiteNavChild & {
+  children?: SiteNavChild[];
+};
+
+export const digitalDashboardLinks: SiteNavChild[] = [
+  { href: "/equity-structure", label: "股权设计" },
+  { href: "/risk-heatmap", label: "风险热力图" },
+  { href: "/break-even", label: "盈亏平衡点" },
+  { href: "/dashboard-demo.html", label: "经营看板示例" },
+  { href: "/budget-management", label: "预算管理" }
+];
+
+export const siteNavLinks: SiteNavLink[] = [
   { href: "/", label: "主页" },
   { href: "/why-annual-advisor", label: "年度顾问" },
   { href: "/services", label: "服务体系" },
-  { href: "/equity-structure", label: "股权设计" },
-  { href: "/risk-heatmap", label: "风险热力图" },
+  { href: "/digital-dashboard", label: "数智化看板", children: digitalDashboardLinks },
   { href: "/about", label: "关于" },
   { href: "/team", label: "团队" },
-  { href: "/blog", label: "文章" },
-  { href: "/break-even", label: "盈亏平衡点" },
-  { href: "/dashboard-demo.html", label: "经营看板示例" }
+  { href: "/blog", label: "文章" }
 ];
 
 // 子页全局导航沿用同一套链接，避免与首页导航分叉

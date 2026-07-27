@@ -8,6 +8,7 @@ import { X } from "lucide-react";
 export interface MobileNavLink {
   href: string;
   label: string;
+  children?: Array<{ href: string; label: string }>;
 }
 
 interface MobileNavProps {
@@ -116,9 +117,9 @@ export function MobileNav({ links, triggerTone = "dark" }: MobileNavProps) {
         {/* Navigation links */}
         <nav className="flex flex-col gap-1 px-5 pb-8">
           {links.map((link) =>
-            link.href.endsWith(".html") ? (
+            <div key={link.href} className="border-b border-white/8 py-1 last:border-b-0">
+            {link.href.endsWith(".html") ? (
               <a
-                key={link.href}
                 href={`${base}${link.href}`}
                 onClick={close}
                 className="rounded-md px-4 py-4 text-lg font-medium text-white transition hover:bg-white/10"
@@ -127,14 +128,27 @@ export function MobileNav({ links, triggerTone = "dark" }: MobileNavProps) {
               </a>
             ) : (
               <Link
-                key={link.href}
                 href={link.href}
                 onClick={close}
                 className="rounded-md px-4 py-4 text-lg font-medium text-white transition hover:bg-white/10"
               >
                 {link.label}
               </Link>
-            )
+            )}
+            {link.children && (
+              <div className="mb-2 ml-4 border-l border-white/15 pl-3">
+                {link.children.map((child) => child.href.endsWith(".html") ? (
+                  <a key={child.href} href={`${base}${child.href}`} onClick={close} className="block py-2 text-sm text-white/60 transition hover:text-white">
+                    {child.label}
+                  </a>
+                ) : (
+                  <Link key={child.href} href={child.href} onClick={close} className="block py-2 text-sm text-white/60 transition hover:text-white">
+                    {child.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+            </div>
           )}
         </nav>
 

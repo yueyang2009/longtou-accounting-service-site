@@ -8,7 +8,7 @@ const SITE = `${BASE}${BASE_PATH}`;
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/why-annual-advisor", "/services", "/break-even", "/risk-heatmap", "/about", "/team", "/blog"].map(
+  const staticRoutes = ["", "/why-annual-advisor", "/services", "/digital-dashboard", "/equity-structure", "/break-even", "/risk-heatmap", "/budget-management", "/about", "/team", "/blog"].map(
     (route) => ({
       url: `${SITE}${route}/`,
       lastModified: new Date(),

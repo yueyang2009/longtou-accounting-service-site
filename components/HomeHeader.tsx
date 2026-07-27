@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { BrandLogo } from "@/components/BrandLogo";
@@ -59,13 +60,34 @@ export function HomeHeader() {
           <BrandLogo className="h-10 w-auto max-w-[166px]" />
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-7 lg:flex" aria-label="主导航">
           {siteNavLinks.map((item, index) => {
             const cls = [
               "text-[15px] font-semibold tracking-[-0.01em] transition-colors",
-              index >= 6 ? "ml-1" : "",
+              index >= 5 ? "ml-1" : "",
               onDarkSurface ? "text-white/72 hover:text-white" : "text-white/72 hover:text-white"
             ].join(" ");
+            if (item.children) {
+              return (
+                <div key={item.href} className="group relative py-6">
+                  <Link href={item.href} className={`${cls} inline-flex items-center gap-1`}>
+                    {item.label}
+                    <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" />
+                  </Link>
+                  <div className="invisible absolute left-1/2 top-[68px] w-48 -translate-x-1/2 translate-y-2 border border-white/12 bg-[#111816] p-2 opacity-0 shadow-2xl transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                    {item.children.map((child) => child.href.endsWith(".html") ? (
+                      <a key={child.href} href={`${base}${child.href}`} className="block px-3 py-2.5 text-sm font-medium text-white/72 transition hover:bg-white/8 hover:text-white">
+                        {child.label}
+                      </a>
+                    ) : (
+                      <Link key={child.href} href={child.href} className="block px-3 py-2.5 text-sm font-medium text-white/72 transition hover:bg-white/8 hover:text-white">
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
             return item.href.endsWith(".html") ? (
               <a key={item.href} href={`${base}${item.href}`} className={cls}>
                 {item.label}
