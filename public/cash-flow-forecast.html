@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>资金滚动预测管理驾驶舱 | 龙头会服</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --paper:#0f1513;
+  --soft:#111816;
+  --emerald:#0a0f0d;
+  --ink:#ede9e0;
+  --body:#b8b2a6;
+  --muted:#8c877c;
+  --line:rgba(255,255,255,.12);
+  --card:rgba(255,255,255,.045);
+  --gold:#d9c7a5;
+  --gold-soft:rgba(217,199,165,.24);
+  --green:#2e8b6b;
+  --green-bright:#3fae87;
+  --danger:#e6917f;
+  --warning:#e6b27a;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  color:var(--body);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.font-display{font-family:"Noto Serif SC","Songti SC","STSong","SimSun",serif}
+h1,h2,h3{font-family:"Noto Serif SC","Songti SC","STSong","SimSun",serif;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+a{color:inherit;text-decoration:none}
+/* 背景：暖金网格 + 缓慢光晕 */
+.bg-grid{
+  position:fixed;inset:0;z-index:-2;
+  background-image:linear-gradient(rgba(217,199,165,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(217,199,165,.06) 1px,transparent 1px);
+  background-size:38px 38px;
+  -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000,transparent 80%);
+  mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000,transparent 80%);
+}
+.bg-glow{
+  position:fixed;z-index:-1;width:60vw;height:60vw;left:-10vw;top:-20vw;border-radius:50%;
+  background:radial-gradient(circle,rgba(46,139,107,.16),transparent 60%);
+  filter:blur(40px);animation:floatGlow 18s ease-in-out infinite alternate;
+}
+.bg-glow.b{left:auto;right:-15vw;top:30vh;background:radial-gradient(circle,rgba(217,199,165,.10),transparent 60%);animation-delay:-6s}
+@keyframes floatGlow{from{transform:translate(0,0)}to{transform:translate(6vw,4vh)}}
+.container{max-width:1440px;margin:0 auto;padding:0 28px}
+/* HERO */
+.hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(118deg,#0a0f0d 0%,#15301f 56%,#1c4a2f 100%);
+  border-bottom:1px solid var(--gold-soft);
+}
+.hero::after{content:"";position:absolute;inset:0;background:
+  radial-gradient(120% 80% at 80% -10%,rgba(217,199,165,.18),transparent 55%);
+  animation:heroShine 9s ease-in-out infinite alternate;pointer-events:none}
+@keyframes heroShine{from{opacity:.5;transform:translateX(-3%)}to{opacity:1;transform:translateX(3%)}}
+.hero-inner{padding:54px 0 30px;position:relative;z-index:2}
+.brand-tag{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;letter-spacing:.22em;color:var(--gold);
+  border:1px solid var(--gold-soft);padding:6px 14px;border-radius:999px;text-transform:uppercase}
+.brand-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero h1{font-size:clamp(1.9rem,4vw,3.1rem);margin:18px 0 10px;line-height:1.12}
+.hero h1 .accent{color:var(--gold)}
+.hero p.sub{font-size:1.02rem;max-width:680px;color:var(--body);line-height:1.7;margin:0}
+.hero-actions{margin-top:22px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;
+  border:1px solid var(--line);color:var(--ink);font-size:.9rem;transition:.25s;background:rgba(255,255,255,.03)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.btn-gold{background:var(--gold);color:#111816;font-weight:700;border:1px solid var(--gold)}
+.btn-gold:hover{filter:brightness(1.08);box-shadow:0 6px 22px rgba(217,199,165,.35)}
+/* 资金流光带 */
+.flow-band{position:relative;z-index:2;height:64px;margin-top:8px}
+.flow-band svg{width:100%;height:100%;display:block}
+/* KPI */
+.section{padding:30px 0}
+.section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.section-head h2{font-size:1.5rem;margin:0}
+.section-head .en{font-size:.78rem;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
+.section-head .hint{margin-left:auto;font-size:.82rem;color:var(--muted)}
+.kpi-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.kpi{
+  position:relative;overflow:hidden;
+  background:linear-gradient(145deg,#1b2821,#111a16 72%);
+  border:1px solid var(--gold-soft);border-radius:var(--radius);
+  padding:18px 18px 16px;box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+  transition:.28s ease;
+}
+.kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold);opacity:.8}
+.kpi:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 10px 30px rgba(0,0,0,.4),0 0 0 1px var(--gold-soft)}
+.kpi .label{font-size:.82rem;color:var(--muted);display:flex;align-items:center;gap:6px}
+.kpi .val{font-family:"Noto Serif SC",serif;font-weight:700;font-size:1.7rem;color:var(--ink);margin-top:8px;line-height:1.1;
+  font-variant-numeric:tabular-nums}
+.kpi .unit{font-size:.78rem;color:var(--muted);font-weight:400;margin-left:3px}
+.kpi .spark{margin-top:8px;font-size:.76rem;color:var(--green-bright)}
+.kpi .spark.bad{color:var(--danger)}
+.kpi.alert::before{background:var(--danger)}
+.kpi.warn::before{background:var(--warning)}
+/* 控制面板 */
+.panel{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;backdrop-filter:blur(6px);
+}
+.panel h3{font-size:1.05rem;margin:0 0 4px}
+.panel .desc{font-size:.8rem;color:var(--muted);margin-bottom:16px}
+.controls{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ctrl label{display:block;font-size:.82rem;color:var(--body);margin-bottom:9px}
+.ctrl label .now{color:var(--gold);font-weight:600;font-variant-numeric:tabular-nums}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;width:100%}
+.seg button{flex:1;background:transparent;border:0;color:var(--body);padding:9px 6px;font:inherit;font-size:.86rem;cursor:pointer;transition:.2s}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button:hover{color:var(--gold)}
+.seg button.active{background:var(--gold);color:#111816;font-weight:700}
+.seg.scn button.active[data-s="乐观"]{background:var(--green-bright)}
+.seg.scn button.active[data-s="压力"]{background:var(--danger);color:#1a0f0c}
+select,input[type=date]{
+  width:100%;background:#0b110f;color:var(--ink);border:1px solid var(--line);
+  border-radius:10px;padding:9px 11px;font:inherit;font-size:.86rem;outline:none;transition:.2s}
+select:focus,input[type=date]:focus{border-color:var(--gold)}
+input[type=range]{width:100%;accent-color:var(--gold);cursor:pointer;margin-top:4px}
+input[type=range]::-webkit-slider-runnable-track{height:3px;background:rgba(255,255,255,.18);border-radius:3px}
+input[type=range]::-webkit-slider-thumb{margin-top:-6px;height:15px;width:15px;border-radius:50%;background:var(--gold);border:0;box-shadow:0 0 10px rgba(217,199,165,.6)}
+/* 图表网格 */
+.grid-2{display:grid;grid-template-columns:1.6fr 1fr;gap:18px}
+.grid-2b{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 18px 8px;transition:.25s}
+.card:hover{border-color:var(--gold-soft)}
+.card .ch-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px;gap:10px;flex-wrap:wrap}
+.card .ch-head h3{font-size:1.05rem;margin:0}
+.card .ch-head .meta{font-size:.78rem;color:var(--muted)}
+.chart-box{position:relative;height:340px}
+.chart-box.sm{height:300px}
+.legend-inline{display:flex;gap:16px;flex-wrap:wrap;font-size:.78rem;color:var(--muted);padding:6px 4px 10px}
+.legend-inline i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:middle}
+/* 风险表 */
+.risk-table{width:100%;border-collapse:collapse;font-size:.86rem}
+.risk-table th{text-align:left;color:var(--muted);font-weight:500;padding:10px 12px;border-bottom:1px solid var(--line);font-size:.78rem;letter-spacing:.04em}
+.risk-table td{padding:11px 12px;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top}
+.risk-table tr:hover td{background:rgba(255,255,255,.02)}
+.badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.74rem;font-weight:700;white-space:nowrap}
+.badge.ok{background:rgba(46,139,107,.18);color:var(--green-bright);border:1px solid rgba(46,139,107,.4)}
+.badge.warn{background:rgba(230,178,122,.16);color:var(--warning);border:1px solid rgba(230,178,122,.4)}
+.badge.bad{background:rgba(230,145,127,.18);color:var(--danger);border:1px solid rgba(230,145,127,.45)}
+.risk-table .advice{color:var(--body);font-size:.8rem;line-height:1.5}
+.risk-table .item{color:var(--ink);font-weight:600}
+/* 账户条 */
+.acc-row{display:grid;grid-template-columns:150px 1fr 90px;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.acc-row .nm{font-size:.84rem;color:var(--ink)}
+.acc-row .nm small{display:block;color:var(--muted);font-size:.72rem}
+.acc-bar{height:10px;border-radius:6px;background:rgba(255,255,255,.06);overflow:hidden}
+.acc-bar > i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--green),var(--gold));transition:width 1s cubic-bezier(.4,0,.2,1)}
+.acc-row .v{text-align:right;font-variant-numeric:tabular-nums;color:var(--gold);font-weight:600;font-size:.86rem}
+/* footer */
+.footer{border-top:1px solid var(--line);margin-top:30px;padding:26px 0 50px;color:var(--muted);font-size:.82rem}
+.footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center}
+.footer .gold{color:var(--gold)}
+.toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%) translateY(20px);background:#111816;border:1px solid var(--gold-soft);
+  color:var(--ink);padding:11px 20px;border-radius:12px;font-size:.86rem;opacity:0;transition:.3s;z-index:50;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:1080px){.kpi-grid{grid-template-columns:repeat(3,1fr)}.grid-2,.grid-2b{grid-template-columns:1fr}.controls{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.controls{grid-template-columns:1fr}.container{padding:0 16px}}
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+<div class="bg-glow b"></div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container hero-inner">
+    <span class="brand-tag"><span class="dot"></span>LONGTOU · 资金滚动预测</span>
+    <h1>资金滚动预测<span class="accent">管理驾驶舱</span></h1>
+    <p class="sub">集团资金可视、可预测、可预警。以银行可用资金为起点，将经营、投资、融资计划滚动推演至未来 13 周与 12 个月，通过情景系数与风险调整形成缺口预警——让管理层一眼看清现金节奏。</p>
+    <div class="hero-actions">
+      <a class="btn-ghost btn-gold" href="https://yueyang2009.github.io/longtou-accounting-service-site/">返回龙头会服官网 →</a>
+      <a class="btn-ghost" href="#panel">⚙ 调整预测参数</a>
+      <span style="font-size:.8rem;color:var(--muted)">单位：人民币万元 · 示例数据可直接替换输入区</span>
+    </div>
+  </div>
+  <div class="flow-band" aria-hidden="true">
+    <svg viewBox="0 0 1440 64" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="fg" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#2e8b6b" stop-opacity="0"/>
+          <stop offset=".5" stop-color="#d9c7a5"/>
+          <stop offset="1" stop-color="#3fae87" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,32 C240,8 480,56 720,32 C960,8 1200,56 1440,32" fill="none" stroke="url(#fg)" stroke-width="2" stroke-dasharray="10 14">
+        <animate attributeName="stroke-dashoffset" from="0" to="-240" dur="3.2s" repeatCount="indefinite"/>
+      </path>
+      <path d="M0,44 C300,22 520,60 760,40 C1000,20 1220,58 1440,42" fill="none" stroke="rgba(217,199,165,.35)" stroke-width="1.4" stroke-dasharray="6 12">
+        <animate attributeName="stroke-dashoffset" from="0" to="-200" dur="4.6s" repeatCount="indefinite"/>
+      </path>
+    </svg>
+  </div>
+</header>
+
+<main class="container">
+  <!-- KPI 驾驶舱 -->
+  <section class="section">
+    <div class="section-head">
+      <h2>经营驾驶舱</h2><span class="en">Operating Cockpit</span>
+      <span class="hint" id="kpiScope">集团合并 · 基准情景</span>
+    </div>
+    <div class="kpi-grid" id="kpiGrid"></div>
+  </section>
+
+  <!-- 控制面板 -->
+  <section class="section" id="panel">
+    <div class="section-head"><h2>预测参数面板</h2><span class="en">Scenario Console</span>
+      <span class="hint">调整后图表与指标实时联动</span></div>
+    <div class="panel">
+      <h3>滚动推演设定</h3>
+      <div class="desc">调节情景、周期、安全线与变动幅度，模型即时重算未来现金流并刷新所有可视化。</div>
+      <div class="controls">
+        <div class="ctrl">
+          <label>预测情景</label>
+          <div class="seg scn" id="segScenario">
+            <button data-s="乐观">乐观</button>
+            <button data-s="基准" class="active">基准</button>
+            <button data-s="压力">压力</button>
+          </div>
+        </div>
+        <div class="ctrl">
+          <label>公司口径</label>
+          <select id="selCompany"></select>
+        </div>
+        <div class="ctrl">
+          <label>预测周期维度</label>
+          <div class="seg" id="segHorizon">
+            <button data-h="13周" class="active">13 周</button>
+            <button data-h="12月">12 个月</button>
+          </div>
+        </div>
+        <div class="ctrl">
+          <label>预测起始日</label>
+          <input type="date" id="inpStart" value="2026-07-27" />
+        </div>
+        <div class="ctrl">
+          <label>最低安全资金线 · <span class="now" id="lblSafe">3500</span> 万元</label>
+          <input type="range" id="rngSafe" min="2000" max="6000" step="100" value="3500" />
+        </div>
+        <div class="ctrl">
+          <label>资金变动幅度 · <span class="now" id="lblFactor">0</span>%</label>
+          <input type="range" id="rngFactor" min="-30" max="30" step="1" value="0" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主图 + 流入流出 -->
+  <section class="section">
+    <div class="grid-2">
+      <div class="card">
+        <div class="ch-head"><h3 id="trendTitle">13 周资金余额趋势</h3>
+          <span class="meta" id="trendMeta">期初可用资金 · 期末资金 · 安全线</span></div>
+        <div class="chart-box"><canvas id="chartTrend"></canvas></div>
+        <div class="legend-inline">
+          <span><i style="background:linear-gradient(90deg,#3fae87,#d9c7a5)"></i>期末可用资金</span>
+          <span><i style="background:#e6917f"></i>最低安全资金线</span>
+          <span><i style="background:rgba(217,199,165,.5)"></i>资金盈余 / 缺口</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ch-head"><h3>资金流入 / 流出</h3><span class="meta" id="flowMeta">经营·投资·融资</span></div>
+        <div class="chart-box"><canvas id="chartFlow"></canvas></div>
+        <div class="legend-inline">
+          <span><i style="background:#3fae87"></i>流入</span>
+          <span><i style="background:#e6917f"></i>流出</span>
+          <span style="color:var(--muted)">柱高=净额(流入−流出)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 情景对比 + 账户 -->
+  <section class="section">
+    <div class="grid-2b">
+      <div class="card">
+        <div class="ch-head"><h3>情景对比推演</h3><span class="meta">乐观 / 基准 / 压力 期末资金</span></div>
+        <div class="chart-box sm"><canvas id="chartScenario"></canvas></div>
+        <div class="legend-inline">
+          <span><i style="background:#3fae87"></i>乐观</span>
+          <span><i style="background:#d9c7a5"></i>基准</span>
+          <span><i style="background:#e6917f"></i>压力</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ch-head"><h3>账户可用资金分布</h3><span class="meta" id="accMeta">按账户</span></div>
+        <div id="accList" style="padding:6px 4px 14px"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 风险预警 -->
+  <section class="section">
+    <div class="section-head"><h2>资金风险预警</h2><span class="en">Risk Sentinel</span>
+      <span class="hint">规则自动判定 · 每周刷新</span></div>
+    <div class="card" style="padding:8px 14px">
+      <table class="risk-table">
+        <thead><tr><th style="width:18%">风险事项</th><th style="width:14%">当前指标</th><th style="width:14%">预警阈值</th><th style="width:9%">等级</th><th>管理建议</th><th style="width:12%">责任 / 页面</th></tr></thead>
+        <tbody id="riskBody"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container row">
+    <div>龙头会服 · 让企业账更清楚，让经营决策更可靠 ｜ <span class="gold">LONGTOU CORPORATE TAX ADVISORY</span></div>
+    <div>数据可视化演示工具 · 示例数据 · 人民币万元</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="vendor/chart.umd.js"></script>
+<script src="vendor/chartjs-plugin-datalabels.min.js"></script>
+<script>
+const MODEL = {"params":{"core":{"最低安全资金":3500,"预警缓冲比例":0.15,"授信到期预警天数":90,"数据时效阈值（天）":7},"scenarios":{"经营流入":{"乐观":1.05,"基准":1,"压力":0.85,"current":1},"经营流出":{"乐观":0.97,"基准":1,"压力":1.08,"current":1},"投资流入":{"乐观":1.05,"基准":1,"压力":0.9,"current":1},"投资流出":{"乐观":0.95,"基准":1,"压力":1.1,"current":1},"融资流入":{"乐观":1.05,"基准":1,"压力":0.8,"current":1},"融资流出":{"乐观":0.98,"基准":1,"压力":1.05,"current":1},"CNY":{"乐观":1,"基准":"2026-07-27 00:00:00","压力":"示例参数","current":"人民币基准"},"USD":{"乐观":7.2,"基准":"2026-07-27 00:00:00","压力":"示例参数","current":"请按实际管理汇率更新"},"EUR":{"乐观":8.4,"基准":"2026-07-27 00:00:00","压力":"示例参数","current":"请按实际管理汇率更新"},"JPY":{"乐观":0.048,"基准":"2026-07-27 00:00:00","压力":"示例参数","current":"请按实际管理汇率更新"}}},"accounts":[{"id":"A001","company":"华东公司","bank":"工商银行","alias":"基本户","currency":"CNY","balance":2350,"rate":1,"rmb":2350,"restricted":220,"available":2130,"update":"2026-07-27","status":"正常","owner":"资金经理","note":"工资与税费主账户"},{"id":"A002","company":"华东公司","bank":"建设银行","alias":"一般户","currency":"CNY","balance":980,"rate":1,"rmb":980,"restricted":80,"available":900,"update":"2026-07-27","status":"正常","owner":"资金经理","note":"供应商结算"},{"id":"A003","company":"华南公司","bank":"招商银行","alias":"销售回款户","currency":"CNY","balance":1260,"rate":1,"rmb":1260,"restricted":0,"available":1260,"update":"2026-07-26","status":"正常","owner":"华南财务","note":"渠道回款"},{"id":"A004","company":"华南公司","bank":"浦发银行","alias":"保证金户","currency":"CNY","balance":420,"rate":1,"rmb":420,"restricted":300,"available":120,"update":"2026-07-26","status":"受限","owner":"华南财务","note":"承兑保证金"},{"id":"A005","company":"海外公司","bank":"中国银行","alias":"美元结算户","currency":"USD","balance":72,"rate":7.2,"rmb":518.4,"restricted":0,"available":518.4,"update":"2026-07-27","status":"正常","owner":"海外财务","note":"出口收款"},{"id":"A006","company":"海外公司","bank":"汇丰银行","alias":"欧元结算户","currency":"EUR","balance":31,"rate":8.4,"rmb":260.4,"restricted":0,"available":260.4,"update":"2026-07-25","status":"正常","owner":"海外财务","note":"欧洲客户回款"},{"id":"A007","company":"海外公司","bank":"三菱UFJ","alias":"日元账户","currency":"JPY","balance":1180,"rate":0.048,"rmb":56.64,"restricted":0,"available":56.64,"update":"2026-07-25","status":"正常","owner":"海外财务","note":"日本区收支"},{"id":"A008","company":"华东公司","bank":"交通银行","alias":"项目专户","currency":"CNY","balance":560,"rate":1,"rmb":560,"restricted":160,"available":400,"update":"2026-07-24","status":"受限","owner":"资金经理","note":"专项资金"}],"cashflow":[{"id":"CF0001","category":"经营","direction":"流入","type":"客户回款","date":"2026-07-31","company":"华东公司","unit":"制造事业部","counterparty":"客户A","amount":450,"prob":0.82,"status":"计划","priority":"P1","flowGroup":"经营流入","riskAdj":369,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0002","category":"经营","direction":"流出","type":"供应商付款","date":"2026-07-29","company":"华南公司","unit":"渠道事业部","counterparty":"供应商A","amount":320,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":320,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0003","category":"经营","direction":"流入","type":"客户回款","date":"2026-08-07","company":"华南公司","unit":"渠道事业部","counterparty":"客户B","amount":485,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":460.75,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0004","category":"经营","direction":"流出","type":"供应商付款","date":"2026-08-05","company":"海外公司","unit":"国际事业部","counterparty":"供应商B","amount":275,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":275,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0005","category":"经营","direction":"流入","type":"其他经营流入","date":"2026-08-08","company":"华南公司","unit":"渠道事业部","counterparty":"渠道返利","amount":145,"prob":0.8,"status":"计划","priority":"P2","flowGroup":"经营流入","riskAdj":116,"owner":"业务负责人","note":"示例：不确定流入"},{"id":"CF0006","category":"经营","direction":"流入","type":"客户回款","date":"2026-08-14","company":"海外公司","unit":"国际事业部","counterparty":"客户C","amount":400,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":380,"owner":"海外销售经理","note":"示例：按预计回款日滚动更新"},{"id":"CF0007","category":"经营","direction":"流出","type":"供应商付款","date":"2026-08-12","company":"华东公司","unit":"制造事业部","counterparty":"供应商C","amount":335,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":335,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0008","category":"经营","direction":"流入","type":"客户回款","date":"2026-08-21","company":"华东公司","unit":"制造事业部","counterparty":"客户D","amount":500,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":475,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0009","category":"经营","direction":"流出","type":"供应商付款","date":"2026-08-19","company":"华南公司","unit":"渠道事业部","counterparty":"供应商D","amount":300,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":300,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0010","category":"经营","direction":"流入","type":"客户回款","date":"2026-08-28","company":"华南公司","unit":"渠道事业部","counterparty":"客户E","amount":440,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":418,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0011","category":"经营","direction":"流出","type":"供应商付款","date":"2026-08-26","company":"海外公司","unit":"国际事业部","counterparty":"供应商E","amount":320,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":320,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0012","category":"经营","direction":"流入","type":"客户回款","date":"2026-09-04","company":"海外公司","unit":"国际事业部","counterparty":"客户F","amount":450,"prob":0.95,"status":"计划","priority":"P1","flowGroup":"经营流入","riskAdj":427.5,"owner":"海外销售经理","note":"示例：按预计回款日滚动更新"},{"id":"CF0013","category":"经营","direction":"流出","type":"供应商付款","date":"2026-09-02","company":"华东公司","unit":"制造事业部","counterparty":"供应商F","amount":275,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":275,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0014","category":"经营","direction":"流入","type":"其他经营流入","date":"2026-09-05","company":"海外公司","unit":"国际事业部","counterparty":"渠道返利","amount":165,"prob":0.8,"status":"计划","priority":"P2","flowGroup":"经营流入","riskAdj":132,"owner":"业务负责人","note":"示例：不确定流入"},{"id":"CF0015","category":"经营","direction":"流入","type":"客户回款","date":"2026-09-11","company":"华东公司","unit":"制造事业部","counterparty":"客户G","amount":485,"prob":0.82,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":397.7,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0016","category":"经营","direction":"流出","type":"供应商付款","date":"2026-09-09","company":"华南公司","unit":"渠道事业部","counterparty":"供应商G","amount":335,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":335,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0017","category":"经营","direction":"流入","type":"客户回款","date":"2026-09-18","company":"华南公司","unit":"渠道事业部","counterparty":"客户H","amount":400,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":380,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0018","category":"经营","direction":"流出","type":"供应商付款","date":"2026-09-16","company":"海外公司","unit":"国际事业部","counterparty":"供应商H","amount":300,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":300,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0019","category":"经营","direction":"流入","type":"客户回款","date":"2026-09-25","company":"海外公司","unit":"国际事业部","counterparty":"客户A","amount":500,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":475,"owner":"海外销售经理","note":"示例：按预计回款日滚动更新"},{"id":"CF0020","category":"经营","direction":"流出","type":"供应商付款","date":"2026-09-23","company":"华东公司","unit":"制造事业部","counterparty":"供应商I","amount":320,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":320,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0021","category":"经营","direction":"流入","type":"客户回款","date":"2026-10-02","company":"华东公司","unit":"制造事业部","counterparty":"客户B","amount":440,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":418,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0022","category":"经营","direction":"流出","type":"供应商付款","date":"2026-09-30","company":"华南公司","unit":"渠道事业部","counterparty":"供应商J","amount":275,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":275,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0023","category":"经营","direction":"流入","type":"其他经营流入","date":"2026-10-03","company":"华东公司","unit":"制造事业部","counterparty":"渠道返利","amount":125,"prob":0.8,"status":"计划","priority":"P2","flowGroup":"经营流入","riskAdj":100,"owner":"业务负责人","note":"示例：不确定流入"},{"id":"CF0024","category":"经营","direction":"流入","type":"客户回款","date":"2026-10-09","company":"华南公司","unit":"渠道事业部","counterparty":"客户C","amount":450,"prob":0.95,"status":"计划","priority":"P1","flowGroup":"经营流入","riskAdj":427.5,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0025","category":"经营","direction":"流出","type":"供应商付款","date":"2026-10-07","company":"海外公司","unit":"国际事业部","counterparty":"供应商A","amount":335,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":335,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0026","category":"经营","direction":"流入","type":"客户回款","date":"2026-10-16","company":"海外公司","unit":"国际事业部","counterparty":"客户D","amount":485,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":460.75,"owner":"海外销售经理","note":"示例：按预计回款日滚动更新"},{"id":"CF0027","category":"经营","direction":"流出","type":"供应商付款","date":"2026-10-14","company":"华东公司","unit":"制造事业部","counterparty":"供应商B","amount":300,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":300,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0028","category":"经营","direction":"流入","type":"客户回款","date":"2026-10-23","company":"华东公司","unit":"制造事业部","counterparty":"客户E","amount":400,"prob":0.82,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":328,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0029","category":"经营","direction":"流出","type":"供应商付款","date":"2026-10-21","company":"华南公司","unit":"渠道事业部","counterparty":"供应商C","amount":320,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":320,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0030","category":"经营","direction":"流入","type":"客户回款","date":"2026-10-30","company":"华南公司","unit":"渠道事业部","counterparty":"客户F","amount":500,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":475,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0031","category":"经营","direction":"流出","type":"供应商付款","date":"2026-10-28","company":"海外公司","unit":"国际事业部","counterparty":"供应商D","amount":275,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":275,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0032","category":"经营","direction":"流入","type":"其他经营流入","date":"2026-10-31","company":"华南公司","unit":"渠道事业部","counterparty":"渠道返利","amount":145,"prob":0.8,"status":"计划","priority":"P2","flowGroup":"经营流入","riskAdj":116,"owner":"业务负责人","note":"示例：不确定流入"},{"id":"CF0033","category":"经营","direction":"流入","type":"客户回款","date":"2026-11-06","company":"海外公司","unit":"国际事业部","counterparty":"客户G","amount":440,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":418,"owner":"海外销售经理","note":"示例：按预计回款日滚动更新"},{"id":"CF0034","category":"经营","direction":"流出","type":"供应商付款","date":"2026-11-04","company":"华东公司","unit":"制造事业部","counterparty":"供应商E","amount":335,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":335,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0035","category":"经营","direction":"流入","type":"客户回款","date":"2026-11-13","company":"华东公司","unit":"制造事业部","counterparty":"客户H","amount":450,"prob":0.95,"status":"计划","priority":"P1","flowGroup":"经营流入","riskAdj":427.5,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0036","category":"经营","direction":"流出","type":"供应商付款","date":"2026-11-11","company":"华南公司","unit":"渠道事业部","counterparty":"供应商F","amount":300,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":300,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0037","category":"经营","direction":"流入","type":"客户回款","date":"2026-11-20","company":"华南公司","unit":"渠道事业部","counterparty":"客户A","amount":485,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":460.75,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0038","category":"经营","direction":"流出","type":"供应商付款","date":"2026-11-18","company":"海外公司","unit":"国际事业部","counterparty":"供应商G","amount":320,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":320,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0039","category":"经营","direction":"流入","type":"客户回款","date":"2026-11-27","company":"海外公司","unit":"国际事业部","counterparty":"客户B","amount":400,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":380,"owner":"海外销售经理","note":"示例：按预计回款日滚动更新"},{"id":"CF0040","category":"经营","direction":"流出","type":"供应商付款","date":"2026-11-25","company":"华东公司","unit":"制造事业部","counterparty":"供应商H","amount":275,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":275,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0041","category":"经营","direction":"流入","type":"其他经营流入","date":"2026-11-28","company":"海外公司","unit":"国际事业部","counterparty":"渠道返利","amount":165,"prob":0.8,"status":"计划","priority":"P2","flowGroup":"经营流入","riskAdj":132,"owner":"业务负责人","note":"示例：不确定流入"},{"id":"CF0042","category":"经营","direction":"流入","type":"客户回款","date":"2026-12-04","company":"华东公司","unit":"制造事业部","counterparty":"客户C","amount":500,"prob":0.82,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":410,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0043","category":"经营","direction":"流出","type":"供应商付款","date":"2026-12-02","company":"华南公司","unit":"渠道事业部","counterparty":"供应商I","amount":335,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":335,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0044","category":"经营","direction":"流入","type":"客户回款","date":"2026-12-11","company":"华南公司","unit":"渠道事业部","counterparty":"客户D","amount":440,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":418,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0045","category":"经营","direction":"流出","type":"供应商付款","date":"2026-12-09","company":"海外公司","unit":"国际事业部","counterparty":"供应商J","amount":300,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":300,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0046","category":"经营","direction":"流入","type":"客户回款","date":"2026-12-18","company":"海外公司","unit":"国际事业部","counterparty":"客户E","amount":450,"prob":0.95,"status":"计划","priority":"P1","flowGroup":"经营流入","riskAdj":427.5,"owner":"海外销售经理","note":"示例：按预计回款日滚动更新"},{"id":"CF0047","category":"经营","direction":"流出","type":"供应商付款","date":"2026-12-16","company":"华东公司","unit":"制造事业部","counterparty":"供应商A","amount":320,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":320,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0048","category":"经营","direction":"流入","type":"客户回款","date":"2026-12-25","company":"华东公司","unit":"制造事业部","counterparty":"客户F","amount":485,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":460.75,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0049","category":"经营","direction":"流出","type":"供应商付款","date":"2026-12-23","company":"华南公司","unit":"渠道事业部","counterparty":"供应商B","amount":275,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":275,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0050","category":"经营","direction":"流入","type":"其他经营流入","date":"2026-12-26","company":"华东公司","unit":"制造事业部","counterparty":"渠道返利","amount":125,"prob":0.8,"status":"计划","priority":"P2","flowGroup":"经营流入","riskAdj":100,"owner":"业务负责人","note":"示例：不确定流入"},{"id":"CF0051","category":"经营","direction":"流入","type":"客户回款","date":"2027-01-01","company":"华南公司","unit":"渠道事业部","counterparty":"客户G","amount":400,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":380,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0052","category":"经营","direction":"流出","type":"供应商付款","date":"2026-12-30","company":"海外公司","unit":"国际事业部","counterparty":"供应商C","amount":335,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":335,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0053","category":"经营","direction":"流入","type":"客户回款","date":"2027-01-08","company":"海外公司","unit":"国际事业部","counterparty":"客户H","amount":500,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":475,"owner":"海外销售经理","note":"示例：按预计回款日滚动更新"},{"id":"CF0054","category":"经营","direction":"流出","type":"供应商付款","date":"2027-01-06","company":"华东公司","unit":"制造事业部","counterparty":"供应商D","amount":300,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":300,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0055","category":"经营","direction":"流入","type":"客户回款","date":"2027-01-15","company":"华东公司","unit":"制造事业部","counterparty":"客户A","amount":440,"prob":0.82,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":360.8,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0056","category":"经营","direction":"流出","type":"供应商付款","date":"2027-01-13","company":"华南公司","unit":"渠道事业部","counterparty":"供应商E","amount":320,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":320,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0057","category":"经营","direction":"流入","type":"客户回款","date":"2027-01-22","company":"华南公司","unit":"渠道事业部","counterparty":"客户B","amount":450,"prob":0.95,"status":"计划","priority":"P1","flowGroup":"经营流入","riskAdj":427.5,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0058","category":"经营","direction":"流出","type":"供应商付款","date":"2027-01-20","company":"海外公司","unit":"国际事业部","counterparty":"供应商F","amount":275,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":275,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0059","category":"经营","direction":"流入","type":"其他经营流入","date":"2027-01-23","company":"华南公司","unit":"渠道事业部","counterparty":"渠道返利","amount":145,"prob":0.8,"status":"计划","priority":"P2","flowGroup":"经营流入","riskAdj":116,"owner":"业务负责人","note":"示例：不确定流入"},{"id":"CF0060","category":"经营","direction":"流入","type":"客户回款","date":"2027-01-29","company":"海外公司","unit":"国际事业部","counterparty":"客户C","amount":485,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":460.75,"owner":"海外销售经理","note":"示例：按预计回款日滚动更新"},{"id":"CF0061","category":"经营","direction":"流出","type":"供应商付款","date":"2027-01-27","company":"华东公司","unit":"制造事业部","counterparty":"供应商G","amount":335,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":335,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0062","category":"经营","direction":"流入","type":"客户回款","date":"2027-02-05","company":"华东公司","unit":"制造事业部","counterparty":"客户D","amount":400,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":380,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0063","category":"经营","direction":"流出","type":"供应商付款","date":"2027-02-03","company":"华南公司","unit":"渠道事业部","counterparty":"供应商H","amount":300,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":300,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0064","category":"经营","direction":"流入","type":"客户回款","date":"2027-02-12","company":"华南公司","unit":"渠道事业部","counterparty":"客户E","amount":500,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":475,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0065","category":"经营","direction":"流出","type":"供应商付款","date":"2027-02-10","company":"海外公司","unit":"国际事业部","counterparty":"供应商I","amount":320,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":320,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0066","category":"经营","direction":"流入","type":"客户回款","date":"2027-02-19","company":"海外公司","unit":"国际事业部","counterparty":"客户F","amount":440,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":418,"owner":"海外销售经理","note":"示例：按预计回款日滚动更新"},{"id":"CF0067","category":"经营","direction":"流出","type":"供应商付款","date":"2027-02-17","company":"华东公司","unit":"制造事业部","counterparty":"供应商J","amount":275,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":275,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0068","category":"经营","direction":"流入","type":"其他经营流入","date":"2027-02-20","company":"海外公司","unit":"国际事业部","counterparty":"渠道返利","amount":165,"prob":0.8,"status":"计划","priority":"P2","flowGroup":"经营流入","riskAdj":132,"owner":"业务负责人","note":"示例：不确定流入"},{"id":"CF0069","category":"经营","direction":"流入","type":"客户回款","date":"2027-02-26","company":"华东公司","unit":"制造事业部","counterparty":"客户G","amount":450,"prob":0.82,"status":"计划","priority":"P1","flowGroup":"经营流入","riskAdj":369,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0070","category":"经营","direction":"流出","type":"供应商付款","date":"2027-02-24","company":"华南公司","unit":"渠道事业部","counterparty":"供应商A","amount":335,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":335,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0071","category":"经营","direction":"流入","type":"客户回款","date":"2027-03-05","company":"华南公司","unit":"渠道事业部","counterparty":"客户H","amount":485,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":460.75,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0072","category":"经营","direction":"流出","type":"供应商付款","date":"2027-03-03","company":"海外公司","unit":"国际事业部","counterparty":"供应商B","amount":300,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":300,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0073","category":"经营","direction":"流入","type":"客户回款","date":"2027-03-12","company":"海外公司","unit":"国际事业部","counterparty":"客户A","amount":400,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":380,"owner":"海外销售经理","note":"示例：按预计回款日滚动更新"},{"id":"CF0074","category":"经营","direction":"流出","type":"供应商付款","date":"2027-03-10","company":"华东公司","unit":"制造事业部","counterparty":"供应商C","amount":320,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":320,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0075","category":"经营","direction":"流入","type":"客户回款","date":"2027-03-19","company":"华东公司","unit":"制造事业部","counterparty":"客户B","amount":500,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":475,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0076","category":"经营","direction":"流出","type":"供应商付款","date":"2027-03-17","company":"华南公司","unit":"渠道事业部","counterparty":"供应商D","amount":275,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":275,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0077","category":"经营","direction":"流入","type":"其他经营流入","date":"2027-03-20","company":"华东公司","unit":"制造事业部","counterparty":"渠道返利","amount":125,"prob":0.8,"status":"计划","priority":"P2","flowGroup":"经营流入","riskAdj":100,"owner":"业务负责人","note":"示例：不确定流入"},{"id":"CF0078","category":"经营","direction":"流入","type":"客户回款","date":"2027-03-26","company":"华南公司","unit":"渠道事业部","counterparty":"客户C","amount":440,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":418,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0079","category":"经营","direction":"流出","type":"供应商付款","date":"2027-03-24","company":"海外公司","unit":"国际事业部","counterparty":"供应商E","amount":335,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":335,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0080","category":"经营","direction":"流入","type":"客户回款","date":"2027-04-02","company":"海外公司","unit":"国际事业部","counterparty":"客户D","amount":450,"prob":0.95,"status":"计划","priority":"P1","flowGroup":"经营流入","riskAdj":427.5,"owner":"海外销售经理","note":"示例：按预计回款日滚动更新"},{"id":"CF0081","category":"经营","direction":"流出","type":"供应商付款","date":"2027-03-31","company":"华东公司","unit":"制造事业部","counterparty":"供应商F","amount":300,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":300,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0082","category":"经营","direction":"流入","type":"客户回款","date":"2027-04-09","company":"华东公司","unit":"制造事业部","counterparty":"客户E","amount":485,"prob":0.82,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":397.7,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0083","category":"经营","direction":"流出","type":"供应商付款","date":"2027-04-07","company":"华南公司","unit":"渠道事业部","counterparty":"供应商G","amount":320,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":320,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0084","category":"经营","direction":"流入","type":"客户回款","date":"2027-04-16","company":"华南公司","unit":"渠道事业部","counterparty":"客户F","amount":400,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":380,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0085","category":"经营","direction":"流出","type":"供应商付款","date":"2027-04-14","company":"海外公司","unit":"国际事业部","counterparty":"供应商H","amount":275,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":275,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0086","category":"经营","direction":"流入","type":"其他经营流入","date":"2027-04-17","company":"华南公司","unit":"渠道事业部","counterparty":"渠道返利","amount":145,"prob":0.8,"status":"计划","priority":"P2","flowGroup":"经营流入","riskAdj":116,"owner":"业务负责人","note":"示例：不确定流入"},{"id":"CF0087","category":"经营","direction":"流入","type":"客户回款","date":"2027-04-23","company":"海外公司","unit":"国际事业部","counterparty":"客户G","amount":500,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":475,"owner":"海外销售经理","note":"示例：按预计回款日滚动更新"},{"id":"CF0088","category":"经营","direction":"流出","type":"供应商付款","date":"2027-04-21","company":"华东公司","unit":"制造事业部","counterparty":"供应商I","amount":335,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":335,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0089","category":"经营","direction":"流入","type":"客户回款","date":"2027-04-30","company":"华东公司","unit":"制造事业部","counterparty":"客户H","amount":440,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":418,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0090","category":"经营","direction":"流出","type":"供应商付款","date":"2027-04-28","company":"华南公司","unit":"渠道事业部","counterparty":"供应商J","amount":300,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":300,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0091","category":"经营","direction":"流入","type":"客户回款","date":"2027-05-07","company":"华南公司","unit":"渠道事业部","counterparty":"客户A","amount":450,"prob":0.95,"status":"计划","priority":"P1","flowGroup":"经营流入","riskAdj":427.5,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0092","category":"经营","direction":"流出","type":"供应商付款","date":"2027-05-05","company":"海外公司","unit":"国际事业部","counterparty":"供应商A","amount":320,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":320,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0093","category":"经营","direction":"流入","type":"客户回款","date":"2027-05-14","company":"海外公司","unit":"国际事业部","counterparty":"客户B","amount":485,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":460.75,"owner":"海外销售经理","note":"示例：按预计回款日滚动更新"},{"id":"CF0094","category":"经营","direction":"流出","type":"供应商付款","date":"2027-05-12","company":"华东公司","unit":"制造事业部","counterparty":"供应商B","amount":275,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":275,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0095","category":"经营","direction":"流入","type":"其他经营流入","date":"2027-05-15","company":"海外公司","unit":"国际事业部","counterparty":"渠道返利","amount":165,"prob":0.8,"status":"计划","priority":"P2","flowGroup":"经营流入","riskAdj":132,"owner":"业务负责人","note":"示例：不确定流入"},{"id":"CF0096","category":"经营","direction":"流入","type":"客户回款","date":"2027-05-21","company":"华东公司","unit":"制造事业部","counterparty":"客户C","amount":400,"prob":0.82,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":328,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0097","category":"经营","direction":"流出","type":"供应商付款","date":"2027-05-19","company":"华南公司","unit":"渠道事业部","counterparty":"供应商C","amount":335,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":335,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0098","category":"经营","direction":"流入","type":"客户回款","date":"2027-05-28","company":"华南公司","unit":"渠道事业部","counterparty":"客户D","amount":500,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":475,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0099","category":"经营","direction":"流出","type":"供应商付款","date":"2027-05-26","company":"海外公司","unit":"国际事业部","counterparty":"供应商D","amount":300,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":300,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0100","category":"经营","direction":"流入","type":"客户回款","date":"2027-06-04","company":"海外公司","unit":"国际事业部","counterparty":"客户E","amount":440,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":418,"owner":"海外销售经理","note":"示例：按预计回款日滚动更新"},{"id":"CF0101","category":"经营","direction":"流出","type":"供应商付款","date":"2027-06-02","company":"华东公司","unit":"制造事业部","counterparty":"供应商E","amount":320,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":320,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0102","category":"经营","direction":"流入","type":"客户回款","date":"2027-06-11","company":"华东公司","unit":"制造事业部","counterparty":"客户F","amount":450,"prob":0.95,"status":"计划","priority":"P1","flowGroup":"经营流入","riskAdj":427.5,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0103","category":"经营","direction":"流出","type":"供应商付款","date":"2027-06-09","company":"华南公司","unit":"渠道事业部","counterparty":"供应商F","amount":275,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":275,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0104","category":"经营","direction":"流入","type":"其他经营流入","date":"2027-06-12","company":"华东公司","unit":"制造事业部","counterparty":"渠道返利","amount":125,"prob":0.8,"status":"计划","priority":"P2","flowGroup":"经营流入","riskAdj":100,"owner":"业务负责人","note":"示例：不确定流入"},{"id":"CF0105","category":"经营","direction":"流入","type":"客户回款","date":"2027-06-18","company":"华南公司","unit":"渠道事业部","counterparty":"客户G","amount":485,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":460.75,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0106","category":"经营","direction":"流出","type":"供应商付款","date":"2027-06-16","company":"海外公司","unit":"国际事业部","counterparty":"供应商G","amount":335,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":335,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0107","category":"经营","direction":"流入","type":"客户回款","date":"2027-06-25","company":"海外公司","unit":"国际事业部","counterparty":"客户H","amount":400,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":380,"owner":"海外销售经理","note":"示例：按预计回款日滚动更新"},{"id":"CF0108","category":"经营","direction":"流出","type":"供应商付款","date":"2027-06-23","company":"华东公司","unit":"制造事业部","counterparty":"供应商H","amount":300,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":300,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0109","category":"经营","direction":"流入","type":"客户回款","date":"2027-07-02","company":"华东公司","unit":"制造事业部","counterparty":"客户A","amount":500,"prob":0.82,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":410,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0110","category":"经营","direction":"流出","type":"供应商付款","date":"2027-06-30","company":"华南公司","unit":"渠道事业部","counterparty":"供应商I","amount":320,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":320,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0111","category":"经营","direction":"流入","type":"客户回款","date":"2027-07-09","company":"华南公司","unit":"渠道事业部","counterparty":"客户B","amount":440,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":418,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0112","category":"经营","direction":"流出","type":"供应商付款","date":"2027-07-07","company":"海外公司","unit":"国际事业部","counterparty":"供应商J","amount":275,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":275,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0113","category":"经营","direction":"流入","type":"其他经营流入","date":"2027-07-10","company":"华南公司","unit":"渠道事业部","counterparty":"渠道返利","amount":145,"prob":0.8,"status":"计划","priority":"P2","flowGroup":"经营流入","riskAdj":116,"owner":"业务负责人","note":"示例：不确定流入"},{"id":"CF0114","category":"经营","direction":"流入","type":"客户回款","date":"2027-07-16","company":"海外公司","unit":"国际事业部","counterparty":"客户C","amount":450,"prob":0.95,"status":"计划","priority":"P1","flowGroup":"经营流入","riskAdj":427.5,"owner":"海外销售经理","note":"示例：按预计回款日滚动更新"},{"id":"CF0115","category":"经营","direction":"流出","type":"供应商付款","date":"2027-07-14","company":"华东公司","unit":"制造事业部","counterparty":"供应商A","amount":335,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":335,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0116","category":"经营","direction":"流入","type":"客户回款","date":"2027-07-23","company":"华东公司","unit":"制造事业部","counterparty":"客户D","amount":485,"prob":0.95,"status":"已确认","priority":"P1","flowGroup":"经营流入","riskAdj":460.75,"owner":"销售负责人","note":"示例：按预计回款日滚动更新"},{"id":"CF0117","category":"经营","direction":"流出","type":"供应商付款","date":"2027-07-21","company":"华南公司","unit":"渠道事业部","counterparty":"供应商B","amount":300,"prob":1,"status":"已确认","priority":"P1","flowGroup":"经营流出","riskAdj":300,"owner":"采购负责人","note":"示例：刚性付款标记P0"},{"id":"CF0118","category":"经营","direction":"流出","type":"薪酬社保","date":"2026-08-25","company":"华南公司","unit":"渠道事业部","counterparty":"员工薪酬","amount":455,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":455,"owner":"人力与财务","note":"月度刚性支出"},{"id":"CF0119","category":"经营","direction":"流出","type":"税费支出","date":"2026-08-15","company":"海外公司","unit":"国际事业部","counterparty":"税务机关","amount":180,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":180,"owner":"税务经理","note":"按纳税申报计划"},{"id":"CF0120","category":"经营","direction":"流出","type":"租金物业","date":"2026-08-05","company":"华南公司","unit":"渠道事业部","counterparty":"园区物业","amount":80,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":80,"owner":"行政负责人","note":"固定支出"},{"id":"CF0121","category":"经营","direction":"流出","type":"日常运营","date":"2026-08-10","company":"华南公司","unit":"渠道事业部","counterparty":"综合运营","amount":117,"prob":0.95,"status":"计划","priority":"P1","flowGroup":"经营流出","riskAdj":111.15,"owner":"部门负责人","note":"可按部门拆分"},{"id":"CF0122","category":"投资","direction":"流出","type":"资本开支","date":"2026-08-20","company":"华南公司","unit":"渠道事业部","counterparty":"设备供应商","amount":378,"prob":0.9,"status":"计划","priority":"P2","flowGroup":"投资流出","riskAdj":340.2,"owner":"项目经理","note":"可延期项目请标记P2"},{"id":"CF0123","category":"经营","direction":"流出","type":"薪酬社保","date":"2026-09-25","company":"海外公司","unit":"国际事业部","counterparty":"员工薪酬","amount":480,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":480,"owner":"人力与财务","note":"月度刚性支出"},{"id":"CF0124","category":"经营","direction":"流出","type":"税费支出","date":"2026-09-15","company":"华东公司","unit":"制造事业部","counterparty":"税务机关","amount":195,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":195,"owner":"税务经理","note":"按纳税申报计划"},{"id":"CF0125","category":"经营","direction":"流出","type":"租金物业","date":"2026-09-05","company":"海外公司","unit":"国际事业部","counterparty":"园区物业","amount":72,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":72,"owner":"行政负责人","note":"固定支出"},{"id":"CF0126","category":"经营","direction":"流出","type":"日常运营","date":"2026-09-10","company":"海外公司","unit":"国际事业部","counterparty":"综合运营","amount":129,"prob":0.95,"status":"计划","priority":"P1","flowGroup":"经营流出","riskAdj":122.55,"owner":"部门负责人","note":"可按部门拆分"},{"id":"CF0127","category":"经营","direction":"流入","type":"政府补助","date":"2026-09-18","company":"华东公司","unit":"制造事业部","counterparty":"政府部门","amount":260,"prob":0.7,"status":"计划","priority":"P2","flowGroup":"经营流入","riskAdj":182,"owner":"财务负责人","note":"到账时点存在不确定性"},{"id":"CF0128","category":"经营","direction":"流出","type":"薪酬社保","date":"2026-10-25","company":"华东公司","unit":"制造事业部","counterparty":"员工薪酬","amount":430,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":430,"owner":"人力与财务","note":"月度刚性支出"},{"id":"CF0129","category":"经营","direction":"流出","type":"税费支出","date":"2026-10-15","company":"华南公司","unit":"渠道事业部","counterparty":"税务机关","amount":210,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":210,"owner":"税务经理","note":"按纳税申报计划"},{"id":"CF0130","category":"经营","direction":"流出","type":"租金物业","date":"2026-10-05","company":"华东公司","unit":"制造事业部","counterparty":"园区物业","amount":80,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":80,"owner":"行政负责人","note":"固定支出"},{"id":"CF0131","category":"经营","direction":"流出","type":"日常运营","date":"2026-10-10","company":"华东公司","unit":"制造事业部","counterparty":"综合运营","amount":141,"prob":0.95,"status":"计划","priority":"P1","flowGroup":"经营流出","riskAdj":133.95,"owner":"部门负责人","note":"可按部门拆分"},{"id":"CF0132","category":"经营","direction":"流出","type":"薪酬社保","date":"2026-11-25","company":"华南公司","unit":"渠道事业部","counterparty":"员工薪酬","amount":455,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":455,"owner":"人力与财务","note":"月度刚性支出"},{"id":"CF0133","category":"经营","direction":"流出","type":"税费支出","date":"2026-11-15","company":"海外公司","unit":"国际事业部","counterparty":"税务机关","amount":165,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":165,"owner":"税务经理","note":"按纳税申报计划"},{"id":"CF0134","category":"经营","direction":"流出","type":"租金物业","date":"2026-11-05","company":"华南公司","unit":"渠道事业部","counterparty":"园区物业","amount":72,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":72,"owner":"行政负责人","note":"固定支出"},{"id":"CF0135","category":"经营","direction":"流出","type":"日常运营","date":"2026-11-10","company":"华南公司","unit":"渠道事业部","counterparty":"综合运营","amount":105,"prob":0.95,"status":"计划","priority":"P1","flowGroup":"经营流出","riskAdj":99.75,"owner":"部门负责人","note":"可按部门拆分"},{"id":"CF0136","category":"投资","direction":"流出","type":"资本开支","date":"2026-11-20","company":"华南公司","unit":"渠道事业部","counterparty":"设备供应商","amount":432,"prob":0.9,"status":"计划","priority":"P2","flowGroup":"投资流出","riskAdj":388.8,"owner":"项目经理","note":"可延期项目请标记P2"},{"id":"CF0137","category":"经营","direction":"流出","type":"薪酬社保","date":"2026-12-25","company":"海外公司","unit":"国际事业部","counterparty":"员工薪酬","amount":480,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":480,"owner":"人力与财务","note":"月度刚性支出"},{"id":"CF0138","category":"经营","direction":"流出","type":"税费支出","date":"2026-12-15","company":"华东公司","unit":"制造事业部","counterparty":"税务机关","amount":180,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":180,"owner":"税务经理","note":"按纳税申报计划"},{"id":"CF0139","category":"经营","direction":"流出","type":"租金物业","date":"2026-12-05","company":"海外公司","unit":"国际事业部","counterparty":"园区物业","amount":80,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":80,"owner":"行政负责人","note":"固定支出"},{"id":"CF0140","category":"经营","direction":"流出","type":"日常运营","date":"2026-12-10","company":"海外公司","unit":"国际事业部","counterparty":"综合运营","amount":117,"prob":0.95,"status":"计划","priority":"P1","flowGroup":"经营流出","riskAdj":111.15,"owner":"部门负责人","note":"可按部门拆分"},{"id":"CF0141","category":"经营","direction":"流出","type":"薪酬社保","date":"2027-01-25","company":"华东公司","unit":"制造事业部","counterparty":"员工薪酬","amount":430,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":430,"owner":"人力与财务","note":"月度刚性支出"},{"id":"CF0142","category":"经营","direction":"流出","type":"税费支出","date":"2027-01-15","company":"华南公司","unit":"渠道事业部","counterparty":"税务机关","amount":195,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":195,"owner":"税务经理","note":"按纳税申报计划"},{"id":"CF0143","category":"经营","direction":"流出","type":"租金物业","date":"2027-01-05","company":"华东公司","unit":"制造事业部","counterparty":"园区物业","amount":72,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":72,"owner":"行政负责人","note":"固定支出"},{"id":"CF0144","category":"经营","direction":"流出","type":"日常运营","date":"2027-01-10","company":"华东公司","unit":"制造事业部","counterparty":"综合运营","amount":129,"prob":0.95,"status":"计划","priority":"P1","flowGroup":"经营流出","riskAdj":122.55,"owner":"部门负责人","note":"可按部门拆分"},{"id":"CF0145","category":"经营","direction":"流出","type":"薪酬社保","date":"2027-02-25","company":"华南公司","unit":"渠道事业部","counterparty":"员工薪酬","amount":455,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":455,"owner":"人力与财务","note":"月度刚性支出"},{"id":"CF0146","category":"经营","direction":"流出","type":"税费支出","date":"2027-02-15","company":"海外公司","unit":"国际事业部","counterparty":"税务机关","amount":210,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":210,"owner":"税务经理","note":"按纳税申报计划"},{"id":"CF0147","category":"经营","direction":"流出","type":"租金物业","date":"2027-02-05","company":"华南公司","unit":"渠道事业部","counterparty":"园区物业","amount":80,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":80,"owner":"行政负责人","note":"固定支出"},{"id":"CF0148","category":"经营","direction":"流出","type":"日常运营","date":"2027-02-10","company":"华南公司","unit":"渠道事业部","counterparty":"综合运营","amount":141,"prob":0.95,"status":"计划","priority":"P1","flowGroup":"经营流出","riskAdj":133.95,"owner":"部门负责人","note":"可按部门拆分"},{"id":"CF0149","category":"投资","direction":"流出","type":"资本开支","date":"2027-02-20","company":"华南公司","unit":"渠道事业部","counterparty":"设备供应商","amount":486,"prob":0.9,"status":"计划","priority":"P2","flowGroup":"投资流出","riskAdj":437.4,"owner":"项目经理","note":"可延期项目请标记P2"},{"id":"CF0150","category":"经营","direction":"流出","type":"薪酬社保","date":"2027-03-25","company":"海外公司","unit":"国际事业部","counterparty":"员工薪酬","amount":480,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":480,"owner":"人力与财务","note":"月度刚性支出"},{"id":"CF0151","category":"经营","direction":"流出","type":"税费支出","date":"2027-03-15","company":"华东公司","unit":"制造事业部","counterparty":"税务机关","amount":165,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":165,"owner":"税务经理","note":"按纳税申报计划"},{"id":"CF0152","category":"经营","direction":"流出","type":"租金物业","date":"2027-03-05","company":"海外公司","unit":"国际事业部","counterparty":"园区物业","amount":72,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":72,"owner":"行政负责人","note":"固定支出"},{"id":"CF0153","category":"经营","direction":"流出","type":"日常运营","date":"2027-03-10","company":"海外公司","unit":"国际事业部","counterparty":"综合运营","amount":105,"prob":0.95,"status":"计划","priority":"P1","flowGroup":"经营流出","riskAdj":99.75,"owner":"部门负责人","note":"可按部门拆分"},{"id":"CF0154","category":"经营","direction":"流入","type":"政府补助","date":"2027-03-18","company":"华东公司","unit":"制造事业部","counterparty":"政府部门","amount":260,"prob":0.7,"status":"计划","priority":"P2","flowGroup":"经营流入","riskAdj":182,"owner":"财务负责人","note":"到账时点存在不确定性"},{"id":"CF0155","category":"经营","direction":"流出","type":"薪酬社保","date":"2027-04-25","company":"华东公司","unit":"制造事业部","counterparty":"员工薪酬","amount":430,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":430,"owner":"人力与财务","note":"月度刚性支出"},{"id":"CF0156","category":"经营","direction":"流出","type":"税费支出","date":"2027-04-15","company":"华南公司","unit":"渠道事业部","counterparty":"税务机关","amount":180,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":180,"owner":"税务经理","note":"按纳税申报计划"},{"id":"CF0157","category":"经营","direction":"流出","type":"租金物业","date":"2027-04-05","company":"华东公司","unit":"制造事业部","counterparty":"园区物业","amount":80,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":80,"owner":"行政负责人","note":"固定支出"},{"id":"CF0158","category":"经营","direction":"流出","type":"日常运营","date":"2027-04-10","company":"华东公司","unit":"制造事业部","counterparty":"综合运营","amount":117,"prob":0.95,"status":"计划","priority":"P1","flowGroup":"经营流出","riskAdj":111.15,"owner":"部门负责人","note":"可按部门拆分"},{"id":"CF0159","category":"经营","direction":"流出","type":"薪酬社保","date":"2027-05-25","company":"华南公司","unit":"渠道事业部","counterparty":"员工薪酬","amount":455,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":455,"owner":"人力与财务","note":"月度刚性支出"},{"id":"CF0160","category":"经营","direction":"流出","type":"税费支出","date":"2027-05-15","company":"海外公司","unit":"国际事业部","counterparty":"税务机关","amount":195,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":195,"owner":"税务经理","note":"按纳税申报计划"},{"id":"CF0161","category":"经营","direction":"流出","type":"租金物业","date":"2027-05-05","company":"华南公司","unit":"渠道事业部","counterparty":"园区物业","amount":72,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":72,"owner":"行政负责人","note":"固定支出"},{"id":"CF0162","category":"经营","direction":"流出","type":"日常运营","date":"2027-05-10","company":"华南公司","unit":"渠道事业部","counterparty":"综合运营","amount":129,"prob":0.95,"status":"计划","priority":"P1","flowGroup":"经营流出","riskAdj":122.55,"owner":"部门负责人","note":"可按部门拆分"},{"id":"CF0163","category":"投资","direction":"流出","type":"资本开支","date":"2027-05-20","company":"华南公司","unit":"渠道事业部","counterparty":"设备供应商","amount":540,"prob":0.9,"status":"计划","priority":"P2","flowGroup":"投资流出","riskAdj":486,"owner":"项目经理","note":"可延期项目请标记P2"},{"id":"CF0164","category":"经营","direction":"流出","type":"薪酬社保","date":"2027-06-25","company":"海外公司","unit":"国际事业部","counterparty":"员工薪酬","amount":480,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":480,"owner":"人力与财务","note":"月度刚性支出"},{"id":"CF0165","category":"经营","direction":"流出","type":"税费支出","date":"2027-06-15","company":"华东公司","unit":"制造事业部","counterparty":"税务机关","amount":210,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":210,"owner":"税务经理","note":"按纳税申报计划"},{"id":"CF0166","category":"经营","direction":"流出","type":"租金物业","date":"2027-06-05","company":"海外公司","unit":"国际事业部","counterparty":"园区物业","amount":80,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":80,"owner":"行政负责人","note":"固定支出"},{"id":"CF0167","category":"经营","direction":"流出","type":"日常运营","date":"2027-06-10","company":"海外公司","unit":"国际事业部","counterparty":"综合运营","amount":141,"prob":0.95,"status":"计划","priority":"P1","flowGroup":"经营流出","riskAdj":133.95,"owner":"部门负责人","note":"可按部门拆分"},{"id":"CF0168","category":"经营","direction":"流出","type":"薪酬社保","date":"2027-07-25","company":"华东公司","unit":"制造事业部","counterparty":"员工薪酬","amount":430,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":430,"owner":"人力与财务","note":"月度刚性支出"},{"id":"CF0169","category":"经营","direction":"流出","type":"税费支出","date":"2027-07-15","company":"华南公司","unit":"渠道事业部","counterparty":"税务机关","amount":165,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":165,"owner":"税务经理","note":"按纳税申报计划"},{"id":"CF0170","category":"经营","direction":"流出","type":"租金物业","date":"2027-07-05","company":"华东公司","unit":"制造事业部","counterparty":"园区物业","amount":72,"prob":1,"status":"已确认","priority":"P0","flowGroup":"经营流出","riskAdj":72,"owner":"行政负责人","note":"固定支出"},{"id":"CF0171","category":"经营","direction":"流出","type":"日常运营","date":"2027-07-10","company":"华东公司","unit":"制造事业部","counterparty":"综合运营","amount":105,"prob":0.95,"status":"计划","priority":"P1","flowGroup":"经营流出","riskAdj":99.75,"owner":"部门负责人","note":"可按部门拆分"}],"financing":[{"id":"F001","company":"华东公司","institution":"工商银行","product":"流动资金贷款","currency":"CNY","limit":4000,"used":2100,"available":1900,"due":"2027-03-31","rate":0.032,"drawDate":"2026-08-14","drawAmt":700,"repayDate":"2026-10-20","repayAmt":500,"interestDate":"2026-09-20","interestAmt":32,"equityDate":null,"equityAmt":0,"dividendDate":null,"dividendAmt":0,"owner":"融资经理","status":"有效","note":"用于旺季备货"},{"id":"F002","company":"华南公司","institution":"招商银行","product":"循环授信","currency":"CNY","limit":2500,"used":1450,"available":1050,"due":"2026-10-15","rate":0.034,"drawDate":"2026-09-04","drawAmt":500,"repayDate":"2026-11-10","repayAmt":450,"interestDate":"2026-10-10","interestAmt":24,"equityDate":null,"equityAmt":0,"dividendDate":null,"dividendAmt":0,"owner":"华南财务","status":"有效","note":"到期前需续签"},{"id":"F003","company":"海外公司","institution":"中国银行","product":"出口押汇","currency":"CNY","limit":1200,"used":420,"available":780,"due":"2027-01-20","rate":0.038,"drawDate":"2026-08-28","drawAmt":300,"repayDate":"2026-12-18","repayAmt":280,"interestDate":"2026-09-28","interestAmt":18,"equityDate":null,"equityAmt":0,"dividendDate":null,"dividendAmt":0,"owner":"海外财务","status":"有效","note":"对应出口订单"},{"id":"F004","company":"华东公司","institution":"建设银行","product":"银行承兑","currency":"CNY","limit":1800,"used":760,"available":1040,"due":"2027-05-31","rate":0.027,"drawDate":null,"drawAmt":0,"repayDate":"2027-02-15","repayAmt":300,"interestDate":"2026-08-15","interestAmt":16,"equityDate":null,"equityAmt":0,"dividendDate":null,"dividendAmt":0,"owner":"融资经理","status":"有效","note":"票据池额度"},{"id":"F005","company":"华南公司","institution":"浦发银行","product":"项目贷款","currency":"CNY","limit":900,"used":300,"available":600,"due":"2026-09-25","rate":0.041,"drawDate":null,"drawAmt":0,"repayDate":"2026-09-25","repayAmt":300,"interestDate":"2026-09-25","interestAmt":12,"equityDate":null,"equityAmt":0,"dividendDate":null,"dividendAmt":0,"owner":"华南财务","status":"待续签","note":"90天内到期"},{"id":"F006","company":"海外公司","institution":"股东资金","product":"股东借款","currency":"CNY","limit":1000,"used":0,"available":1000,"due":"2027-12-31","rate":0.03,"drawDate":null,"drawAmt":0,"repayDate":null,"repayAmt":0,"interestDate":null,"interestAmt":0,"equityDate":"2026-10-08","equityAmt":400,"dividendDate":null,"dividendAmt":0,"owner":"财务总监","status":"备用","note":"压力情景下可得性需评估"}],"weekForecast":{"预测口径":[null,"风险调整",null,"公司",null,"集团合并",null,null,null,"基准",null,"2026-07-27 00:00:00",null],"期初可用资金":[5645.44,5694.44,5916.19,6354.04,6188.84,6131.84,6844.34,6784.49,6819.49,6182.49,6407.49,6662.04,6612.79],"客户回款":[369,460.75,380,475,418,427.5,397.7,380,475,418,427.5,460.75,328],"补助及税费返还":[0,0,0,0,0,0,0,182,0,0,0,0,0],"其他经营流入":[0,116,0,0,0,132,0,0,0,100,0,0,0],"经营流入合计":[369,576.75,380,475,418,559.5,397.7,562,475,518,427.5,460.75,328],"供应商付款":[320,275,335,300,320,275,335,300,320,275,335,300,320],"薪酬社保":[0,0,0,0,455,0,0,0,480,0,0,0,430],"税费支出":[0,0,180,0,0,0,0,195,0,0,0,210,0],"租金物业":[0,80,0,0,0,72,0,0,0,0,80,0,0],"市场及日常运营":[0,0,111.15,0,0,0,122.55,0,0,0,133.95,0,0],"其他经营流出":[0,0,0,0,0,0,0,0,0,0,0,0,0],"经营流出合计":[320,355,626.15,300,775,347,457.55,495,800,275,548.95,510,750],"经营净现金流":[49,221.75,-246.15,175,-357,212.5,-59.85,67,-325,243,-121.45,-49.25,-422],"资产处置及投资收回":[0,0,0,0,0,0,0,0,0,0,0,0,0],"投资流入合计":[0,0,0,0,0,0,0,0,0,0,0,0,0],"资本开支":[0,0,0,340.2,0,0,0,0,0,0,0,0,0],"对外投资":[0,0,0,0,0,0,0,0,0,0,0,0,0],"其他投资流出":[0,0,0,0,0,0,0,0,0,0,0,0,0],"投资流出合计":[0,0,0,340.2,0,0,0,0,0,0,0,0,0],"投资净现金流":[0,0,0,-340.2,0,0,0,0,0,0,0,0,0],"借款提款":[0,0,700,0,300,500,0,0,0,0,0,0,0],"股东注资":[0,0,0,0,0,0,0,0,0,0,400,0,0],"融资流入合计":[0,0,700,0,300,500,0,0,0,0,400,0,0],"偿还本金":[0,0,0,0,0,0,0,0,300,0,0,0,500],"利息支出":[0,0,16,0,0,0,0,32,12,18,24,0,0],"分红支出":[0,0,0,0,0,0,0,0,0,0,0,0,0],"融资流出合计":[0,0,16,0,0,0,0,32,312,18,24,0,500],"融资净现金流":[0,0,684,0,300,500,0,-32,-312,-18,376,0,-500],"本周现金净变动":[49,221.75,437.85,-165.2,-57,712.5,-59.85,35,-637,225,254.55,-49.25,-922],"期末可用资金":[5694.44,5916.19,6354.04,6188.84,6131.84,6844.34,6784.49,6819.49,6182.49,6407.49,6662.04,6612.79,5690.79],"最低安全资金":[3500,3500,3500,3500,3500,3500,3500,3500,3500,3500,3500,3500,3500],"资金盈余 / 缺口":[2194.44,2416.19,2854.04,2688.84,2631.84,3344.34,3284.49,3319.49,2682.49,2907.49,3162.04,3112.79,2190.79],"未使用授信":[6370,6370,6370,6370,6370,6370,6370,6370,6370,6370,6370,6370,6370],"流动性余量":[8564.44,8786.19,9224.04,9058.84,9001.84,9714.34,9654.49,9689.49,9052.49,9277.49,9532.04,9482.79,8560.79]},"monthForecast":{"期初可用资金":[5645.44,5694.44,6131.84,5889.49,6006.79,4964.49,4084.59,4255.09,3182.74,2851.74,3034.79,2297.49,null,"2026-10",6006.79],"经营活动流入":[369,1849.75,1994.2,2325.25,1818.25,1816.25,2220.05,1774,2015.75,2214.2,1823.25,1786.25,null,"2026-12",4084.59],"经营活动流出":[320,2056.15,2374.55,2083.95,2021.75,2416.15,2049.55,2108.95,2346.75,2031.15,2074.55,2453.95,null,"2027-01",4255.09],"经营净现金流":[49,-206.4,-380.35,241.3,-203.5,-599.9,170.5,-334.95,-331,183.05,-251.3,-667.7,null,"2027-02",3182.74],"投资活动流入":[0,0,0,0,0,0,0,0,0,0,0,0,null,"2027-04",3034.79],"投资活动流出":[0,340.2,0,0,388.8,0,0,437.4,0,0,486,0,null,"2027-05",2297.49],"投资净现金流":[0,-340.2,0,0,-388.8,0,0,-437.4,0,0,-486,0,null,"2027-06",1629.79],"融资活动流入":[0,1000,500,400,0,0,0,0,0,0,0,0,null,null,null],"融资活动流出":[0,16,362,524,450,280,0,300,0,0,0,0,null,null,null],"融资净现金流":[0,984,138,-124,-450,-280,0,-300,0,0,0,0,null,null,null],"本月现金净变动":[49,437.4,-242.35,117.3,-1042.3,-879.9,170.5,-1072.35,-331,183.05,-737.3,-667.7,null,null,null],"期末可用资金":[5694.44,6131.84,5889.49,6006.79,4964.49,4084.59,4255.09,3182.74,2851.74,3034.79,2297.49,1629.79,null,null,null],"最低安全资金":[3500,3500,3500,3500,3500,3500,3500,3500,3500,3500,3500,3500,null,null,null],"资金盈余 / 缺口":[2194.44,2631.84,2389.49,2506.79,1464.49,584.589999999999,755.089999999998,-317.260000000002,-648.260000000002,-465.210000000002,-1202.51,-1870.21,null,null,null],"未使用授信":[6370,6370,6370,6370,6370,6370,6370,6370,6370,6370,6370,6370,null,null,null],"流动性余量":[8564.44,9001.84,8759.49,8876.79,7834.49,6954.59,7125.09,6052.74,5721.74,5904.79,5167.49,4499.79,null,null,null]},"meta":{"exportedAt":"2026-07-27","source":"资金滚动预测模型_数据熊出品.xlsx","unit":"人民币万元"}};
+if(window.ChartDataLabels) Chart.register(window.ChartDataLabels);
+Chart.defaults.color = '#b8b2a6';
+Chart.defaults.borderColor = 'rgba(255,255,255,.08)';
+Chart.defaults.font.family = 'Inter,"PingFang SC","Microsoft YaHei",sans-serif';
+Chart.defaults.font.size = 11;
+
+const state = { scenario:'基准', company:'集团合并', horizon:'13周', startDate:'2026-07-27', minSafe:3500, factor:1.0 };
+
+/* ---------- 工具 ---------- */
+const num = v => (typeof v==='number' && isFinite(v)) ? v : 0;
+const parseDate = s => { const d=new Date(s+'T00:00:00'); return isNaN(d)?null:d; };
+const addDays = (d,n)=>{ const x=new Date(d); x.setDate(x.getDate()+n); return x; };
+const startOfWeek = d => { const x=new Date(d); const day=(x.getDay()+6)%7; x.setDate(x.getDate()-day); x.setHours(0,0,0,0); return x; };
+const fmt = n => (Math.round(num(n)*100)/100).toLocaleString('zh-CN',{maximumFractionDigits:0});
+const fmt1 = n => (Math.round(num(n)*10)/10).toLocaleString('zh-CN',{maximumFractionDigits:1});
+const monthKey = d => d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0');
+const weekLabel = i => 'W'+i;
+const sum = arr => arr.reduce((a,b)=>a+num(b),0);
+
+function coef(flowGroup){
+  const s = MODEL.params.scenarios[flowGroup];
+  if(!s) return 1;
+  return num(s[state.scenario]) || 1;
+}
+const scopeAccounts = () => MODEL.accounts.filter(a => state.company==='集团合并' || a.company===state.company);
+const scopeCash = () => MODEL.cashflow.filter(c => state.company==='集团合并' || c.company===state.company);
+const scopeFin = () => MODEL.financing.filter(f => state.company==='集团合并' || f.company===state.company);
+const effectiveCash = () => scopeCash().filter(c => c.status!=='已发生' && c.status!=='已取消' && c.date);
+const sumAvailable = () => sum(scopeAccounts().map(a => a.available));
+
+/* ---------- 计算引擎 ---------- */
+function aggregate(periods, isWeek){
+  // periods: [{start,end}]
+  return periods.map(p=>{
+    let inOp=0,inInv=0,inFin=0,outOp=0,outInv=0,outFin=0;
+    effectiveCash().forEach(c=>{
+      const d=parseDate(c.date); if(!d||d<p.start||d>p.end) return;
+      const amt=num(c.amount)*num(c.prob||1)*coef(c.flowGroup)*state.factor;
+      if(c.direction==='流入'){ if(c.category==='投资') inInv+=amt; else inOp+=amt; }
+      else { if(c.category==='投资') outInv+=amt; else outOp+=amt; }
+    });
+    scopeFin().forEach(f=>{
+      const push=(flow,amt,grp)=>{ if(!flow||!amt) return; const d=parseDate(flow); if(!d||d<p.start||d>p.end) return;
+        const a=num(amt)*coef(grp)*state.factor; if(grp==='融资流入') inFin+=a; else outFin+=a; };
+      push(f.drawDate,f.drawAmt,'融资流入'); push(f.equityDate,f.equityAmt,'融资流入');
+      push(f.repayDate,f.repayAmt,'融资流出'); push(f.interestDate,f.interestAmt,'融资流出'); push(f.dividendDate,f.dividendAmt,'融资流出');
+    });
+    return { inOp,inInv,inFin,outOp,outInv,outFin };
+  });
+}
+
+function buildWeeks(){
+  const start=startOfWeek(parseDate(state.startDate));
+  const periods=[]; for(let i=0;i<13;i++) periods.push({start:addDays(start,i*7),end:addDays(start,i*7+6)});
+  const agg=aggregate(periods,true);
+  let begin=sumAvailable(); const rows=[];
+  agg.forEach((a,i)=>{
+    const inT=a.inOp+a.inInv+a.inFin, outT=a.outOp+a.outInv+a.outFin, net=inT-outT, end=begin+net;
+    rows.push({i:i+1,label:weekLabel(i+1),begin,inOp:a.inOp,inInv:a.inInv,inFin:a.inFin,inT,outOp:a.outOp,outInv:a.outInv,outFin:a.outFin,outT,net,end});
+    begin=end;
+  });
+  return rows;
+}
+function buildMonths(){
+  const start=parseDate(state.startDate);
+  let cur=new Date(start.getFullYear(),start.getMonth(),1); const periods=[];
+  for(let i=0;i<12;i++){
+    const s=(i===0)?start:new Date(cur.getFullYear(),cur.getMonth(),1);
+    const e=new Date(cur.getFullYear(),cur.getMonth()+1,0);
+    periods.push({start:s,end:e}); cur=new Date(cur.getFullYear(),cur.getMonth()+1,1);
+  }
+  const agg=aggregate(periods,false);
+  let begin=sumAvailable(); const rows=[];
+  agg.forEach((a,i)=>{
+    const inT=a.inOp+a.inInv+a.inFin, outT=a.outOp+a.outInv+a.outFin, net=inT-outT, end=begin+net;
+    rows.push({i:i+1,label:monthKey(periods[i].start),begin,inOp:a.inOp,inInv:a.inInv,inFin:a.inFin,inT,outOp:a.outOp,outInv:a.outInv,outFin:a.outFin,outT,net,end});
+    begin=end;
+  });
+  return rows;
+}
+
+function computeKPI(rows){
+  const beginCash=rows[0].begin, end=rows[rows.length-1].end;
+  const minEnd=Math.min(...rows.map(r=>r.end));
+  const maxGap=Math.max(0, state.minSafe-minEnd);
+  const unused=sum(scopeFin().map(f=>f.available));
+  const liquidity=end+unused;
+  return {beginCash,end13:end,minEnd,maxGap,unused,liquidity};
+}
+
+function computeRisks(rows,kpi){
+  const risks=[];
+  const lvl=(bad,warn)=> bad?'bad':(warn?'warn':'ok');
+  // 最低资金
+  risks.push({item:'13周最低资金',val:fmt(kpi.minEnd),thr:'安全线 '+fmt(state.minSafe),
+    level:lvl(kpi.minEnd<state.minSafe,false),advice:'低于安全线时，优先压降 P2 支出并提前落实授信提款。',who:'资金负责人 / 13周预测'});
+  // 期末为负
+  risks.push({item:'13周期末资金',val:fmt(kpi.end13),thr:'不得为负',
+    level:lvl(kpi.end13<0,false),advice:'若期末为负，需明确融资、回款前置或支出延期的闭环动作。',who:'财务负责人 / 13周预测'});
+  // 流动性
+  risks.push({item:'流动性余量',val:fmt(kpi.liquidity),thr:'不得为负',
+    level:lvl(kpi.liquidity<0,false),advice:'若现金加未用授信仍不足，应启动备用融资或股东支持。',who:'财务总监 / 驾驶舱'});
+  // 4周覆盖
+  const f4in=sum(rows.slice(0,4).map(r=>r.inT)), f4out=sum(rows.slice(0,4).map(r=>r.outT));
+  const cover=f4out>0?f4in/f4out:9;
+  risks.push({item:'未来4周收支覆盖',val:(cover*100).toFixed(1)+'%',thr:'≥100%',
+    level:lvl(false,cover<1),advice:'覆盖不足时按周匹配回款与刚性付款，避免月底集中缺口。',who:'资金经理 / 13周预测'});
+  // 计划流入占比
+  const cin=effectiveCash().filter(c=>c.direction==='流入'), planIn=sum(cin.filter(c=>c.status==='计划').map(c=>num(c.amount)*num(c.prob||1)));
+  const totIn=sum(cin.map(c=>num(c.amount)*num(c.prob||1))); const pr=totIn>0?planIn/totIn:0;
+  risks.push({item:'计划流入占比',val:(pr*100).toFixed(1)+'%',thr:'≤30%',
+    level:lvl(false,pr>0.3),advice:'提高重点回款的确认率，并拆分到客户与责任人。',who:'销售负责人 / 现金流计划'});
+  // 受限比例
+  const accs=scopeAccounts(); const restr=sum(accs.map(a=>a.restricted)), rmb=sum(accs.map(a=>a.rmb)); const rr=rmb>0?restr/rmb:0;
+  risks.push({item:'受限资金比例',val:(rr*100).toFixed(1)+'%',thr:'≤20%',
+    level:lvl(false,rr>0.2),advice:'梳理保证金、项目专户和冻结资金，推动释放可用额度。',who:'资金经理 / 银行账户'});
+  // 90天到期授信
+  const due90=addDays(parseDate(state.startDate),90);
+  const dueAmt=sum(scopeFin().filter(f=>f.due&&parseDate(f.due)<=due90&&num(f.used)>0).map(f=>f.used));
+  risks.push({item:'90天内到期授信占用',val:fmt(dueAmt),thr:'越低越好',
+    level:lvl(dueAmt>0,false),advice:'对到期授信提前30—60天启动续签、置换或还款安排。',who:'融资经理 / 融资计划'});
+  return risks;
+}
+
+/* ---------- 图表 ---------- */
+let chTrend,chFlow,chScenario;
+function gradFill(ctx,area,c1,c2){
+  const g=ctx.createLinearGradient(0,area.top,0,area.bottom);
+  g.addColorStop(0,c1); g.addColorStop(1,c2); return g;
+}
+function lineGrad(ctx,area,c){ const g=ctx.createLinearGradient(0,area.top,0,area.bottom); g.addColorStop(0,c); g.addColorStop(1,c.replace('1)','0.05)')); return g; }
+
+function renderTrend(rows){
+  const labels=rows.map(r=>r.label);
+  const ends=rows.map(r=>Math.round(r.end*100)/100);
+  const surplus=rows.map(r=>Math.round((r.end-state.minSafe)*100)/100);
+  const safe=rows.map(()=>state.minSafe);
+  const ctx=document.getElementById('chartTrend').getContext('2d');
+  const ds=[{
+    label:'期末可用资金',data:ends,borderColor:'#d9c7a5',borderWidth:2.4,tension:.38,
+    pointRadius:0,pointHoverRadius:5,pointBackgroundColor:'#d9c7a5',fill:true,
+    backgroundColor:c=>{const{ctx,chartArea}=c.chart; if(!chartArea) return 'rgba(217,199,165,.15)';
+      const g=ctx.createLinearGradient(0,chartArea.top,0,chartArea.bottom);
+      g.addColorStop(0,'rgba(63,174,135,.45)'); g.addColorStop(.55,'rgba(217,199,165,.22)'); g.addColorStop(1,'rgba(217,199,165,.02)'); return g;},
+    order:2
+  },{
+    label:'资金盈余/缺口',data:surplus,borderColor:'rgba(217,199,165,.55)',borderWidth:1.4,borderDash:[5,4],
+    pointRadius:0,fill:false,tension:.38,order:3
+  },{
+    label:'最低安全资金线',data:safe,borderColor:'#e6917f',borderWidth:1.6,borderDash:[8,5],
+    pointRadius:0,fill:false,order:1
+  }];
+  const cfg={type:'line',data:{labels,datasets:ds},options:{
+    responsive:true,maintainAspectRatio:false,animation:{duration:850,easing:'easeOutQuart'},
+    interaction:{mode:'index',intersect:false},
+    plugins:{legend:{display:false},
+      tooltip:{callbacks:{label:c=>c.dataset.label+': '+fmt(c.parsed.y)+' 万元'}},
+      datalabels:{display:false}},
+    scales:{
+      x:{grid:{display:false},ticks:{maxRotation:0,autoSkip:true,maxTicksLimit:13}},
+      y:{grid:{color:'rgba(255,255,255,.06)'},ticks:{callback:v=>fmt(v)}}
+    }}};
+  if(chTrend){chTrend.data=cfg.data;chTrend.options=cfg.options;chTrend.update();}
+  else chTrend=new Chart(ctx,cfg);
+}
+
+function renderFlow(rows){
+  const labels=rows.map(r=>r.label);
+  const inT=rows.map(r=>Math.round(r.inT*100)/100);
+  const outT=rows.map(r=>Math.round(r.outT*100)/100);
+  const net=rows.map(r=>Math.round(r.net*100)/100);
+  const ctx=document.getElementById('chartFlow').getContext('2d');
+  const cfg={type:'bar',data:{labels,datasets:[
+    {label:'流入',data:inT,backgroundColor:'rgba(63,174,135,.85)',borderRadius:4,order:2},
+    {label:'流出',data:outT,backgroundColor:'rgba(230,145,127,.8)',borderRadius:4,order:2},
+    {label:'净额',type:'line',data:net,borderColor:'#d9c7a5',borderWidth:2,tension:.35,pointRadius:0,fill:false,order:1}
+  ]},options:{
+    responsive:true,maintainAspectRatio:false,animation:{duration:750},
+    interaction:{mode:'index',intersect:false},
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.dataset.label+': '+fmt(c.parsed.y)+' 万元'}},datalabels:{display:false}},
+    scales:{x:{stacked:false,grid:{display:false},ticks:{maxRotation:0,maxTicksLimit:13}},
+      y:{grid:{color:'rgba(255,255,255,.06)'},ticks:{callback:v=>fmt(v)}}}}};
+  if(chFlow){chFlow.data=cfg.data;chFlow.options=cfg.options;chFlow.update();}
+  else chFlow=new Chart(ctx,cfg);
+}
+
+function scenarioLines(){
+  const out={};
+  ['乐观','基准','压力'].forEach(sc=>{
+    const saved=state.scenario; state.scenario=sc;
+    out[sc]=buildWeeks().map(r=>Math.round(r.end*100)/100);
+    state.scenario=saved;
+  });
+  return out;
+}
+function renderScenario(){
+  const lines=scenarioLines();
+  const labels=lines['基准'].map((_,i)=>weekLabel(i+1));
+  const ctx=document.getElementById('chartScenario').getContext('2d');
+  const mk=(data,color)=>({label:'',data,borderColor:color,borderWidth:2.2,tension:.38,pointRadius:0,pointHoverRadius:5,fill:false});
+  const cfg={type:'line',data:{labels,datasets:[
+    mk(lines['乐观'],'#3fae87'),mk(lines['基准'],'#d9c7a5'),mk(lines['压力'],'#e6917f')
+  ]},options:{
+    responsive:true,maintainAspectRatio:false,animation:{duration:850},
+    interaction:{mode:'index',intersect:false},
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>['乐观','基准','压力'][c.datasetIndex]+': '+fmt(c.parsed.y)+' 万元'}},datalabels:{display:false}},
+    scales:{x:{grid:{display:false},ticks:{maxTicksLimit:13}},y:{grid:{color:'rgba(255,255,255,.06)'},ticks:{callback:v=>fmt(v)}}}}};
+  if(chScenario){chScenario.data=cfg.data;chScenario.options=cfg.options;chScenario.update();}
+  else chScenario=new Chart(ctx,cfg);
+}
+
+/* ---------- KPI / 风险 / 账户 渲染 ---------- */
+function renderKPI(rows,kpi){
+  const grid=document.getElementById('kpiGrid');
+  const cards=[
+    {label:'当前可用资金',val:kpi.beginCash,unit:'万元',cls:'',spark:'期初 · 集团口径'},
+    {label:'13周期末资金',val:kpi.end13,unit:'万元',cls:kpi.end13<0?'alert':'',spark:kpi.end13>=kpi.beginCash?'较期初 ↑':'较期初 ↓'},
+    {label:'13周最低资金',val:kpi.minEnd,unit:'万元',cls:kpi.minEnd<state.minSafe?'warn':'',spark:'周期低点'},
+    {label:'最大资金缺口',val:kpi.maxGap,unit:'万元',cls:kpi.maxGap>0?'alert':'',spark:kpi.maxGap>0?'需关注':'无缺口'},
+    {label:'未使用授信',val:kpi.unused,unit:'万元',cls:'',spark:'融资弹性'},
+    {label:'流动性余量',val:kpi.liquidity,unit:'万元',cls:kpi.liquidity<0?'alert':'',spark:'现金+授信'}
+  ];
+  grid.innerHTML=cards.map((c,i)=>`
+    <div class="kpi ${c.cls}" data-i="${i}">
+      <div class="label">${c.label}</div>
+      <div class="val" data-target="${c.val}">0<span class="unit">${c.unit}</span></div>
+      <div class="spark ${c.cls==='alert'?'bad':''}">${c.spark}</div>
+    </div>`).join('');
+  grid.querySelectorAll('.val').forEach(el=>countUp(el,parseFloat(el.dataset.target)));
+  document.getElementById('kpiScope').textContent = state.company+' · '+state.scenario+'情景';
+}
+function countUp(el,target){
+  const dur=700, t0=performance.now(); const dec=(Math.abs(target)%1!==0)?1:0;
+  function step(t){ const p=Math.min(1,(t-t0)/dur); const e=1-Math.pow(1-p,3);
+    const v=target*e; el.firstChild.textContent = (dec? v.toFixed(1): fmt(v));
+    if(p<1) requestAnimationFrame(step); }
+  requestAnimationFrame(step);
+}
+function renderRisks(risks){
+  const tb=document.getElementById('riskBody');
+  const map={ok:'ok',warn:'warn',bad:'bad'}; const txt={ok:'正常',warn:'关注',bad:'高风险'};
+  tb.innerHTML=risks.map(r=>`
+    <tr><td class="item">${r.item}</td><td>${r.val}</td><td style="color:var(--muted)">${r.thr}</td>
+    <td><span class="badge ${map[r.level]}">${txt[r.level]}</span></td>
+    <td class="advice">${r.advice}</td><td style="color:var(--muted);font-size:.78rem">${r.who}</td></tr>`).join('');
+}
+function renderAccounts(){
+  const accs=scopeAccounts(); const max=Math.max(1,...accs.map(a=>num(a.available)));
+  const box=document.getElementById('accList');
+  box.innerHTML=accs.map(a=>`
+    <div class="acc-row">
+      <div class="nm">${a.alias||a.id}<small>${a.company} · ${a.currency}</small></div>
+      <div class="acc-bar"><i style="width:${(num(a.available)/max*100).toFixed(1)}%"></i></div>
+      <div class="v">${fmt(a.available)}</div>
+    </div>`).join('');
+  document.getElementById('accMeta').textContent='共 '+accs.length+' 个账户 · 合计 '+fmt(sum(accs.map(a=>a.available)))+' 万元';
+}
+
+/* ---------- 主流程 ---------- */
+let toastTimer;
+function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('show'),1800); }
+
+function recompute(){
+  const rows = state.horizon==='13周'? buildWeeks() : buildMonths();
+  const kpi = computeKPI(rows);
+  const risks = computeRisks(rows,kpi);
+  if(state.horizon==='13周'){
+    document.getElementById('trendTitle').textContent='13 周资金余额趋势';
+    document.getElementById('trendMeta').textContent='期初可用资金 · 期末资金 · 安全线';
+    document.getElementById('flowMeta').textContent='经营·投资·融资（周度）';
+  } else {
+    document.getElementById('trendTitle').textContent='12 个月资金展望';
+    document.getElementById('trendMeta').textContent='期末资金 · 安全线';
+    document.getElementById('flowMeta').textContent='经营·投资·融资（月度）';
+  }
+  renderKPI(rows,kpi);
+  renderTrend(rows);
+  renderFlow(rows);
+  renderScenario();
+  renderRisks(risks);
+  renderAccounts();
+}
+
+/* ---------- 初始化 & 事件 ---------- */
+function initControls(){
+  const comp=document.getElementById('selCompany');
+  const list=['集团合并',...Array.from(new Set(MODEL.accounts.map(a=>a.company)))];
+  comp.innerHTML=list.map(c=>`<option ${c===state.company?'selected':''}>${c}</option>`).join('');
+  comp.onchange=e=>{ state.company=e.target.value; recompute(); toast('已切换口径：'+state.company); };
+
+  document.getElementById('segScenario').addEventListener('click',e=>{
+    const b=e.target.closest('button'); if(!b) return;
+    document.querySelectorAll('#segScenario button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active'); state.scenario=b.dataset.s; recompute();
+  });
+  document.getElementById('segHorizon').addEventListener('click',e=>{
+    const b=e.target.closest('button'); if(!b) return;
+    document.querySelectorAll('#segHorizon button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active'); state.horizon=b.dataset.h; recompute();
+  });
+  document.getElementById('inpStart').addEventListener('change',e=>{
+    if(e.target.value){ state.startDate=e.target.value; recompute(); }
+  });
+  const rngSafe=document.getElementById('rngSafe'), lblSafe=document.getElementById('lblSafe');
+  rngSafe.addEventListener('input',e=>{ lblSafe.textContent=e.target.value; });
+  rngSafe.addEventListener('change',e=>{ state.minSafe=+e.target.value; recompute(); });
+  const rngF=document.getElementById('rngFactor'), lblF=document.getElementById('lblFactor');
+  rngF.addEventListener('input',e=>{ lblF.textContent=e.target.value; });
+  rngF.addEventListener('change',e=>{ state.factor=1+(+e.target.value)/100; recompute(); toast('变动幅度 ±'+e.target.value+'% 已应用'); });
+}
+initControls();
+recompute();
+</script>
+</body>
+</html>
