@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
-import { brand } from "@/lib/data";
+import { brand, annualPlan } from "@/lib/data";
 import { DimOnClick } from "@/components/DimOnClick";
 import { BackToHomeBtn } from "@/components/BackToHomeBtn";
 
@@ -101,6 +101,27 @@ const jsonLd = {
       name: "龙头会服·高端财税服务团队",
       publisher: { "@id": `${SITE}/#organization` },
       inLanguage: "zh-CN",
+    },
+    {
+      "@type": "Service",
+      "@id": `${SITE}/#annual-advisor`,
+      name: "企业年度财税顾问计划",
+      serviceType: "高端财税顾问 / 年度财税顾问",
+      description: annualPlan.summary,
+      provider: { "@id": `${SITE}/#organization` },
+      areaServed: { "@type": "AdministrativeArea", name: "河南省" },
+      audience: {
+        "@type": "BusinessAudience",
+        description: "年营收2000万以上、已有稳定经营规模、且老板愿意参与经营管理的企业",
+      },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "年度顾问交付内容",
+        itemListElement: annualPlan.whatYouGet.map((item: string) => ({
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: item },
+        })),
+      },
     },
   ],
 };
