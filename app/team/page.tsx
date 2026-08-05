@@ -56,24 +56,17 @@ const coreMembers: OrbitMember[] = [
 
 const advisorMembers: AdvisorMember[] = [
   {
-    name: "李现文",
+    name: "赵娟",
     title: "高端财税事业部 高级顾问",
-    credential: "注册会计师 / 注册税务师",
-    focus: "企业ERP设计与实施、全面预算管理、企业资本运作、股权架构搭建、企业财务体系建设",
-    avatar: `${assetBasePath}/images/team/li-xianwen.jpg`
+    credential: "注册会计师 / 税务师 / 资深财税咨询师",
+    focus: "内控设计、审计、预算管理、成本管控、财税咨询",
+    avatar: `${assetBasePath}/images/team/zhaojuan.png`
   },
   {
     name: "张亚琼",
     title: "高端财税事业部 高级顾问",
     credential: "注册会计师 / 注册税务师",
     focus: "财务组织管理体系、财务核算体系、流程信息化、财务分析、全面预算管理、财税咨询及规划"
-  },
-  {
-    name: "赵娟",
-    title: "高端财税事业部 高级顾问",
-    credential: "注册会计师 / 税务师 / 资深财税咨询师",
-    focus: "内控设计、审计、预算管理、成本管控、财税咨询",
-    avatar: `${assetBasePath}/images/team/zhaojuan.png`
   },
   {
     name: "王慧现",
