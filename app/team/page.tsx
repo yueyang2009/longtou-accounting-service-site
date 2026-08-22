@@ -28,7 +28,7 @@ const coreMembers: OrbitMember[] = [
   {
     name: "李岳阳",
     title: "高端财税事业部 高级顾问",
-    avatar: `${assetBasePath}/images/team/li-yueyang.png`,
+    avatar: `${assetBasePath}/images/team/li-yueyang.jpg`,
     summary: "财税风控、法律经营、企业落地",
     fullIntro:
       "资深财税风控专家、注册会计师、律师、高级管理会计师。15年一线财税实战经验，7年头部会计师事务所执业，8年集团财务总监管理经验。深耕财务、税务、法律、经营四维体系，精通财税合规与企业经营落地，提供全链条企业财税解决方案。",
