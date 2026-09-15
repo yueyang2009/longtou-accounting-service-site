@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const assetBasePath = process.env.GITHUB_PAGES === "true" ? "/longtou-accounting-service-site" : "";
+const assetBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export function BrandLogo({ className = "h-9 w-auto" }: { className?: string }) {
   return (

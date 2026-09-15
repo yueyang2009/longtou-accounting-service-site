@@ -82,7 +82,7 @@ function Chart({ rows }: { rows: ForecastRow[] }) {
 }
 
 export function ComprehensiveBudgetDashboard() {
-  const base = process.env.NODE_ENV === "production" ? "/longtou-accounting-service-site" : "";
+  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const [months, setMonths] = useState<(typeof horizons)[number]>(12);
   const [growth, setGrowth] = useState(8);
   const [costChange, setCostChange] = useState(3);

@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE = "https://yueyang2009.github.io";
-const BASE_PATH = "/longtou-accounting-service-site";
+const SITE = "https://www.audit-report-check.com";
 
 export const dynamic = "force-static";
 
@@ -11,7 +10,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: `${BASE}${BASE_PATH}/sitemap.xml`,
-    host: BASE,
+    sitemap: `${SITE}/sitemap.xml`,
+    host: SITE,
   };
 }

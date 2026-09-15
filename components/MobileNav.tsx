@@ -19,7 +19,7 @@ interface MobileNavProps {
 export function MobileNav({ links, triggerTone = "dark" }: MobileNavProps) {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const base = process.env.NODE_ENV === "production" ? "/longtou-accounting-service-site" : "";
+  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
   const toggle = useCallback(() => setOpen((v) => !v), []);
   const close = useCallback(() => setOpen(false), []);
@@ -154,13 +154,13 @@ export function MobileNav({ links, triggerTone = "dark" }: MobileNavProps) {
 
         {/* CTA at bottom */}
         <div className="mt-auto border-t border-white/10 px-5 py-6">
-          <Link
-            href="/contact"
+          <a
+            href="https://wb.audit-report-check.com/login"
             onClick={close}
             className="flex w-full items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#1F1F1F] transition hover:bg-white/90"
           >
-            申请企业财税风险诊断
-          </Link>
+            进入客户工作台
+          </a>
         </div>
             </div>
           </>,

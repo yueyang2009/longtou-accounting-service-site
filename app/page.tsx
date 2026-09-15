@@ -59,7 +59,7 @@ function SectionTitle({
 }
 
 function DashboardPreview() {
-  const base = process.env.NODE_ENV === "production" ? "/longtou-accounting-service-site" : "";
+  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const operatingMetrics = [
     { label: "利润质量", value: "已校准", width: "82%", delay: "0ms" },
     { label: "现金流节奏", value: "重点跟踪", width: "68%", delay: "180ms" },

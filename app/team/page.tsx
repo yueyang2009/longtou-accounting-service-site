@@ -8,7 +8,7 @@ import { TeamOrbit, type OrbitMember } from "@/components/TeamOrbit";
 import { AdvisorMatrix, type AdvisorMember } from "@/components/AdvisorMatrix";
 import { brand, trustMetrics, extendedExperts } from "@/lib/data";
 
-const assetBasePath = process.env.GITHUB_PAGES === "true" ? "/longtou-accounting-service-site" : "";
+const assetBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const metadata: Metadata = {
   title: `团队介绍｜${brand.name}`,

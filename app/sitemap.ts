@@ -1,9 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/posts";
 
-const BASE = "https://yueyang2009.github.io";
-const BASE_PATH = "/longtou-accounting-service-site";
-const SITE = `${BASE}${BASE_PATH}`;
+const SITE = "https://www.audit-report-check.com";
 
 export const dynamic = "force-static";
 

@@ -11,7 +11,7 @@ import {
   Users
 } from "lucide-react";
 
-const siteBasePath = process.env.GITHUB_PAGES === "true" ? "/longtou-accounting-service-site" : "";
+const siteBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export type Lead = {
   company: string;

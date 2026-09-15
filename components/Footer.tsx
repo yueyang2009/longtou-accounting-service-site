@@ -20,7 +20,7 @@ const credentials = [
 ];
 
 export function Footer() {
-  const base = process.env.NODE_ENV === "production" ? "/longtou-accounting-service-site" : "";
+  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const year = new Date().getFullYear();
 
   return (
@@ -57,6 +57,12 @@ export function Footer() {
           >
             申请企业财税风险诊断
           </Link>
+          <a
+            href="https://wb.audit-report-check.com/login"
+            className="mt-3 inline-flex text-sm font-medium text-[#d9c7a5] transition hover:text-white"
+          >
+            客户工作台登录 →
+          </a>
         </div>
 
         {/* 导航 */}

@@ -11,7 +11,7 @@ import { brand, navItems } from "@/lib/data";
 import { Footer } from "@/components/Footer";
 import { getPostBySlug, getAllPosts } from "@/lib/posts";
 
-const SITE = "https://yueyang2009.github.io/longtou-accounting-service-site";
+const SITE = "https://www.audit-report-check.com";
 
 // ── 构建时生成所有文章路径 ──
 export async function generateStaticParams() {
@@ -57,8 +57,7 @@ async function markdownToHtml(md: string): Promise<string> {
   const result = await remark().use(html).process(md);
   // 文章正文经 dangerouslySetInnerHTML 注入，Next 的 basePath 不会自动重写，
   // 故在此手动为 /images/ 资源补齐 basePath（线上 GitHub Pages 子路径）。
-  const basePath =
-    process.env.GITHUB_PAGES === "true" ? "/longtou-accounting-service-site" : "";
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   return result
     .toString()
     .replace(/src="\/images\//g, `src="${basePath}/images/`);

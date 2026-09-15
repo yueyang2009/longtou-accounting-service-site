@@ -5,7 +5,7 @@ import { brand } from "@/lib/data";
 import { DimOnClick } from "@/components/DimOnClick";
 import { BackToHomeBtn } from "@/components/BackToHomeBtn";
 
-const SITE = "https://yueyang2009.github.io/longtou-accounting-service-site";
+const SITE = "https://www.audit-report-check.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),

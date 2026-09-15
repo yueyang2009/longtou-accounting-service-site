@@ -10,7 +10,7 @@ import { siteNavLinks } from "@/lib/data";
 
 export function HomeHeader() {
   const [onDarkSurface, setOnDarkSurface] = useState(true);
-  const base = process.env.NODE_ENV === "production" ? "/longtou-accounting-service-site" : "";
+  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
   useEffect(() => {
     let frame = 0;
@@ -102,8 +102,8 @@ export function HomeHeader() {
 
         <MobileNav links={siteNavLinks} triggerTone={onDarkSurface ? "light" : "dark"} />
 
-        <Link
-          href="/contact"
+        <a
+          href="https://wb.audit-report-check.com/login"
           className={[
             "hidden rounded-full px-5 py-2.5 text-[15px] font-bold transition lg:inline-flex",
             onDarkSurface
@@ -111,8 +111,8 @@ export function HomeHeader() {
               : "bg-[#d9c7a5] text-[#111816] hover:bg-[#eadabd]"
           ].join(" ")}
         >
-          申请企业财税风险诊断
-        </Link>
+          客户工作台
+        </a>
       </div>
     </header>
   );
