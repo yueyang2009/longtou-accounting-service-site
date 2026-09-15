@@ -102,17 +102,6 @@ export function HomeHeader() {
 
         <MobileNav links={siteNavLinks} triggerTone={onDarkSurface ? "light" : "dark"} />
 
-        <a
-          href="https://wb.audit-report-check.com/login"
-          className={[
-            "hidden rounded-full px-5 py-2.5 text-[15px] font-bold transition lg:inline-flex",
-            onDarkSurface
-              ? "bg-[#d9c7a5] text-[#111816] hover:bg-[#eadabd]"
-              : "bg-[#d9c7a5] text-[#111816] hover:bg-[#eadabd]"
-          ].join(" ")}
-        >
-          客户工作台
-        </a>
       </div>
     </header>
   );

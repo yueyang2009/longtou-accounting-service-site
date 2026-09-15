@@ -152,16 +152,6 @@ export function MobileNav({ links, triggerTone = "dark" }: MobileNavProps) {
           )}
         </nav>
 
-        {/* CTA at bottom */}
-        <div className="mt-auto border-t border-white/10 px-5 py-6">
-          <a
-            href="https://wb.audit-report-check.com/login"
-            onClick={close}
-            className="flex w-full items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#1F1F1F] transition hover:bg-white/90"
-          >
-            进入客户工作台
-          </a>
-        </div>
             </div>
           </>,
           document.body
