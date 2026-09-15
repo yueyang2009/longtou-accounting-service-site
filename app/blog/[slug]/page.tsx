@@ -11,7 +11,7 @@ import { brand, navItems } from "@/lib/data";
 import { Footer } from "@/components/Footer";
 import { getPostBySlug, getAllPosts } from "@/lib/posts";
 
-const SITE = "https://www.audit-report-check.com";
+const SITE = "https://longtou.audit-report-check.com";
 
 // ── 构建时生成所有文章路径 ──
 export async function generateStaticParams() {
