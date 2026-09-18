@@ -13,6 +13,9 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -790,6 +793,7 @@ body {
 
 .private-hero {
   min-height: calc(100vh - 4rem);
+  min-height: calc(100svh - 4rem);
 }
 
 .private-hero::before {
@@ -1142,6 +1146,7 @@ body {
 .team-orbit-section {
   position: relative;
   min-height: calc(100vh - 72px);
+  min-height: calc(100svh - 72px);
   overflow: hidden;
   padding: 6rem 1.5rem 7rem;
   background:
@@ -1565,6 +1570,16 @@ body {
 
 .team-final-cta-title .cta-row-2 {
   margin-left: 4em;
+}
+
+@media (max-width: 640px) {
+  .team-final-cta-title {
+    font-size: clamp(1.7rem, 7.2vw, 2.1rem);
+  }
+
+  .team-final-cta-title .cta-row-2 {
+    margin-left: 2em;
+  }
 }
 
 .team-section-lead {
@@ -2562,6 +2577,7 @@ footer.bg-brand-emerald {
 .private-advisory-site main > section:first-child {
   margin-top: 1.25rem;
   min-height: calc(100vh - 118px);
+  min-height: calc(100svh - 118px);
 }
 
 .private-advisory-site main > section + section {
