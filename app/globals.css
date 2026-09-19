@@ -2357,7 +2357,7 @@ header.sticky {
   backdrop-filter: blur(26px) saturate(1.35);
 }
 
-header.sticky a[href="/"] {
+header.sticky .site-header-logo {
   background: rgba(255, 255, 255, 0.88) !important;
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.20), inset 0 1px 0 rgba(255,255,255,0.85);
 }
