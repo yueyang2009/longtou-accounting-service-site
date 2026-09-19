@@ -24,6 +24,7 @@ export function HomeBusinessHero({ dashboard }: { dashboard: ReactNode }) {
             lineHeight={1.18}
             fontWeight={800}
             align="left"
+            ariaLevel={1}
             className="hero-particle-title max-w-[42rem]"
           />
           <p className="mt-8 max-w-2xl text-lg font-medium leading-9 text-white/80">以财税为切入点，将利润、现金流、风险与组织协同置于同一经营节奏中分析，建立持续经营判断能力。</p>

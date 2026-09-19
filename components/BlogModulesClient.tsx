@@ -82,11 +82,11 @@ export function BlogModulesClient({
 
   return (
     <div className="grid gap-8 lg:grid-cols-[220px_1fr]">
-      <aside className="lg:sticky lg:top-28 lg:self-start">
+      <div className="lg:sticky lg:top-28 lg:self-start">
         <nav aria-label="文章分类目录">
-          <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-brand-muted">
+          <h2 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-brand-muted">
             博文目录
-          </h3>
+          </h2>
           <ul className="space-y-1">
             <li>
               <button
@@ -98,7 +98,7 @@ export function BlogModulesClient({
                 }`}
               >
                 全部文章
-                <span className="ml-2 text-xs text-brand-muted/60">{posts.length}</span>
+                <span className="ml-2 text-xs">{posts.length}</span>
               </button>
             </li>
             {categories.map((c) => (
@@ -126,7 +126,7 @@ export function BlogModulesClient({
                           />
                           {c.name}
                         </span>
-                        <span className="ml-auto text-xs text-brand-muted/60">{c.count}</span>
+                        <span className="ml-auto text-xs text-brand-muted">{c.count}</span>
                       </button>
                       {activeCategory === c.name && items.length > 0 && (
                         <ul className="ml-4 mt-1 space-y-0.5 border-l border-brand-line/30 pl-3">
@@ -149,7 +149,7 @@ export function BlogModulesClient({
             ))}
           </ul>
         </nav>
-      </aside>
+      </div>
 
       <div>
         <div className="mb-10 flex justify-end">

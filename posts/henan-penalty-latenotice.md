@@ -27,7 +27,7 @@ faq:
 
 > 本文案例均来源于**国家税务总局河南省税务局行政执法公示平台**「税务行政一般程序处罚结果」（2025-2026年公示，全省共 1273 条）。本类别约占 **139 条**（占比 11%）。数据来源：[https://henan.chinatax.gov.cn/xxgspt/?orgCode=14100000000](https://henan.chinatax.gov.cn/xxgspt/?orgCode=14100000000)
 
-![未按期申报——139条「最常见也最易被忽视」的违规](/images/henan-penalty-latenotice-hero.png)
+![未按期申报——139条「最常见也最易被忽视」的违规](/images/henan-penalty-latenotice-hero.webp)
 
 ## 一、总览：本类违法的几种形态
 

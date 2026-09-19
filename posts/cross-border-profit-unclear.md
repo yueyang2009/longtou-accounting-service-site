@@ -33,7 +33,7 @@ faq:
 
 **企业没有建立适合跨境业务特点的经营分析模型。**
 
-![Gimi：销售额上升但利润模糊](/images/cross-border-profit-paradox.png)
+![Gimi：销售额上升但利润模糊](/images/cross-border-profit-paradox.webp)
 
 ## 传统算法，在这里失效了
 
@@ -47,7 +47,7 @@ faq:
 
 每一个环节都会产生实实在在的费用。如果只计算采购成本，得到的只是**产品毛利**，而不是**企业真实利润**。
 
-![Gimi：8段成本链路](/images/cross-border-profit-cost-chain.png)
+![Gimi：8段成本链路](/images/cross-border-profit-cost-chain.webp)
 
 ## 最容易踩的坑：被毛利率骗了
 
@@ -65,7 +65,7 @@ faq:
 
 如果广告竞争加剧，广告费从20美元涨到30美元——这个产品的**销售额可能在增长，但利润反而在下降**。
 
-![Gimi：毛利70%错觉 vs 实际$12](/images/cross-border-profit-margin-trap.png)
+![Gimi：毛利70%错觉 vs 实际$12](/images/cross-border-profit-margin-trap.webp)
 
 ## 从产品利润到经营 profit 的三层跃迁
 
@@ -79,7 +79,7 @@ faq:
 
 越往下深入，越接近企业真实的盈利能力。
 
-![Gimi：三层利润模型](/images/cross-border-profit-layers.png)
+![Gimi：三层利润模型](/images/cross-border-profit-layers.webp)
 
 ## 四个悄悄吃掉你利润的变量
 
@@ -101,7 +101,7 @@ faq:
 
 账面利润500万元看起来不错，但如果仓库里积压着300万元的滞销库存——这些库存未来可能只能以极低价格处理。**真实利润需要把库存风险重新评估进去。**
 
-![Gimi：四大隐性成本变量](/images/cross-border-profit-hidden-costs.png)
+![Gimi：四大隐性成本变量](/images/cross-border-profit-hidden-costs.webp)
 
 ## 财务不该只是记账的人
 
@@ -129,7 +129,7 @@ faq:
 
 当这套模型运转起来，财务部门就从**记录过去的人**，变成了**帮助老板判断未来的伙伴**。
 
-![Gimi：经营分析闭环系统](/images/cross-border-profit-system.png)
+![Gimi：经营分析闭环系统](/images/cross-border-profit-system.webp)
 
 ## 老板要的不是一张利润表
 

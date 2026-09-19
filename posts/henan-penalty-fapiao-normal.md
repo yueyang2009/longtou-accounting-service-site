@@ -27,7 +27,7 @@ faq:
 
 > 本文案例均来源于**国家税务总局河南省税务局行政执法公示平台**「税务行政一般程序处罚结果」（2025-2026年公示，全省共 1273 条）。本类别约占 **173 条**（占比 14%）。数据来源：[https://henan.chinatax.gov.cn/xxgspt/?orgCode=14100000000](https://henan.chinatax.gov.cn/xxgspt/?orgCode=14100000000)
 
-![虚开普通发票——别以为「普票不犯罪」](/images/henan-penalty-fapiao-normal-hero.png)
+![虚开普通发票——别以为「普票不犯罪」](/images/henan-penalty-fapiao-normal-hero.webp)
 
 ## 一、总览：本类违法的几种形态
 
@@ -51,7 +51,7 @@ faq:
 
 与专票虚开类似，但门槛更低、分布更广（餐饮、咨询、劳务、广告等行业高发）。刑法第205条之一规定，虚开普通发票情节严重（如虚开金额累计50万元以上，或虚开100份以上且金额30万元以上）即构成犯罪。
 
-![李小虎：普票不等于免罪牌——一张假发票背后的成本黑洞与刑事红线](/images/henan-penalty-fapiao-normal-concept.png)
+![李小虎：普票不等于免罪牌——一张假发票背后的成本黑洞与刑事红线](/images/henan-penalty-fapiao-normal-concept.webp)
 
 ## 三、河南真实案例（脱敏摘录）
 

@@ -29,7 +29,7 @@ faq:
 
 陌生，是因为很多老板并不清楚：自己的业务模式到底是否符合条件？应该选择哪种出口方式？退税到底解决的是成本问题，还是利润问题？
 
-![gimi：卖到国外不等于能退税——退税看主体、方式、单证与真实性，而非销售目的地](/images/cross-border-export-myth.png)
+![gimi：卖到国外不等于能退税——退税看主体、方式、单证与真实性，而非销售目的地](/images/cross-border-export-myth.webp)
 
 很多企业在发展过程中容易形成一个误区：
 
@@ -47,7 +47,7 @@ faq:
 
 简单理解：国内环节产生的部分税负，通过政策方式返还给出口企业。
 
-![gimi：国内环节已缴的增值税，在出口后按政策返还给企业](/images/cross-border-export-essence.png)
+![gimi：国内环节已缴的增值税，在出口后按政策返还给企业](/images/cross-border-export-essence.webp)
 
 例如：企业采购商品时支付供应商增值税；商品出口后，在符合条件的情况下，可以申请退还相应税额。
 
@@ -77,7 +77,7 @@ faq:
 
 这种模式优势是提高配送效率，但税务管理更加复杂。因为货物提前进入境外，企业需要关注货物流、资金流、销售流是否匹配。
 
-![gimi：三种出口模式（0110 一般贸易 / 9610 零售 / 9810 海外仓）链条与税务处理不同](/images/cross-border-export-modes.png)
+![gimi：三种出口模式（0110 一般贸易 / 9610 零售 / 9810 海外仓）链条与税务处理不同](/images/cross-border-export-modes.webp)
 
 ---
 
@@ -103,13 +103,13 @@ faq:
 
 例如：企业账面出口金额巨大，但是没有真实物流、交易资料不完整、资金流异常。这类情况最容易被监管关注。
 
-![gimi：账面出口额巨大，但物流为空、资金流异常——业务真实性不足是最大风险](/images/cross-border-export-risk-real.png)
+![gimi：账面出口额巨大，但物流为空、资金流异常——业务真实性不足是最大风险](/images/cross-border-export-risk-real.webp)
 
 ## 2. 采购链条不完整
 
 出口退税的重要基础之一是真实采购。如果采购来源不清、发票资料异常、上下游不匹配，可能影响退税。
 
-![gimi：采购—进项发票—出口申报，链条中发票环节断裂，退税基础不成立](/images/cross-border-export-risk-chain.png)
+![gimi：采购—进项发票—出口申报，链条中发票环节断裂，退税基础不成立](/images/cross-border-export-risk-chain.webp)
 
 ## 3. 业务模式与财税处理不匹配
 
@@ -157,7 +157,7 @@ faq:
 
 包括：出口政策选择、退税管理、风险评估、资料归档。
 
-![gimi：业务真实·流程规范·财税匹配，三者形成开放闭环的成熟体系](/images/cross-border-export-system.png)
+![gimi：业务真实·流程规范·财税匹配，三者形成开放闭环的成熟体系](/images/cross-border-export-system.webp)
 
 ---
 

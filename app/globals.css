@@ -1940,7 +1940,7 @@ body {
 .advisor-back-hint,
 .advisor-flip-hint {
   margin-top: 0.6rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.58);
   font-size: 0.72rem;
   letter-spacing: 0.12em;
 }
@@ -2320,7 +2320,7 @@ body::after {
 .hero-base,
 section.bg-brand-soft,
 section.bg-brand-paper,
-section:not(.private-hero):not(.annual-band):not(.team-orbit-section) {
+section:not(.private-hero):not(.annual-band):not(.team-orbit-section):not(.section-surface) {
   background: transparent !important;
 }
 

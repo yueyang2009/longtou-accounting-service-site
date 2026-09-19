@@ -99,7 +99,7 @@ export function ComprehensiveBudgetDashboard() {
       </div>
 
       <div className="grid overflow-hidden border border-white/12 lg:grid-cols-[272px_1fr]">
-        <aside className="border-b border-white/12 bg-[#111d16] p-6 lg:border-b-0 lg:border-r">
+        <div className="border-b border-white/12 bg-[#111d16] p-6 lg:border-b-0 lg:border-r">
           <div className="flex items-center gap-2 text-sm font-semibold text-white"><SlidersHorizontal className="h-4 w-4 text-[#d9c7a5]" />推演参数</div>
           <div className="mt-7">
             <p className="text-xs font-medium text-white/48">预测周期</p><div className="mt-3 grid grid-cols-3 gap-2">{horizons.map((item) => <button key={item} onClick={() => setMonths(item)} className={`border px-2 py-2 text-sm transition ${months === item ? "border-[#d9c7a5] bg-[#d9c7a5] font-bold text-[#111816]" : "border-white/14 text-white/60 hover:border-white/40"}`}>{item}个月</button>)}</div>
@@ -108,7 +108,7 @@ export function ComprehensiveBudgetDashboard() {
           <label className="mt-7 block"><div className="flex justify-between text-xs"><span className="text-white/48">成本变动幅度</span><b className="text-[#d9c7a5]">{costChange > 0 ? "+" : ""}{costChange}%</b></div><input aria-label="成本变动幅度" className="budget-range mt-3 w-full" type="range" min="-10" max="20" value={costChange} onChange={(event) => setCostChange(Number(event.target.value))} /></label>
           <div className="mt-7"><p className="text-xs text-white/48">平均回款周期</p><div className="mt-3 grid grid-cols-3 gap-2">{[30, 45, 60].map((item) => <button key={item} onClick={() => setCollectionDays(item)} className={`border py-2 text-sm transition ${collectionDays === item ? "border-[#d9c7a5] text-[#d9c7a5]" : "border-white/14 text-white/60 hover:border-white/40"}`}>{item}天</button>)}</div></div>
           <div className="mt-8 border-t border-white/10 pt-5 text-xs leading-6 text-white/42"><p className="font-semibold text-white/66">口径说明</p><p className="mt-2">单位：万元。预测为演示模型，正式预算需基于企业真实订单、成本、回款和资金安排校准。</p></div>
-        </aside>
+        </div>
 
         <div className="p-5 md:p-7">
           <div className="grid grid-cols-2 border border-white/10 md:grid-cols-4">{metricDefinitions.map(({ label, key, Icon, note }) => <div key={label} className="border-b border-r border-white/10 bg-[#101913] p-5 last:border-r-0 md:border-b-0"><div className="flex items-center justify-between text-xs text-white/48"><span>{label}</span><Icon className="h-4 w-4 text-[#d9c7a5]" /></div><p className="mt-4 text-2xl font-semibold text-white">¥{money.format(totals[key])}<span className="ml-1 text-xs font-normal text-white/45">万</span></p><p className="mt-2 text-xs text-[#d9c7a5]">{note}{key === "profit" ? ` ${((totals.profit / totals.revenue) * 100).toFixed(1)}%` : ""}</p></div>)}

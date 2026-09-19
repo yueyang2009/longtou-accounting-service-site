@@ -27,7 +27,7 @@ faq:
 
 > 本文案例均来源于**国家税务总局河南省税务局行政执法公示平台**「税务行政一般程序处罚结果」（2025-2026年公示，全省共 1273 条）。本类别约占 **280 条**（占比 22%）。数据来源：[https://henan.chinatax.gov.cn/xxgspt/?orgCode=14100000000](https://henan.chinatax.gov.cn/xxgspt/?orgCode=14100000000)
 
-![虚开增值税专用发票——280条处罚背后的「刑事高压线」](/images/henan-penalty-fapiao-special-hero.png)
+![虚开增值税专用发票——280条处罚背后的「刑事高压线」](/images/henan-penalty-fapiao-special-hero.webp)
 
 ## 一、总览：本类违法的几种形态
 
@@ -51,7 +51,7 @@ faq:
 
 通过更换货物品名或改变税率档次来虚增进项抵扣或虚减销项。例如将实际经营的低税率货物开成高税率品名，或把不能抵扣的项目包装成可抵扣项目。变票往往伴随上下游串联，查处时通常一案带出一串。
 
-![李小虎：虚开的「三流断裂」——合同流、资金流、货物流对不上的地方，就是风险爆发点](/images/henan-penalty-fapiao-special-concept.png)
+![李小虎：虚开的「三流断裂」——合同流、资金流、货物流对不上的地方，就是风险爆发点](/images/henan-penalty-fapiao-special-concept.webp)
 
 ## 三、河南真实案例（脱敏摘录）
 

@@ -118,7 +118,7 @@ export function BrandLaunchHero() {
               "--gust-delay": gust.delay,
               "--gust-duration": gust.duration,
               "--gust-width": gust.width,
-              "--gust-opacity": gust.opacity,
+              "--gust-opacity": String(gust.opacity),
               "--gust-blur": gust.blur,
             } as CSSProperties}
           />
@@ -142,7 +142,7 @@ export function BrandLaunchHero() {
               "--fragment-delay": fragment.delay,
               "--fragment-duration": fragment.duration,
               "--fragment-size": fragment.size,
-              "--fragment-opacity": fragment.opacity,
+              "--fragment-opacity": String(fragment.opacity),
               "--fragment-blur": fragment.blur,
               "--fragment-color": fragment.color,
               "--fragment-mx": fragment.mx,
@@ -157,7 +157,7 @@ export function BrandLaunchHero() {
         <p className="brand-launch-kicker">LONGTOU · CORPORATE TAX ADVISORY</p>
         <div className="brand-launch-logo" aria-label="龙头集团">
           <Image
-            src={`${assetBase}/images/longtou-group-logo.png`}
+            src={`${assetBase}/images/longtou-group-logo.webp`}
             alt="龙头集团"
             fill
             priority

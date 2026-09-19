@@ -28,7 +28,7 @@ faq:
 
 **错。而且这是405起税案里最容易被「反将一军」的一类。国家税务总局的专家解读说得很直白：注销可撤销、登记可恢复、责任可追偿，追征不受期限限制。其中单案最高罚没达到 8262 万元。**
 
-![企业注销招牌被撤销，税务追溯到底](/images/jicha-escape-deregistration-hero.png)
+![企业注销招牌被撤销，税务追溯到底](/images/jicha-escape-deregistration-hero.webp)
 
 ## 一、数据先说话：19起，注销不是「护身符」
 
@@ -82,7 +82,7 @@ faq:
 
 一句话：**你关掉的是公司，关不掉的是数据，更关不掉的是责任。**
 
-![注销不能免债：撤销登记+恢复税务+追征+追责实际控制人](/images/jicha-escape-deregistration-trap.png)
+![注销不能免债：撤销登记+恢复税务+追征+追责实际控制人](/images/jicha-escape-deregistration-trap.webp)
 
 ## 五、注销前「税务体检」清单（逐条清零再注销）
 

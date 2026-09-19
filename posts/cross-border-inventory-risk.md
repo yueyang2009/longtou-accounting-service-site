@@ -35,7 +35,7 @@ faq:
 
 > **卖出去的钱还没有回来；卖不出去的货已经占用了大量现金。**
 
-![Gimi：库存悖论——销售额在涨，但现金被库存锁死](/images/cross-border-inventory-paradox.png)
+![Gimi：库存悖论——销售额在涨，但现金被库存锁死](/images/cross-border-inventory-paradox.webp)
 
 ## 一、为什么跨境电商比传统企业更容易产生库存风险？
 
@@ -49,7 +49,7 @@ faq:
 
 整个周期明显拉长，从发货到回款可能需要30天到90天甚至更长。
 
-![Gimi：跨境履约周期 vs 国内贸易](/images/cross-border-inventory-cycle-long.png)
+![Gimi：跨境履约周期 vs 国内贸易](/images/cross-border-inventory-cycle-long.webp)
 
 为了避免缺货影响排名和用户体验，企业通常会**提前准备大量库存**。这就产生了一个根本矛盾：
 
@@ -67,7 +67,7 @@ faq:
 - 如果预测准确 → 经营效率提升；
 - 但如果出现**市场变化、竞争加剧、产品升级或需求下降** → 这些库存就可能变成**沉没资金**。
 
-![Gimi：海外仓陷阱——5000件备货的乐观与四种风险现实](/images/cross-border-overseas-trap.png)
+![Gimi：海外仓陷阱——5000件备货的乐观与四种风险现实](/images/cross-border-overseas-trap.webp)
 
 更要命的是，海外仓库存不仅占用货值本身，还会持续产生**仓储费、操作费、管理费和长期存储罚金**。库存滞留时间越长，这些隐性成本累积越高。
 
@@ -77,7 +77,7 @@ faq:
 
 成熟企业会将库存分为三个层次：
 
-![Gimi：三类库存分层——健康 / 风险 / 呆滞](/images/cross-border-inventory-three-types.png)
+![Gimi：三类库存分层——健康 / 风险 / 呆滞](/images/cross-border-inventory-three-types.webp)
 
 | 层次 | 特征 | 应对策略 |
 |------|------|----------|
@@ -93,7 +93,7 @@ faq:
 
 **这是一个危险的误区。**
 
-![Gimi：存货1000万的账面幻觉与300万无法销售的隐匿亏损](/images/cross-border-profit-hidden.png)
+![Gimi：存货1000万的账面幻觉与300万无法销售的隐匿亏损](/images/cross-border-profit-hidden.webp)
 
 举个例子：
 
@@ -137,7 +137,7 @@ faq:
 
 > **这个产品还能卖多久？继续补货是否值得？资金投入和回报是否匹配？这个库存决策会不会影响企业整体现金流？**
 
-![Gimi：四位一体经营体系——销售预测·库存管理·资金计划·利润分析闭环](/images/cross-border-four-in-one-system.png)
+![Gimi：四位一体经营体系——销售预测·库存管理·资金计划·利润分析闭环](/images/cross-border-four-in-one-system.webp)
 
 真正成熟的跨境电商企业需要建立**四位一体**的经营体系：
 

@@ -45,10 +45,10 @@ export function Footer() {
         <div>
           <p className="text-xl font-semibold tracking-tight text-white">{brand.name}</p>
           <p className="mt-4 max-w-xs text-sm leading-7 text-white/60">{brand.slogan}</p>
-          <p className="mt-3 max-w-xs text-sm leading-7 text-white/45">
+          <p className="mt-3 max-w-xs text-sm leading-7 text-white/55">
             {brand.positioning} · 河南郑州
           </p>
-          <p className="mt-2 max-w-xs text-sm leading-7 text-white/35">
+          <p className="mt-2 max-w-xs text-sm leading-7 text-white/55">
             专注成长型企业的财税规范与经营体系建设
           </p>
           <Link
@@ -107,7 +107,7 @@ export function Footer() {
 
       {/* ── 版权与免责 ── */}
       <div className="border-t border-white/8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-7 text-xs leading-6 text-white/40 md:flex-row md:items-center md:justify-between lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-7 text-xs leading-6 text-white/55 md:flex-row md:items-center md:justify-between lg:px-8">
           <p>© {year} 河南龙头会计服务有限公司 · 财税建议仅供参考，不构成具体承诺，以实际服务协议为准。</p>
           <p>豫ICP备 · 网站由龙头会服建设</p>
         </div>

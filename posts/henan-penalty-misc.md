@@ -27,7 +27,7 @@ faq:
 
 > 本文案例均来源于**国家税务总局河南省税务局行政执法公示平台**「税务行政一般程序处罚结果」（2025-2026年公示，全省共 1273 条）。本类别约占 **317 条**（占比 25%）。数据来源：[https://henan.chinatax.gov.cn/xxgspt/?orgCode=14100000000](https://henan.chinatax.gov.cn/xxgspt/?orgCode=14100000000)
 
-![被忽视的雷区——丢失发票、非法取得与少缴税款](/images/henan-penalty-misc-hero.png)
+![被忽视的雷区——丢失发票、非法取得与少缴税款](/images/henan-penalty-misc-hero.webp)
 
 ## 一、总览：本类违法的几种形态
 

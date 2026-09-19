@@ -30,7 +30,7 @@ faq:
 
 **错。这是405起真实税案里，最高频、也最致命的一个坑。**
 
-![税务稽查调取个人卡流水，资金穿透让私户收款无处可藏](/images/jicha-hidden-revenue-hero.png)
+![税务稽查调取个人卡流水，资金穿透让私户收款无处可藏](/images/jicha-hidden-revenue-hero.webp)
 
 ## 一、数据先说话：这是一片实测出来的「坟场」
 
@@ -119,7 +119,7 @@ faq:
 
 简单说：**你以为的"隐秘角落"，在监管眼里是透明的。**
 
-![私户收款的代价：补税、每日万分之五滞纳金、0.5–5倍罚款层层叠加](/images/jicha-hidden-revenue-trap.png)
+![私户收款的代价：补税、每日万分之五滞纳金、0.5–5倍罚款层层叠加](/images/jicha-hidden-revenue-trap.webp)
 
 ## 五、算一笔账：隐匿 100 万，真实成本是多少
 

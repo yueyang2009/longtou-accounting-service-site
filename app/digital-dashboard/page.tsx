@@ -32,17 +32,34 @@ export default function DigitalDashboardPage() {
           </div>
         </section>
 
-        <section className="bg-[#f6f2e9] text-[#172019]">
+        <section className="section-surface bg-[#f6f2e9] text-[#172019]">
           <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
             <div className="grid border border-[#27352c]/18 md:grid-cols-2 lg:grid-cols-3">
-              {showcases.map(({ title, desc, href, Icon, no }) => (
-                <Link key={href} href={href} className="group min-h-64 border-b border-r border-[#27352c]/18 p-8 transition hover:bg-[#172019] hover:text-white md:nth-[2n]:border-r-0 lg:nth-[2n]:border-r lg:nth-[3n]:border-r-0 last:border-b-0">
-                  <div className="flex items-start justify-between"><span className="text-sm font-semibold text-[#89744d] group-hover:text-[#d9c7a5]">{no}</span><Icon className="h-6 w-6 text-[#355843] group-hover:text-[#d9c7a5]" /></div>
-                  <h2 className="mt-14 text-2xl font-bold">{title}</h2>
-                  <p className="mt-4 max-w-sm text-sm leading-7 text-[#536158] group-hover:text-white/65">{desc}</p>
-                  <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#355843] group-hover:text-[#d9c7a5]">进入展示 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
-                </Link>
-              ))}
+              {showcases.map(({ title, desc, href, Icon, no }) =>
+                href.endsWith(".html") ? (
+                  <a
+                    key={href}
+                    href={href}
+                    className="group min-h-64 border-b border-r border-[#27352c]/18 p-8 transition hover:bg-[#172019] hover:text-white md:nth-[2n]:border-r-0 lg:nth-[2n]:border-r lg:nth-[3n]:border-r-0 last:border-b-0"
+                  >
+                    <div className="flex items-start justify-between"><span className="text-sm font-semibold text-[#6f5d3a] group-hover:text-[#d9c7a5]">{no}</span><Icon className="h-6 w-6 text-[#355843] group-hover:text-[#d9c7a5]" /></div>
+                    <h2 className="mt-14 text-2xl font-bold">{title}</h2>
+                    <p className="mt-4 max-w-sm text-sm leading-7 text-[#536158] group-hover:text-white/65">{desc}</p>
+                    <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#355843] group-hover:text-[#d9c7a5]">进入展示 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
+                  </a>
+                ) : (
+                  <Link
+                    key={href}
+                    href={href}
+                    className="group min-h-64 border-b border-r border-[#27352c]/18 p-8 transition hover:bg-[#172019] hover:text-white md:nth-[2n]:border-r-0 lg:nth-[2n]:border-r lg:nth-[3n]:border-r-0 last:border-b-0"
+                  >
+                    <div className="flex items-start justify-between"><span className="text-sm font-semibold text-[#6f5d3a] group-hover:text-[#d9c7a5]">{no}</span><Icon className="h-6 w-6 text-[#355843] group-hover:text-[#d9c7a5]" /></div>
+                    <h2 className="mt-14 text-2xl font-bold">{title}</h2>
+                    <p className="mt-4 max-w-sm text-sm leading-7 text-[#536158] group-hover:text-white/65">{desc}</p>
+                    <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#355843] group-hover:text-[#d9c7a5]">进入展示 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
+                  </Link>
+                )
+              )}
             </div>
           </div>
         </section>

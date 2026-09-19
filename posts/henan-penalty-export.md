@@ -27,7 +27,7 @@ faq:
 
 > 本文案例均来源于**国家税务总局河南省税务局行政执法公示平台**「税务行政一般程序处罚结果」（2025-2026年公示，全省共 1273 条）。本类别约占 **41 条**（占比 3%）。数据来源：[https://henan.chinatax.gov.cn/xxgspt/?orgCode=14100000000](https://henan.chinatax.gov.cn/xxgspt/?orgCode=14100000000)
 
-![骗取出口退税——41条背后的「骗补」套路](/images/henan-penalty-export-hero.png)
+![骗取出口退税——41条背后的「骗补」套路](/images/henan-penalty-export-hero.webp)
 
 ## 一、总览：本类违法的几种形态
 

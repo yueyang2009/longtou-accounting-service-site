@@ -25,6 +25,7 @@ export function ParticleHeadline({
   lineHeight = 1.25,
   align = "center",
   fontWeight = 700,
+  ariaLevel = 2,
 }: {
   lines?: ParticleLine[];
   text?: string;
@@ -36,6 +37,7 @@ export function ParticleHeadline({
   lineHeight?: number;
   align?: "center" | "left";
   fontWeight?: number;
+  ariaLevel?: number;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -320,6 +322,7 @@ export function ParticleHeadline({
       ref={containerRef}
       className={className}
       role={text !== undefined ? undefined : "heading"}
+      aria-level={text !== undefined ? undefined : ariaLevel}
       aria-label={label}
       style={{ position: "relative" }}
     >

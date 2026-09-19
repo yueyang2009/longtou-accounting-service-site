@@ -37,7 +37,7 @@ faq:
 
 **企业没有建立广告投入与经营利润之间的财务管理体系。**
 
-![广告悖论：销售涨，利润跌](/images/cross-border-ad-paradox.png)
+![广告悖论：销售涨，利润跌](/images/cross-border-ad-paradox.webp)
 
 ---
 
@@ -55,7 +55,7 @@ faq:
 
 因此，广告费用实际上已经成为**获取收入必须付出的成本**，与采购成本、物流成本具有同等的生产要素属性。
 
-![广告即经营成本：从推广费用到获取订单的生产要素](/images/cross-border-ad-as-cost.png)
+![广告即经营成本：从推广费用到获取订单的生产要素](/images/cross-border-ad-as-cost.webp)
 
 ---
 
@@ -79,7 +79,7 @@ faq:
 
 如果广告继续追加投入，销售额确实可能继续增长，**但利润反而会下降。**
 
-![500万销售额拆解：仅剩5%利润率](/images/cross-border-ad-profit-breakdown.png)
+![500万销售额拆解：仅剩5%利润率](/images/cross-border-ad-profit-breakdown.webp)
 
 ---
 
@@ -113,7 +113,7 @@ Total Advertising Cost of Sales —— 广告总费用占**店铺总销售额**�
 
 TACOS反映的是**企业整体对付费流量的依赖程度**。如果企业销售增长50%，但TACOS从10%攀升至25%，说明增长越来越依赖"买来的流量"，增长质量正在恶化。
 
-![三大指标：ROAS / ACOS / TACOS](/images/cross-border-ad-three-metrics.png)
+![三大指标：ROAS / ACOS / TACOS](/images/cross-border-ad-three-metrics.webp)
 
 ---
 
@@ -141,7 +141,7 @@ TACOS反映的是**企业整体对付费流量的依赖程度**。如果企业�
 
 **三方目标未统一时，必然出现"运营很忙、企业不赚钱"的内耗局面。**
 
-![越投越亏三大原因](/images/cross-border-ad-why-lose.png)
+![越投越亏三大原因](/images/cross-border-ad-why-lose.webp)
 
 ---
 
@@ -192,7 +192,7 @@ TACOS反映的是**企业整体对付费流量的依赖程度**。如果企业�
 
 > **每投入1元广告，能产生多少有效利润？**
 
-![广告管理四步闭环](/images/cross-border-ad-manage-system.png)
+![广告管理四步闭环](/images/cross-border-ad-manage-system.webp)
 
 ---
 

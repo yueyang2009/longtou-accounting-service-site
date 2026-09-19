@@ -27,7 +27,7 @@ faq:
 
 > 本文案例均来源于**国家税务总局河南省税务局行政执法公示平台**「税务行政一般程序处罚结果」（2025-2026年公示，全省共 1273 条）。本类别约占 **323 条**（占比 25%）。数据来源：[https://henan.chinatax.gov.cn/xxgspt/?orgCode=14100000000](https://henan.chinatax.gov.cn/xxgspt/?orgCode=14100000000)
 
-![偷逃税款——323条处罚揭示的「隐蔽手法」](/images/henan-penalty-evasion-hero.png)
+![偷逃税款——323条处罚揭示的「隐蔽手法」](/images/henan-penalty-evasion-hero.webp)
 
 ## 一、总览：本类违法的几种形态
 
@@ -51,7 +51,7 @@ faq:
 
 进行虚假的纳税申报，或编造虚假的计税依据少缴税。例如隐瞒部分收入、把应税收入包装成免税或不征税收入。这类案件往往与少列收入组合出现，是偷税的核心手段。
 
-![李小虎：私户收款的隐形账——银行流水不会撒谎，金税四期下三流合一](/images/henan-penalty-evasion-concept.png)
+![李小虎：私户收款的隐形账——银行流水不会撒谎，金税四期下三流合一](/images/henan-penalty-evasion-concept.webp)
 
 ## 三、河南真实案例（脱敏摘录）
 

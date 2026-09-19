@@ -123,7 +123,7 @@ export function TeamOrbit({ members }: { members: OrbitMember[] }) {
           })}
         </div>
 
-        <aside className="team-orbit-detail">
+        <div className="team-orbit-detail">
           <p>Selected Advisor</p>
           <h2>{activeMember.name}</h2>
           <h3>{activeMember.title}</h3>
@@ -134,7 +134,7 @@ export function TeamOrbit({ members }: { members: OrbitMember[] }) {
               <span key={tag}>{tag}</span>
             ))}
           </div>
-        </aside>
+        </div>
       </div>
 
       <div className="team-orbit-caption">
