@@ -59,7 +59,6 @@ function SectionTitle({
 }
 
 function DashboardPreview() {
-  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const operatingMetrics = [
     { label: "利润质量", value: "已校准", width: "82%", delay: "0ms" },
     { label: "现金流节奏", value: "重点跟踪", width: "68%", delay: "180ms" },
@@ -68,10 +67,8 @@ function DashboardPreview() {
   const riskItems = ["合同", "票据", "回款", "成本", "税负", "流程", "预算", "内控", "股权", "项目", "库存", "薪酬"];
 
   return (
-    <a
-      href={`${base}/dashboard-demo.html`}
-      target="_self"
-      rel="noopener noreferrer"
+    <Link
+      href="/dashboard-demo"
       aria-label="查看经营看板示例"
       className="dashboard-stage executive-cockpit private-cockpit relative block cursor-pointer outline-none transition-transform duration-300 lg:translate-x-[1em] hover:-translate-y-1"
     >
@@ -200,7 +197,7 @@ function DashboardPreview() {
           </div>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }
 

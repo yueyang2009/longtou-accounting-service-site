@@ -82,7 +82,6 @@ function Chart({ rows }: { rows: ForecastRow[] }) {
 }
 
 export function ComprehensiveBudgetDashboard() {
-  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const [months, setMonths] = useState<(typeof horizons)[number]>(12);
   const [growth, setGrowth] = useState(8);
   const [costChange, setCostChange] = useState(3);
@@ -129,7 +128,7 @@ export function ComprehensiveBudgetDashboard() {
             <p className="text-sm font-semibold tracking-[.16em] text-[#d9c7a5]">资金滚动预测</p>
             <h3 className="mt-3 text-3xl font-bold leading-tight text-white">把资金安全线前置到<br />未来 13 周与 12 个月</h3>
             <p className="mt-5 max-w-xl text-sm leading-7 text-white/60">参照资金滚动预测模型，资金驾驶舱以银行可用资金为起点，将经营、投资、融资计划按日期滚动推演，并按照情景系数、回款概率与最低安全资金线形成预警。</p>
-            <div className="mt-7 flex flex-wrap gap-3"><a href={`${base}/cash-flow-forecast.html`} className="inline-flex items-center gap-2 bg-[#d9c7a5] px-5 py-3 text-sm font-bold text-[#111816] transition hover:bg-[#eadabd]">启动资金管理驾驶舱 <ChevronRight className="h-4 w-4" /></a><Link href="/contact" className="inline-flex items-center gap-2 border border-white/18 px-5 py-3 text-sm font-semibold text-white/80 transition hover:border-[#d9c7a5] hover:text-[#d9c7a5]">申请资金体系诊断</Link></div>
+            <div className="mt-7 flex flex-wrap gap-3"><Link href="/cash-flow-forecast" className="inline-flex items-center gap-2 bg-[#d9c7a5] px-5 py-3 text-sm font-bold text-[#111816] transition hover:bg-[#eadabd]">启动资金管理驾驶舱 <ChevronRight className="h-4 w-4" /></Link><Link href="/contact" className="inline-flex items-center gap-2 border border-white/18 px-5 py-3 text-sm font-semibold text-white/80 transition hover:border-[#d9c7a5] hover:text-[#d9c7a5]">申请资金体系诊断</Link></div>
           </div>
           <div className="grid border border-white/12 sm:grid-cols-2">
             {fundingMetrics.map(({ label, value, unit, Icon }) => <div key={label} className="border-b border-r border-white/12 bg-[#0d1711]/65 p-5 even:border-r-0 last:border-b-0 sm:nth-[3]:border-b-0"><div className="flex items-center justify-between text-xs text-white/50"><span>{label}</span><Icon className="h-4 w-4 text-[#d9c7a5]" /></div><p className="mt-4 text-2xl font-semibold text-white">{value}<span className="ml-1 text-xs font-normal text-white/45">{unit}</span></p></div>)}

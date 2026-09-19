@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <script>if(location.search.indexOf("embed=1")>-1){document.documentElement.className+=" is-embed";}</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>龙头会服｜项目制企业经营看板</title>
@@ -37,6 +38,10 @@
         .site-nav-cta{flex:0 0 auto;display:inline-flex;align-items:center;background:#d9c7a5;color:#111816;font-size:15px;font-weight:700;padding:10px 20px;border-radius:999px;text-decoration:none;transition:background .2s}
         .site-nav-cta:hover{background:#eadabd}
         @media(max-width:1024px){.site-nav-inner{height:56px;justify-content:flex-start;gap:14px;overflow-x:auto}.site-nav-links{justify-content:flex-start;gap:18px;flex:0 0 auto}.site-nav-links a{font-size:13px}.site-nav-cta{display:none}}
+    
+        /* 内嵌模式：隐藏示例自带的站点导航与返回按钮，使用站点统一头部 */
+        html.is-embed .site-nav{display:none!important}
+        html.is-embed .back-home-btn{display:none!important}
     </style>
 
 <style id="brand-theme">
@@ -116,7 +121,7 @@ input[type=checkbox]{accent-color:#d9c7a5}
           <a href="/about">关于</a>
           <a href="/team">团队</a>
           <a href="/blog">文章</a>
-          <a href="/dashboard-demo.html" class="active">经营看板示例</a>
+          <a href="/dashboard-demo" class="active">经营看板示例</a>
         </div>
         <a class="site-nav-cta" href="/contact">申请企业财税风险诊断</a>
       </div>

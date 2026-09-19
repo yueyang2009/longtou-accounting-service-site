@@ -3914,3 +3914,10 @@ footer.bg-brand-emerald {
   .contact-fab { left: 14px; bottom: 14px; }
   .contact-fab-btn { height: 44px; padding: 0 16px; font-size: 13px; }
 }
+
+/* ── 内嵌示例页（经营看板 / 资金预测）── */
+.demo-frame {
+  height: calc(100vh - 72px);
+  height: calc(100svh - 72px);
+  background: #0c1310;
+}

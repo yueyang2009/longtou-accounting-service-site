@@ -15,7 +15,7 @@ const showcases = [
   { title: "股权设计", desc: "穿透控制关系、治理边界与资本规划，让复杂架构一眼可见。", href: "/equity-structure", Icon: Network, no: "01" },
   { title: "风险热力图", desc: "将财税风险按影响程度与发生可能性可视化，明确处置优先级。", href: "/risk-heatmap", Icon: ShieldAlert, no: "02" },
   { title: "盈亏平衡点", desc: "通过量本利模型定位保本线、安全边际和目标利润路径。", href: "/break-even", Icon: ChartNoAxesCombined, no: "03" },
-  { title: "经营看板示例", desc: "围绕项目、回款、成本与利润，建立管理层共同使用的经营语言。", href: "/dashboard-demo.html", Icon: BarChart3, no: "04" },
+  { title: "经营看板示例", desc: "围绕项目、回款、成本与利润，建立管理层共同使用的经营语言。", href: "/dashboard-demo", Icon: BarChart3, no: "04" },
   { title: "预算管理", desc: "把年度目标、月度预算、执行差异与现金安排纳入同一套管理节奏。", href: "/budget-management", Icon: CircleDollarSign, no: "05" },
 ];
 
