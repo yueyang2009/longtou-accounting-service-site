@@ -4,6 +4,7 @@ import "./globals.css";
 import { brand } from "@/lib/data";
 import { DimOnClick } from "@/components/DimOnClick";
 import { BackToHomeBtn } from "@/components/BackToHomeBtn";
+import { ContactFab } from "@/components/ContactFab";
 
 const SITE = "https://longtou.audit-report-check.com";
 
@@ -86,6 +87,13 @@ const jsonLd = {
         name: "龙头集团",
         description: "知识产权全产业链、全生命周期服务集团",
       },
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "CN",
+        addressRegion: "河南省",
+        addressLocality: "郑州市",
+        streetAddress: "国际路60号国家知识产权大厦11层",
+      },
       contactPoint: {
         "@type": "ContactPoint",
         telephone: "+86-181-0383-5769",
@@ -131,6 +139,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {children}
         <DimOnClick />
         <BackToHomeBtn />
+        <ContactFab />
       </body>
     </html>
   );

@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 import { HomeSectionMotion } from "@/components/HomeSectionMotion";
 import { ServiceScenarioCards } from "@/components/ServiceScenarioCards";
 import { SectionReveal } from "@/components/SectionReveal";
-import { brand } from "@/lib/data";
+import { brand, servicePackages } from "@/lib/data";
 
 function Label({ text }: { text: string }) {
   return (
@@ -142,6 +142,57 @@ export default function ServicesPage() {
               以下既为能力的具体应用场景，也是独立的产品。点击卡片可翻转查看业务简介，详情可咨询
             </p>
             <ServiceScenarioCards />
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════
+            ④-2 服务清单：交付物 / 周期 / 适用阶段
+            ════════════════════════════════════════ */}
+        <section className="border-b border-brand-line">
+          <div className="mx-auto max-w-4xl px-6 py-24 md:py-28">
+            <Label text="服务清单" />
+            <Heading>每项服务交付什么、多久、适合谁</Heading>
+            <p className="mt-6 text-sm leading-7 text-brand-muted">
+              以下为常见服务的交付内容、周期与适用阶段。具体以企业经营尽调后的年度顾问计划为准。
+            </p>
+            <div className="mt-10 space-y-6">
+              {servicePackages.map((pkg) => (
+                <div key={pkg.title} className="border border-brand-line bg-brand-soft p-7 rounded-card">
+                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                    <h3 className="text-lg font-semibold text-brand-ink">{pkg.title}</h3>
+                    {pkg.key ? (
+                      <span className="border border-brand-gold/40 bg-brand-gold/10 px-2 py-0.5 text-xs font-semibold text-brand-gold">
+                        重点业务
+                      </span>
+                    ) : null}
+                  </div>
+                  <p className="mt-3 text-sm leading-7 text-brand-muted">{pkg.desc}</p>
+                  <div className="mt-5 grid gap-4 md:grid-cols-2">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-muted">交付物</p>
+                      <ul className="mt-3 space-y-2">
+                        {pkg.deliverables.map((d) => (
+                          <li key={d} className="flex items-start gap-2 text-sm leading-6 text-brand-body">
+                            <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
+                            {d}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="space-y-4">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-muted">周期</p>
+                        <p className="mt-2 text-sm leading-6 text-brand-body">{pkg.cycle}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-muted">适用阶段</p>
+                        <p className="mt-2 text-sm leading-6 text-brand-body">{pkg.fit}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 

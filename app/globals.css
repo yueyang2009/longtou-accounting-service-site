@@ -3811,3 +3811,106 @@ footer.bg-brand-emerald {
     display: none !important;
   }
 }
+
+/* ── 法务页面排版（隐私政策 / 服务条款）── */
+.prose-lite h2 {
+  margin-top: 2.5rem;
+  color: #1c2b22;
+  font-size: 1.2rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+.prose-lite p {
+  margin-top: 1rem;
+  line-height: 1.95;
+}
+.prose-lite ul {
+  margin-top: 1rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+.prose-lite li {
+  margin-top: 0.5rem;
+  line-height: 1.95;
+}
+
+/* ── 全站即时咨询入口（电话 + 微信）── */
+.contact-fab {
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: Inter, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+.contact-fab-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  padding: 0 20px;
+  border: 1px solid rgba(217, 199, 165, 0.6);
+  border-radius: 999px;
+  background: #d9c7a5;
+  color: #111816;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
+  transition: background 200ms ease, transform 150ms ease;
+}
+.contact-fab-btn:hover { background: #eadabd; }
+.contact-fab-btn:active { transform: scale(0.96); }
+.contact-fab-panel {
+  width: 212px;
+  border: 1px solid rgba(217, 199, 165, 0.3);
+  border-radius: 16px;
+  background: rgba(12, 18, 15, 0.96);
+  padding: 16px;
+  color: #fff;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+.contact-fab-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #e9d9bc;
+  letter-spacing: 0.04em;
+}
+.contact-fab-action {
+  display: block;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: #d9c7a5;
+  color: #111816;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition: background 200ms ease;
+}
+.contact-fab-action:hover { background: #eadabd; }
+.contact-fab-qr {
+  margin-top: 12px;
+  width: fit-content;
+  padding: 6px;
+  border-radius: 10px;
+  background: #fff;
+}
+.contact-fab-qr img { display: block; width: 132px; height: 132px; }
+.contact-fab-hint {
+  margin-top: 8px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.62);
+}
+@media (max-width: 700px) {
+  .contact-fab { left: 14px; bottom: 14px; }
+  .contact-fab-btn { height: 44px; padding: 0 16px; font-size: 13px; }
+}

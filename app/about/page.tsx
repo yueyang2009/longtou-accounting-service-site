@@ -106,6 +106,36 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* ── 合作方式与费用 ── */}
+        <section className="border-b border-brand-line bg-brand-soft">
+          <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">
+            <Label text="合作方式" />
+            <Heading>怎么合作，费用怎么算？</Heading>
+            <Body>
+              <p>
+                我们以年度顾问制为主，按年合作，不做按次咨询。财税问题多数是长期积累的系统性问题，一次性咨询很难真正解决。
+              </p>
+            </Body>
+            <div className="mt-10 space-y-4">
+              {[
+                { k: "服务形式", v: "年度顾问制，按年合作；不做一次性、按次收费的咨询。" },
+                { k: "合作流程", v: "预约经营交流 → 企业经营尽调 → 制定年度顾问计划 → 签约启动 → 全年陪伴。" },
+                { k: "费用构成", v: "年度顾问费根据企业规模、业务复杂度与服务范围确定，先诊断、后报价；不公开统一价目，避免“一套价格套所有企业”。" },
+                { k: "费用不包含", v: "代账、专项审计、评估等第三方服务费用不包含在内；如需，我们会协助对接并单独说明。" },
+                { k: "付款方式", v: "通常按服务阶段分批支付，具体以正式合同约定为准。" },
+              ].map((row) => (
+                <div key={row.k} className="grid gap-1 border border-brand-line bg-brand-card p-6 rounded-card md:grid-cols-[8rem_1fr] md:gap-6">
+                  <p className="font-semibold text-brand-ink">{row.k}</p>
+                  <p className="text-sm leading-7 text-brand-muted">{row.v}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8">
+              <QuoteLine>先把问题看清楚，再谈合作与价格。</QuoteLine>
+            </div>
+          </div>
+        </section>
+
         {/* ── 我们是谁 ── */}
         <section className="border-b border-brand-line bg-brand-soft">
           <div className="mx-auto max-w-3xl px-6 py-24 md:py-28">
@@ -113,14 +143,15 @@ export default function AboutPage() {
             <Heading>我们是谁？</Heading>
             <Body>
               <p>
-                龙头会服，总部位于郑州。团队由注册会计师、注册税务师、律师、高级会计师组成。
+                龙头会服（河南龙头会计服务有限公司），总部位于郑州，隶属于龙头集团。
               </p>
               <p>
-                团队由注册会计师、注册税务师及高级财务专业人员组成。累计服务超过10000家河南本土企业。
+                团队由注册会计师、注册税务师、律师与高级会计师组成，累计服务超过 10000 家河南本土企业。
               </p>
               <p>
-                不是理论派。每一个顾问都有一线实战背景，每一个方案都经过双师审核。
+                不是理论派。每一位顾问都有一线实战背景，每一个方案都经过双师审核。
               </p>
+              <p>办公地址：{brand.address}。</p>
             </Body>
           </div>
         </section>

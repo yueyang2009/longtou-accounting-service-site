@@ -13,7 +13,7 @@ const services = [
 ];
 
 const credentials = [
-  { value: 12, suffix: "", label: "注册会计师" },
+  { value: 11, suffix: "", label: "注册会计师" },
   { value: 4, suffix: "", label: "注册税务师" },
   { value: 2, suffix: "", label: "高级会计师" },
   { value: 10000, suffix: "+", label: "累计服务企业" },
@@ -99,8 +99,8 @@ export function Footer() {
           <ul className="mt-5 space-y-3 text-sm text-white/65">
             <li>电话：{brand.phone}</li>
             <li>微信：{brand.phone}（同号）</li>
-            <li>邮箱：service@longtou.com</li>
-            <li>地址：河南省郑州市</li>
+            <li>邮箱：{brand.email}</li>
+            <li>地址：{brand.address}</li>
           </ul>
         </div>
       </div>
@@ -109,7 +109,12 @@ export function Footer() {
       <div className="border-t border-white/8">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-7 text-xs leading-6 text-white/55 md:flex-row md:items-center md:justify-between lg:px-8">
           <p>© {year} 河南龙头会计服务有限公司 · 财税建议仅供参考，不构成具体承诺，以实际服务协议为准。</p>
-          <p>豫ICP备 · 网站由龙头会服建设</p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <Link href="/faq" className="transition hover:text-white">财税问答</Link>
+            <Link href="/privacy" className="transition hover:text-white">隐私政策</Link>
+            <Link href="/terms" className="transition hover:text-white">服务条款</Link>
+            <span>网站由龙头会服建设</span>
+          </div>
         </div>
       </div>
     </footer>
