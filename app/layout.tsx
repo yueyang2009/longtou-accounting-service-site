@@ -106,14 +106,21 @@ const jsonLd = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const fontBase = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   return (
     <html lang="zh-CN">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.cn" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.gstatic.cn" crossOrigin="anonymous" />
         <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.cn/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap"
+          rel="preload"
+          as="font"
+          type="font/woff2"
+          href={`${fontBase}/fonts/noto-serif-sc.woff2`}
+          crossOrigin="anonymous"
+        />
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `@font-face{font-family:"Noto Serif SC";font-style:normal;font-weight:400 700;font-display:swap;src:url("${fontBase}/fonts/noto-serif-sc.woff2") format("woff2");}`,
+          }}
         />
         <script
           type="application/ld+json"

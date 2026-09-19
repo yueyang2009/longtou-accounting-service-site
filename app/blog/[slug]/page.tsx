@@ -60,7 +60,8 @@ async function markdownToHtml(md: string): Promise<string> {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   return result
     .toString()
-    .replace(/src="\/images\//g, `src="${basePath}/images/`);
+    .replace(/src="\/images\//g, `src="${basePath}/images/`)
+    .replace(/<img /g, '<img loading="lazy" decoding="async" ');
 }
 
 // ── 页面 ──
