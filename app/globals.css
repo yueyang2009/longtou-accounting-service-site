@@ -2981,7 +2981,8 @@ footer.bg-brand-emerald {
   margin: 0 !important;
   border: 0 !important;
   border-radius: 0 !important;
-  transition: opacity 700ms ease, visibility 700ms ease;
+  transition: opacity 420ms ease, visibility 420ms ease;
+  will-change: opacity;
 }
 
 /* The site-wide card rule targets direct section children. Reassert the intro's layered stage. */
@@ -3263,13 +3264,38 @@ footer.bg-brand-emerald {
   margin: 0 !important;
   border: 0 !important;
   border-radius: 0 !important;
-  transition: opacity 700ms ease, visibility 700ms ease;
+  transition: opacity 420ms ease, visibility 420ms ease;
+  will-change: opacity;
 }
 
 .brand-launch-overlay.is-leaving {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+}
+
+/* 开场覆盖层不参与首页滚动动效：避免把全屏 filter 作用于 900+ 动画节点，显著加快进场 */
+.private-advisory-site main > section.brand-launch.home-motion-section,
+.private-advisory-site main > section.brand-launch.home-motion-section.is-section-active {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  will-change: opacity !important;
+}
+
+/* 退场瞬间冻结内部动画，把 CPU/GPU 让给底层页面的首帧渲染 */
+.brand-launch-overlay.is-leaving .brand-launch-fragments,
+.brand-launch-overlay.is-leaving .brand-launch-storm,
+.brand-launch-overlay.is-leaving .brand-launch-gusts {
+  contain: layout paint style;
+}
+
+.brand-launch-overlay.is-leaving .brand-launch-fragments i,
+.brand-launch-overlay.is-leaving .brand-launch-fragments::before,
+.brand-launch-overlay.is-leaving .brand-launch-fragments::after,
+.brand-launch-overlay.is-leaving .brand-launch-storm *,
+.brand-launch-overlay.is-leaving .brand-launch-gusts i {
+  animation-play-state: paused !important;
 }
 
 .brand-launch-depth,
@@ -3350,7 +3376,7 @@ footer.bg-brand-emerald {
   letter-spacing: 0.32em;
   opacity: 0;
   transform: translateY(8px);
-  animation: brand-copy-settle 1.1s ease 2.4s forwards;
+  animation: brand-copy-settle 1.1s ease 1.35s forwards;
 }
 
 .brand-launch-logo {
@@ -3363,7 +3389,7 @@ footer.bg-brand-emerald {
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.42), 0 0 0 1px rgba(217, 199, 165, 0.18);
   opacity: 0;
   transform: translateY(14px) scale(0.96);
-  animation: brand-logo-reveal 1.25s cubic-bezier(.18, .82, .2, 1) 2.1s forwards;
+  animation: brand-logo-reveal 1.25s cubic-bezier(.18, .82, .2, 1) 1.15s forwards;
   overflow: hidden;
 }
 
@@ -3382,7 +3408,7 @@ footer.bg-brand-emerald {
   text-indent: 0.42em;
   opacity: 0;
   transform: translateY(8px);
-  animation: brand-copy-settle 1.1s ease 2.55s forwards;
+  animation: brand-copy-settle 1.1s ease 1.45s forwards;
 }
 
 .brand-launch-subtitle {
@@ -3394,7 +3420,7 @@ footer.bg-brand-emerald {
   letter-spacing: .08em;
   opacity: 0;
   transform: translateY(8px);
-  animation: brand-copy-settle 1.1s ease 2.75s forwards;
+  animation: brand-copy-settle 1.1s ease 1.6s forwards;
 }
 
 .brand-launch-enter {
@@ -3416,7 +3442,7 @@ footer.bg-brand-emerald {
   cursor: pointer;
   transform: translate(-50%, 12px);
   transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
-  animation: brand-enter-ready .85s ease 3.15s forwards;
+  animation: brand-enter-ready .85s ease 1.8s forwards;
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
 }
@@ -3425,6 +3451,11 @@ footer.bg-brand-emerald {
   border-color: rgba(217, 199, 165, .86);
   background: rgba(217, 199, 165, .14);
   color: #fff7e8;
+}
+
+.brand-launch-enter:active {
+  transform: translate(-50%, 0) scale(.95) !important;
+  transition: transform 90ms ease;
 }
 
 .brand-launch-enter span {
@@ -3546,7 +3577,6 @@ footer.bg-brand-emerald {
   background: var(--fragment-color);
   box-shadow: 0 0 8px rgba(217, 199, 165, 0.20);
   filter: blur(var(--fragment-blur));
-  will-change: transform, opacity;
   animation-name: brand-fragment-storm;
   animation-duration: var(--fragment-duration);
   animation-timing-function: cubic-bezier(.16, .78, .18, 1);
@@ -3600,13 +3630,19 @@ footer.bg-brand-emerald {
 }
 
 @media (max-width: 768px) {
-  .brand-launch-fragments i:nth-child(3n) {
+  .brand-launch-fragments i:nth-child(2n) {
     display: none;
   }
 
   .brand-launch-fragments::before,
   .brand-launch-fragments::after {
     background-size: 48px 48px, 82px 82px, 118px 118px;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand-launch-fragments i:nth-child(3n) {
+    display: none;
   }
 }
 
@@ -3633,8 +3669,7 @@ footer.bg-brand-emerald {
 
 .brand-launch-storm {
   z-index: 1;
-  opacity: .96;
-  mix-blend-mode: screen;
+  opacity: 0.94;
 }
 
 .brand-launch-gusts {
@@ -3658,7 +3693,7 @@ footer.bg-brand-emerald {
   height: 142%;
   opacity: 0;
   transform-origin: 72% 52%;
-  filter: blur(10px) saturate(.78);
+  filter: blur(7px) saturate(.78);
   background:
     linear-gradient(104deg, transparent 0 12%, rgba(126, 118, 104, .12) 20%, rgba(217, 199, 165, .24) 38%, rgba(238, 220, 184, .16) 51%, transparent 72%),
     repeating-linear-gradient(106deg, transparent 0 18px, rgba(217,199,165,.105) 19px 21px, transparent 22px 44px);
@@ -3668,7 +3703,7 @@ footer.bg-brand-emerald {
 .storm-wall-back {
   z-index: 0;
   animation-duration: 5.4s;
-  filter: blur(18px) saturate(.66);
+  filter: blur(11px) saturate(.66);
   opacity: 0;
 }
 
@@ -3687,7 +3722,7 @@ footer.bg-brand-emerald {
   border-radius: 999px;
   opacity: 0;
   transform: translate(-62%, -48%) rotate(-18deg) scale(.72);
-  filter: blur(1.2px);
+  filter: blur(.8px);
   background:
     conic-gradient(from 212deg, transparent 0 20deg, rgba(217,199,165,.20) 38deg, transparent 68deg, rgba(157,145,124,.16) 94deg, transparent 138deg, rgba(238,220,184,.18) 166deg, transparent 220deg, rgba(217,199,165,.12) 246deg, transparent 330deg),
     radial-gradient(circle, transparent 0 32%, rgba(217,199,165,.10) 33% 34%, transparent 42% 100%);
@@ -3703,7 +3738,7 @@ footer.bg-brand-emerald {
   height: 24%;
   opacity: 0;
   transform: rotate(-8deg) translateX(-10%);
-  filter: blur(12px);
+  filter: blur(8px);
   background: linear-gradient(90deg, transparent, rgba(238,220,184,.18) 18%, rgba(217,199,165,.28) 42%, rgba(126,118,104,.13) 64%, transparent);
   animation: storm-pressure-sweep 3.4s cubic-bezier(.1, .74, .16, 1) .28s forwards;
 }
@@ -3731,7 +3766,6 @@ footer.bg-brand-emerald {
   box-shadow: 0 0 10px rgba(217,199,165,.18);
   filter: blur(var(--gust-blur));
   transform: translate3d(0, 0, 110px) rotate(-10deg) scaleX(.55);
-  will-change: transform, opacity;
   animation: storm-gust-slash var(--gust-duration) cubic-bezier(.06, .72, .18, 1) var(--gust-delay) both;
 }
 
@@ -3766,8 +3800,8 @@ footer.bg-brand-emerald {
 }
 
 @media (max-width: 768px) {
-  .storm-wall { filter: blur(14px); }
-  .storm-vortex { width: 110vw; filter: blur(2px); }
+  .storm-wall { filter: blur(9px); }
+  .storm-vortex { width: 110vw; filter: blur(1.2px); }
   .brand-launch-gusts i:nth-child(2n) { display: none; }
 }
 

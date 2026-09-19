@@ -4,11 +4,15 @@ import Image from "next/image";
 import type { CSSProperties } from "react";
 import { useEffect, useState } from "react";
 
-const fragmentSeeds = Array.from({ length: 860 }, (_, index) => {
-  const cols = 43;
-  const rows = 20;
-  const col = index % cols;
-  const row = Math.floor(index / cols) % rows;
+const FRAGMENT_COUNT = 520;
+const GRID_COLS = 43;
+const GRID_ROWS = 20;
+
+const fragmentSeeds = Array.from({ length: FRAGMENT_COUNT }, (_, index) => {
+  // 在 43×20 的完整形态网格上均匀抽样，降低粒子数的同时保留整体轮廓
+  const cell = Math.floor((index * GRID_COLS * GRID_ROWS) / FRAGMENT_COUNT);
+  const col = cell % GRID_COLS;
+  const row = Math.floor(cell / GRID_COLS) % GRID_ROWS;
   const depth = index % 5;
   const targetX = -132 + col * 6.25 + ((row % 2) * 2.4);
   const targetY = -43 + row * 4.55 + ((col % 4) - 1.5) * 0.72;
@@ -80,7 +84,7 @@ export function BrandLaunchHero() {
 
   useEffect(() => {
     if (!leaving) return;
-    const timer = window.setTimeout(() => setDismissed(true), 700);
+    const timer = window.setTimeout(() => setDismissed(true), 420);
     return () => window.clearTimeout(timer);
   }, [leaving]);
 
