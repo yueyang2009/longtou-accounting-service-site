@@ -109,6 +109,14 @@ export default async function BlogPostPage({
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
+  // 相关阅读：同分类优先，不足时以最新文章补齐（排除当前文章）
+  const allPosts = getAllPosts();
+  const sameCategory = allPosts.filter((p) => p.slug !== post.slug && p.category === post.category);
+  const relatedPosts = [
+    ...sameCategory,
+    ...allPosts.filter((p) => p.slug !== post.slug && p.category !== post.category),
+  ].slice(0, 3);
+
   const htmlContent = await markdownToHtml(post.content);
   const postUrl = `${SITE}/blog/${post.slug}/`;
 
@@ -250,6 +258,25 @@ export default async function BlogPostPage({
             className="prose-caishui"
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
+
+          {/* ── 相关阅读 ── */}
+          {relatedPosts.length > 0 && (
+            <section aria-label="相关阅读" className="mt-14 border-t border-brand-line pt-10">
+              <h2 className="text-lg font-semibold tracking-tight text-brand-ink">相关阅读</h2>
+              <ul className="mt-6 space-y-3">
+                {relatedPosts.map((p) => (
+                  <li key={p.slug}>
+                    <Link href={`/blog/${p.slug}/`} className="group flex flex-col gap-1 border border-brand-line bg-brand-card p-5 transition hover:border-brand-ink/40 md:flex-row md:items-baseline md:gap-4">
+                      <span className="text-sm font-semibold text-brand-ink md:w-[34em] md:shrink-0 md:truncate group-hover:text-brand-gold">
+                        {p.title}
+                      </span>
+                      <span className="text-xs text-brand-muted">{p.category} ｜ {p.date}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
         </article>
       </div>
       </main>
