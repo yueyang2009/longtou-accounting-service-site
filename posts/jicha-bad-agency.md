@@ -48,7 +48,7 @@ faq:
 
 **① 咸阳「黑中介」诱导虚假填报：罚没 1573 万**
 税警联合查处黑中介诱导纳税人虚假填报个税，近 1800 人上当，**罚没合计 1573.25 万元**。这是中介类单案金额最高的一例。
-（来源：[咸阳黑中介诱导虚假填报案](http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5249195/content.html)）
+（来源：[咸阳黑中介诱导虚假填报案](https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5249195/content.html)）
 
 **② 惠州市展信会计：做账人自己做假账**
 本该替客户守住合规底线的代账机构，自己带头做假账、帮客户隐匿，**少缴 103.80 万元**，罚没 **195.03 万元**，被列为**涉税服务失信主体**，其经手客户被一并排查追税。
@@ -64,11 +64,11 @@ faq:
 
 **⑤ 江西旺桐科技：伪装「科技公司」暗做偷税生意**
 涉税中介伪装成科技公司，策划帮助灵活就业人员转换收入性质，**少缴 220.80 万元**，罚没 **110.40 万元**。
-（来源：[江西旺桐科技案](http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245377/content.html)）
+（来源：[江西旺桐科技案](https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245377/content.html)）
 
 **⑥ 大连澎源 / 吉林弘成 / 广元铭慧：中介虚开「流水线」**
 多家财税咨询机构把虚开做成「生意」：有的牵线介绍虚开，有的借空壳个体户虚开专票，均被追究刑责（大连澎源少缴 349.53 万、吉林弘成罚没 94.26 万、广元铭慧罚没 37.20 万）。
-（来源：[大连澎源财税案](http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245373/content.html) 、[吉林弘成财务案](http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5246666/content.html) 、[广元铭慧企业案](http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5246664/content.html)）
+（来源：[大连澎源财税案](https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245373/content.html) 、[吉林弘成财务案](https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5246666/content.html) 、[广元铭慧企业案](https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5246664/content.html)）
 
 ## 四、稽查是怎么「连坐」客户与中介的
 
@@ -119,13 +119,13 @@ faq:
 
 ### 引用案例原文出处对照
 
-- 咸阳黑中介诱导纳税人虚假填报个人所得税案（罚没1573万）：http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5249195/content.html
+- 咸阳黑中介诱导纳税人虚假填报个人所得税案（罚没1573万）：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5249195/content.html
 - 惠州市展信会计咨询服务有限公司做假账案（涉税失信主体）：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5250450/content.html
 - 新余市向达财务管理中心涉税违法案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5250447/content.html
 - 沁阳市立达会计服务有限公司违规帮助偷税案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5250451/content.html
-- 江西旺桐科技有限公司策划帮助灵活就业人员偷税案：http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245377/content.html
-- 大连市澎源财税管理咨询有限公司介绍虚开案：http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245373/content.html
-- 吉林市弘成财务咨询服务有限公司虚开案：http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5246666/content.html
-- 广元市铭慧企业管理有限公司虚开案：http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5246664/content.html
+- 江西旺桐科技有限公司策划帮助灵活就业人员偷税案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245377/content.html
+- 大连市澎源财税管理咨询有限公司介绍虚开案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245373/content.html
+- 吉林市弘成财务咨询服务有限公司虚开案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5246666/content.html
+- 广元市铭慧企业管理有限公司虚开案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5246664/content.html
 
 <p class="article-signature">—— 龙头会服 · 高端财税事业部</p>

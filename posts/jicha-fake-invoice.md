@@ -57,31 +57,31 @@ faq:
 
 **② 河北楚鸣文化（MCN机构）：偷税「生意经」，罚没 2010 万、刑事**
 网络直播公司借虚列成本、违规享小微、接受虚开发票偷税，**少缴 1261.51 万元**，罚没 **2010.06 万元**，并进入刑事程序。
-（来源：[河北楚鸣文化案](http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5243219/content.html)）
+（来源：[河北楚鸣文化案](https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5243219/content.html)）
 
 **③ 深圳财智恒通：涉税中介非法「策划」，罚没 593 万**
 巨额转账背后的违法税务策划，通过虚列成本、接受虚开发票偷税，**少缴 1186.9 万元**，罚没 **593.45 万元**。
-（来源：[深圳财智恒通案](http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245371/content.html)）
+（来源：[深圳财智恒通案](https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245371/content.html)）
 
 **④ 陕西卓拓物资：假厂房、旧设备、「真」发票，刑事**
 虚假申报、虚开专票、无真实交易，**少缴 324.84 万元**，罚没 **641.03 万元**，主犯入刑。
-（来源：[陕西卓拓物资案](http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5248604/content.html)）
+（来源：[陕西卓拓物资案](https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5248604/content.html)）
 
 **⑤ 上海账一财税：中介操控空壳企业，刑事**
 涉税中介操控空壳企业虚列成本、虚开专票，**少缴 484.39 万元**，罚没 **242.19 万元**，并进入刑事程序。
-（来源：[上海账一财税案](http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245381/content.html)）
+（来源：[上海账一财税案](https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245381/content.html)）
 
 **⑥ 宜兴苏瑞代理记账：实际控制人牵线，刑事**
 代理记账机构及其实际控制人虚开专票、接受虚开，**少缴 409.71 万元**，罚没 **204.86 万元**，并进入刑事程序。
-（来源：[宜兴苏瑞代理记账案](http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5246671/content.html)）
+（来源：[宜兴苏瑞代理记账案](https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5246671/content.html)）
 
 **⑦ 嘉峪关宏兴西域能源：压利润「扮小微」+接受虚开，刑事**
 虚假申报、虚列成本、违规享小微、接受虚开发票，**少缴 208.83 万元**，罚没 **338.79 万元**，并进入刑事程序。
-（来源：[嘉峪关宏兴西域能源案](http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5247583/content.html)）
+（来源：[嘉峪关宏兴西域能源案](https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5247583/content.html)）
 
 **⑧ 贵州博方药业：无实物假交易，农产品票骗税，刑事**
 虚列成本、虚开农产品收购票，**少缴 249.03 万元**，罚没 **249.03 万元**，并进入刑事程序。
-（来源：[贵州博方药业案](http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5243620/content.html)）
+（来源：[贵州博方药业案](https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5243620/content.html)）
 
 **⑨ 辽宁合众易薪：灵活用工平台异化为「灵活虚开」**
 名义上是灵活用工、代发薪，实质用平台向外虚开、帮客户「做成本」，被定性虚开并追罚。
@@ -161,13 +161,13 @@ faq:
 ### 引用案例原文出处对照
 
 - 刘杨、公大伟木业团伙虚开发票案（主犯判十年/下游120户）：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5248609/content.html
-- 河北楚鸣文化传媒有限公司涉税违法案（MCN）：http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5243219/content.html
-- 深圳市财智恒通企业管理咨询有限公司非法策划案：http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245371/content.html
-- 陕西省卓拓物资回收再生利用有限公司虚开案：http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5248604/content.html
-- 上海账一财税咨询有限公司操控空壳企业案：http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245381/content.html
-- 宜兴市苏瑞代理记帐有限公司虚开案：http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5246671/content.html
-- 嘉峪关宏兴西域能源有限责任公司骗享税费优惠案：http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5247583/content.html
-- 贵州博方民族药业开发有限公司虚开农产品发票案：http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5243620/content.html
+- 河北楚鸣文化传媒有限公司涉税违法案（MCN）：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5243219/content.html
+- 深圳市财智恒通企业管理咨询有限公司非法策划案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245371/content.html
+- 陕西省卓拓物资回收再生利用有限公司虚开案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5248604/content.html
+- 上海账一财税咨询有限公司操控空壳企业案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245381/content.html
+- 宜兴市苏瑞代理记帐有限公司虚开案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5246671/content.html
+- 嘉峪关宏兴西域能源有限责任公司骗享税费优惠案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5247583/content.html
+- 贵州博方民族药业开发有限公司虚开农产品发票案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5243620/content.html
 - 辽宁合众易薪灵活用工虚开案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245804/content.html
 - 闫莉犯罪团伙农产品发票骗税案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5243616/content.html
 - 赤水汇达丰「天价香菇液」骗税案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5247872/content.html

@@ -60,7 +60,7 @@ faq:
 
 **① 深圳金斯达：1621万「不知所踪」的黄金研发投入**
 虚列研发费用偷税，把根本不存在的研发活动做成「黄金投入」，**少缴 1621.16 万元**，罚没合计 **3618.15 万元**——这是骗享类里金额最刺眼的一例。
-（来源：[深圳金斯达案](http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5240517/content.html)）
+（来源：[深圳金斯达案](https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5240517/content.html)）
 
 **② 西藏慧业医药：假研发，骗享 999 万**
 虚构研发项目、堆砌研发费用，违规享受研发费用加计扣除等优惠，**少缴 999.09 万元**，罚没 **1715.99 万元**。把「研发红利」做成「研发骗局」。
@@ -68,15 +68,15 @@ faq:
 
 **③ 焦煤企业：电费虚高藏猫腻，伪造记录露马脚**
 虚构研发费用加计扣除，罚没 **1354 万元**。研发与生产边界不清，被一查到底。
-（来源：[焦煤企业研发骗享案](http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5237740/content.html)）
+（来源：[焦煤企业研发骗享案](https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5237740/content.html)）
 
 **④ 夏安阳：拆分个人营收「藏进」9 个口袋**
 把个人收入拆分到 9 个主体骗享个税优惠，**少缴 345.92 万元**，罚没 **518.88 万元**。
-（来源：[夏安阳拆分收入案](http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245021/content.html)）
+（来源：[夏安阳拆分收入案](https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245021/content.html)）
 
 **⑤ 大理寸四银庄：九家分公司「化整为零」**
 用 9 家分公司拆分收入、违规享小规模优惠，**少缴 305 万元**，罚没 **490 万元**。
-（来源：[大理寸四银庄案](http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5239379/content.html)）
+（来源：[大理寸四银庄案](https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5239379/content.html)）
 
 **⑥ 安徽星印网络科技：空壳个体户拆分收入**
 专设空壳个体户承接业务、拆分收入，伪装成可享受优惠的小微主体。税务通过关联关系与资金回流识破，定性骗享并追罚。
@@ -84,7 +84,7 @@ faq:
 
 **⑦ 安顺百年婚宴：空壳个体户「拆走」千万营收**
 借空壳个体户拆分收入骗享税费优惠，**少缴 249.77 万元**，罚没 **392.79 万元**。
-（来源：[安顺百年婚宴案](http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245023/content.html)）
+（来源：[安顺百年婚宴案](https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245023/content.html)）
 
 **⑧ 扬州春风船舶机械：私户 + 违规享小微「双拼」**
 一边用个人账户藏收入，一边违规套用小微优惠，两套手法叠用，最终被一并认定为偷税与骗享，**少缴 171.73 万元**，罚没 **357.58 万元**。
@@ -92,7 +92,7 @@ faq:
 
 **⑨ 龙岩亿懿生辉：CSO 公司「无中生有」的推广成本**
 虚构推广成本、违规享小微优惠，**少缴 333.67 万元**，罚没 **472.33 万元**。
-（来源：[龙岩亿懿生辉案](http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5241686/content.html)）
+（来源：[龙岩亿懿生辉案](https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5241686/content.html)）
 
 **⑩ 沙河口星海名媛美容院：零税套路**
 通过不申报、拆分、虚假身份等操作，长期维持「零税负」假象，实质是违规享受与隐匿收入并用，**少缴 62.76 万元**，罚没 **105.12 万元**。
@@ -166,15 +166,15 @@ faq:
 
 ### 引用案例原文出处对照
 
-- 深圳金斯达应用材料有限公司虚列研发费用偷税案：http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5240517/content.html
+- 深圳金斯达应用材料有限公司虚列研发费用偷税案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5240517/content.html
 - 西藏慧业医药科技有限公司骗享税费优惠偷税案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5247591/content.html
-- 焦煤企业虚报研发费用加计扣除偷税案：http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5237740/content.html
-- 夏安阳拆分收入骗享个人所得税税收优惠偷税案：http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245021/content.html
-- 大理市寸四银庄商贸有限公司偷税案（九家分公司化整为零）：http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5239379/content.html
+- 焦煤企业虚报研发费用加计扣除偷税案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5237740/content.html
+- 夏安阳拆分收入骗享个人所得税税收优惠偷税案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245021/content.html
+- 大理市寸四银庄商贸有限公司偷税案（九家分公司化整为零）：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5239379/content.html
 - 安徽星印网络科技有限公司骗享税费优惠偷税案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5247586/content.html
-- 安顺百年婚宴公司拆分收入骗享税费优惠偷税案：http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245023/content.html
+- 安顺百年婚宴公司拆分收入骗享税费优惠偷税案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5245023/content.html
 - 扬州春风船舶机械制造有限公司骗享税费优惠偷税案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5247588/content.html
-- 龙岩亿懿生辉企业管理咨询服务有限公司骗享案：http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5241686/content.html
+- 龙岩亿懿生辉企业管理咨询服务有限公司骗享案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5241686/content.html
 - 沙河口区星海名媛美容院骗享税费优惠偷税案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5240034/content.html
 - 力软信息技术（苏州）有限公司违规享受小微企业税收优惠案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5240513/content.html
 

@@ -49,7 +49,7 @@ faq:
 
 **① 上海悟瀚进出口：隐匿出口应税收入，罚没 8262 万**
 企图借注销「掩盖」偷税，最终隐匿出口应征税收入被查实，罚没合计高达 **8262.46 万元**——这是全部 405 起案件中罚没金额最高的一例，也是最醒目的「注销≠免责」样本。
-（来源：[上海悟瀚进出口案](http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5242905/content.html)）
+（来源：[上海悟瀚进出口案](https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5242905/content.html)）
 
 **② 聊城奶泡商贸：网红网店「逃逸式注销」**
 通过注销网店关联公司企图切断税务关联、逃避纳税义务，被稽查穿透，**少缴 544.72 万元**，罚没 **971.29 万元**。
@@ -57,11 +57,11 @@ faq:
 
 **③ 莒南县宇飞食品：注销公司「掩盖」偷税终现形**
 借注销掩盖账外隐匿收入，**少缴 205.15 万元**，罚没 **566.09 万元**。
-（来源：[莒南宇飞食品案](http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5242903/content.html)）
+（来源：[莒南宇飞食品案](https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5242903/content.html)）
 
 **④ 歙县 4 家珠宝店：隐匿千万营收，注销难逃追责**
 业主林浩、林海借注销腾挪，**少缴 229.18 万元**，罚没 **415.06 万元**。
-（来源：[歙县4家珠宝店案](http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5248981/content.html)）
+（来源：[歙县4家珠宝店案](https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5248981/content.html)）
 
 **⑤ 7起网红网店偷税案（汇总通报）**
 一批网红、网店通过注册—经营—注销的「快进快出」模式隐匿收入，最终在注销后仍被追缴并处罚，成为「注销不等于免责」的群像样本。
@@ -125,10 +125,10 @@ faq:
 
 ### 引用案例原文出处对照
 
-- 上海悟瀚进出口有限公司隐匿出口应征税收入案（罚没8262万）：http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5242905/content.html
+- 上海悟瀚进出口有限公司隐匿出口应征税收入案（罚没8262万）：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5242905/content.html
 - 聊城开发区奶泡商贸经营部网络店铺偷税案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5250912/content.html
-- 莒南县宇飞食品有限公司「逃逸式」注销偷税案：http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5242903/content.html
-- 歙县4家珠宝店业主林浩、林海偷逃消费税案：http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5248981/content.html
+- 莒南县宇飞食品有限公司「逃逸式」注销偷税案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5242903/content.html
+- 歙县4家珠宝店业主林浩、林海偷逃消费税案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5248981/content.html
 - 税务部门曝光7起网红网店偷税案件：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5250924/content.html
 - 一次注销业务牵出的虚开发票案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5242094/content.html
 - 「逃逸式」注销专家解读（山东大学石绍宾）：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5250922/content.html

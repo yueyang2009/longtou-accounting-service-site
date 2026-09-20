@@ -56,7 +56,7 @@ faq:
 
 **② 宁波斯莫森服装辅料厂：千万厂房三折成交，阴阳合同**
 以阴阳合同低报厂房转让价格，实质逃税，**罚没 1296 万元**。
-（来源：[宁波斯莫森服装辅料厂案](http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5239384/content.html)）
+（来源：[宁波斯莫森服装辅料厂案](https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5239384/content.html)）
 
 **③ 三明王元春、王逢春：股权转让「阴阳合同」**
 转让股权时签订阴阳合同，以低报价格少缴税款，**少缴 298.29 万元**，最终被追缴并处罚款合计 **524.38 万元**。
@@ -144,7 +144,7 @@ faq:
 ### 引用案例原文出处对照
 
 - 网络主播王子柏偷税案：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5237192/content.html
-- 宁波市奉化斯莫森服装辅料厂偷逃税案（阴阳合同）：http://www.chinatax.gov.cn/chinatax/n810219/c102025/c5239384/content.html
+- 宁波市奉化斯莫森服装辅料厂偷逃税案（阴阳合同）：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5239384/content.html
 - 三明市王元春、王逢春偷税案件（股权转让阴阳合同）：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5250168/content.html
 - 自然人党迎凤偷税案（个独虚列成本）：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5250165/content.html
 - 自然人郭宝山偷税案（口腔医院隐匿收入）：https://www.chinatax.gov.cn/chinatax/n810219/c102025/c5250166/content.html
