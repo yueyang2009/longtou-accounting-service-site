@@ -8,3 +8,8 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# 过程截图 / 预览图（仓库根目录散落文件）
+/card-extract-*.png
+/glassmorphism-*.png
+/preview-*-motion.png
+/section-motion-preview.png

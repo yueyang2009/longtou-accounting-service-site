@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Tag } from "lucide-react";
 import { remark } from "remark";
+import { imageSize } from "image-size";
 import html from "remark-html";
 import type { Metadata } from "next";
 
@@ -9,6 +10,8 @@ import { BrandLogo } from "@/components/BrandLogo";
 import { MobileNav } from "@/components/MobileNav";
 import { brand, navItems } from "@/lib/data";
 import { Footer } from "@/components/Footer";
+import fs from "fs";
+import path from "path";
 import { getPostBySlug, getAllPosts } from "@/lib/posts";
 
 const SITE = "https://longtou.audit-report-check.com";
@@ -53,14 +56,46 @@ export async function generateMetadata({
 }
 
 // ── markdown → html ──
+// 构建期读取图片真实尺寸，为 <img> 注入 width/height，消除滚动布局抖动（CLS）。
+const IMAGE_DIMS_CACHE = new Map<string, { width: number; height: number } | null>();
+
+function getImageDims(srcPath: string): { width: number; height: number } | null {
+  if (IMAGE_DIMS_CACHE.has(srcPath)) return IMAGE_DIMS_CACHE.get(srcPath) ?? null;
+  let dims: { width: number; height: number } | null = null;
+  try {
+    const abs = path.join(process.cwd(), "public", decodeURIComponent(srcPath));
+    const buf = fs.readFileSync(abs);
+    const size = imageSize(buf);
+    if (size && size.width && size.height) {
+      dims = { width: size.width, height: size.height };
+    }
+  } catch {
+    // 找不到文件或格式不支持时保持无属性（不阻塞构建）
+  }
+  IMAGE_DIMS_CACHE.set(srcPath, dims);
+  return dims;
+}
+
 async function markdownToHtml(md: string): Promise<string> {
   const result = await remark().use(html).process(md);
   // 文章正文经 dangerouslySetInnerHTML 注入，Next 的 basePath 不会自动重写，
   // 故在此手动为 /images/ 资源补齐 basePath（线上 GitHub Pages 子路径）。
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-  return result
+  let body = result
     .toString()
-    .replace(/src="\/images\//g, `src="${basePath}/images/`)
+    .replace(/src="\/images\//g, `src="${basePath}/images/`);
+
+  // 注入图片 width/height（消除布局抖动；已在缓存的 /images/ 全量位图可用）
+  body = body.replace(/<img ([^>]*?)src="([^"]+)"([^>]*)>/g, (m, pre, src, post) => {
+    const dims = getImageDims(src);
+    if (!dims) return m;
+    const { width, height } = dims;
+    // pre 可能携带原有属性（如 alt）；规范化空格后重新拼接，避免出现 <imgwidth= 粘连标签
+    const attrs = pre.replace(/\s+$/, "");
+    return `<img${attrs ? " " + attrs : ""} width="${width}" height="${height}" src="${src}"${post}>`;
+  });
+
+  return body
     .replace(/<img /g, '<img loading="lazy" decoding="async" ');
 }
 
