@@ -67,9 +67,15 @@ export function ParticleHeadline({
     let particles: { x: number; y: number; tx: number; ty: number; delay: number }[] = [];
     let started = false;
     let done = false;
+    let activated = false;
     let startTime = 0;
     let settleStart = 0;
+    let settleTimer = 0;
+    let watchdogTimer = 0;
     const SETTLE_MS = 420;
+    // 环境兜底：RAF 在部分真实手机浏览器（尤其 iOS 快速滚动期）可能被长期节流，
+    // 粒子动画会永久停在"汇聚完成、文字未显"的中间帧。强制在 X 秒后凝实，保证标题必然清晰。
+    const MAX_PLAY_MS = 3000;
 
     function wrap(t: string, maxW: number): string[] {
       const out: string[] = [];
@@ -172,7 +178,7 @@ export function ParticleHeadline({
         y: Math.random() * totalH * 1.8 - totalH * 0.4,
         tx: t.x,
         ty: t.y,
-        delay: Math.random() * 650,
+        delay: Math.random() * 260,
       }));
       canvas!.width = Math.floor(cw * dpr);
       canvas!.height = Math.floor(totalH * dpr);
@@ -208,8 +214,8 @@ export function ParticleHeadline({
         if (elapsed < p.delay) {
           moving = true;
         } else {
-          p.x += (p.tx - p.x) * 0.09;
-          p.y += (p.ty - p.y) * 0.09;
+          p.x += (p.tx - p.x) * 0.14;
+          p.y += (p.ty - p.y) * 0.14;
         }
         if (Math.abs(p.tx - p.x) > 0.6 || Math.abs(p.ty - p.y) > 0.6) moving = true;
         ctx!.fillRect(p.x, p.y, 1.8, 1.8);
@@ -236,6 +242,7 @@ export function ParticleHeadline({
       if (a >= 1) {
         drawText(1);
         done = true;
+        window.clearTimeout(watchdogTimer);
         return;
       }
       raf = requestAnimationFrame(settle);
@@ -246,10 +253,25 @@ export function ParticleHeadline({
       started = true;
       startTime = performance.now();
       raf = requestAnimationFrame(draw);
+      // 看门狗：无论环境如何节流/暂停，最终都强制输出清晰文字
+      window.clearTimeout(watchdogTimer);
+      watchdogTimer = window.setTimeout(() => {
+        if (!done) {
+          forceSettle();
+        }
+      }, MAX_PLAY_MS) as unknown as number;
+    }
+
+    function forceSettle() {
+      window.cancelAnimationFrame(raf);
+      done = true;
+      drawText(1);
+      window.clearTimeout(settleTimer);
     }
 
     function activate() {
-      if (done) return;
+      if (activated || done) return;   // 防 IO/font.ready 双触发造成双重动画链
+      activated = true;
       layout();
       sample();
       if (reduceMotion) {
@@ -266,6 +288,7 @@ export function ParticleHeadline({
       resizeTimer = window.setTimeout(() => {
         const wasDone = done;
         started = false;
+        activated = false;
         done = false;
         layout();
         sample();
@@ -310,6 +333,8 @@ export function ParticleHeadline({
     window.addEventListener("resize", onResize);
     return () => {
       window.cancelAnimationFrame(raf);
+      window.clearTimeout(watchdogTimer);
+      window.clearTimeout(settleTimer);
       window.removeEventListener("resize", onResize);
       io.disconnect();
     };
