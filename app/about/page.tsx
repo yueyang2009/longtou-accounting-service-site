@@ -122,7 +122,7 @@ export default function AboutPage() {
                 { k: "合作流程", v: "预约经营交流 → 企业经营尽调 → 制定年度顾问计划 → 签约启动 → 全年陪伴。" },
                 { k: "费用构成", v: "年度顾问费根据企业规模、业务复杂度与服务范围确定，先诊断、后报价；不公开统一价目，避免“一套价格套所有企业”。" },
                 { k: "费用不包含", v: "代账、专项审计、评估等第三方服务费用不包含在内；如需，我们会协助对接并单独说明。" },
-                { k: "付款方式", v: "通常按服务阶段分批支付，具体以正式合同约定为准。" },
+                { k: "付款方式", v: "通常一次性支付，具体以正式合同约定为准。" },
               ].map((row) => (
                 <div key={row.k} className="grid gap-1 border border-brand-line bg-brand-card p-6 rounded-card md:grid-cols-[8rem_1fr] md:gap-6">
                   <p className="font-semibold text-brand-ink">{row.k}</p>
