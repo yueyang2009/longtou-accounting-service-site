@@ -329,7 +329,7 @@ export const cooperationSteps = [
   },
   {
     title: "签约付款",
-    description: "确认合作方向，签订年度顾问合同并支付服务费用。"
+    description: "确认合作方向，签订年度顾问合同并一次性支付年度顾问服务费用。"
   },
   {
     title: "企业经营尽调",
