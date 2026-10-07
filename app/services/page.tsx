@@ -157,7 +157,11 @@ export default function ServicesPage() {
             </p>
             <div className="mt-10 space-y-6">
               {servicePackages.map((pkg) => (
-                <div key={pkg.title} className="border border-brand-line bg-brand-soft p-7 rounded-card">
+                <div
+                  key={pkg.title}
+                  id={pkg.title === "研发费用归集与加计扣除专项辅导" ? "rd-expense-deduction" : undefined}
+                  className="border border-brand-line bg-brand-soft p-7 rounded-card"
+                >
                   <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                     <h3 className="text-lg font-semibold text-brand-ink">{pkg.title}</h3>
                     {pkg.key ? (

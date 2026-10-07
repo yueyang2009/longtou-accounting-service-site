@@ -10,6 +10,7 @@ const services = [
   { label: "财务体系建设", href: "/services" },
   { label: "历史乱账清理", href: "/services" },
   { label: "税务稽查应对", href: "/services" },
+  { label: "研发费用归集与加计扣除", href: "/services#rd-expense-deduction" },
 ];
 
 const credentials = [
