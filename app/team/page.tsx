@@ -118,6 +118,12 @@ const advisorMembers: AdvisorMember[] = [
     avatar: `${assetBasePath}/images/team/li-jingwen.webp`
   },
   {
+    name: "陈媛媛",
+    title: "高端财税事业部 高级顾问",
+    credential: "注册税务师 / 中级会计师",
+    focus: "企业工商全流程服务、税务历史问题处理、税务规划、民营企业财务系统建设"
+  },
+  {
     name: "刘亚杰",
     title: "高端财税事业部 高级顾问",
     credential: "注册税务师 / 中级会计师",

@@ -15,7 +15,7 @@ const services = [
 
 const credentials = [
   { value: 11, suffix: "", label: "注册会计师" },
-  { value: 4, suffix: "", label: "注册税务师" },
+  { value: 5, suffix: "", label: "注册税务师" },
   { value: 2, suffix: "", label: "高级会计师" },
   { value: 10000, suffix: "+", label: "累计服务企业" },
 ];
