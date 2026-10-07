@@ -5,8 +5,6 @@ import { usePathname } from "next/navigation";
 
 import { brand } from "@/lib/data";
 
-const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
 const phoneDisplay = brand.phone.replace(/(\d{3})(\d{4})(\d{4})/, "$1 $2 $3");
 
 export function ContactFab() {
@@ -23,11 +21,7 @@ export function ContactFab() {
           <a href={`tel:${brand.phone}`} className="contact-fab-action">
             拨打电话 {phoneDisplay}
           </a>
-          <div className="contact-fab-qr">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`${base}/images/wechat-qr-v2.png`} alt="微信二维码" width={132} height={132} />
-          </div>
-          <p className="contact-fab-hint">微信扫码添加（同号 {phoneDisplay}）</p>
+          <div className="contact-fab-qr" role="img" aria-label="微信二维码待替换" />
         </div>
       ) : null}
       <button
