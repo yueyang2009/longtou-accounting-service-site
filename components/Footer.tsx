@@ -14,9 +14,7 @@ const services = [
 ];
 
 const credentials = [
-  { value: 11, suffix: "", label: "注册会计师" },
-  { value: 5, suffix: "", label: "注册税务师" },
-  { value: 2, suffix: "", label: "高级会计师" },
+  { value: 16, suffix: "", label: "团队顾问" },
   { value: 10000, suffix: "+", label: "累计服务企业" },
 ];
 
@@ -28,7 +26,7 @@ export function Footer() {
     <footer className="relative border-t border-[#d9c7a5]/14 bg-[#0a0f0d] text-white">
       {/* ── 资质细带 ── */}
       <div className="border-b border-white/8">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-white/8 md:grid-cols-4">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-white/8 md:grid-cols-2">
           {credentials.map((c) => (
             <div key={c.label} className="bg-[#0a0f0d] px-6 py-7 text-center">
               <p className="text-3xl font-semibold tracking-tight text-[#e9d9bc]">

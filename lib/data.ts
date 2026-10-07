@@ -108,9 +108,9 @@ export const painPoints = [
 ];
 
 export const trustMetrics = [
-  { value: "CPA", label: "注册会计师", detail: "× 11" },
-  { value: "CTA", label: "注册税务师", detail: "× 5" },
-  { value: "高级会计师", label: "专家配置", detail: "× 2" },
+  { value: "16", label: "团队顾问人数", detail: "核心顾问与高级顾问" },
+  { value: "CPA / CTA", label: "注册会计师、注册税务师", detail: "" },
+  { value: "高 / 中级职称", label: "高级会计师、中级会计师", detail: "" },
   { value: "10000+", label: "累计服务企业", detail: "" }
 ];
 

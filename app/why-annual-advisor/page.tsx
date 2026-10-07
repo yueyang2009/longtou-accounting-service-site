@@ -334,7 +334,7 @@ export default function WhyAnnualAdvisorPage() {
           <div className="mx-auto max-w-6xl px-6 py-24 md:py-28">
             <SectionTitle eyebrow="服务团队" title="谁在提供服务？" />
             <div className="mx-auto mt-14 max-w-3xl space-y-5 text-center text-base leading-8 text-brand-body">
-              <p>资深注册会计师、税务师、高级会计师领头，配备 19 人专业财税顾问团队。</p>
+              <p>由 16 位顾问组成专业财税服务团队，覆盖注册会计师、注册税务师及中高级会计职称。</p>
               <p>深耕河南全省市场，熟悉本地征管口径、最新财税政策，精准化解实操风险。</p>
             </div>
             <TeamMetrics />
