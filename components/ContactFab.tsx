@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 import { brand } from "@/lib/data";
 
@@ -10,6 +11,9 @@ const phoneDisplay = brand.phone.replace(/(\d{3})(\d{4})(\d{4})/, "$1 $2 $3");
 
 export function ContactFab() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  if (pathname?.replace(/\/+$/, "") === "/contact") return null;
 
   return (
     <div className="contact-fab">

@@ -1,76 +1,24 @@
-import Image from "next/image";
-
 import { Layout } from "@/components/Layout";
-import { LeadForm } from "@/components/LeadForm";
-import { SectionHeader } from "@/components/SectionHeader";
-import { brand, faqs } from "@/lib/data";
 
 export default function ContactPage() {
   return (
     <Layout>
       <section className="bg-brand-soft py-20">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-[0.9fr_1.1fr] lg:px-8">
-          <div>
-            <div className="max-w-3xl">
-              <p className="mb-3 text-sm font-semibold text-brand-gold">经营交流</p>
-              <h1 className="text-3xl font-semibold leading-tight text-brand-ink md:text-5xl">
-                <span className="inline-block text-left">
-                  <span className="block">申请企业财税风险诊断</span>
-                  <span className="block">（限量开放）</span>
-                </span>
-              </h1>
-              <p className="mt-4 text-base leading-7 text-brand-muted">先了解企业阶段与经营现状，判断是否需要年度顾问支持。</p>
-            </div>
-            <div className="mt-8 grid gap-4 md:grid-cols-2">
-              <div className="border border-brand-line bg-brand-card p-5">
-                <p className="text-sm text-brand-muted">联系电话</p>
-                <p className="mt-2 text-xl font-semibold">{brand.phone}</p>
-              </div>
-              <div className="border border-brand-line bg-brand-card p-5">
-                <p className="text-sm text-brand-muted">邮箱</p>
-                <p className="mt-2 text-sm font-semibold">1833379550@qq.com</p>
-              </div>
-              <div className="border border-brand-line bg-brand-card p-5">
-                <p className="text-sm text-brand-muted">微信</p>
-                <div className="mt-3 w-36 border border-brand-line bg-brand-card p-2">
-                  <Image
-                    src={brand.wechatQr}
-                    alt="微信二维码"
-                    width={888}
-                    height={1195}
-                    className="h-auto w-full"
-                  />
-                </div>
-                <p className="mt-3 text-sm font-medium text-brand-ink">{brand.wechat}</p>
-              </div>
-              <div className="border border-brand-line bg-brand-card p-5">
-                <p className="text-sm text-brand-muted">飞书</p>
-                <div className="mt-3 w-36 border border-brand-line bg-brand-card p-2">
-                  <Image
-                    src={brand.feishuQr}
-                    alt="飞书二维码"
-                    width={888}
-                    height={1195}
-                    className="h-auto w-full"
-                  />
-                </div>
-                <p className="mt-3 text-sm font-medium text-brand-ink">李岳阳 · 飞书个人版</p>
-              </div>
-            </div>
-          </div>
-          <LeadForm />
-        </div>
-      </section>
-      <section className="bg-brand-card py-20">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <SectionHeader title="FAQ" />
-          <div className="mt-10 grid gap-4 md:grid-cols-2">
-            {faqs.map((faq) => (
-              <div key={faq.question} className="border border-brand-line bg-brand-card p-6">
-                <h3 className="font-semibold">{faq.question}</h3>
-                <p className="mt-3 text-sm leading-6 text-brand-muted">{faq.answer}</p>
-              </div>
-            ))}
+        <div className="mx-auto max-w-3xl px-5 text-center lg:px-8">
+          <p className="mb-3 text-sm font-semibold text-brand-gold">微信联系</p>
+          <h1 className="text-3xl font-semibold leading-tight text-brand-ink md:text-5xl">
+            有需要，添加微信沟通
+          </h1>
+          <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-brand-muted">
+            扫码添加微信，直接联系。
+          </p>
+          <div className="mx-auto mt-10 w-56 border border-brand-line bg-brand-card p-3">
+            <p className="mb-3 text-sm text-brand-muted">微信二维码</p>
+            <div
+              role="img"
+              aria-label="微信二维码待替换"
+              className="aspect-[888/1195] w-full border border-brand-line/50 bg-brand-soft"
+            />
           </div>
         </div>
       </section>

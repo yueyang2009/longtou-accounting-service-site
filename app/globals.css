@@ -256,6 +256,13 @@ body {
   font-size: 1rem;
   line-height: 1.9;
   color: rgb(184 178 166);
+  overflow-wrap: anywhere;
+}
+.prose-caishui pre {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 .prose-caishui h2 {
   margin: 2rem 0 1rem;
