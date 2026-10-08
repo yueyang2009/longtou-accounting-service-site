@@ -57,7 +57,7 @@ export const brand = {
   wechat: "李岳阳TEL13271589698",
   address: "河南省郑州市国际路60号国家知识产权大厦11层",
   addressShort: "河南省郑州市国家知识产权大厦",
-  wechatQr: `${siteBasePath}/images/wechat-qr-v2.png`,
+  wechatQr: `${siteBasePath}/images/wechat-qr-contact.png`,
   feishuQr: `${siteBasePath}/images/feishu-qr.jpg`
 };
 

@@ -1,4 +1,7 @@
+import Image from "next/image";
+
 import { Layout } from "@/components/Layout";
+import { brand } from "@/lib/data";
 
 export default function ContactPage() {
   return (
@@ -14,11 +17,15 @@ export default function ContactPage() {
           </p>
           <div className="mx-auto mt-10 w-56 border border-brand-line bg-brand-card p-3">
             <p className="mb-3 text-sm text-brand-muted">微信二维码</p>
-            <div
-              role="img"
-              aria-label="微信二维码待替换"
-              className="aspect-[888/1195] w-full border border-brand-line/50 bg-brand-soft"
-            />
+            <div className="aspect-square w-full overflow-hidden border border-brand-line/50 bg-white">
+              <Image
+                src={brand.wechatQr}
+                alt="个人微信二维码"
+                width={525}
+                height={525}
+                className="h-full w-full object-contain"
+              />
+            </div>
           </div>
         </div>
       </section>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 import { brand } from "@/lib/data";
 
@@ -21,7 +22,9 @@ export function ContactFab() {
           <a href={`tel:${brand.phone}`} className="contact-fab-action">
             拨打电话 {phoneDisplay}
           </a>
-          <div className="contact-fab-qr" role="img" aria-label="微信二维码待替换" />
+          <div className="contact-fab-qr">
+            <Image src={brand.wechatQr} alt="个人微信二维码" width={132} height={132} />
+          </div>
         </div>
       ) : null}
       <button
