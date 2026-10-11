@@ -39,9 +39,9 @@ export default function ContactPage() {
 
       {/* ── 推荐联系 ── */}
       <section>
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:py-20 lg:grid-cols-2 lg:items-stretch">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:py-20 lg:grid-cols-2 lg:items-start">
           {/* 人像 */}
-          <div className="relative min-h-[440px] overflow-hidden rounded-card-lg border border-brand-line bg-brand-card shadow-card">
+          <div className="relative aspect-square overflow-hidden rounded-card-lg border border-brand-line bg-brand-card shadow-card">
             <Image
               src="/images/contact/du-nannan-contact.webp"
               alt={`${advisor.name} · ${advisor.title}`}
