@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Clock, MapPin, Phone, ShieldCheck } from "lucide-react";
 
 import { Layout } from "@/components/Layout";
+import { CopyWechatButton } from "@/components/CopyWechatButton";
 import { brand } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -123,13 +124,11 @@ export default function ContactPage() {
             </dl>
 
             <div className="mt-8 flex flex-wrap gap-3 pt-2">
-              <a
-                href={`tel:${brand.phone}`}
+              <CopyWechatButton
+                value={brand.phone}
+                label="复制微信号"
                 className="premium-button inline-flex h-12 items-center gap-2 rounded-full bg-[#d9c7a5] px-7 text-sm font-semibold text-[#111816] transition hover:bg-[#eadabd]"
-              >
-                <Phone className="h-4 w-4" />
-                电话咨询
-              </a>
+              />
               <Link
                 href="/why-annual-advisor"
                 className="inline-flex h-12 items-center gap-2 rounded-full border border-brand-line px-7 text-sm font-medium text-brand-ink transition hover:border-brand-gold/50 hover:text-brand-gold"
