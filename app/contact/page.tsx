@@ -39,15 +39,15 @@ export default function ContactPage() {
 
       {/* ── 推荐联系 ── */}
       <section>
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:py-20 lg:grid-cols-2 lg:items-start">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:py-20 lg:grid-cols-2">
           {/* 人像 */}
-          <div className="relative aspect-square overflow-hidden rounded-card-lg border border-brand-line bg-brand-card shadow-card">
+          <div className="relative aspect-square overflow-hidden rounded-card-lg border border-brand-line bg-brand-card shadow-card lg:order-2 lg:aspect-auto">
             <Image
               src="/images/contact/du-nannan-contact.webp"
               alt={`${advisor.name} · ${advisor.title}`}
               fill
               sizes="(min-width: 1024px) 600px, 100vw"
-              className="object-cover"
+              className="object-cover object-left"
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0b1210] via-[#0b1210]/72 to-transparent p-7 pt-24">
               <span className="inline-flex items-center rounded-full border border-brand-gold/40 bg-brand-gold/10 px-3 py-1 text-xs font-medium text-brand-gold">
@@ -63,7 +63,7 @@ export default function ContactPage() {
           </div>
 
           {/* 联系信息 */}
-          <div className="flex flex-col rounded-card-lg border border-brand-line bg-brand-card p-7 shadow-card md:p-10">
+          <div className="flex flex-col rounded-card-lg border border-brand-line bg-brand-card p-7 shadow-card md:p-10 lg:order-1">
             <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-gold">
               推荐联系
             </p>
@@ -117,7 +117,7 @@ export default function ContactPage() {
                 <Clock className="mt-0.5 h-4 w-4 shrink-0 text-brand-gold" />
                 <div>
                   <dt className="text-brand-muted">服务时间</dt>
-                  <dd className="mt-0.5 text-brand-ink">周一至周六 9:00 – 18:00</dd>
+                  <dd className="mt-0.5 text-brand-ink">周一至周五 9:00 – 18:00</dd>
                 </div>
               </div>
             </dl>
