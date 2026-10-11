@@ -71,7 +71,6 @@ export default function PrivacyPage() {
           <h2>九、联系我们</h2>
           <ul>
             <li>电话：{brand.phone}</li>
-            <li>邮箱：{brand.email}</li>
             <li>地址：{brand.address}</li>
           </ul>
         </div>

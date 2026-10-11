@@ -98,7 +98,6 @@ export function Footer() {
           <ul className="mt-5 space-y-3 text-sm text-white/65">
             <li>电话：{brand.phone}</li>
             <li>微信：{brand.phone}（同号）</li>
-            <li>邮箱：{brand.email}</li>
             <li>地址：{brand.address}</li>
           </ul>
         </div>

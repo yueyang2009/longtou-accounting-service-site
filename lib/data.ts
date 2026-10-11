@@ -53,8 +53,6 @@ export const brand = {
   slogan: "让企业账更清楚，让经营决策更可靠",
   subtitle: "双师带队，专注中小企业财税规范与经营体系建设",
   phone: "13271589698",
-  email: "service@longtou.com",
-  wechat: "李岳阳TEL13271589698",
   address: "河南省郑州市国际路60号国家知识产权大厦11层",
   addressShort: "河南省郑州市国家知识产权大厦",
   wechatQr: `${siteBasePath}/images/wechat-qr-contact.png`,
