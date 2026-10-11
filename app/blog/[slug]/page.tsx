@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Calendar, Tag } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
 import { remark } from "remark";
 import { imageSize } from "image-size";
 import html from "remark-html";
@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 
 import { BrandLogo } from "@/components/BrandLogo";
 import { MobileNav } from "@/components/MobileNav";
-import { brand, navItems } from "@/lib/data";
+import { navItems } from "@/lib/data";
 import { Footer } from "@/components/Footer";
 import fs from "fs";
 import path from "path";
@@ -210,75 +210,126 @@ export default async function BlogPostPage({
 
       <main>
         {/* ── 文章头部 ── */}
-        <div className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:py-24 lg:grid-cols-[1fr_220px]">
-          <article className="min-w-0">
-          {/* 返回 */}
-          <Link
-            href="/blog"
-            className="mb-10 inline-flex items-center gap-1 text-sm text-brand-muted transition hover:text-brand-ink"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            返回文章列表
-          </Link>
+        <section className="border-b border-brand-line">
+          <div className="mx-auto max-w-4xl px-6 py-14 md:py-20">
+            {/* 返回 */}
+            <Link
+              href="/blog"
+              className="mb-10 inline-flex items-center gap-1 text-sm text-brand-muted transition hover:text-brand-ink"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              返回文章列表
+            </Link>
 
-          {/* 标题区 */}
-          <header className="mb-12">
-            {/* 日期 + 标签 */}
-            <div className="mb-4 flex flex-wrap items-center gap-3 text-sm text-brand-muted">
+            {/* 元信息 */}
+            <div className="mb-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-brand-muted">
+              <span className="font-medium text-brand-gold">{post.category}</span>
               {post.date && (
-                <span className="inline-flex items-center gap-1">
+                <span className="inline-flex items-center gap-1.5">
                   <Calendar className="h-4 w-4" />
                   {post.date}
                 </span>
               )}
-              {post.tags?.map((tag) => (
-                <span
-                  key={tag}
-                  className="inline-flex items-center gap-1 rounded-full border border-brand-line bg-brand-soft px-3 py-0.5 text-xs"
-                >
-                  <Tag className="h-3 w-3" />
-                  {tag}
-                </span>
-              ))}
+              <span className="inline-flex items-center gap-1.5">
+                <Clock className="h-4 w-4" />
+                约 {post.readingTime} 分钟
+              </span>
             </div>
 
-            <h1 className="text-4xl font-semibold leading-tight tracking-tight text-brand-ink md:text-6xl">
+            <h1 className="text-4xl font-semibold leading-tight tracking-tight text-brand-ink md:text-5xl">
               {post.title}
             </h1>
 
             {post.excerpt && (
-              <p className="mt-4 text-base leading-7 text-brand-muted">
+              <p className="mt-5 text-base leading-8 text-brand-muted md:text-lg">
                 {post.excerpt}
               </p>
             )}
-          </header>
 
-          {/* ── 正文 ── */}
+            {post.tags && post.tags.length > 0 && (
+              <div className="mt-7 flex flex-wrap items-center gap-2">
+                {post.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="inline-flex items-center gap-1 rounded-full border border-brand-line bg-brand-soft px-3 py-1 text-xs text-brand-muted"
+                  >
+                    <Tag className="h-3 w-3" />
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* ── 正文 ── */}
+        <article className="mx-auto max-w-3xl px-6 py-14">
+          {post.cover && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${post.cover}`}
+              alt={post.title}
+              className="mb-12 w-full rounded-card border border-brand-line"
+            />
+          )}
           <div
             className="prose-caishui"
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
-
-          {/* ── 相关阅读 ── */}
-          {relatedPosts.length > 0 && (
-            <section aria-label="相关阅读" className="mt-14 border-t border-brand-line pt-10">
-              <h2 className="text-lg font-semibold tracking-tight text-brand-ink">相关阅读</h2>
-              <ul className="mt-6 space-y-3">
-                {relatedPosts.map((p) => (
-                  <li key={p.slug}>
-                    <Link href={`/blog/${p.slug}/`} className="group flex flex-col gap-1 border border-brand-line bg-brand-card p-5 transition hover:border-brand-ink/40 md:flex-row md:items-baseline md:gap-4">
-                      <span className="text-sm font-semibold text-brand-ink md:w-[34em] md:shrink-0 md:truncate group-hover:text-brand-gold">
-                        {p.title}
-                      </span>
-                      <span className="text-xs text-brand-muted">{p.category} ｜ {p.date}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
         </article>
-      </div>
+
+        {/* ── 相关阅读 ── */}
+        {relatedPosts.length > 0 && (
+          <section aria-label="相关阅读" className="border-t border-brand-line">
+            <div className="mx-auto max-w-7xl px-6 py-14">
+              <h2 className="font-display text-2xl font-semibold tracking-tight text-brand-ink">
+                相关阅读
+              </h2>
+              <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {relatedPosts.map((p) => (
+                  <Link
+                    key={p.slug}
+                    href={`/blog/${p.slug}/`}
+                    className="group flex flex-col overflow-hidden rounded-card border border-brand-line bg-brand-card shadow-card transition hover:shadow-card-hover"
+                  >
+                    {p.cover ? (
+                      <div className="relative aspect-[16/10] overflow-hidden bg-[#0c1310]">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${p.cover}`}
+                          alt={p.title}
+                          loading="lazy"
+                          decoding="async"
+                          className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                        />
+                      </div>
+                    ) : (
+                      <div className="relative flex aspect-[16/10] items-center justify-center border-b border-brand-line bg-[#ece7dc]">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/longtou-group-logo.webp`}
+                          alt=""
+                          loading="lazy"
+                          decoding="async"
+                          className="h-8 w-auto opacity-80"
+                        />
+                      </div>
+                    )}
+                    <div className="flex flex-1 flex-col p-6">
+                      <div className="flex items-center gap-2 text-xs text-brand-muted">
+                        <span className="font-medium text-brand-gold">{p.category}</span>
+                        {p.date && <span>· {p.date}</span>}
+                      </div>
+                      <h3 className="mt-3 line-clamp-2 font-display text-lg font-semibold leading-snug tracking-tight text-brand-ink transition group-hover:text-brand-gold">
+                        {p.title}
+                      </h3>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
       </main>
 
       {/* ── Footer ── */}

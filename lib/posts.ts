@@ -33,12 +33,35 @@ export type PostMeta = {
   excerpt: string;
   tags: string[];
   category: string;
+  cover: string;
+  readingTime: number;
   faq?: PostFaq[];
 };
 
 export type Post = PostMeta & {
   content: string;
 };
+
+/**
+ * 列表封面：优先取 frontmatter 的 cover，否则用正文第一张配图。
+ * 两者都没有时返回空串，由前端渲染品牌兜底占位。
+ */
+function extractCover(md: string, data: Record<string, unknown>): string {
+  if (typeof data.cover === "string" && data.cover.trim()) return data.cover.trim();
+  const m = md.match(/!\[[^\]]*\]\((\/images\/[^)\s]+)/);
+  return m ? m[1] : "";
+}
+
+/** 估算阅读时长（中文按 400 字/分钟，英文按 200 词/分钟） */
+function readingMinutes(md: string): number {
+  const text = md
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")
+    .replace(/[#>*_`|~\-\]]/g, " ");
+  const cjk = (text.match(/[\u4e00-\u9fff]/g) || []).length;
+  const words = (text.match(/[A-Za-z0-9]+/g) || []).length;
+  return Math.max(1, Math.round(cjk / 400 + words / 200));
+}
 
 /** 获取所有文章的元数据列表 */
 export function getAllPosts(): PostMeta[] {
@@ -50,7 +73,7 @@ export function getAllPosts(): PostMeta[] {
     .map((file) => {
       const slug = file.replace(/\.md$/, "");
       const raw = fs.readFileSync(path.join(POSTS_DIR, file), "utf-8");
-      const { data } = matter(raw);
+      const { data, content } = matter(raw);
       return {
         slug,
         title: data.title || slug,
@@ -58,6 +81,8 @@ export function getAllPosts(): PostMeta[] {
         excerpt: data.excerpt || "",
         tags: data.tags || [],
         category: data.category || "未分类",
+        cover: extractCover(content, data),
+        readingTime: readingMinutes(content),
       };
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1)); // newest first
@@ -79,6 +104,8 @@ export function getPostBySlug(slug: string): Post | null {
     excerpt: data.excerpt || "",
     tags: data.tags || [],
     category: data.category || "未分类",
+    cover: extractCover(content, data),
+    readingTime: readingMinutes(content),
     faq: data.faq || [],
     content,
   };

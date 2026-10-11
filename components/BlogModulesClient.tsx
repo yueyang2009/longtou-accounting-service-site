@@ -1,10 +1,48 @@
 "use client";
 
-import { useMemo, useState, useEffect, useRef } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Calendar, Tag, Search, X, ChevronRight } from "lucide-react";
+import { ArrowUpRight, Calendar, Clock, Search, X } from "lucide-react";
 import type { PostMeta } from "@/lib/posts";
-import { CATEGORY_ORDER } from "@/lib/categories";
+
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+function coverSrc(cover: string) {
+  return cover ? `${BASE}${cover}` : "";
+}
+
+function Cover({ post, className }: { post: PostMeta; className?: string }) {
+  const src = coverSrc(post.cover);
+  if (src) {
+    return (
+      <div className={`relative overflow-hidden bg-[#0c1310] ${className ?? ""}`}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={src}
+          alt={post.title}
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+        />
+        <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0b1210]/55 via-transparent to-transparent" />
+      </div>
+    );
+  }
+  return (
+    <div
+      className={`relative flex items-center justify-center overflow-hidden border-b border-brand-line bg-[#ece7dc] ${className ?? ""}`}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={`${BASE}/images/longtou-group-logo.webp`}
+        alt=""
+        loading="lazy"
+        decoding="async"
+        className="h-9 w-auto opacity-80"
+      />
+    </div>
+  );
+}
 
 export function BlogModulesClient({
   posts,
@@ -14,153 +52,59 @@ export function BlogModulesClient({
   categories: { name: string; count: number }[];
 }) {
   const [query, setQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
-  const userActionRef = useRef(false);
-  const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
+  const [active, setActive] = useState<string | null>(null);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return posts;
-    return posts.filter(
-      (p) =>
-        p.title?.toLowerCase().includes(q) ||
-        p.excerpt?.toLowerCase().includes(q) ||
-        p.tags?.some((t) => t.toLowerCase().includes(q)) ||
-        p.category?.toLowerCase().includes(q)
-    );
-  }, [query, posts]);
-
-  const groups = categories
-    .map((c) => ({
-      ...c,
-      items: filtered.filter((p) => (p.category || "未分类") === c.name),
-    }))
-    .filter((g) => g.items.length > 0);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute("id");
-            if (id) setActiveCategory((prev) => {
-              if (userActionRef.current) {
-                userActionRef.current = false;
-                return prev;
-              }
-              return decodeURIComponent(id.replace("cat-", ""));
-            });
-          }
-        }
-      },
-      { rootMargin: "-80px 0px -60% 0px" }
-    );
-    for (const ref of Object.values(sectionRefs.current)) {
-      if (ref) observer.observe(ref);
+    let list = posts;
+    if (active) list = list.filter((p) => (p.category || "未分类") === active);
+    if (q) {
+      list = list.filter(
+        (p) =>
+          p.title?.toLowerCase().includes(q) ||
+          p.excerpt?.toLowerCase().includes(q) ||
+          p.tags?.some((t) => t.toLowerCase().includes(q)) ||
+          p.category?.toLowerCase().includes(q)
+      );
     }
-    return () => observer.disconnect();
-  }, [groups]);
+    return list;
+  }, [query, active, posts]);
 
-  const toggleCategory = (name: string) => {
-    setActiveCategory((prev) => {
-      if (prev === name) {
-        userActionRef.current = true;
-        return null;
-      }
-      userActionRef.current = false;
-      scrollToSection(name);
-      return name;
-    });
-  };
-
-  const scrollToSection = (name: string) => {
-    const el = sectionRefs.current[name];
-    if (el) {
-      el.scrollIntoView({ behavior: "instant", block: "start" });
-    }
-  };
+  const isDefaultView = !query.trim() && !active;
+  const featured = isDefaultView ? filtered[0] : undefined;
+  const gridPosts = featured ? filtered.slice(1) : filtered;
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[220px_1fr]">
-      <div className="lg:sticky lg:top-28 lg:self-start">
-        <nav aria-label="文章分类目录">
-          <h2 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-brand-muted">
-            博文目录
-          </h2>
-          <ul className="space-y-1">
-            <li>
-              <button
-                onClick={() => toggleCategory("all")}
-                className={`w-full rounded-lg px-3 py-2 text-left text-sm transition ${
-                  activeCategory === "all" || !activeCategory
-                    ? "bg-[#1a2420] font-medium text-[#e9d9bc]"
-                    : "text-brand-muted hover:bg-brand-soft hover:text-brand-ink"
-                }`}
-              >
-                全部文章
-                <span className="ml-2 text-xs">{posts.length}</span>
-              </button>
-            </li>
+    <div>
+      {/* ── 工具栏：分类 + 搜索 ── */}
+      <div className="sticky top-[72px] z-30 -mx-6 mb-10 border-b border-brand-line bg-brand-paper/92 px-6 py-4 backdrop-blur-xl">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-1 flex-wrap items-center gap-2">
+            <Chip
+              label="全部文章"
+              count={posts.length}
+              active={!active}
+              onClick={() => setActive(null)}
+            />
             {categories.map((c) => (
-              <li key={c.name}>
-                {/*
-                  Find matching group items for this category
-                */}
-                {(() => {
-                  const items = groups.find((g) => g.name === c.name)?.items ?? filtered.filter((p) => (p.category || "未分类") === c.name);
-                  return (
-                    <>
-                      <button
-                        onClick={() => toggleCategory(c.name)}
-                        className={`w-full rounded-lg px-3 py-2 text-left text-sm transition ${
-                          activeCategory === c.name
-                            ? "bg-[#1a2420] font-medium text-[#e9d9bc]"
-                            : "text-brand-muted hover:bg-brand-soft hover:text-brand-ink"
-                        }`}
-                      >
-                        <span className="inline-flex items-center gap-2">
-                          <ChevronRight
-                            className={`h-3 w-3 shrink-0 transition ${
-                              activeCategory === c.name ? "rotate-90 text-[#d9c7a5]" : "text-brand-muted/40"
-                            }`}
-                          />
-                          {c.name}
-                        </span>
-                        <span className="ml-auto text-xs text-brand-muted">{c.count}</span>
-                      </button>
-                      {activeCategory === c.name && items.length > 0 && (
-                        <ul className="ml-4 mt-1 space-y-0.5 border-l border-brand-line/30 pl-3">
-                          {items.map((post) => (
-                            <li key={post.slug}>
-                              <Link
-                                href={`/blog/${post.slug}`}
-                                className="block rounded px-2 py-1.5 text-xs text-brand-muted/80 transition hover:text-[#e9d9bc] hover:bg-[#1a2420]/60"
-                              >
-                                {post.title}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </>
-                  );
-                })()}
-              </li>
+              <Chip
+                key={c.name}
+                label={c.name}
+                count={c.count}
+                active={active === c.name}
+                onClick={() => setActive((prev) => (prev === c.name ? null : c.name))}
+              />
             ))}
-          </ul>
-        </nav>
-      </div>
+          </div>
 
-      <div>
-        <div className="mb-10 flex justify-end">
-          <div className="relative w-full max-w-xs">
+          <div className="relative w-full lg:w-64 lg:shrink-0">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-muted" />
             <input
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="搜索文章…"
-              className="w-full rounded-full border border-brand-line/50 bg-[#1a2420] py-2 pl-10 pr-10 text-sm text-[#e9e3d5] outline-none placeholder:text-[#8a857a] transition focus:border-[#d9c7a5] focus:ring-1 focus:ring-[#d9c7a5]/40"
+              className="w-full rounded-full border border-brand-line bg-[#141d19] py-2 pl-10 pr-10 text-sm text-brand-ink outline-none placeholder:text-brand-muted transition focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/40"
             />
             {query && (
               <button
@@ -173,85 +117,119 @@ export function BlogModulesClient({
             )}
           </div>
         </div>
+      </div>
 
-        <div id="all" className="space-y-14">
-          {groups.map((g) => (
-            <section
-              key={g.name}
-              id={`cat-${encodeURIComponent(g.name)}`}
-              ref={(el) => { sectionRefs.current[g.name] = el; }}
-              className="scroll-mt-28"
+      {filtered.length === 0 ? (
+        <p className="py-20 text-center text-brand-muted">
+          没有找到相关文章，试试其他关键词？
+        </p>
+      ) : (
+        <div className="space-y-12">
+          {/* ── 头条 ── */}
+          {featured && (
+            <Link
+              href={`/blog/${featured.slug}/`}
+              className="group grid overflow-hidden rounded-card-lg border border-brand-line bg-brand-card shadow-card transition hover:shadow-card-hover lg:grid-cols-2"
             >
-              <div className="mb-6 flex items-baseline gap-3 border-b border-brand-line pb-3">
-                <h2 className="text-2xl font-semibold tracking-tight text-brand-ink">
-                  {g.name}
+              <Cover post={featured} className="aspect-[16/10] lg:aspect-auto lg:h-full lg:min-h-[360px]" />
+              <div className="flex flex-col justify-center p-8 lg:p-12">
+                <div className="flex items-center gap-3 text-xs">
+                  <span className="rounded-full border border-brand-gold/40 bg-brand-gold/10 px-3 py-1 font-medium text-brand-gold">
+                    最新文章
+                  </span>
+                  <span className="text-brand-muted">{featured.category}</span>
+                </div>
+                <h2 className="mt-5 font-display text-2xl font-semibold leading-snug tracking-tight text-brand-ink md:text-3xl">
+                  {featured.title}
                 </h2>
-                <span className="rounded-full bg-brand-soft px-2.5 py-0.5 text-xs text-brand-muted">
-                  {g.items.length} 篇
+                {featured.excerpt && (
+                  <p className="mt-4 line-clamp-3 text-sm leading-8 text-brand-muted md:text-base">
+                    {featured.excerpt}
+                  </p>
+                )}
+                <div className="mt-6 flex flex-wrap items-center gap-4 text-xs text-brand-muted">
+                  {featured.date && (
+                    <span className="inline-flex items-center gap-1.5">
+                      <Calendar className="h-3.5 w-3.5" />
+                      {featured.date}
+                    </span>
+                  )}
+                  <span className="inline-flex items-center gap-1.5">
+                    <Clock className="h-3.5 w-3.5" />
+                    约 {featured.readingTime} 分钟
+                  </span>
+                </div>
+                <span className="mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-brand-gold">
+                  阅读全文 <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </span>
               </div>
-              <div className="space-y-6">
-                {g.items.map((post) => (
-                  <ArticleCard key={post.slug} post={post} />
-                ))}
-              </div>
-            </section>
-          ))}
-
-          {groups.length === 0 && (
-            <p className="py-12 text-center text-brand-muted">
-              没有找到相关文章，试试其他关键词？
-            </p>
+            </Link>
           )}
+
+          {/* ── 卡片网格 ── */}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {gridPosts.map((post) => (
+              <ArticleCard key={post.slug} post={post} />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
 
+function Chip({
+  label,
+  count,
+  active,
+  onClick,
+}: {
+  label: string;
+  count: number;
+  active: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm transition ${
+        active
+          ? "border-brand-gold bg-brand-gold text-[#0f1513] font-semibold"
+          : "border-brand-line text-brand-muted hover:border-brand-gold/50 hover:text-brand-ink"
+      }`}
+    >
+      {label}
+      <span className={`text-xs ${active ? "text-[#0f1513]/70" : "text-brand-muted/70"}`}>
+        {count}
+      </span>
+    </button>
+  );
+}
+
 function ArticleCard({ post }: { post: PostMeta }) {
-  const featured = CATEGORY_ORDER.includes(post.category);
   return (
     <Link
-      href={`/blog/${post.slug}`}
-      className="group block rounded-card border border-brand-line bg-brand-card p-6 shadow-card transition hover:shadow-card-hover md:p-8"
+      href={`/blog/${post.slug}/`}
+      className="group flex flex-col overflow-hidden rounded-card border border-brand-line bg-brand-card shadow-card transition hover:shadow-card-hover"
     >
-      <div className="mb-4 flex flex-wrap items-center gap-3 text-xs text-brand-muted">
-        {post.date && (
-          <span className="inline-flex items-center gap-1">
-            <Calendar className="h-3.5 w-3.5" />
-            {post.date}
-          </span>
+      <Cover post={post} className="aspect-[16/10]" />
+      <div className="flex flex-1 flex-col p-6">
+        <div className="flex items-center gap-2 text-xs text-brand-muted">
+          <span className="font-medium text-brand-gold">{post.category}</span>
+          {post.date && <span>· {post.date}</span>}
+        </div>
+        <h3 className="mt-3 line-clamp-2 font-display text-lg font-semibold leading-snug tracking-tight text-brand-ink transition group-hover:text-brand-gold">
+          {post.title}
+        </h3>
+        {post.excerpt && (
+          <p className="mt-3 line-clamp-3 flex-1 text-sm leading-7 text-brand-muted">
+            {post.excerpt}
+          </p>
         )}
-        {post.tags?.map((tag) => (
-          <span
-            key={tag}
-            className="inline-flex items-center gap-1 rounded-full border border-brand-line bg-brand-soft px-2.5 py-0.5 text-xs text-brand-muted"
-          >
-            <Tag className="h-3 w-3" />
-            {tag}
-          </span>
-        ))}
-      </div>
-
-      <h3
-        className={
-          featured
-            ? "blog-title-featured inline-block rounded-lg text-xl font-bold leading-snug tracking-tight md:text-2xl"
-            : "text-xl font-semibold leading-snug tracking-tight text-brand-ink transition group-hover:text-brand-emerald md:text-2xl"
-        }
-      >
-        {post.title}
-      </h3>
-
-      {post.excerpt && (
-        <p className="mt-3 line-clamp-2 text-sm leading-7 text-brand-muted">
-          {post.excerpt}
-        </p>
-      )}
-
-      <div className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-brand-emerald opacity-0 transition group-hover:opacity-100">
-        阅读全文 <ArrowRight className="h-3.5 w-3.5" />
+        <div className="mt-5 flex items-center gap-1.5 text-xs text-brand-muted">
+          <Clock className="h-3.5 w-3.5" />
+          约 {post.readingTime} 分钟
+        </div>
       </div>
     </Link>
   );
