@@ -29,10 +29,7 @@ export const metadata: Metadata = {
     "龙头会服",
     "河南龙头会计服务有限公司",
   ],
-  alternates: {
-    canonical: "/",
-  },
- openGraph: {
+  openGraph: {
     images: [
       {
         url: `${SITE}/images/og-image.jpg`,
@@ -96,7 +93,7 @@ const jsonLd = {
       },
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+86-181-0383-5769",
+        telephone: "+86-132-7158-9698",
         contactType: "business",
         areaServed: "河南省",
       },

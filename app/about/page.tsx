@@ -1,10 +1,18 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { ArrowRight, Minus } from "lucide-react";
 
 import { HomeHeader } from "@/components/HomeHeader";
 import { Footer } from "@/components/Footer";
 import { HomeSectionMotion } from "@/components/HomeSectionMotion";
 import { brand } from "@/lib/data";
+
+export const metadata: Metadata = {
+  title: "关于我们｜为什么存在龙头会服",
+  description:
+    "龙头会服·高端财税服务团队（河南龙头会计服务有限公司）专注年营收 2000 万至 2 亿民营企业的财税规范与经营体系建设，把财务数据翻译成经营决策。",
+  alternates: { canonical: "/about" },
+};
 
 function Label({ text }: { text: string }) {
   return (
@@ -61,7 +69,7 @@ export default function AboutPage() {
               龙头会服的成立，就是为了填补这个空白——不是替代代账，不是替代会计，而是在它们之上，提供一个能把财务数据翻译成经营决策的顾问层。
             </p>
             <p className="mx-auto mt-8 max-w-2xl border-l-4 border-[#d9c7a5] bg-white/5 px-6 py-5 text-left text-lg font-medium leading-7 text-white">
-              龙头会服存在的唯一理由：让成长型民营企业在经营决策时，手里有真实的数据。
+              龙头会服最根本的出发点：让成长型民营企业在经营决策时，手里有真实的数据。
             </p>
           </div>
         </section>

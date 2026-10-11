@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 
 import { HomeHeader } from "@/components/HomeHeader";
@@ -7,6 +8,13 @@ import { HomeSectionMotion } from "@/components/HomeSectionMotion";
 import { ServiceScenarioCards } from "@/components/ServiceScenarioCards";
 import { SectionReveal } from "@/components/SectionReveal";
 import { brand, servicePackages } from "@/lib/data";
+
+export const metadata: Metadata = {
+  title: "服务体系｜财税健康体检与经营分析",
+  description:
+    "从财税健康体检、经营分析到股权架构设计、财务体系建设与历史乱账清理，按企业发展阶段匹配的财税服务体系。",
+  alternates: { canonical: "/services" },
+};
 
 function Label({ text }: { text: string }) {
   return (

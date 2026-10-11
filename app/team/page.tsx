@@ -6,13 +6,14 @@ import { HomeHeader } from "@/components/HomeHeader";
 import { Footer } from "@/components/Footer";
 import { TeamOrbit, type OrbitMember } from "@/components/TeamOrbit";
 import { AdvisorMatrix, type AdvisorMember } from "@/components/AdvisorMatrix";
-import { brand, trustMetrics, extendedExperts } from "@/lib/data";
+import { trustMetrics, extendedExperts } from "@/lib/data";
 
 const assetBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const metadata: Metadata = {
-  title: `团队介绍｜${brand.name}`,
-  description: "龙头会服高端财税事业部专家顾问团队，覆盖财务、税务、法律、经营与企业内控。"
+  title: "团队介绍",
+  description: "龙头会服高端财税事业部专家顾问团队，覆盖财务、税务、法律、经营与企业内控。",
+  alternates: { canonical: "/team" }
 };
 
 const coreMembers: OrbitMember[] = [

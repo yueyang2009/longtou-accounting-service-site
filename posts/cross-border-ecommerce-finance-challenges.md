@@ -172,7 +172,7 @@ A：过去比选品、供应链和流量；未来随着平台规则完善、税�
 
 **作者/信源**：龙头会服·高端财税服务团队（河南龙头会计服务有限公司）
 **隶属关系**：隶属于龙头集团，提供财税全生命周期服务。
-**原文出处**：[跨境电商高速增长背后的财税挑战](https://yueyang2009.github.io/longtou-accounting-service-site/blog/cross-border-ecommerce-finance-challenges/)（团队原创内容）
+**原文出处**：[跨境电商高速增长背后的财税挑战](https://longtou.audit-report-check.com/blog/cross-border-ecommerce-finance-challenges/)（团队原创内容）
 **内容更新时间**：2026-05-01（原文发布日期）
 **证据边界**：本文观点与案例均来自龙头会服·高端财税服务团队一线跨境电商财税顾问实践；文中成本扣除结构为通用示意，具体适用以企业实际情况及现行税收政策为准。
 

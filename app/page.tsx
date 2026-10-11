@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import type { ReactNode } from "react";
 
@@ -23,6 +24,13 @@ import {
   principles,
   trustMetrics
 } from "@/lib/data";
+
+export const metadata: Metadata = {
+  title: { absolute: `${brand.name}｜${brand.slogan}` },
+  description:
+    "龙头会服·高端财税服务团队，专注中小企业财税规范与经营体系建设：财税健康体检、经营分析、股权架构设计、历史乱账清理、内控体系搭建与税务稽查应对。",
+  alternates: { canonical: "/" },
+};
 
 function SectionTitle({
   label,
@@ -86,7 +94,7 @@ function DashboardPreview() {
         <div className="dashboard-surface cockpit-surface border border-white/10 bg-[#17191a]/92 p-5 text-white">
           <div className="flex items-center justify-between border-b border-white/10 pb-5">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/42">Operating cockpit</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/55">Operating cockpit</p>
               <p className="mt-2 text-2xl font-bold tracking-tight text-[#d9c7a5]">经营决策中枢</p>
             </div>
             <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5">
@@ -141,7 +149,7 @@ function DashboardPreview() {
                 <div className="cockpit-risk-card dashboard-panel border border-white/10 bg-brand-card/[0.045] p-5">
                   <div className="flex items-center justify-between">
                     <p className="text-sm font-bold text-[#d9c7a5]">风险雷达</p>
-                    <p className="text-xs text-white/42">前置识别</p>
+                    <p className="text-xs text-white/55">前置识别</p>
                   </div>
                   <div className="mt-5 grid grid-cols-4 gap-2">
                     {riskItems.map((item, index) => (
@@ -209,6 +217,7 @@ export default function HomePage() {
       <HomeSectionMotion />
 
       <main>
+        <h1 className="sr-only">龙头会服 · 高端财税服务团队：让企业账更清楚，让经营决策更可靠</h1>
         <BrandLaunchHero />
         <HomeBusinessHero dashboard={<DashboardPreview />} />
 

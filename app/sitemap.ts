@@ -8,7 +8,7 @@ export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
   // 静态页不输出 lastmod：避免每次构建都把全部 URL 标成"刚更新"，降低抓取噪音；
   // 博文仍使用真实发布日期
-  const staticRoutes = ["", "/why-annual-advisor", "/services", "/digital-dashboard", "/equity-structure", "/break-even", "/risk-heatmap", "/budget-management", "/dashboard-demo", "/cases", "/faq", "/about", "/team", "/blog"].map(
+  const staticRoutes = ["", "/why-annual-advisor", "/services", "/digital-dashboard", "/equity-structure", "/break-even", "/risk-heatmap", "/budget-management", "/dashboard-demo", "/cash-flow-forecast", "/cases", "/faq", "/about", "/team", "/blog", "/contact", "/privacy", "/terms"].map(
     (route) => ({
       url: `${SITE}${route}/`,
       changeFrequency: "weekly" as const,

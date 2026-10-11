@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import { brand, siteNavLinks } from "@/lib/data";
-import { CountUp } from "@/components/CountUp";
 
 const services = [
   { label: "财税健康体检", href: "/services" },
@@ -30,7 +29,8 @@ export function Footer() {
           {credentials.map((c) => (
             <div key={c.label} className="bg-[#0a0f0d] px-6 py-7 text-center">
               <p className="text-3xl font-semibold tracking-tight text-[#e9d9bc]">
-                <CountUp value={c.value} suffix={c.suffix} />
+                {c.value}
+                {c.suffix}
               </p>
               <p className="mt-1.5 text-xs text-white/55">{c.label}</p>
             </div>

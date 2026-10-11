@@ -8,9 +8,10 @@ import { CopyWechatButton } from "@/components/CopyWechatButton";
 import { brand } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: `联系我们｜${brand.name}`,
+  title: "联系我们",
   description:
     "添加高端财税顾问微信，或直接致电。先聊清楚企业当下最需要被看见的问题，再判断是否适合年度顾问服务。",
+  alternates: { canonical: "/contact" },
 };
 
 const advisor = {
