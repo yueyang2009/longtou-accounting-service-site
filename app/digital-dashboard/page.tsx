@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, BarChart3, ChartNoAxesCombined, CircleDollarSign, Network, ShieldAlert } from "lucide-react";
+import { ArrowRight, BarChart3, ChartNoAxesCombined, CircleDollarSign, Gauge, Network, ShieldAlert } from "lucide-react";
 
 import { Footer } from "@/components/Footer";
 import { HomeHeader } from "@/components/HomeHeader";
 
 export const metadata: Metadata = {
   title: "数智化看板｜经营决策展示中心",
-  description: "汇集股权设计、风险热力图、盈亏平衡点、经营看板与预算管理等数智化经营决策展示。",
+  description: "汇集股权设计、风险热力图、盈亏平衡点、经营看板、经营决策驾驶舱与预算管理等数智化经营决策展示。",
   alternates: { canonical: "/digital-dashboard" },
 };
 
@@ -16,7 +16,8 @@ const showcases = [
   { title: "风险热力图", desc: "将财税风险按影响程度与发生可能性可视化，明确处置优先级。", href: "/risk-heatmap", Icon: ShieldAlert, no: "02" },
   { title: "盈亏平衡点", desc: "通过量本利模型定位保本线、安全边际和目标利润路径。", href: "/break-even", Icon: ChartNoAxesCombined, no: "03" },
   { title: "经营看板示例", desc: "围绕项目、回款、成本与利润，建立管理层共同使用的经营语言。", href: "/dashboard-demo", Icon: BarChart3, no: "04" },
-  { title: "预算管理", desc: "把年度目标、月度预算、执行差异与现金安排纳入同一套管理节奏。", href: "/budget-management", Icon: CircleDollarSign, no: "05" },
+  { title: "经营决策驾驶舱", desc: "以三表勾稽为基础，把指标、预警、预算与行动闭环放在同一个经营决策界面。", href: "/executive-dashboard", Icon: Gauge, no: "05" },
+  { title: "预算管理", desc: "把年度目标、月度预算、执行差异与现金安排纳入同一套管理节奏。", href: "/budget-management", Icon: CircleDollarSign, no: "06" },
 ];
 
 export default function DigitalDashboardPage() {

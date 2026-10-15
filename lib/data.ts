@@ -73,6 +73,7 @@ export const digitalDashboardLinks: SiteNavChild[] = [
   { href: "/risk-heatmap", label: "风险热力图" },
   { href: "/break-even", label: "盈亏平衡点" },
   { href: "/dashboard-demo", label: "经营看板示例" },
+  { href: "/executive-dashboard", label: "经营决策驾驶舱" },
   { href: "/budget-management", label: "预算管理" }
 ];
 
