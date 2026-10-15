@@ -8,11 +8,19 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# repowise 索引（含完整代码图与历史分析，约11MB）；本仓库有公开 remote，必须忽略
+.repowise/
+# repowise 生成的编辑器配置：内含本机绝对路径(D:/workspace/...)，跨机失效且不宜进公开仓库
+.mcp.json
+.claude/
+.vscode/
+.github/copilot-instructions.md
+
 # 过程截图 / 预览图（仓库根目录散落文件）
 /card-extract-*.png
 /glassmorphism-*.png
 /preview-*-motion.png
 /section-motion-preview.png
 
-# ���ؿ�����־
+# ���ؿ�����־
 /server.log
