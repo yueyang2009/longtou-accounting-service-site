@@ -467,7 +467,7 @@ body{background:#f2f5f9;font-size:13px}body:before,.watermark,.contact-strip{dis
 <div class="floating-actions"><button class="btn secondary" onclick="exportAllExcel()">导出数据</button><button class="btn" onclick="downloadImportTemplate()">下载模板</button></div>
 <div class="toast" id="toast"></div>
 <script>
-const storeKey="longtou_financial_dashboard_model_v3_trusted_data";
+/* 版本号随演示数据口径变更递增：旧版本缓存的数据会被自动忽略并按新代码重新生成，避免浏览器里残留旧口径 */const storeKey="longtou_financial_dashboard_model_v4_trusted_data";
 const orgs=["智能硬件事业部","软件服务事业部","解决方案事业部","运营支持中心"];
 const regions=["华东","华南","华北","西南"];
 const keyFields=["年度","月份","组织单元","区域"];
