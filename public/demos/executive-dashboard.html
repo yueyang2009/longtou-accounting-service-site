@@ -118,6 +118,28 @@ body{background:#f2f5f9;font-size:13px}body:before,.watermark,.contact-strip{dis
 @media(max-width:1280px){.toolbar{grid-template-columns:repeat(4,1fr)}.metric-layout{grid-template-columns:160px 1fr}.editor-panel{grid-column:span 2}.closure-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:860px){.app{grid-template-columns:1fr}.sidebar{height:auto;position:relative}.main{padding:10px}.toolbar,.kpis,.four,.five,.decision-ribbon{grid-template-columns:1fr}.metric-layout{grid-template-columns:1fr}.editor-panel{grid-column:auto}.closure-grid{grid-template-columns:1fr}.hero:before{display:none}.floating-actions{position:static;margin-top:10px}}
 
+/* ===== 观感优化：清晰度、节奏与滚动流畅度 ===== */
+/* 1) 指标数字原为 line-height:1，23px 字号下字形被裁切约 4px（165,351.8 的 g 会缺角） */
+.kpi-value{line-height:1.14}
+/* 2) 决策闭环 5 个步骤窄屏下文字超出被裁切；改为自动换行 */
+.decision-step{overflow-wrap:anywhere}
+/* 3) 正文字号：10px 在 1366 屏上偏小，统一抬到 11px，行高同步放宽（更透气、不增体积） */
+.small,.control label,.editor-grid label{font-size:11px;line-height:1.62}
+.side-foot{font-size:11px;line-height:1.7}
+.brand p{font-size:11px}
+.kpi-name,.kpi-sub,.tag,.seg button{font-size:11px}
+.note{line-height:1.72}
+/* 4) 视觉节奏：章节间距与卡片内距小幅放宽，长页面不再拥挤 */
+.section-title{margin:22px 0 12px}
+.card{padding:15px}
+.card h3{margin:0 0 11px}
+.table-wrap{overscroll-behavior-x:contain}
+/* 5) 滚动流畅度：避免“外层页面 + iframe 内 body + 侧栏”三层滚动互相打架
+      iframe 高度由外层脚本设成内容实际高度，页面滚动交给外层，鼠标滚轮只滚动最外层 */
+html,body{overscroll-behavior-y:none}
+.sidebar,.table-wrap,.metric-list,.metric-categories{overscroll-behavior:contain}
+.card,.kpi-card{transition:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
