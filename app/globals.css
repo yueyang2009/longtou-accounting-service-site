@@ -3923,3 +3923,23 @@ footer.bg-brand-emerald {
   height: calc(100svh - 72px);
   background: #0c1310;
 }
+
+/* ── 2026-10-28 首屏放宽（转化改造）─────────────────────────────
+   原样式把 main 下每个 section 都包成一张带外框的卡片，首屏因此被
+   外边距 + 内边距 + 圆角边框推下去一大截。这里只对首页首屏豁免，
+   其它区块的卡片风格不动。 */
+.private-advisory-site main > section.hero-fullbleed {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 0 clamp(1rem, 2vw, 1.75rem) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: #111816 !important;
+}
+
+@media (max-width: 767px) {
+  .private-advisory-site main {
+    padding-top: 0 !important;
+  }
+}

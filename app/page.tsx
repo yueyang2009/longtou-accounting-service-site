@@ -10,8 +10,8 @@ import { ParticleHeadline } from "@/components/ParticleHeadline";
 import { IndustryScenes } from "@/components/IndustryScenes";
 import { HomeSectionMotion } from "@/components/HomeSectionMotion";
 import { FlipCard } from "@/components/FlipCard";
-import { BrandLaunchHero } from "@/components/BrandLaunchHero";
 import { HomeBusinessHero } from "@/components/HomeBusinessHero";
+import { LeadFormLive } from "@/components/LeadFormLive";
 import {
   annualPlan,
   annualTimeline,
@@ -217,8 +217,6 @@ export default function HomePage() {
       <HomeSectionMotion />
 
       <main>
-        <h1 className="sr-only">龙头会服 · 高端财税服务团队：让企业账更清楚，让经营决策更可靠</h1>
-        <BrandLaunchHero />
         <HomeBusinessHero dashboard={<DashboardPreview />} />
 
         {/* ── 已服务行业 · 横向缓动滚条 ── */}
@@ -525,7 +523,7 @@ export default function HomePage() {
 
         {/* ── 判断与行动 ── */}
         <section data-header-theme="dark" className="section-reveal private-final-cta border-b border-brand-line bg-brand-soft">
-          <div className="mx-auto max-w-3xl px-6 py-28 text-center md:py-36">
+          <div className="mx-auto max-w-3xl px-6 py-24 text-left md:py-28">
             {/* 行动标题：直接粒子，左对齐，金色 */}
             <div className="mx-auto max-w-3xl px-6 text-left">
               <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-brand-muted">行动</p>
@@ -539,17 +537,16 @@ export default function HomePage() {
             <p className="mx-auto mt-6 max-w-2xl text-base font-medium leading-7 text-[#3a352c]">年度顾问更适合年营收2000万以上、已有稳定经营规模、且老板愿意参与经营管理的企业。</p>
             <p className="mx-auto mt-4 max-w-xl text-sm font-medium leading-6 text-[#3a352c]">如果企业还处于初创阶段，或者只需要基础代账服务，年度顾问可能不是当前最优选择。</p>
             <p className="mx-auto mt-6 max-w-xl text-base font-medium leading-7 text-[#3a352c]">不急着给方案，先把企业所处阶段、真实问题和需要优先处理的事项讲清楚。</p>
-            <div className="mt-10 flex flex-col items-center gap-4">
-              <Link
-                href="/contact"
-                className="premium-button inline-flex h-12 items-center gap-2 rounded-full bg-[#d9c7a5] px-7 text-sm font-semibold text-[#111816] transition hover:bg-[#eadabd]"
-              >
-                申请企业财税风险诊断（限量开放）
-                <ArrowRight className="h-4 w-4" />
+            <div className="mx-auto mt-10 max-w-xl text-left">
+              <LeadFormLive />
+            </div>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm">
+              <a href={`tel:${brand.phone}`} className="font-semibold text-brand-ink underline decoration-brand-gold/50 underline-offset-4">
+                直接打电话 {brand.phone}
+              </a>
+              <Link href="/contact" className="text-brand-muted transition hover:text-brand-gold">
+                想看顾问是谁、微信多少 →
               </Link>
-              <p className="text-sm text-brand-muted">
-                电话：{brand.phone} ｜ 微信同号
-              </p>
             </div>
           </div>
         </section>

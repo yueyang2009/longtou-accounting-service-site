@@ -5,6 +5,7 @@ import { Clock, MapPin, Phone, ShieldCheck } from "lucide-react";
 
 import { Layout } from "@/components/Layout";
 import { CopyWechatButton } from "@/components/CopyWechatButton";
+import { LeadFormLive } from "@/components/LeadFormLive";
 import { brand } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -36,6 +37,34 @@ export default function ContactPage() {
           <p className="mt-6 max-w-2xl text-base leading-8 text-brand-muted md:text-lg">
             不用先填一堆表格，也不用先决定合作。加一个顾问的微信，把企业当下的情况讲清楚，我们先判断这件事值不值得现在做。
           </p>
+
+          {/* 第一屏就能用的三个入口：打电话 / 复制微信 / 填表留号 */}
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href={`tel:${brand.phone}`}
+              className="premium-button inline-flex h-12 items-center gap-2 rounded-full bg-[#d9c7a5] px-6 text-sm font-semibold text-[#111816] transition hover:bg-[#eadabd]"
+            >
+              <Phone className="h-4 w-4" /> 打电话 {brand.phone}
+            </a>
+            <CopyWechatButton
+              value={brand.phone}
+              label="复制微信号"
+              className="inline-flex h-12 items-center gap-2 rounded-full border border-brand-line px-6 text-sm font-medium text-brand-ink transition hover:border-brand-gold/50 hover:text-brand-gold"
+            />
+            <a
+              href="#leave-contact"
+              className="inline-flex h-12 items-center gap-2 rounded-full border border-brand-line px-6 text-sm font-medium text-brand-ink transition hover:border-brand-gold/50 hover:text-brand-gold"
+            >
+              不想打电话？留个号，我们打给你
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 留个电话，我们打给你 ── */}
+      <section id="leave-contact" className="border-b border-brand-line">
+        <div className="mx-auto max-w-3xl px-6 py-14 md:py-20">
+          <LeadFormLive />
         </div>
       </section>
 

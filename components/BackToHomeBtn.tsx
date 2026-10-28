@@ -5,8 +5,9 @@ import { usePathname } from "next/navigation";
 
 export function BackToHomeBtn() {
   const pathname = usePathname();
-  // 首页不显示
-  if (pathname === "/" || pathname === "" || pathname === "/equity-structure") return null;
+  // 首页不显示；联系页有表单要填，悬浮球会压住输入框，也不显示
+  const clean = (pathname ?? "").replace(/\/+$/, "");
+  if (clean === "" || clean === "/" || clean === "/equity-structure" || clean === "/contact") return null;
 
   return (
     <nav aria-label="快捷返回">

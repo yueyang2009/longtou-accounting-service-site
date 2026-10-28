@@ -96,7 +96,12 @@ export function Footer() {
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#d9c7a5]/80">联系</p>
           <ul className="mt-5 space-y-3 text-sm text-white/65">
-            <li>电话：{brand.phone}</li>
+            <li>
+              电话：
+              <a href={`tel:${brand.phone}`} className="inline-flex min-h-[44px] items-center font-medium text-[#e9d9bc] hover:underline">
+                {brand.phone}
+              </a>
+            </li>
             <li>微信：{brand.phone}（同号）</li>
             <li>地址：{brand.address}</li>
           </ul>
