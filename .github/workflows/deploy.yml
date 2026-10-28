@@ -32,6 +32,10 @@ jobs:
         run: npm ci
 
       - name: Build static site
+        env:
+          # 留资收货地址：飞书自定义机器人 webhook（或 Formspree 表单地址）。
+          # 存在仓库变量 vars.LEAD_ENDPOINT 里，不写死在源码中；改它即可切换收货通道。
+          NEXT_PUBLIC_LEAD_ENDPOINT: ${{ vars.LEAD_ENDPOINT }}
         run: npm run build
 
       - name: Setup Pages
