@@ -2338,19 +2338,36 @@ body {
   flex-shrink: 0;
 }
 @media (max-width: 700px) {
+  /* 手机端「返回主页」收成圆形图标（2026-11-09）：
+     原来是一个 105×42 的胶囊，压在案例正文上，实测一次遮住 42 像素高的整行字。
+     收成 44×44 圆钮后遮挡面积少六成，房子图标本身就够认，文字标签在小屏上没用。 */
   .back-home-btn {
-    padding: 10px 14px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    justify-content: center;
+    gap: 0;
     right: 14px;
     bottom: 14px;
     font-size: 13px;
+  }
+  .back-home-btn span {
+    display: none;
+  }
+  .back-home-btn svg {
+    width: 18px;
+    height: 18px;
   }
 }
 
 
 /* ── 2026-07 玻璃拟态视觉升级 ── */
-:root {
-  color-scheme: dark;
-}
+/* 这里原来有一句 :root { color-scheme: dark }，2026-11-09 晚删掉。
+   原因：它写在文件后半段，和 [data-theme="warm"] / [data-theme="slate"] 的
+   `color-scheme: light` 权重相同（都是 0,1,0），但位置更靠后，于是浅色主题下
+   浏览器仍按深色渲染原生控件（下拉框、滚动条、日期选择器）——白底页面上会冒出
+   一块块黑控件。
+   默认的深色声明在文件开头 :root 里已经有了（第 34 行），这里纯属重复且有害。 */
 
 body {
   background:
@@ -3986,6 +4003,56 @@ footer.bg-brand-emerald {
 @media (max-width: 700px) {
   .contact-fab { left: 14px; bottom: 14px; }
   .contact-fab-btn { height: 44px; padding: 0 16px; font-size: 13px; }
+}
+
+/* ── 底部悬浮控件不压内容（2026-11-09 修）──────────────────────
+   问题：手机上「咨询」（左下 61×44）和「返回主页」（右下 105×42）会盖住
+   案例正文和页脚版权行。实测在 390×844 的屏上，滚动到案例中部时
+   左下角那块压住的是一整行正文（「产品成本重构 机械制造企业…」）。
+
+   修法分三步：
+   1. 给页脚留出底部安全区，让内容不会滚到按钮下面停住；
+   2. 「返回主页」在手机端收成 44×44 圆钮（见上面那条），遮挡面积减六成；
+   3. 向下滚看内容时整组自动收起，向上拨一下立刻回来（见 FabAutoHide.tsx）。
+      收起只做位移和淡出，不 display:none，保持可点、可聚焦。
+   桌面端不参与收起：屏够宽，按钮本来就不挡字。 */
+@media (max-width: 700px) {
+  footer {
+    padding-bottom: 68px;
+  }
+}
+
+@media (max-width: 700px) {
+  .contact-fab,
+  .back-home-btn {
+    transition: opacity 220ms ease, transform 220ms ease;
+  }
+
+  html.fab-collapsed .contact-fab,
+  html.fab-collapsed .back-home-btn {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  html.fab-collapsed .contact-fab {
+    transform: translateY(14px);
+  }
+
+  html.fab-collapsed .back-home-btn {
+    transform: translateY(14px);
+  }
+}
+
+/* 系统开启「减少动态效果」时，收起不做位移，只淡出 */
+@media (max-width: 700px) and (prefers-reduced-motion: reduce) {
+  .contact-fab,
+  .back-home-btn {
+    transition: opacity 120ms ease;
+  }
+  html.fab-collapsed .contact-fab,
+  html.fab-collapsed .back-home-btn {
+    transform: none;
+  }
 }
 
 /* ── 内嵌示例页（经营看板 / 资金预测）── */

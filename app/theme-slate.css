@@ -92,6 +92,7 @@ html[data-theme="slate"] footer.bg-brand-emerald {
 html[data-theme="slate"] footer a,
 html[data-theme="slate"] footer p,
 html[data-theme="slate"] footer span,
+html[data-theme="slate"] footer li,
 html[data-theme="slate"] footer h3,
 html[data-theme="slate"] footer h4 {
   color: rgb(var(--brand-body)) !important;
@@ -101,8 +102,37 @@ html[data-theme="slate"] footer a:hover {
   color: rgb(var(--brand-gold)) !important;
 }
 
+/* 页脚层次（2026-11-09 晚补，2026-11-09 晚二次修正）：
+   上面那条把页脚所有文字压成同一个深色，结果「16」「10000+」这两个数字
+   和旁边的「团队顾问」小标签糊在一起，看不出主次。
+   深色主题里数字是暖金、标签是浅灰，层次靠明度差；浅色主题要保留同样的层次。
+
+   ⚠️ 第一版这里用了 --brand-muted，实测在页脚的浅灰底上只有 3.2～3.5:1，
+      达不到 AA（4.5:1）——muted 是给「正文旁边的小注」设计的，放在一整块
+      有色底上就不够了。数字用 gold 只有 3.2～4.0:1，同样不够。
+      所以：数字和辅助说明都用接近正文的 body 色，靠字号和粗细区分层次，
+      不靠把字调浅。结论：小字要清楚，宁可少一点层次。 */
+html[data-theme="slate"] footer [class*="text-[#e9d9bc]"] {
+  color: rgb(var(--brand-ink)) !important;
+}
+
+html[data-theme="slate"] footer [class*="text-white/55"],
+html[data-theme="slate"] footer [class*="text-white/60"],
+html[data-theme="slate"] footer [class*="text-white/65"] {
+  color: rgb(var(--brand-body)) !important;
+}
+
 html[data-theme="slate"] footer * {
   border-color: rgb(var(--brand-ink) / 0.10) !important;
+}
+
+/* 页脚顶部那两格资质数字（16 团队顾问 / 10000+ 累计服务企业）：
+   它们自己的容器写死了 bg-[#0a0f0d]（近黑），不跟变量走。
+   浅色主题下如果不覆盖，就会在浅灰页脚里嵌两块黑底，
+   上面的深色文字放上去对比度只有 1.2:1，等于看不见（实测截图里就是一团墨块）。
+   2026-11-09 晚补。 */
+html[data-theme="slate"] footer div[class*="bg-[#0a0f0d]"] {
+  background: var(--brand-soft) !important;
 }
 
 /* ── Hero 大块：深色渐变改浅色渐变 ─────────────────────────── */
@@ -261,7 +291,10 @@ html[data-theme="warm"] .glass-section-page {
 html[data-theme="warm"] header,
 html[data-theme="warm"] header.sticky {
   border-color: rgb(var(--brand-ink) / 0.10) !important;
-  background: rgba(255, 255, 255, 0.92) !important;
+  /* 2026-11-09 晚：原来是纯白 rgba(255,255,255,.92)，
+     但暖白主题页面底色是米白 #faf8f4，纯白页头压上去像贴了一条白纸边。
+     改成跟底色同族的半透明米白，滚动时内容透过来更自然。 */
+  background: rgba(250, 248, 244, 0.94) !important;
   box-shadow: 0 10px 30px rgb(var(--brand-ink) / 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
   color: rgb(var(--brand-ink)) !important;
 }
@@ -314,6 +347,7 @@ html[data-theme="warm"] footer.bg-brand-emerald {
 html[data-theme="warm"] footer a,
 html[data-theme="warm"] footer p,
 html[data-theme="warm"] footer span,
+html[data-theme="warm"] footer li,
 html[data-theme="warm"] footer h3,
 html[data-theme="warm"] footer h4 {
   color: rgb(var(--brand-body)) !important;
@@ -323,8 +357,24 @@ html[data-theme="warm"] footer a:hover {
   color: rgb(var(--brand-gold)) !important;
 }
 
+/* 页脚层次：理由同 slate 那条（数字与辅助说明都用 body 色，靠字重区分） */
+html[data-theme="warm"] footer [class*="text-[#e9d9bc]"] {
+  color: rgb(var(--brand-ink)) !important;
+}
+
+html[data-theme="warm"] footer [class*="text-white/55"],
+html[data-theme="warm"] footer [class*="text-white/60"],
+html[data-theme="warm"] footer [class*="text-white/65"] {
+  color: rgb(var(--brand-body)) !important;
+}
+
 html[data-theme="warm"] footer * {
   border-color: rgb(var(--brand-ink) / 0.10) !important;
+}
+
+/* 页脚顶部两格资质数字的容器，理由同 slate 那条 */
+html[data-theme="warm"] footer div[class*="bg-[#0a0f0d]"] {
+  background: var(--brand-soft) !important;
 }
 
 /* ── Hero 大块：深色渐变改浅色渐变 ─────────────────────────── */
@@ -334,9 +384,12 @@ html[data-theme="warm"] .annual-band,
 html[data-theme="warm"] .team-orbit-section,
 html[data-theme="warm"] .private-final-cta,
 html[data-theme="warm"] .cinematic-band {
+  /* 2026-11-09 晚：原来这里抄的是 slate 的冷灰渐变 #eef2f6/#e8eef3，
+     在暖白主题下会在米白页面里横着压一条冷灰带，截图一眼就看出来割裂。
+     warm 改成同一血统的暖米渐变。 */
   background:
     radial-gradient(circle at 18% 12%, rgb(var(--brand-gold) / 0.10), transparent 30rem),
-    linear-gradient(135deg, #ffffff, #eef2f6 58%, #e8eef3) !important;
+    linear-gradient(135deg, #ffffff, #fbf7ef 58%, #f5eee1) !important;
   color: rgb(var(--brand-ink)) !important;
 }
 
@@ -421,7 +474,9 @@ html[data-theme="warm"] select {
 
 html[data-theme="warm"] input::placeholder,
 html[data-theme="warm"] textarea::placeholder {
-  color: rgba(92, 107, 122, 0.7) !important;
+  /* 2026-11-09 晚：原来写死的是 slate 的冷灰 rgba(92,107,122,.7)，
+     暖白主题下占位符发蓝，跟整体不搭。改成跟随 warm 的辅助文字色。 */
+  color: rgb(var(--brand-muted) / 0.72) !important;
 }
 
 /* ── 按钮 ─────────────────────────────────────────────────── */

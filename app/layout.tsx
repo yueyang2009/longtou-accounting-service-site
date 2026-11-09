@@ -7,6 +7,7 @@ import { brand } from "@/lib/data";
 import { DimOnClick } from "@/components/DimOnClick";
 import { BackToHomeBtn } from "@/components/BackToHomeBtn";
 import { ContactFab } from "@/components/ContactFab";
+import { FabAutoHide } from "@/components/FabAutoHide";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
 const SITE = "https://longtou.audit-report-check.com";
@@ -136,16 +137,22 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         />
         {/* 主题防闪烁（2026-11-09）：在浏览器绘制第一帧前把 data-theme 写上。
             不放在 React 里是因为水合要等 JS 下载执行，浅色用户会先看到一帧墨绿。
-            这段脚本要同步执行、且必须包 try（隐私模式读 localStorage 会抛错）。 */}
+            这段脚本要同步执行、且必须包 try（隐私模式读 localStorage 会抛错）。
+
+            2026-11-09 晚：默认主题改为 warm（暖白纸感），老板定的口径是
+            客户主要来读内容，米白底深字在手机上不累眼。
+            所以这里「没存过就写 warm」，而不是像之前那样「没存过就摘属性」。
+            存过 dark 的老访客仍然给他墨绿，不强行换。 */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("lt_theme");if(t==="slate"||t==="warm"){document.documentElement.setAttribute("data-theme",t);}else{document.documentElement.removeAttribute("data-theme");}}catch(e){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem("lt_theme");if(t==="slate"||t==="warm"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}else{document.documentElement.setAttribute("data-theme","warm");}}catch(e){try{document.documentElement.setAttribute("data-theme","warm");}catch(e2){}}})();`,
           }}
         />
       </head>
       <body>
         {children}
         <DimOnClick />
+        <FabAutoHide />
         <BackToHomeBtn />
         <ContactFab />
         <ThemeSwitcher />

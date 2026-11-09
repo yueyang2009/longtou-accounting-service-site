@@ -3,12 +3,16 @@
 import { useEffect, useState } from "react";
 
 /**
- * 网站配色切换（2026-11-09，2026-11-09 晚增加第三套）
+ * 网站配色切换（2026-11-09，2026-11-09 晚增加第三套，2026-11-09 晚改默认为暖白）
  *
  * 三套主题：
- *   dark  —— 原墨绿配色，默认。色值一个都没改，就是改版前那套。
- *   slate —— 商务浅灰，冷调。白底深字，大段文字在手机上更好读。
  *   warm  —— 暖白纸感，暖调。米白底 + 墨绿字 + 暗金强调，更接近纸张的顾问感。
+ *            2026-11-09 晚起是**新访客默认**看到的一套（老板定的：客户主要来读内容）。
+ *   dark  —— 原墨绿配色。色值一个都没改，就是改版前那套，作为备选保留。
+ *   slate —— 商务浅灰，冷调。白底深字，偏工具感。
+ *
+ * 注意：默认值改的是「没有存过选择的新访客」，老访客存过就还是他自己选的那套。
+ * 这一点很重要——不能把已经在用浅灰的人强行拉回暖白。
  *
  * slate 与 warm 都是「白底深字」，长文都好读，区别在气质：一个偏工具、一个偏顾问。
  *
@@ -22,10 +26,13 @@ type ThemeKey = "dark" | "slate" | "warm";
 
 const STORAGE_KEY = "lt_theme";
 
+/** 新访客（浏览器里没存过选择）默认看到哪一套。改这里就是改全站默认。 */
+const DEFAULT_THEME: ThemeKey = "warm";
+
 const THEMES: { key: ThemeKey; label: string; note: string; swatch: string[] }[] = [
-  { key: "dark", label: "墨绿（原版）", note: "默认，深色调", swatch: ["#0f1513", "#d9c7a5"] },
+  { key: "warm", label: "暖白（纸感）", note: "默认，米白底色偏顾问感", swatch: ["#faf8f4", "#14251d"] },
+  { key: "dark", label: "墨绿（原版）", note: "深色调，第一印象有分量", swatch: ["#0f1513", "#d9c7a5"] },
   { key: "slate", label: "浅灰（商务）", note: "白底深蓝，偏工具感", swatch: ["#f4f6f8", "#1a2b3c"] },
-  { key: "warm", label: "暖白（纸感）", note: "米白底色，偏顾问感", swatch: ["#faf8f4", "#14251d"] },
 ];
 
 function applyTheme(t: ThemeKey) {
@@ -35,15 +42,15 @@ function applyTheme(t: ThemeKey) {
 }
 
 export function ThemeSwitcher() {
-  const [theme, setTheme] = useState<ThemeKey>("dark");
+  const [theme, setTheme] = useState<ThemeKey>(DEFAULT_THEME);
   const [ready, setReady] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    let saved: ThemeKey = "dark";
+    let saved: ThemeKey = DEFAULT_THEME;
     try {
       const v = localStorage.getItem(STORAGE_KEY);
-      if (v === "slate" || v === "warm") saved = v;
+      if (v === "slate" || v === "warm" || v === "dark") saved = v;
     } catch {
       /* 隐私模式读不到就用默认 */
     }
