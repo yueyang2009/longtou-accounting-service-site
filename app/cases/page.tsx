@@ -83,19 +83,32 @@ export default function CasesPage() {
                     {story.type}
                   </span>
                 </div>
-                <h3 className="mt-5 text-lg font-bold leading-snug text-[#d9c7a5]">{story.background}</h3>
-                <div className="mt-6 grid gap-6 md:grid-cols-3">
+                <h3 className="mt-5 text-lg font-bold leading-snug text-[#d9c7a5] md:text-xl">{story.background}</h3>
+                {/* 正文可读性（2026-11-09 客户反馈看不清）：原来三栏各 14px 灰字，
+                    窄屏挤成一栏后行长变长、字更碎，灰上加灰看不清。
+                    改为：正文 15px 提到近白色 0.88 不透明；「问题/处理/结果」标签加竖条底标，
+                    让眼睛能分段；结果块用金色描边加深底，成为视觉落点。 */}
+                <div className="mt-7 grid gap-7 md:grid-cols-3 md:gap-8">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">问题</p>
-                    <p className="mt-2 text-sm leading-7 text-brand-body">{story.problem}</p>
+                    <p className="flex items-center gap-2 text-sm font-bold tracking-wide text-[#d9c7a5]">
+                      <span aria-hidden className="inline-block h-3.5 w-1 rounded-full bg-[#d9c7a5]/70" />
+                      问题
+                    </p>
+                    <p className="mt-2.5 text-[15px] leading-8 text-[#e8e2d8]">{story.problem}</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">处理</p>
-                    <p className="mt-2 text-sm leading-7 text-brand-body">{story.process}</p>
+                    <p className="flex items-center gap-2 text-sm font-bold tracking-wide text-[#d9c7a5]">
+                      <span aria-hidden className="inline-block h-3.5 w-1 rounded-full bg-[#d9c7a5]/70" />
+                      处理
+                    </p>
+                    <p className="mt-2.5 text-[15px] leading-8 text-[#e8e2d8]">{story.process}</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-brand-muted">结果</p>
-                    <p className="mt-2 border-l-4 border-brand-ink bg-brand-soft px-5 py-3 text-sm font-semibold leading-7 text-[#d9c7a5]">
+                    <p className="flex items-center gap-2 text-sm font-bold tracking-wide text-[#d9c7a5]">
+                      <span aria-hidden className="inline-block h-3.5 w-1 rounded-full bg-[#d9c7a5]/70" />
+                      结果
+                    </p>
+                    <p className="mt-2.5 rounded-r-md border-l-4 border-[#d9c7a5] bg-[#d9c7a5]/[0.08] px-5 py-4 text-[15px] font-semibold leading-8 text-[#f0e4cb]">
                       {story.result}
                     </p>
                   </div>
