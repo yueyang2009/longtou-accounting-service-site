@@ -22,13 +22,13 @@
    ============================================================================ */
 
 /* ── 页面底色与文字 ───────────────────────────────────────── */
-html[data-theme="slate"], html[data-theme="warm"] body {
+html[data-theme="slate"] body {
   background: var(--brand-paper) !important;
   color: rgb(var(--brand-body)) !important;
 }
 
-html[data-theme="slate"], html[data-theme="warm"] .private-advisory-site,
-html[data-theme="slate"], html[data-theme="warm"] .glass-section-page {
+html[data-theme="slate"] .private-advisory-site,
+html[data-theme="slate"] .glass-section-page {
   background:
     radial-gradient(circle at 12% 4%, rgb(var(--brand-ink) / 0.05), transparent 30rem),
     radial-gradient(circle at 86% 12%, rgb(var(--brand-gold) / 0.06), transparent 34rem),
@@ -36,118 +36,118 @@ html[data-theme="slate"], html[data-theme="warm"] .glass-section-page {
 }
 
 /* ── 页头：整条改白色（含吸顶态）──────────────────────────── */
-html[data-theme="slate"], html[data-theme="warm"] header,
-html[data-theme="slate"], html[data-theme="warm"] header.sticky {
+html[data-theme="slate"] header,
+html[data-theme="slate"] header.sticky {
   border-color: rgb(var(--brand-ink) / 0.10) !important;
   background: rgba(255, 255, 255, 0.92) !important;
   box-shadow: 0 10px 30px rgb(var(--brand-ink) / 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
   color: rgb(var(--brand-ink)) !important;
 }
 
-html[data-theme="slate"], html[data-theme="warm"] header .site-header-logo,
-html[data-theme="slate"], html[data-theme="warm"] header.sticky .site-header-logo {
+html[data-theme="slate"] header .site-header-logo,
+html[data-theme="slate"] header.sticky .site-header-logo {
   background: #ffffff !important;
   box-shadow: 0 8px 22px rgb(var(--brand-ink) / 0.10), inset 0 0 0 1px rgb(var(--brand-ink) / 0.06) !important;
 }
 
 /* 页头文字：原来全是白色系，浅底上必须转深。
    注意不能无脑覆盖所有后代——logo 图片不能被上色，所以只针对文字元素。 */
-html[data-theme="slate"], html[data-theme="warm"] header a,
-html[data-theme="slate"], html[data-theme="warm"] header button:not(.site-header-logo),
-html[data-theme="slate"], html[data-theme="warm"] header nav span,
-html[data-theme="slate"], html[data-theme="warm"] header [class*="text-white"] {
+html[data-theme="slate"] header a,
+html[data-theme="slate"] header button:not(.site-header-logo),
+html[data-theme="slate"] header nav span,
+html[data-theme="slate"] header [class*="text-white"] {
   color: rgb(var(--brand-ink)) !important;
 }
 
-html[data-theme="slate"], html[data-theme="warm"] header a:hover,
-html[data-theme="slate"], html[data-theme="warm"] header button:hover {
+html[data-theme="slate"] header a:hover,
+html[data-theme="slate"] header button:hover {
   color: rgb(var(--brand-gold)) !important;
 }
 
 /* 页头下拉菜单：深底改白底 */
-html[data-theme="slate"], html[data-theme="warm"] header nav div[class*="bg-[#111816]"],
-html[data-theme="slate"], html[data-theme="warm"] header .group > div {
+html[data-theme="slate"] header nav div[class*="bg-[#111816]"],
+html[data-theme="slate"] header .group > div {
   background: #ffffff !important;
   border-color: rgb(var(--brand-ink) / 0.12) !important;
   box-shadow: 0 18px 44px rgb(var(--brand-ink) / 0.14) !important;
 }
 
-html[data-theme="slate"], html[data-theme="warm"] header nav div[class*="bg-[#111816]"] a {
+html[data-theme="slate"] header nav div[class*="bg-[#111816]"] a {
   color: rgb(var(--brand-body)) !important;
 }
 
-html[data-theme="slate"], html[data-theme="warm"] header nav div[class*="bg-[#111816]"] a:hover {
+html[data-theme="slate"] header nav div[class*="bg-[#111816]"] a:hover {
   background: rgb(var(--brand-ink) / 0.06) !important;
   color: rgb(var(--brand-ink)) !important;
 }
 
 /* ── 页脚：深色改浅色 ─────────────────────────────────────── */
-html[data-theme="slate"], html[data-theme="warm"] footer,
-html[data-theme="slate"], html[data-theme="warm"] footer.bg-brand-emerald {
+html[data-theme="slate"] footer,
+html[data-theme="slate"] footer.bg-brand-emerald {
   background: var(--brand-soft) !important;
   border-top: 1px solid rgb(var(--brand-ink) / 0.10) !important;
   color: rgb(var(--brand-body)) !important;
 }
 
-html[data-theme="slate"], html[data-theme="warm"] footer a,
-html[data-theme="slate"], html[data-theme="warm"] footer p,
-html[data-theme="slate"], html[data-theme="warm"] footer span,
-html[data-theme="slate"], html[data-theme="warm"] footer h3,
-html[data-theme="slate"], html[data-theme="warm"] footer h4 {
+html[data-theme="slate"] footer a,
+html[data-theme="slate"] footer p,
+html[data-theme="slate"] footer span,
+html[data-theme="slate"] footer h3,
+html[data-theme="slate"] footer h4 {
   color: rgb(var(--brand-body)) !important;
 }
 
-html[data-theme="slate"], html[data-theme="warm"] footer a:hover {
+html[data-theme="slate"] footer a:hover {
   color: rgb(var(--brand-gold)) !important;
 }
 
-html[data-theme="slate"], html[data-theme="warm"] footer * {
+html[data-theme="slate"] footer * {
   border-color: rgb(var(--brand-ink) / 0.10) !important;
 }
 
 /* ── Hero 大块：深色渐变改浅色渐变 ─────────────────────────── */
-html[data-theme="slate"], html[data-theme="warm"] section[data-header-theme="dark"],
-html[data-theme="slate"], html[data-theme="warm"] .private-hero,
-html[data-theme="slate"], html[data-theme="warm"] .annual-band,
-html[data-theme="slate"], html[data-theme="warm"] .team-orbit-section,
-html[data-theme="slate"], html[data-theme="warm"] .private-final-cta,
-html[data-theme="slate"], html[data-theme="warm"] .cinematic-band {
+html[data-theme="slate"] section[data-header-theme="dark"],
+html[data-theme="slate"] .private-hero,
+html[data-theme="slate"] .annual-band,
+html[data-theme="slate"] .team-orbit-section,
+html[data-theme="slate"] .private-final-cta,
+html[data-theme="slate"] .cinematic-band {
   background:
     radial-gradient(circle at 18% 12%, rgb(var(--brand-gold) / 0.10), transparent 30rem),
     linear-gradient(135deg, #ffffff, #eef2f6 58%, #e8eef3) !important;
   color: rgb(var(--brand-ink)) !important;
 }
 
-html[data-theme="slate"], html[data-theme="warm"] section[data-header-theme="dark"] h1,
-html[data-theme="slate"], html[data-theme="warm"] section[data-header-theme="dark"] h2,
-html[data-theme="slate"], html[data-theme="warm"] section[data-header-theme="dark"] h3,
-html[data-theme="slate"], html[data-theme="warm"] .private-hero h1,
-html[data-theme="slate"], html[data-theme="warm"] .private-hero h2 {
+html[data-theme="slate"] section[data-header-theme="dark"] h1,
+html[data-theme="slate"] section[data-header-theme="dark"] h2,
+html[data-theme="slate"] section[data-header-theme="dark"] h3,
+html[data-theme="slate"] .private-hero h1,
+html[data-theme="slate"] .private-hero h2 {
   color: rgb(var(--brand-ink)) !important;
 }
 
-html[data-theme="slate"], html[data-theme="warm"] section[data-header-theme="dark"] p,
-html[data-theme="slate"], html[data-theme="warm"] .private-hero p,
-html[data-theme="slate"], html[data-theme="warm"] section[data-header-theme="dark"] .text-white,
-html[data-theme="slate"], html[data-theme="warm"] section[data-header-theme="dark"] [class*="text-white/"] {
+html[data-theme="slate"] section[data-header-theme="dark"] p,
+html[data-theme="slate"] .private-hero p,
+html[data-theme="slate"] section[data-header-theme="dark"] .text-white,
+html[data-theme="slate"] section[data-header-theme="dark"] [class*="text-white/"] {
   color: rgb(var(--brand-body)) !important;
 }
 
 /* ── 卡片：半透明白玻璃 → 纯白实底 ─────────────────────────── */
-html[data-theme="slate"], html[data-theme="warm"] article,
-html[data-theme="slate"], html[data-theme="warm"] figure,
-html[data-theme="slate"], html[data-theme="warm"] .report-card,
-html[data-theme="slate"], html[data-theme="warm"] .interactive-card,
-html[data-theme="slate"], html[data-theme="warm"] .timeline-card,
-html[data-theme="slate"], html[data-theme="warm"] .private-panel,
-html[data-theme="slate"], html[data-theme="warm"] .private-process-card,
-html[data-theme="slate"], html[data-theme="warm"] .private-method-card,
-html[data-theme="slate"], html[data-theme="warm"] .dark-card,
-html[data-theme="slate"], html[data-theme="warm"] .metric-card,
-html[data-theme="slate"], html[data-theme="warm"] .team-metric,
-html[data-theme="slate"], html[data-theme="warm"] section div.bg-brand-card,
-html[data-theme="slate"], html[data-theme="warm"] section p.bg-brand-card,
-html[data-theme="slate"], html[data-theme="warm"] article .bg-brand-soft {
+html[data-theme="slate"] article,
+html[data-theme="slate"] figure,
+html[data-theme="slate"] .report-card,
+html[data-theme="slate"] .interactive-card,
+html[data-theme="slate"] .timeline-card,
+html[data-theme="slate"] .private-panel,
+html[data-theme="slate"] .private-process-card,
+html[data-theme="slate"] .private-method-card,
+html[data-theme="slate"] .dark-card,
+html[data-theme="slate"] .metric-card,
+html[data-theme="slate"] .team-metric,
+html[data-theme="slate"] section div.bg-brand-card,
+html[data-theme="slate"] section p.bg-brand-card,
+html[data-theme="slate"] article .bg-brand-soft {
   border-color: rgb(var(--brand-ink) / 0.10) !important;
   background: var(--brand-card) !important;
   -webkit-backdrop-filter: none !important;
@@ -155,57 +155,57 @@ html[data-theme="slate"], html[data-theme="warm"] article .bg-brand-soft {
   box-shadow: 0 1px 2px rgb(var(--brand-ink) / 0.04), 0 8px 24px rgb(var(--brand-ink) / 0.06) !important;
 }
 
-html[data-theme="slate"], html[data-theme="warm"] article *,
-html[data-theme="slate"], html[data-theme="warm"] figure * {
+html[data-theme="slate"] article *,
+html[data-theme="slate"] figure * {
   border-color: rgb(var(--brand-ink) / 0.10) !important;
 }
 
 /* 卡片内正文：确保用深色，不被深色主题的浅字带过来 */
-html[data-theme="slate"], html[data-theme="warm"] article p,
-html[data-theme="slate"], html[data-theme="warm"] article li,
-html[data-theme="slate"], html[data-theme="warm"] figure p,
-html[data-theme="slate"], html[data-theme="warm"] figure blockquote {
+html[data-theme="slate"] article p,
+html[data-theme="slate"] article li,
+html[data-theme="slate"] figure p,
+html[data-theme="slate"] figure blockquote {
   color: rgb(var(--brand-body)) !important;
 }
 
 /* 例外：结果块要保留强调色（深绿），不能被上面的「卡片正文一律深灰」压平。
    它带 bg-brand-gold/[0.08] 的淡底，是整张卡的视觉落点，压平就失去层次了。 */
-html[data-theme="slate"], html[data-theme="warm"] article p[class*="bg-brand-gold"],
-html[data-theme="slate"], html[data-theme="warm"] article p.font-semibold[class*="border-l-4"] {
+html[data-theme="slate"] article p[class*="bg-brand-gold"],
+html[data-theme="slate"] article p.font-semibold[class*="border-l-4"] {
   color: rgb(var(--brand-gold)) !important;
 }
 
-html[data-theme="slate"], html[data-theme="warm"] article h1,
-html[data-theme="slate"], html[data-theme="warm"] article h2,
-html[data-theme="slate"], html[data-theme="warm"] article h3,
-html[data-theme="slate"], html[data-theme="warm"] article h4,
-html[data-theme="slate"], html[data-theme="warm"] figure h3 {
+html[data-theme="slate"] article h1,
+html[data-theme="slate"] article h2,
+html[data-theme="slate"] article h3,
+html[data-theme="slate"] article h4,
+html[data-theme="slate"] figure h3 {
   color: rgb(var(--brand-ink)) !important;
 }
 
 /* ── 分隔区 ───────────────────────────────────────────────── */
-html[data-theme="slate"], html[data-theme="warm"] section.bg-brand-soft {
+html[data-theme="slate"] section.bg-brand-soft {
   background: var(--brand-soft) !important;
 }
 
 /* ── 表单控件 ─────────────────────────────────────────────── */
-html[data-theme="slate"], html[data-theme="warm"] input,
-html[data-theme="slate"], html[data-theme="warm"] textarea,
-html[data-theme="slate"], html[data-theme="warm"] select {
+html[data-theme="slate"] input,
+html[data-theme="slate"] textarea,
+html[data-theme="slate"] select {
   background: #ffffff !important;
   border-color: rgb(var(--brand-ink) / 0.18) !important;
   color: rgb(var(--brand-ink)) !important;
 }
 
-html[data-theme="slate"], html[data-theme="warm"] input::placeholder,
-html[data-theme="slate"], html[data-theme="warm"] textarea::placeholder {
+html[data-theme="slate"] input::placeholder,
+html[data-theme="slate"] textarea::placeholder {
   color: rgba(92, 107, 122, 0.7) !important;
 }
 
 /* ── 按钮 ─────────────────────────────────────────────────── */
-html[data-theme="slate"], html[data-theme="warm"] .button.secondary,
-html[data-theme="slate"], html[data-theme="warm"] a.border,
-html[data-theme="slate"], html[data-theme="warm"] button.border {
+html[data-theme="slate"] .button.secondary,
+html[data-theme="slate"] a.border,
+html[data-theme="slate"] button.border {
   border-color: rgb(var(--brand-ink) / 0.22) !important;
   color: rgb(var(--brand-ink)) !important;
   background: #ffffff !important;
@@ -213,30 +213,252 @@ html[data-theme="slate"], html[data-theme="warm"] button.border {
 
 /* ── 玻璃兜底 ─────────────────────────────────────────────── */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  html[data-theme="slate"], html[data-theme="warm"] :where(.report-card, .interactive-card, .timeline-card,
+  html[data-theme="slate"] :where(.report-card, .interactive-card, .timeline-card,
     .private-panel, .private-process-card, .dark-card, .dashboard-shell, .dashboard-surface) {
     background: #ffffff !important;
   }
 }
 
 /* ── 滚动条 ───────────────────────────────────────────────── */
-html[data-theme="slate"], html[data-theme="warm"] {
+html[data-theme="slate"] {
   scrollbar-color: rgb(var(--brand-ink) / 0.25) transparent;
 }
 
 /* 同理：三个分段标签（问题／处理／结果）也带强调色，浅色主题下要保持绿色，
    否则跟正文一个色，分段指引就消失了。 */
-html[data-theme="slate"], html[data-theme="warm"] article p[class*="text-brand-gold"] {
+html[data-theme="slate"] article p[class*="text-brand-gold"] {
   color: rgb(var(--brand-gold)) !important;
 }
 
 /* 卡片标题固定用主文字色（深墨蓝），不要被标签的绿色规则带走 */
-html[data-theme="slate"], html[data-theme="warm"] article h3,
-html[data-theme="slate"], html[data-theme="warm"] article h2 {
+html[data-theme="slate"] article h3,
+html[data-theme="slate"] article h2 {
   color: rgb(var(--brand-ink)) !important;
 }
 
 /* 标签前那根小竖条 */
-html[data-theme="slate"], html[data-theme="warm"] article span[class*="bg-brand-gold"] {
+html[data-theme="slate"] article span[class*="bg-brand-gold"] {
+  background: rgb(var(--brand-gold)) !important;
+}
+
+/* ---------- warm（暖白纸感）：与上面 slate 逐条对应的同构规则 ---------- */
+
+/* ── 页面底色与文字 ───────────────────────────────────────── */
+html[data-theme="warm"] body {
+  background: var(--brand-paper) !important;
+  color: rgb(var(--brand-body)) !important;
+}
+
+html[data-theme="warm"] .private-advisory-site,
+html[data-theme="warm"] .glass-section-page {
+  background:
+    radial-gradient(circle at 12% 4%, rgb(var(--brand-ink) / 0.05), transparent 30rem),
+    radial-gradient(circle at 86% 12%, rgb(var(--brand-gold) / 0.06), transparent 34rem),
+    var(--brand-paper) !important;
+}
+
+/* ── 页头：整条改白色（含吸顶态）──────────────────────────── */
+html[data-theme="warm"] header,
+html[data-theme="warm"] header.sticky {
+  border-color: rgb(var(--brand-ink) / 0.10) !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  box-shadow: 0 10px 30px rgb(var(--brand-ink) / 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+  color: rgb(var(--brand-ink)) !important;
+}
+
+html[data-theme="warm"] header .site-header-logo,
+html[data-theme="warm"] header.sticky .site-header-logo {
+  background: #ffffff !important;
+  box-shadow: 0 8px 22px rgb(var(--brand-ink) / 0.10), inset 0 0 0 1px rgb(var(--brand-ink) / 0.06) !important;
+}
+
+/* 页头文字：原来全是白色系，浅底上必须转深。
+   注意不能无脑覆盖所有后代——logo 图片不能被上色，所以只针对文字元素。 */
+html[data-theme="warm"] header a,
+html[data-theme="warm"] header button:not(.site-header-logo),
+html[data-theme="warm"] header nav span,
+html[data-theme="warm"] header [class*="text-white"] {
+  color: rgb(var(--brand-ink)) !important;
+}
+
+html[data-theme="warm"] header a:hover,
+html[data-theme="warm"] header button:hover {
+  color: rgb(var(--brand-gold)) !important;
+}
+
+/* 页头下拉菜单：深底改白底 */
+html[data-theme="warm"] header nav div[class*="bg-[#111816]"],
+html[data-theme="warm"] header .group > div {
+  background: #ffffff !important;
+  border-color: rgb(var(--brand-ink) / 0.12) !important;
+  box-shadow: 0 18px 44px rgb(var(--brand-ink) / 0.14) !important;
+}
+
+html[data-theme="warm"] header nav div[class*="bg-[#111816]"] a {
+  color: rgb(var(--brand-body)) !important;
+}
+
+html[data-theme="warm"] header nav div[class*="bg-[#111816]"] a:hover {
+  background: rgb(var(--brand-ink) / 0.06) !important;
+  color: rgb(var(--brand-ink)) !important;
+}
+
+/* ── 页脚：深色改浅色 ─────────────────────────────────────── */
+html[data-theme="warm"] footer,
+html[data-theme="warm"] footer.bg-brand-emerald {
+  background: var(--brand-soft) !important;
+  border-top: 1px solid rgb(var(--brand-ink) / 0.10) !important;
+  color: rgb(var(--brand-body)) !important;
+}
+
+html[data-theme="warm"] footer a,
+html[data-theme="warm"] footer p,
+html[data-theme="warm"] footer span,
+html[data-theme="warm"] footer h3,
+html[data-theme="warm"] footer h4 {
+  color: rgb(var(--brand-body)) !important;
+}
+
+html[data-theme="warm"] footer a:hover {
+  color: rgb(var(--brand-gold)) !important;
+}
+
+html[data-theme="warm"] footer * {
+  border-color: rgb(var(--brand-ink) / 0.10) !important;
+}
+
+/* ── Hero 大块：深色渐变改浅色渐变 ─────────────────────────── */
+html[data-theme="warm"] section[data-header-theme="dark"],
+html[data-theme="warm"] .private-hero,
+html[data-theme="warm"] .annual-band,
+html[data-theme="warm"] .team-orbit-section,
+html[data-theme="warm"] .private-final-cta,
+html[data-theme="warm"] .cinematic-band {
+  background:
+    radial-gradient(circle at 18% 12%, rgb(var(--brand-gold) / 0.10), transparent 30rem),
+    linear-gradient(135deg, #ffffff, #eef2f6 58%, #e8eef3) !important;
+  color: rgb(var(--brand-ink)) !important;
+}
+
+html[data-theme="warm"] section[data-header-theme="dark"] h1,
+html[data-theme="warm"] section[data-header-theme="dark"] h2,
+html[data-theme="warm"] section[data-header-theme="dark"] h3,
+html[data-theme="warm"] .private-hero h1,
+html[data-theme="warm"] .private-hero h2 {
+  color: rgb(var(--brand-ink)) !important;
+}
+
+html[data-theme="warm"] section[data-header-theme="dark"] p,
+html[data-theme="warm"] .private-hero p,
+html[data-theme="warm"] section[data-header-theme="dark"] .text-white,
+html[data-theme="warm"] section[data-header-theme="dark"] [class*="text-white/"] {
+  color: rgb(var(--brand-body)) !important;
+}
+
+/* ── 卡片：半透明白玻璃 → 纯白实底 ─────────────────────────── */
+html[data-theme="warm"] article,
+html[data-theme="warm"] figure,
+html[data-theme="warm"] .report-card,
+html[data-theme="warm"] .interactive-card,
+html[data-theme="warm"] .timeline-card,
+html[data-theme="warm"] .private-panel,
+html[data-theme="warm"] .private-process-card,
+html[data-theme="warm"] .private-method-card,
+html[data-theme="warm"] .dark-card,
+html[data-theme="warm"] .metric-card,
+html[data-theme="warm"] .team-metric,
+html[data-theme="warm"] section div.bg-brand-card,
+html[data-theme="warm"] section p.bg-brand-card,
+html[data-theme="warm"] article .bg-brand-soft {
+  border-color: rgb(var(--brand-ink) / 0.10) !important;
+  background: var(--brand-card) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow: 0 1px 2px rgb(var(--brand-ink) / 0.04), 0 8px 24px rgb(var(--brand-ink) / 0.06) !important;
+}
+
+html[data-theme="warm"] article *,
+html[data-theme="warm"] figure * {
+  border-color: rgb(var(--brand-ink) / 0.10) !important;
+}
+
+/* 卡片内正文：确保用深色，不被深色主题的浅字带过来 */
+html[data-theme="warm"] article p,
+html[data-theme="warm"] article li,
+html[data-theme="warm"] figure p,
+html[data-theme="warm"] figure blockquote {
+  color: rgb(var(--brand-body)) !important;
+}
+
+/* 例外：结果块要保留强调色（深绿），不能被上面的「卡片正文一律深灰」压平。
+   它带 bg-brand-gold/[0.08] 的淡底，是整张卡的视觉落点，压平就失去层次了。 */
+html[data-theme="warm"] article p[class*="bg-brand-gold"],
+html[data-theme="warm"] article p.font-semibold[class*="border-l-4"] {
+  color: rgb(var(--brand-gold)) !important;
+}
+
+html[data-theme="warm"] article h1,
+html[data-theme="warm"] article h2,
+html[data-theme="warm"] article h3,
+html[data-theme="warm"] article h4,
+html[data-theme="warm"] figure h3 {
+  color: rgb(var(--brand-ink)) !important;
+}
+
+/* ── 分隔区 ───────────────────────────────────────────────── */
+html[data-theme="warm"] section.bg-brand-soft {
+  background: var(--brand-soft) !important;
+}
+
+/* ── 表单控件 ─────────────────────────────────────────────── */
+html[data-theme="warm"] input,
+html[data-theme="warm"] textarea,
+html[data-theme="warm"] select {
+  background: #ffffff !important;
+  border-color: rgb(var(--brand-ink) / 0.18) !important;
+  color: rgb(var(--brand-ink)) !important;
+}
+
+html[data-theme="warm"] input::placeholder,
+html[data-theme="warm"] textarea::placeholder {
+  color: rgba(92, 107, 122, 0.7) !important;
+}
+
+/* ── 按钮 ─────────────────────────────────────────────────── */
+html[data-theme="warm"] .button.secondary,
+html[data-theme="warm"] a.border,
+html[data-theme="warm"] button.border {
+  border-color: rgb(var(--brand-ink) / 0.22) !important;
+  color: rgb(var(--brand-ink)) !important;
+  background: #ffffff !important;
+}
+
+/* ── 玻璃兜底 ─────────────────────────────────────────────── */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  html[data-theme="warm"] :where(.report-card, .interactive-card, .timeline-card,
+    .private-panel, .private-process-card, .dark-card, .dashboard-shell, .dashboard-surface) {
+    background: #ffffff !important;
+  }
+}
+
+/* ── 滚动条 ───────────────────────────────────────────────── */
+html[data-theme="warm"] {
+  scrollbar-color: rgb(var(--brand-ink) / 0.25) transparent;
+}
+
+/* 同理：三个分段标签（问题／处理／结果）也带强调色，浅色主题下要保持绿色，
+   否则跟正文一个色，分段指引就消失了。 */
+html[data-theme="warm"] article p[class*="text-brand-gold"] {
+  color: rgb(var(--brand-gold)) !important;
+}
+
+/* 卡片标题固定用主文字色（深墨蓝），不要被标签的绿色规则带走 */
+html[data-theme="warm"] article h3,
+html[data-theme="warm"] article h2 {
+  color: rgb(var(--brand-ink)) !important;
+}
+
+/* 标签前那根小竖条 */
+html[data-theme="warm"] article span[class*="bg-brand-gold"] {
   background: rgb(var(--brand-gold)) !important;
 }
