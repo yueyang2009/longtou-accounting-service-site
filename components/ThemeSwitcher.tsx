@@ -3,27 +3,35 @@
 import { useEffect, useState } from "react";
 
 /**
- * 网站配色切换（2026-11-09 用户要求：保留原配色不变，可切换主题）
+ * 网站配色切换（2026-11-09，2026-11-09 晚增加第三套）
  *
- * 两套主题：
+ * 三套主题：
  *   dark  —— 原墨绿配色，默认。色值一个都没改，就是改版前那套。
- *   slate —— 商务浅灰，白底深字。大段文字在手机上更好读。
+ *   slate —— 商务浅灰，冷调。白底深字，大段文字在手机上更好读。
+ *   warm  —— 暖白纸感，暖调。米白底 + 墨绿字 + 暗金强调，更接近纸张的顾问感。
  *
- * 为什么不塞进页头导航里：
+ * slate 与 warm 都是「白底深字」，长文都好读，区别在气质：一个偏工具、一个偏顾问。
+ *
+ * 为什么做成右下角浮层而不是塞进页头：
  * 页头对桌面端和移动端是两套渲染逻辑（桌面 <nav> + 移动 <MobileNav>），
- * 塞进去要改两处、还容易顶掉现有布局。做成独立浮层只挂一次，
+ * 塞进去要改两处、还容易顶掉现有布局。独立浮层只挂一次，
  * 不管哪个页面、什么屏宽都在，且完全不碰导航代码。
- *
- * 位置：右下角偏上，避开手机底部的「联系顾问」悬浮按钮。
  */
 
-type ThemeKey = "dark" | "slate";
+type ThemeKey = "dark" | "slate" | "warm";
+
 const STORAGE_KEY = "lt_theme";
+
+const THEMES: { key: ThemeKey; label: string; note: string; swatch: string[] }[] = [
+  { key: "dark", label: "墨绿（原版）", note: "默认，深色调", swatch: ["#0f1513", "#d9c7a5"] },
+  { key: "slate", label: "浅灰（商务）", note: "白底深蓝，偏工具感", swatch: ["#f4f6f8", "#1a2b3c"] },
+  { key: "warm", label: "暖白（纸感）", note: "米白底色，偏顾问感", swatch: ["#faf8f4", "#14251d"] },
+];
 
 function applyTheme(t: ThemeKey) {
   const html = document.documentElement;
-  if (t === "slate") html.setAttribute("data-theme", "slate");
-  else html.removeAttribute("data-theme");
+  if (t === "dark") html.removeAttribute("data-theme");
+  else html.setAttribute("data-theme", t);
 }
 
 export function ThemeSwitcher() {
@@ -35,7 +43,7 @@ export function ThemeSwitcher() {
     let saved: ThemeKey = "dark";
     try {
       const v = localStorage.getItem(STORAGE_KEY);
-      if (v === "slate") saved = "slate";
+      if (v === "slate" || v === "warm") saved = v;
     } catch {
       /* 隐私模式读不到就用默认 */
     }
@@ -57,13 +65,10 @@ export function ThemeSwitcher() {
 
   if (!ready) return null;
 
-  const dark = theme === "dark";
+  const isDark = theme === "dark";
 
   return (
-    <div
-      className="fixed bottom-24 right-4 z-[60] md:bottom-28 md:right-6"
-      // 不跟随滚动，始终可点
-    >
+    <div className="fixed bottom-24 right-4 z-[60] md:bottom-28 md:right-6">
       <div className="relative">
         <button
           type="button"
@@ -73,22 +78,22 @@ export function ThemeSwitcher() {
           title="切换网站配色"
           className="flex h-11 w-11 items-center justify-center rounded-full border shadow-lg transition-colors"
           style={{
-            borderColor: dark ? "rgba(217,199,165,.45)" : "rgba(26,43,60,.18)",
-            background: dark ? "rgba(17,24,22,.92)" : "rgba(255,255,255,.96)",
-            color: dark ? "#d9c7a5" : "#1a2b3c",
+            borderColor: isDark ? "rgba(217,199,165,.45)" : "rgba(20,37,29,.18)",
+            background: isDark ? "rgba(17,24,22,.92)" : "rgba(255,255,255,.96)",
+            color: isDark ? "#d9c7a5" : "#14251d",
           }}
         >
-          {/* 两个小方块，直观表达「两套配色」 */}
+          {/* 两小块示意「有多套配色」 */}
           <span className="flex items-center gap-[3px]">
             <span
               className="block h-3.5 w-2 rounded-[2px]"
-              style={{ background: dark ? "#d9c7a5" : "#1a2b3c" }}
+              style={{ background: isDark ? "#d9c7a5" : "#14251d" }}
             />
             <span
               className="block h-3.5 w-2 rounded-[2px] border"
               style={{
-                background: dark ? "#0f1513" : "#f4f6f8",
-                borderColor: dark ? "rgba(217,199,165,.5)" : "rgba(26,43,60,.25)",
+                background: isDark ? "#0f1513" : "#faf8f4",
+                borderColor: isDark ? "rgba(217,199,165,.5)" : "rgba(20,37,29,.25)",
               }}
             />
           </span>
@@ -96,61 +101,66 @@ export function ThemeSwitcher() {
 
         {open && (
           <div
-            className="absolute bottom-14 right-0 w-44 overflow-hidden rounded-xl border p-1.5 shadow-xl"
+            className="absolute bottom-14 right-0 w-52 overflow-hidden rounded-xl border p-1.5 shadow-xl"
             style={{
-              borderColor: dark ? "rgba(217,199,165,.30)" : "rgba(26,43,60,.14)",
-              background: dark ? "rgba(17,24,22,.98)" : "rgba(255,255,255,.99)",
+              borderColor: isDark ? "rgba(217,199,165,.30)" : "rgba(20,37,29,.14)",
+              background: isDark ? "rgba(17,24,22,.98)" : "rgba(255,255,255,.99)",
             }}
             role="menu"
           >
             <p
               className="px-2.5 py-1.5 text-[11px] font-semibold tracking-wide"
-              style={{ color: dark ? "rgba(217,199,165,.75)" : "rgba(26,43,60,.55)" }}
+              style={{ color: isDark ? "rgba(217,199,165,.75)" : "rgba(20,37,29,.55)" }}
             >
               选择配色
             </p>
-            {([
-              ["dark", "墨绿（原版）", "默认，深色调"],
-              ["slate", "浅灰（商务）", "白底深字，长文更好读"],
-            ] as [ThemeKey, string, string][]).map(([k, label, note]) => {
-              const active = theme === k;
+            {THEMES.map(({ key, label, note, swatch }) => {
+              const active = theme === key;
               return (
                 <button
-                  key={k}
+                  key={key}
                   type="button"
                   role="menuitemradio"
                   aria-checked={active}
-                  onClick={() => choose(k)}
+                  onClick={() => choose(key)}
                   className="flex w-full items-start gap-2 rounded-lg px-2.5 py-2 text-left transition-colors"
                   style={{
                     background: active
-                      ? dark ? "rgba(217,199,165,.16)" : "rgba(26,43,60,.07)"
+                      ? isDark ? "rgba(217,199,165,.16)" : "rgba(20,37,29,.07)"
                       : "transparent",
                   }}
                 >
+                  {/* 色卡：一眼看出这套长什么样 */}
                   <span
-                    className="mt-0.5 flex h-4 w-4 flex-none items-center justify-center rounded-full border"
-                    style={{
-                      borderColor: active ? (dark ? "#d9c7a5" : "#1a2b3c") : "rgba(128,128,128,.45)",
-                      background: active ? (dark ? "#d9c7a5" : "#1a2b3c") : "transparent",
-                    }}
+                    className="mt-0.5 flex h-5 w-5 flex-none flex-col overflow-hidden rounded-[5px] border"
+                    style={{ borderColor: isDark ? "rgba(217,199,165,.35)" : "rgba(20,37,29,.18)" }}
+                    aria-hidden
                   >
-                    {active && (
-                      <svg viewBox="0 0 12 12" className="h-2.5 w-2.5" aria-hidden>
-                        <path d="M2 6.2 4.6 8.8 10 3.4" fill="none" stroke={dark ? "#111816" : "#fff"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    )}
+                    <span className="block flex-1" style={{ background: swatch[0] }} />
+                    <span className="block flex-1" style={{ background: swatch[1] }} />
                   </span>
-                  <span className="min-w-0">
+                  <span className="min-w-0 flex-1">
                     <span
-                      className="block text-[13px] font-semibold leading-tight"
-                      style={{ color: dark ? "#e8e2d8" : "#1a2b3c" }}
+                      className="flex items-center gap-1.5 text-[13px] font-semibold leading-tight"
+                      style={{ color: isDark ? "#e8e2d8" : "#14251d" }}
                     >
                       {label}
+                      {active && (
+                        <svg viewBox="0 0 12 12" className="h-3 w-3 flex-none" aria-hidden>
+                          <path
+                            d="M2 6.2 4.6 8.8 10 3.4"
+                            fill="none"
+                            stroke={isDark ? "#d9c7a5" : "#1f6f5c"}
+                            strokeWidth="2.2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      )}
                     </span>
                     <span
                       className="mt-0.5 block text-[11px] leading-snug"
-                      style={{ color: dark ? "rgba(184,178,166,.75)" : "rgba(51,71,91,.65)" }}
+                      style={{ color: isDark ? "rgba(184,178,166,.75)" : "rgba(46,63,54,.65)" }}
                     >
                       {note}
                     </span>

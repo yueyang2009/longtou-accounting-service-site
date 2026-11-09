@@ -139,7 +139,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             这段脚本要同步执行、且必须包 try（隐私模式读 localStorage 会抛错）。 */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("lt_theme");if(t==="slate"){document.documentElement.setAttribute("data-theme","slate");}else{document.documentElement.removeAttribute("data-theme");}}catch(e){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem("lt_theme");if(t==="slate"||t==="warm"){document.documentElement.setAttribute("data-theme",t);}else{document.documentElement.removeAttribute("data-theme");}}catch(e){}})();`,
           }}
         />
       </head>
