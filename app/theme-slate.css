@@ -1,0 +1,242 @@
+
+/* ============================================================================
+   浅色主题覆盖层（2026-11-09）
+   ----------------------------------------------------------------------------
+   默认主题（墨绿）保持原样，这里只写 [data-theme="slate"] 下需要改的地方。
+
+   为什么需要这一层：Tailwind 的 bg-brand-* 已经跟着变量走了，但站里有一批
+   写死的深色（页头吸顶条、页脚、Hero 大块），它们不读变量，
+   不覆盖就会出现「浅色页面里嵌着几块深色」的割裂感。
+
+   优先级说明（踩过的坑）：第一版用 [data-theme="slate"] header.sticky 想覆盖页头，
+   结果页头还是墨绿——因为 Tailwind 的 bg-[#111816]/88 是在工具层用
+   !important 之外的正常优先级 + 更靠后的顺序生成的。我加的 !important 能压过它，
+   但前提是选择器本身要能命中。实测发现页头不是 <header class="sticky">，
+   而是 <header class="sticky top-0 z-50 …">，选择器应该写 header 属性匹配。
+   所以这里统一用 [data-theme="slate"] header  + !important，双保险。
+
+   原则：
+   1. 只覆盖颜色，不动布局、间距、字号、动画；
+   2. 全部加 [data-theme="slate"] 前缀，默认主题完全不受影响；
+   3. 卡片由「半透明白叠在深底上」改为「纯白 + 浅边框 + 淡阴影」。
+   ============================================================================ */
+
+/* ── 页面底色与文字 ───────────────────────────────────────── */
+html[data-theme="slate"] body {
+  background: var(--brand-paper) !important;
+  color: rgb(var(--brand-body)) !important;
+}
+
+html[data-theme="slate"] .private-advisory-site,
+html[data-theme="slate"] .glass-section-page {
+  background:
+    radial-gradient(circle at 12% 4%, rgba(26, 43, 60, 0.05), transparent 30rem),
+    radial-gradient(circle at 86% 12%, rgba(31, 111, 92, 0.06), transparent 34rem),
+    var(--brand-paper) !important;
+}
+
+/* ── 页头：整条改白色（含吸顶态）──────────────────────────── */
+html[data-theme="slate"] header,
+html[data-theme="slate"] header.sticky {
+  border-color: rgba(26, 43, 60, 0.10) !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  box-shadow: 0 10px 30px rgba(26, 43, 60, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+  color: rgb(var(--brand-ink)) !important;
+}
+
+html[data-theme="slate"] header .site-header-logo,
+html[data-theme="slate"] header.sticky .site-header-logo {
+  background: #ffffff !important;
+  box-shadow: 0 8px 22px rgba(26, 43, 60, 0.10), inset 0 0 0 1px rgba(26, 43, 60, 0.06) !important;
+}
+
+/* 页头文字：原来全是白色系，浅底上必须转深。
+   注意不能无脑覆盖所有后代——logo 图片不能被上色，所以只针对文字元素。 */
+html[data-theme="slate"] header a,
+html[data-theme="slate"] header button:not(.site-header-logo),
+html[data-theme="slate"] header nav span,
+html[data-theme="slate"] header [class*="text-white"] {
+  color: rgb(var(--brand-ink)) !important;
+}
+
+html[data-theme="slate"] header a:hover,
+html[data-theme="slate"] header button:hover {
+  color: rgb(var(--brand-gold)) !important;
+}
+
+/* 页头下拉菜单：深底改白底 */
+html[data-theme="slate"] header nav div[class*="bg-[#111816]"],
+html[data-theme="slate"] header .group > div {
+  background: #ffffff !important;
+  border-color: rgba(26, 43, 60, 0.12) !important;
+  box-shadow: 0 18px 44px rgba(26, 43, 60, 0.14) !important;
+}
+
+html[data-theme="slate"] header nav div[class*="bg-[#111816]"] a {
+  color: rgb(var(--brand-body)) !important;
+}
+
+html[data-theme="slate"] header nav div[class*="bg-[#111816]"] a:hover {
+  background: rgba(26, 43, 60, 0.06) !important;
+  color: rgb(var(--brand-ink)) !important;
+}
+
+/* ── 页脚：深色改浅色 ─────────────────────────────────────── */
+html[data-theme="slate"] footer,
+html[data-theme="slate"] footer.bg-brand-emerald {
+  background: var(--brand-soft) !important;
+  border-top: 1px solid rgba(26, 43, 60, 0.10) !important;
+  color: rgb(var(--brand-body)) !important;
+}
+
+html[data-theme="slate"] footer a,
+html[data-theme="slate"] footer p,
+html[data-theme="slate"] footer span,
+html[data-theme="slate"] footer h3,
+html[data-theme="slate"] footer h4 {
+  color: rgb(var(--brand-body)) !important;
+}
+
+html[data-theme="slate"] footer a:hover {
+  color: rgb(var(--brand-gold)) !important;
+}
+
+html[data-theme="slate"] footer * {
+  border-color: rgba(26, 43, 60, 0.10) !important;
+}
+
+/* ── Hero 大块：深色渐变改浅色渐变 ─────────────────────────── */
+html[data-theme="slate"] section[data-header-theme="dark"],
+html[data-theme="slate"] .private-hero,
+html[data-theme="slate"] .annual-band,
+html[data-theme="slate"] .team-orbit-section,
+html[data-theme="slate"] .private-final-cta,
+html[data-theme="slate"] .cinematic-band {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(31, 111, 92, 0.10), transparent 30rem),
+    linear-gradient(135deg, #ffffff, #eef2f6 58%, #e8eef3) !important;
+  color: rgb(var(--brand-ink)) !important;
+}
+
+html[data-theme="slate"] section[data-header-theme="dark"] h1,
+html[data-theme="slate"] section[data-header-theme="dark"] h2,
+html[data-theme="slate"] section[data-header-theme="dark"] h3,
+html[data-theme="slate"] .private-hero h1,
+html[data-theme="slate"] .private-hero h2 {
+  color: rgb(var(--brand-ink)) !important;
+}
+
+html[data-theme="slate"] section[data-header-theme="dark"] p,
+html[data-theme="slate"] .private-hero p,
+html[data-theme="slate"] section[data-header-theme="dark"] .text-white,
+html[data-theme="slate"] section[data-header-theme="dark"] [class*="text-white/"] {
+  color: rgb(var(--brand-body)) !important;
+}
+
+/* ── 卡片：半透明白玻璃 → 纯白实底 ─────────────────────────── */
+html[data-theme="slate"] article,
+html[data-theme="slate"] figure,
+html[data-theme="slate"] .report-card,
+html[data-theme="slate"] .interactive-card,
+html[data-theme="slate"] .timeline-card,
+html[data-theme="slate"] .private-panel,
+html[data-theme="slate"] .private-process-card,
+html[data-theme="slate"] .private-method-card,
+html[data-theme="slate"] .dark-card,
+html[data-theme="slate"] .metric-card,
+html[data-theme="slate"] .team-metric,
+html[data-theme="slate"] section div.bg-brand-card,
+html[data-theme="slate"] section p.bg-brand-card,
+html[data-theme="slate"] article .bg-brand-soft {
+  border-color: rgba(26, 43, 60, 0.10) !important;
+  background: var(--brand-card) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow: 0 1px 2px rgba(26, 43, 60, 0.04), 0 8px 24px rgba(26, 43, 60, 0.06) !important;
+}
+
+html[data-theme="slate"] article *,
+html[data-theme="slate"] figure * {
+  border-color: rgba(26, 43, 60, 0.10) !important;
+}
+
+/* 卡片内正文：确保用深色，不被深色主题的浅字带过来 */
+html[data-theme="slate"] article p,
+html[data-theme="slate"] article li,
+html[data-theme="slate"] figure p,
+html[data-theme="slate"] figure blockquote {
+  color: rgb(var(--brand-body)) !important;
+}
+
+/* 例外：结果块要保留强调色（深绿），不能被上面的「卡片正文一律深灰」压平。
+   它带 bg-brand-gold/[0.08] 的淡底，是整张卡的视觉落点，压平就失去层次了。 */
+html[data-theme="slate"] article p[class*="bg-brand-gold"],
+html[data-theme="slate"] article p.font-semibold[class*="border-l-4"] {
+  color: rgb(var(--brand-gold)) !important;
+}
+
+html[data-theme="slate"] article h1,
+html[data-theme="slate"] article h2,
+html[data-theme="slate"] article h3,
+html[data-theme="slate"] article h4,
+html[data-theme="slate"] figure h3 {
+  color: rgb(var(--brand-ink)) !important;
+}
+
+/* ── 分隔区 ───────────────────────────────────────────────── */
+html[data-theme="slate"] section.bg-brand-soft {
+  background: var(--brand-soft) !important;
+}
+
+/* ── 表单控件 ─────────────────────────────────────────────── */
+html[data-theme="slate"] input,
+html[data-theme="slate"] textarea,
+html[data-theme="slate"] select {
+  background: #ffffff !important;
+  border-color: rgba(26, 43, 60, 0.18) !important;
+  color: rgb(var(--brand-ink)) !important;
+}
+
+html[data-theme="slate"] input::placeholder,
+html[data-theme="slate"] textarea::placeholder {
+  color: rgba(92, 107, 122, 0.7) !important;
+}
+
+/* ── 按钮 ─────────────────────────────────────────────────── */
+html[data-theme="slate"] .button.secondary,
+html[data-theme="slate"] a.border,
+html[data-theme="slate"] button.border {
+  border-color: rgba(26, 43, 60, 0.22) !important;
+  color: rgb(var(--brand-ink)) !important;
+  background: #ffffff !important;
+}
+
+/* ── 玻璃兜底 ─────────────────────────────────────────────── */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  html[data-theme="slate"] :where(.report-card, .interactive-card, .timeline-card,
+    .private-panel, .private-process-card, .dark-card, .dashboard-shell, .dashboard-surface) {
+    background: #ffffff !important;
+  }
+}
+
+/* ── 滚动条 ───────────────────────────────────────────────── */
+html[data-theme="slate"] {
+  scrollbar-color: rgba(26, 43, 60, 0.25) transparent;
+}
+
+/* 同理：三个分段标签（问题／处理／结果）也带强调色，浅色主题下要保持绿色，
+   否则跟正文一个色，分段指引就消失了。 */
+html[data-theme="slate"] article p[class*="text-brand-gold"] {
+  color: rgb(var(--brand-gold)) !important;
+}
+
+/* 卡片标题固定用主文字色（深墨蓝），不要被标签的绿色规则带走 */
+html[data-theme="slate"] article h3,
+html[data-theme="slate"] article h2 {
+  color: rgb(var(--brand-ink)) !important;
+}
+
+/* 标签前那根小竖条 */
+html[data-theme="slate"] article span[class*="bg-brand-gold"] {
+  background: rgb(var(--brand-gold)) !important;
+}

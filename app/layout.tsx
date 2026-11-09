@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
+// 浅色主题覆盖层（2026-11-09）：只在 html[data-theme="slate"] 下生效，默认主题不受影响
+import "./theme-slate.css";
 import { brand } from "@/lib/data";
 import { DimOnClick } from "@/components/DimOnClick";
 import { BackToHomeBtn } from "@/components/BackToHomeBtn";
 import { ContactFab } from "@/components/ContactFab";
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
 const SITE = "https://longtou.audit-report-check.com";
 
@@ -131,12 +134,21 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {/* 主题防闪烁（2026-11-09）：在浏览器绘制第一帧前把 data-theme 写上。
+            不放在 React 里是因为水合要等 JS 下载执行，浅色用户会先看到一帧墨绿。
+            这段脚本要同步执行、且必须包 try（隐私模式读 localStorage 会抛错）。 */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("lt_theme");if(t==="slate"){document.documentElement.setAttribute("data-theme","slate");}else{document.documentElement.removeAttribute("data-theme");}}catch(e){}})();`,
+          }}
+        />
       </head>
       <body>
         {children}
         <DimOnClick />
         <BackToHomeBtn />
         <ContactFab />
+        <ThemeSwitcher />
       </body>
     </html>
   );

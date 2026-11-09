@@ -26,7 +26,7 @@ export default function CasesPage() {
       {/* Hero */}
       <section data-header-theme="dark" className="section-surface border-b border-white/10 bg-[radial-gradient(circle_at_18%_12%,rgba(217,199,165,.18),transparent_30%),linear-gradient(135deg,#0b120f,#132219_58%,#0c1712)] text-white">
         <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
-          <p className="text-sm font-semibold tracking-[.2em] text-[#d9c7a5]">案例与反馈</p>
+          <p className="text-sm font-semibold tracking-[.2em] text-brand-gold">案例与反馈</p>
           <h1 className="mt-6 max-w-4xl text-4xl font-bold leading-tight md:text-6xl">
             问题是怎么被看清，
             <br />
@@ -83,32 +83,32 @@ export default function CasesPage() {
                     {story.type}
                   </span>
                 </div>
-                <h3 className="mt-5 text-lg font-bold leading-snug text-[#d9c7a5] md:text-xl">{story.background}</h3>
+                <h3 className="mt-5 text-lg font-bold leading-snug text-brand-gold md:text-xl">{story.background}</h3>
                 {/* 正文可读性（2026-11-09 客户反馈看不清）：原来三栏各 14px 灰字，
                     窄屏挤成一栏后行长变长、字更碎，灰上加灰看不清。
                     改为：正文 15px 提到近白色 0.88 不透明；「问题/处理/结果」标签加竖条底标，
                     让眼睛能分段；结果块用金色描边加深底，成为视觉落点。 */}
                 <div className="mt-7 grid gap-7 md:grid-cols-3 md:gap-8">
                   <div>
-                    <p className="flex items-center gap-2 text-sm font-bold tracking-wide text-[#d9c7a5]">
-                      <span aria-hidden className="inline-block h-3.5 w-1 rounded-full bg-[#d9c7a5]/70" />
+                    <p className="flex items-center gap-2 text-sm font-bold tracking-wide text-brand-gold">
+                      <span aria-hidden className="inline-block h-3.5 w-1 rounded-full bg-brand-gold/70" />
                       问题
                     </p>
-                    <p className="mt-2.5 text-[15px] leading-8 text-[#e8e2d8]">{story.problem}</p>
+                    <p className="mt-2.5 text-[15px] leading-8 text-brand-ink/90">{story.problem}</p>
                   </div>
                   <div>
-                    <p className="flex items-center gap-2 text-sm font-bold tracking-wide text-[#d9c7a5]">
-                      <span aria-hidden className="inline-block h-3.5 w-1 rounded-full bg-[#d9c7a5]/70" />
+                    <p className="flex items-center gap-2 text-sm font-bold tracking-wide text-brand-gold">
+                      <span aria-hidden className="inline-block h-3.5 w-1 rounded-full bg-brand-gold/70" />
                       处理
                     </p>
-                    <p className="mt-2.5 text-[15px] leading-8 text-[#e8e2d8]">{story.process}</p>
+                    <p className="mt-2.5 text-[15px] leading-8 text-brand-ink/90">{story.process}</p>
                   </div>
                   <div>
-                    <p className="flex items-center gap-2 text-sm font-bold tracking-wide text-[#d9c7a5]">
-                      <span aria-hidden className="inline-block h-3.5 w-1 rounded-full bg-[#d9c7a5]/70" />
+                    <p className="flex items-center gap-2 text-sm font-bold tracking-wide text-brand-gold">
+                      <span aria-hidden className="inline-block h-3.5 w-1 rounded-full bg-brand-gold/70" />
                       结果
                     </p>
-                    <p className="mt-2.5 rounded-r-md border-l-4 border-[#d9c7a5] bg-[#d9c7a5]/[0.08] px-5 py-4 text-[15px] font-semibold leading-8 text-[#f0e4cb]">
+                    <p className="mt-2.5 rounded-r-md border-l-4 border-brand-gold bg-brand-gold/[0.08] px-5 py-4 text-[15px] font-semibold leading-8 text-brand-gold">
                       {story.result}
                     </p>
                   </div>
