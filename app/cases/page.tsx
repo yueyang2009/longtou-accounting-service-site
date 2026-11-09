@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   title: "案例与客户反馈｜财税与经营问题解决实践",
   description:
     "龙头会服真实服务场景（客户信息已脱敏）：乱账梳理、两账合一、税务稽查应对、股权架构设计、财务体系重建、成本与利润口径校准等。",
+  openGraph: {
+    title: "案例与客户反馈｜财税与经营问题解决实践",
+    description: "龙头会服真实服务场景（客户信息已脱敏）：乱账梳理、两账合一、税务稽查应对、股权架构设计、财务体系重建、成本与利润口径…",
+    url: "/cases",
+    images: [{ url: "https://longtou.audit-report-check.com/images/og-image.jpg", width: 1200, height: 630, alt: "龙头会服·高端财税服务团队" }],
+  },
   alternates: { canonical: "/cases" },
 };
 

@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   title: "财税问答｜年度顾问常见问题",
   description:
     "关于年度财税顾问的常见问题：适合哪些企业、和代账/专职会计的区别、如何收费、交付什么、如何应对税务检查等。",
+  openGraph: {
+    title: "财税问答｜年度顾问常见问题",
+    description: "关于年度财税顾问的常见问题：适合哪些企业、和代账/专职会计的区别、如何收费、交付什么、如何应对税务检查等。",
+    url: "/faq",
+    images: [{ url: "https://longtou.audit-report-check.com/images/og-image.jpg", width: 1200, height: 630, alt: "龙头会服·高端财税服务团队" }],
+  },
   alternates: { canonical: "/faq" },
 };
 

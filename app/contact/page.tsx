@@ -12,6 +12,12 @@ export const metadata: Metadata = {
   title: "联系我们",
   description:
     "添加高端财税顾问微信，或直接致电。先聊清楚企业当下最需要被看见的问题，再判断是否适合年度顾问服务。",
+  openGraph: {
+    title: "联系我们",
+    description: "添加高端财税顾问微信，或直接致电。先聊清楚企业当下最需要被看见的问题，再判断是否适合年度顾问服务。",
+    url: "/contact",
+    images: [{ url: "https://longtou.audit-report-check.com/images/og-image.jpg", width: 1200, height: 630, alt: "龙头会服·高端财税服务团队" }],
+  },
   alternates: { canonical: "/contact" },
 };
 

@@ -13,6 +13,12 @@ export const metadata: Metadata = {
   title: "服务体系｜财税健康体检与经营分析",
   description:
     "从财税健康体检、经营分析到股权架构设计、财务体系建设与历史乱账清理，按企业发展阶段匹配的财税服务体系。",
+  openGraph: {
+    title: "服务体系｜财税健康体检与经营分析",
+    description: "从财税健康体检、经营分析到股权架构设计、财务体系建设与历史乱账清理，按企业发展阶段匹配的财税服务体系。",
+    url: "/services",
+    images: [{ url: "https://longtou.audit-report-check.com/images/og-image.jpg", width: 1200, height: 630, alt: "龙头会服·高端财税服务团队" }],
+  },
   alternates: { canonical: "/services" },
 };
 

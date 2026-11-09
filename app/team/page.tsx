@@ -13,6 +13,12 @@ const assetBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 export const metadata: Metadata = {
   title: "团队介绍",
   description: "龙头会服高端财税事业部专家顾问团队，覆盖财务、税务、法律、经营与企业内控。",
+  openGraph: {
+    title: "团队介绍",
+    description: "龙头会服高端财税事业部专家顾问团队，覆盖财务、税务、法律、经营与企业内控。",
+    url: "/team",
+    images: [{ url: "https://longtou.audit-report-check.com/images/og-image.jpg", width: 1200, height: 630, alt: "龙头会服·高端财税服务团队" }],
+  },
   alternates: { canonical: "/team" }
 };
 

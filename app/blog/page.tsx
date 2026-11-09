@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   title: "文章｜经营诊断与财税合规实践参考",
   description:
     "按行业查看经营诊断与财税合规的实践思考：政策解读、稽查案例、培训要点，覆盖跨境电商、医美、医疗器械、加油站等领域。",
+  openGraph: {
+    title: "文章｜经营诊断与财税合规实践参考",
+    description: "按行业查看经营诊断与财税合规的实践思考：政策解读、稽查案例、培训要点，覆盖跨境电商、医美、医疗器械、加油站等领域。",
+    url: "/blog",
+    images: [{ url: "https://longtou.audit-report-check.com/images/og-image.jpg", width: 1200, height: 630, alt: "龙头会服·高端财税服务团队" }],
+  },
   alternates: { canonical: "/blog" },
 };
 

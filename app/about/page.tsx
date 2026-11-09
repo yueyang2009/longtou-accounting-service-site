@@ -11,6 +11,12 @@ export const metadata: Metadata = {
   title: "关于我们｜为什么存在龙头会服",
   description:
     "龙头会服·高端财税服务团队（河南龙头会计服务有限公司）专注年营收 2000 万至 2 亿民营企业的财税规范与经营体系建设，把财务数据翻译成经营决策。",
+  openGraph: {
+    title: "关于我们｜为什么存在龙头会服",
+    description: "龙头会服·高端财税服务团队（河南龙头会计服务有限公司）专注年营收 2000 万至 2 亿民营企业的财税规范与经营体系…",
+    url: "/about",
+    images: [{ url: "https://longtou.audit-report-check.com/images/og-image.jpg", width: 1200, height: 630, alt: "龙头会服·高端财税服务团队" }],
+  },
   alternates: { canonical: "/about" },
 };
 
